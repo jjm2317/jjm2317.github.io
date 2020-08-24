@@ -148,6 +148,165 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/24/javascript-05Expression-Statement/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/24/javascript-05Expression-Statement/" class="post-title-link" itemprop="url">javascript 05Expression&Statement</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-24 17:30:45 / Modified: 18:00:07" itemprop="dateCreated datePublished" datetime="2020-08-24T17:30:45+09:00">2020-08-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="표현식과-문"><a href="#표현식과-문" class="headerlink" title="표현식과 문"></a>표현식과 문</h1><h2 id="keyword-값-리터럴-표현식-문"><a href="#keyword-값-리터럴-표현식-문" class="headerlink" title="keyword : 값, 리터럴, 표현식, 문"></a>keyword : 값, 리터럴, 표현식, 문</h2><h3 id="용어-정리"><a href="#용어-정리" class="headerlink" title="용어 정리"></a>용어 정리</h3><ul>
+<li>값 : 식이 평가되어 생성된 결과<ul>
+<li>생성된 결과는 메모리에 저장된다.</li>
+<li>표현식은 곧 값으로 평가된다.</li>
+</ul>
+</li>
+<li>리터럴 : 사람이 이해할 수 있는 문자 또는 약속된 기호를 사용해 값을 생성하는 표기방식<ul>
+<li>뇌피셜로는.. 자바스크립트 엔진으로 하여금 ‘리터럴 a 는 b다’라고 해석하도록 미리 설정해놓은 값들의 집합?</li>
+</ul>
+</li>
+<li>표현식 : 값으로 평가되는 문<ul>
+<li>리터럴도 값으로 생성된다 &gt;&gt; 리터럴도 표현식</li>
+<li>연산자 표현식도 평가되어 값 생성 &gt;&gt; 연산자 표현식도 표현식</li>
+<li>식별자도 참조하면 값으로 평가 &gt;&gt; 식별자 참조도 표현식</li>
+<li>결론: 값으로 평가되는건 전부 표현식</li>
+</ul>
+</li>
+<li>문 : 프로그램을 구성하는 기본단위이자 최소 실행 단위<ul>
+<li>토큰 : 문법적인 의미를 가지며, 더 이상 나눌 수 없는 코드의 기본 요소(국어로 따지면 형태소쯤..?)</li>
+<li>문은 여러 토큰으로 이루어짐</li>
+<li>문의 종류로는 선언문, 조건문 반복문 등이 있다. </li>
+<li>문의 집합이 곧 프로그램</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/24/javascript-04Variable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/24/javascript-04Variable/" class="post-title-link" itemprop="url">javascript 04Variable</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-24 17:28:52 / Modified: 17:45:23" itemprop="dateCreated datePublished" datetime="2020-08-24T17:28:52+09:00">2020-08-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="변수"><a href="#변수" class="headerlink" title="변수"></a>변수</h1><h2 id="keyword-메모리-메모리-주소-선언과-할당"><a href="#keyword-메모리-메모리-주소-선언과-할당" class="headerlink" title="keyword : 메모리, 메모리 주소, 선언과 할당"></a>keyword : 메모리, 메모리 주소, 선언과 할당</h2><h3 id="변수-1"><a href="#변수-1" class="headerlink" title="변수"></a>변수</h3><ul>
+<li>왜 쓰이는가<ul>
+<li>자바 스크립트 엔진이 코드를 평가할 때 코드의 의미를 알아야 한다.</li>
+</ul>
+</li>
+<li>정의<ul>
+<li>하나의 값을 저장하기 위해 확보한 메모리공간 또는 그 공간을 식별하기 위해 붙인 이름</li>
+<li>메모리 주소(값의 위치)를 가리키는 상징적 이름</li>
+</ul>
+</li>
+<li>동작 원리<ol>
+<li>코드에서 값이 읽힐 때 값은 메모리 상의 임의의 위치에 저장</li>
+<li>변수가 선언되면 메모리 공간을 확보하고 변수이름과 연결</li>
+<li>값이 할당 될때 새로운 메모리 공간을 확보하고 할당 값을 새롭게 저장</li>
+<li>가비지 컬렉터가 쓰레기 값들 청소</li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/21/0821-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -706,135 +865,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/13/0812-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/13/0812-TIL/" class="post-title-link" itemprop="url">0812 TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-13 17:48:37 / Modified: 17:50:13" itemprop="dateCreated datePublished" datetime="2020-08-13T17:48:37+09:00">2020-08-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="오늘-한일"><a href="#오늘-한일" class="headerlink" title="오늘 한일"></a>오늘 한일</h2><ul>
-<li>스타벅스 반응형 작업 <ul>
-<li>자바스크립트 미디어쿼리</li>
-<li>flexbox layout</li>
-<li>헤더 조금 완성</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/11/200811-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/11/200811-TIL/" class="post-title-link" itemprop="url">200811_TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-11 16:58:43 / Modified: 17:11:29" itemprop="dateCreated datePublished" datetime="2020-08-11T16:58:43+09:00">2020-08-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h1><ul>
-<li>패스트 캠퍼스 git 최영우 강사님 git 강의 수강</li>
-<li>hexo.io로 블로그 만들고 배포하기</li>
-<li>스타벅스 메인 페이지 반응형 작업 시작</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -904,7 +934,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
