@@ -20,30 +20,32 @@
     var CONFIG = {"hostname":"jjm2317.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="All Dev stories found in here.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jeong Jiman&#39;s blog">
-<meta property="og:url" content="https://jjm2317.github.io/index.html">
+  <meta name="description" content="연산자 하나 이상의 표현식을 대상으로 산술, 할당, 비교, 논리, 타입, 지수 연산 수행 &gt;&gt; 새로운 값 생성 연산의 대상 : 피연산자 ( 값으로 평가될 수 있는 표현식) 피연산자 + 연산자 : 연산자 표현식(역시 값으로 평가될 수 있는 표현식)  1. 산술 연산자 피연산자를 대상으로 수학적 계산 피연산자 : 일반적으로 Number  피연산자 개">
+<meta property="og:type" content="article">
+<meta property="og:title" content="07Operator">
+<meta property="og:url" content="https://jjm2317.github.io/2020/08/25/javascript-07Operator/index.html">
 <meta property="og:site_name" content="Jeong Jiman&#39;s blog">
-<meta property="og:description" content="All Dev stories found in here.">
+<meta property="og:description" content="연산자 하나 이상의 표현식을 대상으로 산술, 할당, 비교, 논리, 타입, 지수 연산 수행 &gt;&gt; 새로운 값 생성 연산의 대상 : 피연산자 ( 값으로 평가될 수 있는 표현식) 피연산자 + 연산자 : 연산자 표현식(역시 값으로 평가될 수 있는 표현식)  1. 산술 연산자 피연산자를 대상으로 수학적 계산 피연산자 : 일반적으로 Number  피연산자 개">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-25T06:15:35.000Z">
+<meta property="article:modified_time" content="2020-08-25T07:14:05.909Z">
 <meta property="article:author" content="Jeong Jiman">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://jjm2317.github.io/">
+<link rel="canonical" href="https://jjm2317.github.io/2020/08/25/javascript-07Operator/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Jeong Jiman's blog</title>
+  <title>07Operator | Jeong Jiman's blog</title>
   
 
 
@@ -142,9 +144,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -160,10 +163,9 @@
       <meta itemprop="name" content="Jeong Jiman's blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/25/javascript-07Operator/" class="post-title-link" itemprop="url">07Operator</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          07Operator
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -187,7 +189,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h1><ul>
+        <h1 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h1><ul>
 <li><strong>하나 이상의 표현식을 대상</strong>으로 산술, 할당, 비교, 논리, 타입, 지수 연산 수행 &gt;&gt; 새로운 값 생성</li>
 <li>연산의 대상 : 피연산자 ( 값으로 평가될 수 있는 표현식)</li>
 <li>피연산자 + 연산자 : 연산자 표현식(역시 값으로 평가될 수 있는 표현식)</li>
@@ -645,782 +647,31 @@ console.log(x=3); //3
 </tr>
 </tbody></table>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/25/javascript-06DataType/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/25/javascript-06DataType/" class="post-title-link" itemprop="url">06DataType</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-25 15:13:03 / Modified: 17:55:38" itemprop="dateCreated datePublished" datetime="2020-08-25T15:13:03+09:00">2020-08-25</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="데이터-타입"><a href="#데이터-타입" class="headerlink" title="데이터 타입"></a>데이터 타입</h1><ul>
-<li>데이터 타입은 <strong>값의 종류</strong>이다.</li>
-<li><strong>모든 값</strong>은 데이터 타입을 갖는다.</li>
-</ul>
-<h2 id="값의-종류"><a href="#값의-종류" class="headerlink" title="값의 종류"></a>값의 종류</h2><ol>
-<li><strong>원시 타입 (primitive type)</strong></li>
-</ol>
-<ul>
-<li>number<ul>
-<li><strong>정수 실수 구분 없이</strong> 실수타입 하나만 존재</li>
-</ul>
-</li>
-<li>string</li>
-<li>boolean</li>
-<li>undefined</li>
-<li>null</li>
-<li>symbol<ul>
-<li>es6 에서 새로 추가</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li><strong>객체 타입(object/reference type)</strong></li>
-</ol>
-<ul>
-<li>객체</li>
-<li>함수</li>
-<li>배열</li>
-<li>etc…</li>
-</ul>
-<p><em>타입 마다 생성한 목적, 용도, 메모리 공간 크기, 저장되는 2진수, 해석하는 방식 전부 다르다</em></p>
-<h2 id="1-숫자-타입-number"><a href="#1-숫자-타입-number" class="headerlink" title="1. 숫자 타입(number)"></a>1. 숫자 타입(number)</h2><ul>
-<li><p>하나의 숫자 타입만 존재 (실수)</p>
-</li>
-<li><p>64비트 부동소수점 형식</p>
-</li>
-<li><p>정수, 실수, 2진수, 8진수, 16진수 리터럴이 <strong>모두</strong> <strong>배정밀도 64비트 부동소수점 형식의 2진수</strong>로 저장</p>
-<ul>
-<li><p>예시</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var binary &#x3D; 0b01000001; &#x2F;&#x2F; 2진수</span><br><span class="line">var octal &#x3D; 0o101; &#x2F;&#x2F; 8진수</span><br><span class="line">var hex &#x3D; 0x41; &#x2F;&#x2F; 16진수</span><br><span class="line"></span><br><span class="line">console.log(binary);&#x2F;&#x2F;65</span><br><span class="line">console.log(octal); &#x2F;&#x2F; 65</span><br><span class="line">console.log(hex); &#x2F;&#x2F; 65</span><br></pre></td></tr></table></figure>
+        
 
 
-
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="정수로-표시된-수도-실수로-처리한다"><a href="#정수로-표시된-수도-실수로-처리한다" class="headerlink" title="정수로 표시된 수도 실수로 처리한다"></a>정수로 표시된 수도 실수로 처리한다</h3><ul>
-<li>한가지 저장방식만을 따르기때문에 정수로 표기된 수도 연산시 실수로 나올 수 있다.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(3&#x2F;2); &#x2F;&#x2F; 1.5</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="특이사항"><a href="#특이사항" class="headerlink" title="특이사항"></a>특이사항</h3><p>특별한 값 세가지 표현가능</p>
-<ul>
-<li>Infinity : 양의 무한대</li>
-<li>-Infinity : 음의 무한대</li>
-<li>NaN : 산술 연산 불가(not a number)</li>
-</ul>
-<h2 id="2-문자열-타입-string"><a href="#2-문자열-타입-string" class="headerlink" title="2. 문자열 타입(string)"></a>2. 문자열 타입(string)</h2><ul>
-<li>텍스트 데이터를 나타냄</li>
-<li>0개이상의 16비트 유니코드 문자(UTF-16) 의 집합</li>
-<li>일반적으로 작은따옴표’ ‘ 사용<ul>
-<li>따옴표로 감싸지 않으면 엔진이 토큰으로 인식</li>
-<li>따옴표 내의 다른 따옴표는 문자열로 인식</li>
-</ul>
-</li>
-<li>원시타입이며 생성후 변경 될 수 없다.</li>
-</ul>
-<h3 id="템플릿-리터럴-template-literal"><a href="#템플릿-리터럴-template-literal" class="headerlink" title="템플릿 리터럴(template literal)"></a>템플릿 리터럴(template literal)</h3><ul>
-<li>es6에 도입된 문자열 표기법</li>
-<li>백틱 `` 사용</li>
-<li><strong>멀티라인 문자열/ 표현식 삽입/ 태그드 템플릿</strong> 등 처리 기능 제공</li>
-</ul>
-<h4 id="멀티라인-문자열"><a href="#멀티라인-문자열" class="headerlink" title="멀티라인 문자열"></a>멀티라인 문자열</h4><ul>
-<li>일반 문자열에는 개행 미허용<ul>
-<li>공백을 표현하려면 이스케이프 시퀀스(escape sequence) 사용해야됨 ( \n )</li>
-</ul>
-</li>
-<li>템플릿 리터럴 내에서는 이스케이프 시퀀스를 사용하지 않고도 개행과 공백이 있는 그대로 적용된다.</li>
-</ul>
-<h4 id="표현식-삽입"><a href="#표현식-삽입" class="headerlink" title="표현식 삽입"></a>표현식 삽입</h4><ul>
-<li>문자열을 연결할 때 보통 연결 연산자 + 를 사용한다.</li>
-<li>템플릿 리터럴 내에서 표현식 삽입 (expression interpolation)을 통해 간단히 문자열 삽입가능</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var country &#x3D; &#39;Korea&#39;;</span><br><span class="line">var city &#x3D; &#39;Seoul&#39;;</span><br><span class="line"></span><br><span class="line">console.log(&#96;I live in $&#123;city&#125;, $&#123;country&#125;&#96;);&#x2F;&#x2F; I live in Seoul, Korea;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>${}으로 표현식을 감싸서 삽입한다.<ul>
-<li>표현식의 평가값은 문자열로 타입 변환</li>
-<li>템플릿 리터럴 내에서만 사용</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-불리언-타입-boolean"><a href="#3-불리언-타입-boolean" class="headerlink" title="3. 불리언 타입(boolean)"></a>3. 불리언 타입(boolean)</h2><ul>
-<li>논리적 참, 거짓 <strong>true/false</strong> </li>
-<li>조건문에서 주로 사용</li>
-</ul>
-<h2 id="4-undefined-타입"><a href="#4-undefined-타입" class="headerlink" title="4. undefined 타입"></a>4. undefined 타입</h2><ul>
-<li><p>undefined 로 유일한 값을 가짐</p>
-</li>
-<li><p>var 키워도로 변수 선언시 암묵적으로 undefined 로 초기화</p>
-<ul>
-<li>변수에 할당 전에 undefined 로 암묵적 할당</li>
-</ul>
-</li>
-</ul>
-<h4 id="개발자가-의도적으로-할당하는-것은-지양"><a href="#개발자가-의도적으로-할당하는-것은-지양" class="headerlink" title="개발자가 의도적으로 할당하는 것은 지양"></a>개발자가 의도적으로 할당하는 것은 지양</h4><ul>
-<li>undefined의 본래 취지와 어긋남<ul>
-<li>쓰레기값이 할당되지 않도록 자바스크립트 엔진이 암묵적으로 undefined 할당 하는 것이 본래 이유</li>
-</ul>
-</li>
-<li>변수에 값이 없다는 것을 개발자 임의로 명시하고 싶을 땐 null 할당</li>
-</ul>
-<h4 id="자바스크립트에서는-선언과-정의의-경계가-모호하다"><a href="#자바스크립트에서는-선언과-정의의-경계가-모호하다" class="headerlink" title="자바스크립트에서는 선언과 정의의 경계가 모호하다"></a>자바스크립트에서는 선언과 정의의 경계가 모호하다</h4><ul>
-<li>다른 언어에서는 보통 선언은 <strong>식별자의 존재만 알리는 것</strong>이고 정의는 <strong>식별자와 메모리 주소를 연결</strong>하는 것이다. </li>
-<li>자바스크립트에서는 선언 이후에 자동으로 정의가 이루어진다. </li>
-<li>ECMAScript 사양에서 변수는 선언으로 표현/ 함수는 정의로 표현<ul>
-<li>이를 반영하여 변수는 선언, 함수는 정의로 표현하도록 하자</li>
-</ul>
-</li>
-</ul>
-<h2 id="5-null-타입"><a href="#5-null-타입" class="headerlink" title="5. null 타입"></a>5. null 타입</h2><ul>
-<li>null 로 유일한 값을 가짐</li>
-<li>변수에 값이 없다는것을 개발자 의도적으로 명시/ 이전에 참조하던 값을 더이상 참조 안한다/ 즉 값의 제거를 의미</li>
-<li>대소문자 구별!</li>
-</ul>
-<h3 id="언제-사용하는가-어떤-의미인가"><a href="#언제-사용하는가-어떤-의미인가" class="headerlink" title="언제 사용하는가/ 어떤 의미인가"></a>언제 사용하는가/ 어떤 의미인가</h3><ul>
-<li>개발자가 의도적으로 변수에 값이 없다는 것을 명시</li>
-<li>이전에 참조하던 값을 더이상 참조 안한다</li>
-<li>값을 제거 하였다</li>
-<li>함수가 유효한 값을 반환할 수 없을때 null을 반환하기도함<ul>
-<li>null 보다 undefined 반환이 타당하다는 의견도 있음</li>
-</ul>
-</li>
-</ul>
-<h2 id="6-symbol-타입"><a href="#6-symbol-타입" class="headerlink" title="6. symbol 타입"></a>6. symbol 타입</h2><ul>
-<li>es6 에서 새로 추가된 원시 타입 값</li>
-<li>다른 값과 중복되지 않는 유일무이한 값</li>
-</ul>
-<h3 id="사용예시"><a href="#사용예시" class="headerlink" title="사용예시"></a>사용예시</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var key &#x3D; Symbol(&#39;key&#39;);</span><br><span class="line">console.log(typeof key); &#x2F;&#x2F; symbol</span><br><span class="line"></span><br><span class="line">var obj &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj[key] &#x3D; &#39;special value&#39;</span><br><span class="line">console.log(obj[key]); &#x2F;&#x2F; special value</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="7-객체-타입"><a href="#7-객체-타입" class="headerlink" title="7. 객체 타입"></a>7. 객체 타입</h2><ul>
-<li>앞의 6가지 원시타입 (primitive type) 이외에는 전부 객체 타입</li>
-<li>자바스크립트는 객체 기반의 언어, 즉 거의 모든것이 객체</li>
-<li>자세한 내용은 추후 학습</li>
-</ul>
-<h2 id="데이터-타입은-왜-필요한가"><a href="#데이터-타입은-왜-필요한가" class="headerlink" title="데이터 타입은 왜 필요한가"></a>데이터 타입은 왜 필요한가</h2><p>크게 세가지로 정리할 수 있다</p>
-<ol>
-<li>값을 <strong>저장</strong>할 때 확보해야 하는 메모리 공간의 크기를 결정</li>
-</ol>
-<ul>
-<li>값의 낭비나 손실없이 저장할 수 있어야 한다</li>
-<li>데이터 타입에 따라 정해진 크기의 메모리 공간 확보</li>
-<li>ex ) 숫자 타입은 64비트 부동소수점 형식이므로 8바이트의 메모리공간을 확보</li>
-<li>문자열과 숫자 이외에 데이터 타입의 크기는사양에서 명시하지 않아서 엔진 제조사의 구현에따라 다를 수도 있다.</li>
-</ul>
-<ol start="2">
-<li><p>값을 <strong>참조</strong>할때 한번에 읽어들일 메모리 크기 결정</p>
-</li>
-<li><p>메모리에서 읽어들인 2진수를 어떻게 해석할 지 결정</p>
-</li>
-</ol>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/25/javascript-06DataType/" rel="prev" title="06DataType">
+      <i class="fa fa-chevron-left"></i> 06DataType
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/24/javascript-05Expression-Statement/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/24/javascript-05Expression-Statement/" class="post-title-link" itemprop="url">javascript 05Expression&Statement</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-24 17:30:45 / Modified: 18:00:07" itemprop="dateCreated datePublished" datetime="2020-08-24T17:30:45+09:00">2020-08-24</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="표현식과-문"><a href="#표현식과-문" class="headerlink" title="표현식과 문"></a>표현식과 문</h1><h2 id="keyword-값-리터럴-표현식-문"><a href="#keyword-값-리터럴-표현식-문" class="headerlink" title="keyword : 값, 리터럴, 표현식, 문"></a>keyword : 값, 리터럴, 표현식, 문</h2><h3 id="용어-정리"><a href="#용어-정리" class="headerlink" title="용어 정리"></a>용어 정리</h3><ul>
-<li>값 : 식이 평가되어 생성된 결과<ul>
-<li>생성된 결과는 메모리에 저장된다.</li>
-<li>표현식은 곧 값으로 평가된다.</li>
-</ul>
-</li>
-<li>리터럴 : 사람이 이해할 수 있는 문자 또는 약속된 기호를 사용해 값을 생성하는 표기방식<ul>
-<li>뇌피셜로는.. 자바스크립트 엔진으로 하여금 ‘리터럴 a 는 b다’라고 해석하도록 미리 설정해놓은 값들의 집합?</li>
-</ul>
-</li>
-<li>표현식 : 값으로 평가되는 문<ul>
-<li>리터럴도 값으로 생성된다 &gt;&gt; 리터럴도 표현식</li>
-<li>연산자 표현식도 평가되어 값 생성 &gt;&gt; 연산자 표현식도 표현식</li>
-<li>식별자도 참조하면 값으로 평가 &gt;&gt; 식별자 참조도 표현식</li>
-<li>결론: 값으로 평가되는건 전부 표현식</li>
-</ul>
-</li>
-<li>문 : 프로그램을 구성하는 기본단위이자 최소 실행 단위<ul>
-<li>토큰 : 문법적인 의미를 가지며, 더 이상 나눌 수 없는 코드의 기본 요소(국어로 따지면 형태소쯤..?)</li>
-<li>문은 여러 토큰으로 이루어짐</li>
-<li>문의 종류로는 선언문, 조건문 반복문 등이 있다. </li>
-<li>문의 집합이 곧 프로그램</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/24/javascript-04Variable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/24/javascript-04Variable/" class="post-title-link" itemprop="url">javascript 04Variable</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-24 17:28:52 / Modified: 17:45:23" itemprop="dateCreated datePublished" datetime="2020-08-24T17:28:52+09:00">2020-08-24</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="변수"><a href="#변수" class="headerlink" title="변수"></a>변수</h1><h2 id="keyword-메모리-메모리-주소-선언과-할당"><a href="#keyword-메모리-메모리-주소-선언과-할당" class="headerlink" title="keyword : 메모리, 메모리 주소, 선언과 할당"></a>keyword : 메모리, 메모리 주소, 선언과 할당</h2><h3 id="변수-1"><a href="#변수-1" class="headerlink" title="변수"></a>변수</h3><ul>
-<li>왜 쓰이는가<ul>
-<li>자바 스크립트 엔진이 코드를 평가할 때 코드의 의미를 알아야 한다.</li>
-</ul>
-</li>
-<li>정의<ul>
-<li>하나의 값을 저장하기 위해 확보한 메모리공간 또는 그 공간을 식별하기 위해 붙인 이름</li>
-<li>메모리 주소(값의 위치)를 가리키는 상징적 이름</li>
-</ul>
-</li>
-<li>동작 원리<ol>
-<li>코드에서 값이 읽힐 때 값은 메모리 상의 임의의 위치에 저장</li>
-<li>변수가 선언되면 메모리 공간을 확보하고 변수이름과 연결</li>
-<li>값이 할당 될때 새로운 메모리 공간을 확보하고 할당 값을 새롭게 저장</li>
-<li>가비지 컬렉터가 쓰레기 값들 청소</li>
-</ol>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/21/0821-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/21/0821-TIL/" class="post-title-link" itemprop="url">0821 TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-21 23:04:54 / Modified: 23:07:45" itemprop="dateCreated datePublished" datetime="2020-08-21T23:04:54+09:00">2020-08-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="0821-TIL"><a href="#0821-TIL" class="headerlink" title="0821 TIL"></a>0821 TIL</h1><h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><ul>
-<li>javascript 데이터 타입 공부 (poeimaweb ch6)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/20/0820-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/20/0820-TIL/" class="post-title-link" itemprop="url">0820 TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-20 23:37:00 / Modified: 23:39:49" itemprop="dateCreated datePublished" datetime="2020-08-20T23:37:00+09:00">2020-08-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="0820-TIL"><a href="#0820-TIL" class="headerlink" title="0820 TIL"></a>0820 TIL</h1><h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><ul>
-<li>자바스크립트 표현식과 문 공부하기 (poiemaweb ch5 표현식과 문 정독)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/19/0819-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/19/0819-TIL/" class="post-title-link" itemprop="url">0819 TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-19 22:06:26 / Modified: 22:08:07" itemprop="dateCreated datePublished" datetime="2020-08-19T22:06:26+09:00">2020-08-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="0819-TIL"><a href="#0819-TIL" class="headerlink" title="0819 TIL"></a>0819 TIL</h1><h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><ul>
-<li>자바스크립트 변수 이해하기 (poeimaweb 변수 챕터 정독)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/18/0818-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/18/0818-TIL/" class="post-title-link" itemprop="url">0818 TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-18 19:55:18 / Modified: 19:56:37" itemprop="dateCreated datePublished" datetime="2020-08-18T19:55:18+09:00">2020-08-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="0818-TIL"><a href="#0818-TIL" class="headerlink" title="0818 TIL"></a>0818 TIL</h2><h3 id="오늘-한거"><a href="#오늘-한거" class="headerlink" title="오늘 한거"></a>오늘 한거</h3><ul>
-<li>자바스크립트 이웅모 강사님 첫 수업 수강</li>
-<li>poiemaweb ch1~4 정독</li>
-<li>자바스크립트 등장배경, 특징 정리</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/18/studying-method-by-lee/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/18/studying-method-by-lee/" class="post-title-link" itemprop="url">studying method by lee</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-18 19:39:16 / Modified: 19:54:57" itemprop="dateCreated datePublished" datetime="2020-08-18T19:39:16+09:00">2020-08-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="javascript-공부법-by-이웅모-강사님"><a href="#javascript-공부법-by-이웅모-강사님" class="headerlink" title="javascript 공부법 by 이웅모 강사님"></a>javascript 공부법 by 이웅모 강사님</h2><ul>
-<li><p>기본개념과 동작원리를 먼저 익히기</p>
-</li>
-<li><p>한도끝도 없으니 몇개만 알고 바로 코드를 짜봐야된다.</p>
-</li>
-</ul>
-<p>궁극적인 목적은 어플만드는 것이다. 기본개념만 공부하면 안되고 코드를 만들어 봐야된다. 코드를 이것저것 만들어보면 프로젝트를 해본다.  <strong>기본개념과 동작원리 &gt; 코딩 해보기 &gt; 프로젝트 해보기</strong> 사이클을 돌린다.  <strong>이해 &gt; 숙달(연습)&gt; 경험</strong>  반복</p>
-<ul>
-<li>용어 학습 </li>
-</ul>
-<p>야크털깎기 앨리스 토끼 굴 조심하기</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/18/html-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/18/html-intro/" class="post-title-link" itemprop="url">html intro</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-18 19:33:46 / Modified: 19:36:03" itemprop="dateCreated datePublished" datetime="2020-08-18T19:33:46+09:00">2020-08-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="html-등장-배경"><a href="#html-등장-배경" class="headerlink" title="html 등장 배경"></a>html 등장 배경</h3><p>팀 버너스리가 유럽 핵연구소 다녔었는데 논문이 많았다. 공부하기 힘듬. 논문 문서들을 대상으로 각주를 놓고 점프할 수 있는 기능을 만든게 html이다. html을 논문에만 쓰지말고 여러정보로 확장. 디자인이 구려서 스타일링을 하자는 needs가 생김 &gt;&gt; css 등장. css</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
 
 
 
@@ -1472,6 +723,7 @@ console.log(x=3); //3
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.</span> <span class="nav-text">연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%EC%82%B0%EC%88%A0-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.1.</span> <span class="nav-text">1. 산술 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%B4%ED%95%AD-%EC%82%B0%EC%88%A0-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.1.1.</span> <span class="nav-text">이항 산술 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%A2%85%EB%A5%98"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">종류</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8B%A8%ED%95%AD-%EC%82%B0%EC%88%A0-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">단항 산술 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%A2%85%EB%A5%98-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">종류</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%82%AC%EC%9A%A9%EC%98%88%EC%8B%9C"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">사용예시</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%A6%9D-%EA%B0%90-%EC%97%B0%EC%82%B0%EC%9E%90%EC%9D%98-%EC%9C%84%EC%B9%98%EB%8A%94-%EC%97%B0%EC%82%B0-%EC%88%9C%EC%84%9C%EB%A5%BC-%EA%B2%B0%EC%A0%95%ED%95%9C%EB%8B%A4"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">증&#x2F;감 연산자의 위치는 연산 순서를 결정한다</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%8B%A8%ED%95%AD%EC%97%B0%EC%82%B0%EC%9E%90%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%93%B0%EC%9D%BC%EA%B9%8C"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">+ 단항연산자는 언제 쓰일까</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90%EB%8A%94-%EB%AC%B8%EC%9E%90%EC%97%B4-%EC%97%B0%EA%B2%B0-%EC%97%B0%EC%82%B0%EC%9E%90%EB%A1%9C%EB%8F%84-%EB%8F%99%EC%9E%91%ED%95%9C%EB%8B%A4"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">+연산자는 문자열 연결 연산자로도 동작한다</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EC%97%B0%EA%B2%B0-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%82%AC%EC%9A%A9%EC%98%88%EC%8B%9C"><span class="nav-number">1.1.2.5.1.</span> <span class="nav-text">연결 연산자 사용예시</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%ED%95%A0%EB%8B%B9-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">2. 할당 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%A2%85%EB%A5%98-2"><span class="nav-number">1.2.1.</span> <span class="nav-text">종류</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%ED%8A%B9%EC%9D%B4%EC%82%AC%ED%95%AD"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">특이사항</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%EB%B9%84%EA%B5%90-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">3. 비교 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8F%99%EB%93%B1-%EC%9D%BC%EC%B9%98-%EB%B9%84%EA%B5%90-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">동등 &#x2F; 일치 비교 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%8F%99%EB%93%B1%EA%B3%BC-%EC%9D%BC%EC%B9%98%EC%9D%98-%EC%B0%A8%EC%9D%B4"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">동등과 일치의 차이</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%8F%99%EB%93%B1-%EB%B9%84%EA%B5%90%EC%97%B0%EC%82%B0%EC%9E%90%EB%8A%94-%EC%82%AC%EC%9A%A9%EC%9D%84-%EC%A7%80%EC%96%91%ED%95%9C%EB%8B%A4"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">동등 비교연산자는 사용을 지양한다</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%ED%8A%B9%EC%9D%B4%EC%82%AC%ED%95%AD-1"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">특이사항</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%EC%82%BC%ED%95%AD-%EC%A1%B0%EA%B1%B4-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.4.</span> <span class="nav-text">4. 삼항 조건 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if-else-%EB%AC%B8%EA%B3%BC%EC%9D%98-%EC%B0%A8%EC%9D%B4"><span class="nav-number">1.4.1.</span> <span class="nav-text">if else 문과의 차이</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">5. 논리 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%A2%85%EB%A5%98-3"><span class="nav-number">1.5.1.</span> <span class="nav-text">종류</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">사용 예시</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%ED%94%BC%EC%97%B0%EC%82%B0%EC%9E%90%EA%B0%80-boolean-%EA%B0%92%EC%9D%BC-%ED%95%84%EC%9A%94%EB%8A%94-%EC%97%86%EB%8B%A4"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">피연산자가 boolean 값일 필요는 없다</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%85%BC%EB%A6%AC%ED%95%A9-%EB%85%BC%EB%A6%AC%EA%B3%B1-amp-amp-%EC%97%B0%EC%82%B0%EC%9E%90%EB%8A%94-2%EA%B0%9C-%ED%94%BC%EC%97%B0%EC%82%B0%EC%9E%90-%EC%A4%91-%ED%95%9C%EC%AA%BD%EC%9C%BC%EB%A1%9C-%ED%8F%89%EA%B0%80%EB%90%9C%EB%8B%A4"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">논리합(||), 논리곱(&amp;&amp;) 연산자는 2개 피연산자 중 한쪽으로 평가된다.</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%EC%89%BC%ED%91%9C-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.6.</span> <span class="nav-text">6. 쉼표 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%82%AC%EC%9A%A9%EC%98%88%EC%8B%9C-1"><span class="nav-number">1.6.1.</span> <span class="nav-text">사용예시</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%EA%B7%B8%EB%A3%B9-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.7.</span> <span class="nav-text">7. 그룹 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%82%AC%EC%9A%A9%EC%98%88%EC%8B%9C-2"><span class="nav-number">1.7.1.</span> <span class="nav-text">사용예시</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EA%B0%80-%EA%B0%80%EC%9E%A5-%EB%86%92%EB%8B%A4"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">연산자 우선순위가 가장 높다.</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-typeof-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.8.</span> <span class="nav-text">8. typeof 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C-1"><span class="nav-number">1.8.1.</span> <span class="nav-text">사용 예시</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85%EA%B3%BC-%EC%A0%95%ED%99%95%ED%9E%88-%EC%9D%BC%EC%B9%98%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">데이터 타입과 정확히 일치하지 않는다</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%84%A0%EC%96%B8%ED%95%98%EC%A7%80-%EC%95%8A%EC%9D%80-%EC%8B%9D%EB%B3%84%EC%9E%90-%EC%97%90%EB%9F%AC%EB%A1%9C-ReferenceError-%EB%8C%80%EC%8B%A0-undefined-%EB%B0%98%ED%99%98"><span class="nav-number">1.8.1.2.</span> <span class="nav-text">선언하지 않은 식별자 에러로 ReferenceError 대신 undefined 반환</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%EC%A7%80%EC%88%98-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.9.</span> <span class="nav-text">9. 지수 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C-2"><span class="nav-number">1.9.1.</span> <span class="nav-text">사용 예시</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%9D%B4%EC%A0%84%EA%B9%8C%EC%A7%80%EB%8A%94-Math-pow-%EB%A9%94%EC%84%9C%EB%93%9C-%EC%82%AC%EC%9A%A9"><span class="nav-number">1.9.1.1.</span> <span class="nav-text">이전까지는 Math.pow 메서드 사용</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%EA%B8%B0%ED%83%80"><span class="nav-number">1.10.</span> <span class="nav-text">10.기타</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%B4%EC%99%B8-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.10.1.</span> <span class="nav-text">이외 연산자</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90%EC%9D%98-%EB%B6%80%EC%88%98%ED%9A%A8%EA%B3%BC-side-effect"><span class="nav-number">1.10.2.</span> <span class="nav-text">연산자의 부수효과(side effect)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90%EC%9D%98-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84"><span class="nav-number">1.10.3.</span> <span class="nav-text">연산자의 우선순위</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90-%EA%B2%B0%ED%95%A9-%EC%88%9C%EC%84%9C"><span class="nav-number">1.10.4.</span> <span class="nav-text">연산자 결합 순서</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
