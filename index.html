@@ -173,7 +173,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-26 15:38:08 / Modified: 15:38:56" itemprop="dateCreated datePublished" datetime="2020-08-26T15:38:08+09:00">2020-08-26</time>
+              <time title="Created: 2020-08-26 15:38:08 / Modified: 15:45:31" itemprop="dateCreated datePublished" datetime="2020-08-26T15:38:08+09:00">2020-08-26</time>
             </span>
 
           
@@ -362,32 +362,25 @@
 </ul>
 </li>
 <li><p>위 문 이외의 문에서는 동작안함 (SyntaxError)</p>
-<ul>
-<li><pre><code>if(1)&#123;
-    break;
-&#125;//SyntaxError
-&lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#### 레이블문이란? &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- 식별자가 붙은 문이다.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- 레이블 문의 식별자에는 따로 키워드를 안붙여도 되는듯하다.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;##### 레이블 문의 사용예시&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
-for(var i =0; i&lt;10; i++)&#123;
-for(var j =0; j&lt;10; j++)&#123;
-    if (i===3 &amp;&amp; j===3)&#123;
-        break;
-    &#125;
-&#125;
-&#125;
-console.log(i, j);// 10 10
-// 내부 for 문만 탈출 했기때문에 외부 for 문으로 다시 돌아가 반복 실행한다. 
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(1)&#123;</span><br><span class="line">    break;</span><br><span class="line">&#125;&#x2F;&#x2F;SyntaxError</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
-</li>
+<h4 id="레이블문이란"><a href="#레이블문이란" class="headerlink" title="레이블문이란?"></a>레이블문이란?</h4><ul>
+<li>식별자가 붙은 문이다.</li>
+<li>레이블 문의 식별자에는 따로 키워드를 안붙여도 되는듯하다.</li>
 </ul>
-<p>//3 3 의결과를 얻고 싶다면 레이블 문을 이용하자.</p>
-<p>all : for(var i =0; i&lt;10; i++){<br>    for(var j =0; j&lt;10; j++){<br>        if (i===3 &amp;&amp; j===3){<br>            break all;<br>        }<br>    }<br>}<br>console.log(i, j); // 3 3</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">레이블 문 사용 시 코드 가독성이 나빠져서 잘 사용 안한다고 한다.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 4. continue 문</span><br><span class="line"></span><br><span class="line">- 반복문의 증감식으로 바로 이동시킨다. </span><br><span class="line">- 탈출은 아니다.</span><br><span class="line"></span><br><span class="line">### continue 문 사용예시</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>// 1~10에서 홀수만 출력해보자</p>
-<p>for(var i=0;i&lt;10;i++){<br>    if(i%2===0)continue;<br>    console.log(i);<br>}<br>//위와 같이 continue 문을 사용할 수 있다.</p>
-<p>// 위코드는 아래와 같은 결과이다.<br>for(var i=0;i&lt;10;i++){<br>    if(i%2!==0){<br>     console.log(i);<br>    }<br>}<br>// continue 문을 썼을 때보다 더 가독성이 좋아보인다.<br>// continue 문은 본래 코드의 if 문 내의 실행코드가 많을 때 사용하면 효율적이다.</p>
-<pre><code></code></pre>
+<h5 id="레이블-문의-사용예시"><a href="#레이블-문의-사용예시" class="headerlink" title="레이블 문의 사용예시"></a>레이블 문의 사용예시</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">for(var i &#x3D;0; i&lt;10; i++)&#123;</span><br><span class="line">    for(var j &#x3D;0; j&lt;10; j++)&#123;</span><br><span class="line">        if (i&#x3D;&#x3D;&#x3D;3 &amp;&amp; j&#x3D;&#x3D;&#x3D;3)&#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(i, j);&#x2F;&#x2F; 10 10</span><br><span class="line">&#x2F;&#x2F; 내부 for 문만 탈출 했기때문에 외부 for 문으로 다시 돌아가 반복 실행한다. </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;3 3 의결과를 얻고 싶다면 레이블 문을 이용하자.</span><br><span class="line"></span><br><span class="line">all : for(var i &#x3D;0; i&lt;10; i++)&#123;</span><br><span class="line">    for(var j &#x3D;0; j&lt;10; j++)&#123;</span><br><span class="line">        if (i&#x3D;&#x3D;&#x3D;3 &amp;&amp; j&#x3D;&#x3D;&#x3D;3)&#123;</span><br><span class="line">            break all;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(i, j); &#x2F;&#x2F; 3 3</span><br></pre></td></tr></table></figure>
+
+<p>레이블 문 사용 시 코드 가독성이 나빠져서 잘 사용 안한다고 한다.</p>
+<h2 id="4-continue-문"><a href="#4-continue-문" class="headerlink" title="4. continue 문"></a>4. continue 문</h2><ul>
+<li>반복문의 증감식으로 바로 이동시킨다. </li>
+<li>탈출은 아니다.</li>
+</ul>
+<h3 id="continue-문-사용예시"><a href="#continue-문-사용예시" class="headerlink" title="continue 문 사용예시"></a>continue 문 사용예시</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 1~10에서 홀수만 출력해보자</span><br><span class="line"></span><br><span class="line">for(var i&#x3D;0;i&lt;10;i++)&#123;</span><br><span class="line">    if(i%2&#x3D;&#x3D;&#x3D;0)continue;</span><br><span class="line">    console.log(i);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;위와 같이 continue 문을 사용할 수 있다.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 위코드는 아래와 같은 결과이다.</span><br><span class="line">for(var i&#x3D;0;i&lt;10;i++)&#123;</span><br><span class="line">    if(i%2!&#x3D;&#x3D;0)&#123;</span><br><span class="line">     console.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; continue 문을 썼을 때보다 더 가독성이 좋아보인다.</span><br><span class="line">&#x2F;&#x2F; continue 문은 본래 코드의 if 문 내의 실행코드가 많을 때 사용하면 효율적이다.</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
