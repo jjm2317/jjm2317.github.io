@@ -28,7 +28,7 @@
 <meta property="og:description" content="타입 변환과 단축 평가타입 변환이란? 자바 스크립트의 모든 값에는 타입이 있다.  타입 변환은 값의 타입을 변환시키는 것이다.  타입 변환이 일어나는 방식은 두가지이다.  개발자의 의도에 의한 타입 변환 자바스크립트 엔진에 의해 자동으로 수행되는 타입변환  개발자가 의도적으로 타입변환 : 명시적 타입변환 개발자가 의도적으로 타입을 변환하는 것을 명시적 타입">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-26T12:45:20.000Z">
-<meta property="article:modified_time" content="2020-08-27T13:04:50.936Z">
+<meta property="article:modified_time" content="2020-09-14T13:00:13.516Z">
 <meta property="article:author" content="Jeong Jiman">
 <meta name="twitter:card" content="summary">
 
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-27 22:04:50" itemprop="dateModified" datetime="2020-08-27T22:04:50+09:00">2020-08-27</time>
+                <time title="Modified: 2020-09-14 22:00:13" itemprop="dateModified" datetime="2020-09-14T22:00:13+09:00">2020-09-14</time>
               </span>
 
           
@@ -263,7 +263,7 @@
 <li>+단항 연산자의 피연산자</li>
 <li>&lt;&gt; 비교 연산자의 피연산자</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 문자열 타입</span><br><span class="line">+&#39;&#39;       &#x2F;&#x2F; -&gt; 0</span><br><span class="line">+&#39;0&#39;      &#x2F;&#x2F; -&gt; 0</span><br><span class="line">+&#39;1&#39;      &#x2F;&#x2F; -&gt; 1</span><br><span class="line">+&#39;string&#39; &#x2F;&#x2F; -&gt; NaN 변환해도 실수가 아닌경우 NaN 반환</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 불리언 타입</span><br><span class="line">+true     &#x2F;&#x2F; -&gt; 1</span><br><span class="line">+false    &#x2F;&#x2F; -&gt; 0</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; null 타입</span><br><span class="line">+null     &#x2F;&#x2F; -&gt; 0</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; undefined 타입</span><br><span class="line">+undefined &#x2F;&#x2F; -&gt; NaN</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 심벌 타입</span><br><span class="line">+Symbol() &#x2F;&#x2F; -&gt; typeError: Cannot convert a Symbol value to a number</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 객체 타입</span><br><span class="line">+&#123;&#125;             &#x2F;&#x2F; -&gt; NaN</span><br><span class="line">+[]             &#x2F;&#x2F; -&gt; 0</span><br><span class="line">+[10, 20]       &#x2F;&#x2F; -&gt; NaN</span><br><span class="line">+(function()&#123;&#125;) &#x2F;&#x2F; -&gt; NaN</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 문자열 타입</span><br><span class="line">+&#39;&#39;       &#x2F;&#x2F; -&gt; 0</span><br><span class="line">+&#39;0&#39;      &#x2F;&#x2F; -&gt; 0</span><br><span class="line">+&#39;1&#39;      &#x2F;&#x2F; -&gt; 1</span><br><span class="line">+&#39;string&#39; &#x2F;&#x2F; -&gt; NaN 변환해도 실수가 아닌경우 NaN 반환</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 불리언 타입</span><br><span class="line">+true     &#x2F;&#x2F; -&gt; 1</span><br><span class="line">+false    &#x2F;&#x2F; -&gt; 0</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; null 타입</span><br><span class="line">+null     &#x2F;&#x2F; -&gt; 0</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; undefined 타입</span><br><span class="line">+undefined &#x2F;&#x2F; -&gt; NaN</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 심벌 타입</span><br><span class="line">+Symbol() &#x2F;&#x2F; -&gt; typeError: Cannot convert a Symbol value to a number</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 객체 타입</span><br><span class="line">+&#123;&#125;             &#x2F;&#x2F; -&gt; NaN</span><br><span class="line">+[]             &#x2F;&#x2F; -&gt; 0</span><br><span class="line">+[10, 20]       &#x2F;&#x2F; -&gt; NaN </span><br><span class="line">+(function()&#123;&#125;) &#x2F;&#x2F; -&gt; NaN</span><br></pre></td></tr></table></figure>
 
 
 
@@ -366,6 +366,7 @@
 
 
 <h2 id="3-단축-평가"><a href="#3-단축-평가" class="headerlink" title="3. 단축 평가"></a>3. 단축 평가</h2><p>논리 연산의 결과를 결정하는 피연산자를 <strong>타입 변환 없이</strong> 그대로 반환하는 것</p>
+<p>if 문을 대체할 수 있다.</p>
 <h3 id="3-1-논리-연산자를-사용한-단축-평가"><a href="#3-1-논리-연산자를-사용한-단축-평가" class="headerlink" title="3.1 논리 연산자를 사용한 단축 평가"></a>3.1 논리 연산자를 사용한 단축 평가</h3><h4 id="issue"><a href="#issue" class="headerlink" title="issue"></a>issue</h4><ul>
 <li><strong>논리합 연산자와 논리곱 연산자</strong>의 평가 결과가 불리언 값이 <strong>아닐 수도</strong> 있다. </li>
 <li>표현식 <strong>평가 도중에 평가 결과가 확정</strong>되면 <strong>나머지 평가 과정을 생략</strong></li>
@@ -417,7 +418,8 @@
 <td>false</td>
 </tr>
 </tbody></table>
-<h4 id="단축평가는-어디에-이용될까"><a href="#단축평가는-어디에-이용될까" class="headerlink" title="단축평가는 어디에 이용될까?"></a>단축평가는 어디에 이용될까?</h4><p>일반적으로</p>
+<h4 id="단축평가는-어디에-이용될까"><a href="#단축평가는-어디에-이용될까" class="headerlink" title="단축평가는 어디에 이용될까?"></a>단축평가는 어디에 이용될까?</h4><p>제어문을 사용한다면 코드의 흐름을 제어하게 된다. 제어문은 가독성을 떨어뜨리는 요소이기 때문에 단축평가를 사용하여 대체할 수 있다.</p>
+<p>일반적으로</p>
 <ol>
 <li>if 문 대체</li>
 <li>객체를 할당한 변수의 타입을 재확인할 때<ul>
