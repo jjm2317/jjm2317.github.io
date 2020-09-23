@@ -148,6 +148,201 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/23/javascript-15let-const-BlockLevelScope/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/23/javascript-15let-const-BlockLevelScope/" class="post-title-link" itemprop="url">let, const & BlockLevelScope</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-09-23 19:53:38 / Modified: 19:55:34" itemprop="dateCreated datePublished" datetime="2020-09-23T19:53:38+09:00">2020-09-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="let-const와-블록-레벨-스코프"><a href="#let-const와-블록-레벨-스코프" class="headerlink" title="let, const와 블록 레벨 스코프"></a>let, const와 블록 레벨 스코프</h1><h2 id="1-var-키워드로-선언한-변수의-문제점"><a href="#1-var-키워드로-선언한-변수의-문제점" class="headerlink" title="1. var 키워드로 선언한 변수의 문제점"></a>1. var 키워드로 선언한 변수의 문제점</h2><p><strong>ES5 까지의 변수 선언</strong></p>
+<p>ES5까지 변수를 선언할 수 있는 유일한 방법은 var 키워들ㄹ 사용하는 것이었다. var 키워드로 선언된 변수는 다른 언어와는 구별되는 독특한 특징이 있으며, 주의를 기울이지 않으면 심각한 문제를 발생시킬 수 있다.</p>
+<h3 id="1-1-변수-중복-선언-허용"><a href="#1-1-변수-중복-선언-허용" class="headerlink" title="1.1 변수 중복 선언 허용"></a>1.1 변수 중복 선언 허용</h3><p><strong>중복 선언시 var 키워드가 없는 것처럼 동작</strong></p>
+<p>var 키워드로 선언한 변수는  중복선언이 가능하다.</p>
+<ul>
+<li>같은 스코프 내에서 중복 선언이 가능하다.</li>
+<li>초기화문이 있는 변수 선언문은 자바 스크립트 엔진에 의해 var 키워드가 없는 것처럼 동작한다.</li>
+<li>초기화문이 없는 변수 선언문을 중복선언하면 무시된다. </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 1;</span><br><span class="line">var y &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;같은 스코프 내 중복 선언 허용</span><br><span class="line">&#x2F;&#x2F; var 키워드가 없는 것처럼 동작</span><br><span class="line">var x &#x3D; 100;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;초기화 문이 없으면 무시, 에러x</span><br><span class="line">var y;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;x : 100, y : 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>문제점</strong></p>
+<p>동일한 이름의 변수가 이미 선언되어 있는 것을 모르고 변수를 중복 선언 하면서 값까지 할당했다면 의도치 않게 먼저 선언된 변수 값이 변경 되는 부작용 발생</p>
+<h3 id="1-2-함수-레벨-스코프"><a href="#1-2-함수-레벨-스코프" class="headerlink" title="1.2 함수 레벨 스코프"></a>1.2 함수 레벨 스코프</h3><p><strong>함수의 코드 블록만을 스코프로 인정</strong></p>
+<p>var 키워드로 선언한 변수는 오로지 함수의 코드 블록만을 지역 스코프로 인정한다. 따라서 함수 외부에서 var 키워드로 선언한 변수는 코드 블록 내에서 선언해도 모두 전역 변수가 된다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;함수 외 코드블록은 스코프로 인정하지 않는다.</span><br><span class="line">&#x2F;&#x2F;x 변수 중복된다</span><br><span class="line">if(true) &#123;</span><br><span class="line">    var x &#x3D; 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(x); &#x2F;&#x2F;10</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;for 문도 마찬가지</span><br><span class="line">for(var i &#x3D; 0; i&lt;5; i++)&#123;</span><br><span class="line">console.log(i); &#x2F;&#x2F;0 1 2 3 4 </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>문제점</strong></p>
+<p>함수 레벨 스코프를 인지 못하고 전역 변수를 선언하게 된다. 그러면 의도치 않게 변수값을 변경할 수 있다.</p>
+<h3 id="1-3-변수-호이스팅"><a href="#1-3-변수-호이스팅" class="headerlink" title="1.3 변수 호이스팅"></a>1.3 변수 호이스팅</h3><p><strong>변수 호이스팅으로 초기화까지 일어난다.</strong></p>
+<p>var 키워드로 변수를 선언하면 변수 호이스팅에 의해 변수 선언문이 스코프의 선두로 끌어 올려진 것처럼 동작한다. 즉, 변수 호이스팅에 의해 var 키워드로 선언한 변수는 변수 선언문 이전에 참조할 수 있다. 변수 할당문 이전에 변수를 참조하면 undefined를 반환한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(num);&#x2F;&#x2F;undefined</span><br><span class="line"></span><br><span class="line">num &#x3D; 100;</span><br><span class="line"></span><br><span class="line">console.log(num);100</span><br><span class="line"></span><br><span class="line">var num;</span><br></pre></td></tr></table></figure>
+
+<p><strong>var 변수 호이스팅의 문제점</strong></p>
+<p>변수 선언문 이전에 변수를 참조하는 것은 변수 호이스팅에 의해 에러를 발생시키지는 않는다 하지만 다음과 같은 문제가 있다.</p>
+<ul>
+<li>프로그램의 흐름상 맞지 않다.</li>
+<li>가독성을 떨어뜨린다.</li>
+<li>오류 발생 가능성이 높아진다.</li>
+</ul>
+<h2 id="2-let-키워드"><a href="#2-let-키워드" class="headerlink" title="2. let 키워드"></a>2. let 키워드</h2><p><strong>let 과 const의 도입</strong></p>
+<p>var 키워드의 여러 문제점을 보완하기 위해서 ES6에서는 새로운 변수 선언 키워드가 추가 되었다. </p>
+<ul>
+<li>let</li>
+<li>const</li>
+</ul>
+<p>var 키워드와의 차이를 알아보자</p>
+<h3 id="2-1-변수-중복-선언-금지"><a href="#2-1-변수-중복-선언-금지" class="headerlink" title="2.1 변수 중복 선언 금지"></a>2.1 변수 중복 선언 금지</h3><p><strong>let 키워드는 중복 선언 미허용</strong></p>
+<p>var 키워드로 이름이 동일한 변수를 중복 선언하면 아무런 에러를 발생하지 않는다. 인간은 실수하는 동물이기에 의도치않게, 실수로 값을 재할당 할 수도 있다. 즉, 오류 발생 가능성이 높아진다. </p>
+<p>let 키워드의 경우 이름이 같은 변수를 중복 선언 하면 문법 에러(SyntaxError) 를 발생시킨다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var num1 &#x3D; 100;</span><br><span class="line">var num1 &#x3D; 200;</span><br><span class="line">&#x2F;&#x2F;var 키워드로 선언된 변수는 중복선언 허용</span><br><span class="line">&#x2F;&#x2F;중복 선언시 var 키워드가 없는 것처럼 동작</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let num2 &#x3D; 123;</span><br><span class="line">let num2 &#x3D; 456;</span><br><span class="line"> &#x2F;&#x2F; let이나 const 키워드로 선언한 변수는 중복선언을 허용하지 않는다. </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-2-블록-레벨-스코프"><a href="#2-2-블록-레벨-스코프" class="headerlink" title="2.2 블록 레벨 스코프"></a>2.2 블록 레벨 스코프</h3><p><strong>let , const 키워드는 블록 레벨 스코프를 따른다</strong></p>
+<p>var 키워드로 선언된 변수는 오로지 함수의 코드 블록만을 지역 스코프를 따른다. 하지만 let 키워드로 선언한 변수는 모든 코드블록을 지역 스코프로 인정한다. (함수, if 문, while 문, try/catch) 등을 지역 스코프로 인정하는 블록레벨 스코프를 따른다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let num &#x3D; 1;</span><br><span class="line">&#123;</span><br><span class="line">    let num &#x3D; 2;</span><br><span class="line">    let bar &#x3D; 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(num); &#x2F;&#x2F;2</span><br><span class="line">console.log(bar); &#x2F;&#x2F; ReferenceError</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-변수-호이스팅"><a href="#2-3-변수-호이스팅" class="headerlink" title="2.3 변수 호이스팅"></a>2.3 변수 호이스팅</h3><p><strong>let 키워드로 선언한 변수의 호이스팅</strong></p>
+<p>var 키워드로 선언한 변수와 달리 let 키워드로 선언한 변수는 변수호이스팅이 발생하지 않는 것처럼 동작한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a); &#x2F;&#x2F;ReferenceError</span><br><span class="line">let foo;</span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 let 키워드로 선언한 변수를 선언문 이전에 참조하면 참조에러가 발생한다. </p>
+<p><strong>이유</strong></p>
+<p><strong>기존의 var 키워드의 변수 선언</strong></p>
+<p>var 키워드로 선언한 변수는 런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언단계와 초기화단계가 <strong>한번에</strong> 진행된다</p>
+<ol>
+<li>선언 단계에서 실행 컨텍스트의 렉시컬 환경에 변수 식별자를 등록해 자바스크립트 엔진에 변수의 존재를 알린다.</li>
+<li>초기화 단계에서 undefined로 변수를 초기화한다.</li>
+</ol>
+<p>따라서 변수 선언문 이전에 변수에 접근해도 에러가 발생하지 않는다. 다만 의도한 값대신 undefined가 할당되어 있다. </p>
+<p><strong>let 키워드의 선언단계와 초기화 단계</strong></p>
+<p>let 키워드로 선언한 변수는 선언단계와 초기화 단계가 분리되어 진행된다. </p>
+<ol>
+<li>런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언 단계 실행</li>
+<li><strong>런타임</strong>이 되어 변수선언문에 도달했을때 초기화 단계 실행</li>
+</ol>
+<p>런타임 이전에 초기화 단계를 실행 하지않으므로 변수선언문 이전에 참조하려고 하면 참조 에러가 발생한다.</p>
+<p><strong>일시적 사각지대란</strong></p>
+<p> let 키워드로 선언한 변수는 스코프의 시작 지점부터 초기화단계 시작 지점까지 변수를 참조할 수 없다. </p>
+<p>스코프의 시작 지점부터 초기화 시작 지점까지 변수를 참조할 수 없는 구간을 **일시적 사각지대(Temporal Dead Zone; TDZ)**라고 부른다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;일시적 사각지대</span><br><span class="line">console.log(foo); &#x2F;&#x2F;ReferenceError</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &quot;&quot;</span><br><span class="line">let foo;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>let 키워드의 변수 호이스팅</strong></p>
+<p>let 키워드로 선언한 변수는 변수 호이스팅이 발생하지 않는 것 같지만 그렇지 않다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let bar &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    console.log(bar); &#x2F;&#x2F;ReferenceError</span><br><span class="line">    </span><br><span class="line">    let bar &#x3D;10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>만일 변수 호이스팅이 발생하지 않는다면 bar를 출력했을때 전역에서 할당한 1이 출력되어야 정상이지만, 참조에러가 발생한다. </p>
+<p>let 키워드도 스코프 시작전에 선언단계, 초기화단계 중 선언단계는 진행하기 때문이다. </p>
+<h3 id="2-4-전역-객체와-let"><a href="#2-4-전역-객체와-let" class="headerlink" title="2.4 전역 객체와 let"></a>2.4 전역 객체와 let</h3><p><strong>var 키워드로 선언한 변수는 전역 객체의 프로퍼티가 된다.</strong> </p>
+<p>var 키워드로 선언한 전역 변수, 전역 함수와 암묵적 전역은 전역 객체 window or global의 프로퍼티가 된다. 전역 객체의 프로퍼티를 참조할 땐 window를 생략가능하다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 전역변수</span><br><span class="line">var foo;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 전역 함수</span><br><span class="line">fuction bar() </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 암묵적 전역</span><br><span class="line">x &#x3D; 1</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;위 모두 전역 객체 window의 프로퍼티</span><br><span class="line">&#x2F;&#x2F;선언 및 참조 시 window 식별자는 생략 가능</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>let 키워드는 전역 객체의 프로퍼티가 아니다.</strong></p>
+<p>let 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 아닌, 전역 렉시컬 환경의 선언적 환경 레코드에 존재하게 된다. </p>
+<h2 id="3-const-키워드"><a href="#3-const-키워드" class="headerlink" title="3. const 키워드"></a>3. const 키워드</h2><h3 id="3-1-선언과-초기화"><a href="#3-1-선언과-초기화" class="headerlink" title="3.1 선언과 초기화"></a>3.1 선언과 초기화</h3><p><strong>const 키워드로 선언한 변수는 선언과 동시에 초기화한다.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const foo &#x3D; 1;</span><br><span class="line"></span><br><span class="line">const bar; &#x2F;&#x2F; SyntaxError</span><br></pre></td></tr></table></figure>
+
+<p>초기화 없이 선언만 하면 문법 에러가 발생한다. </p>
+<p><strong>const, 스코프와 호이스팅</strong></p>
+<p>const 키워드로 선언한 변수는 블록레벨 스코프를 가지며, 변수호이스팅이 발생하지 않는 것처럼 동작한다. </p>
+<h3 id="3-2-재할당-금지"><a href="#3-2-재할당-금지" class="headerlink" title="3.2 재할당 금지"></a>3.2 재할당 금지</h3><p><strong>const 키워드로 선언한 변수는 재할당이 금지된다.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const foo &#x3D; 10;</span><br><span class="line"></span><br><span class="line">foo &#x3D; 5;&#x2F;&#x2F; TypeError</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-3-상수"><a href="#3-3-상수" class="headerlink" title="3.3 상수"></a>3.3 상수</h3><p><strong>const 키워드의 이용</strong></p>
+<p>원시값은 immutable value 이다. 그리고 const 키워드로 선언한 변수에 원시값을 할당한다면 <strong>재할당 없이</strong> 변수값을 변경할 수 없다. 그렇기 때문에 const 키워드를 이용해 상수를 표현할 수 있다.</p>
+<p><strong>상수의 뜻</strong></p>
+<p>변수의 상대 개념인 상수는 재할당이 금지된 변수를 말한다. 상수도 값을 저장하기 위한 메모리 공간이 필요하므로 변수이다. 일반적인 변수와는 달리 재할당이 금지된다. </p>
+<p><strong>상수의 장점</strong></p>
+<ul>
+<li>상태를 유지한다</li>
+<li>가독성이 높아진다</li>
+<li>유지보수가 편하다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 세율같은 경우 쉽게 변하지 않으며, 고정값을 사용해야 한다.</span><br><span class="line">const TAX_RATE &#x3D; 0,1;</span><br><span class="line">let preTaxPrice &#x3D; 100;</span><br><span class="line"></span><br><span class="line">let afterTaxPrice &#x3D; preTaxPrice + (preTaxPrice * TAX_RATE)</span><br></pre></td></tr></table></figure>
+
+<p>const 키워드로 선언한 변수에 원시값을 할당한다면 선언문 이후에 값을 변경할 수 없으며 상태가 유지된다.</p>
+<p>또한 세율을 상수로 정의하여 의미를 쉽게 알 수 있다. 즉 가독성이 높아진다.</p>
+<p>세율이 변경된다면 상수만을 변경하면 되므로 유지 보수성이 향상된다. </p>
+<p><strong>상수의 일반적인 표기</strong></p>
+<p>상수의 이름은 대문자로 선언해 상수임을 명확히 나타낸다.</p>
+<p>여러개의 단어로 이루어진 경우 언더스코어로 구분한 스네이크 케이스로 표현한다. </p>
+<h3 id="3-3-const-키워드와-객체"><a href="#3-3-const-키워드와-객체" class="headerlink" title="3.3 const 키워드와 객체"></a>3.3 const 키워드와 객체</h3><p><strong>객체의 경우 값의 변경이 가능하다.</strong></p>
+<p>원시값의 경우 불변값이기 때문에 재할당없이 값의 변경이 불가하며, const로 선언한 경우 재할당까지도 불가하다. </p>
+<p>하지만, 객체의 경우 가변 값 (mutable value) 이기 때문에 재할당없이도 값을 변경할 수 있다. </p>
+<p>const 키워드는 재할당을 금지할 뿐이다.  객체는 자유롭게 변경될 수 있다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const student &#x3D; &#123;</span><br><span class="line">    name: &#39;Jiman&#39;,</span><br><span class="line">    age: 23</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">student.age &#x3D; 24;</span><br><span class="line">console.log(student)&#x2F;&#x2F; &#123;name: &#39;jiman&#39;, age: 24&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-var-vs-let-vs-const"><a href="#4-var-vs-let-vs-const" class="headerlink" title="4. var vs. let vs. const"></a>4. var vs. let vs. const</h2><p><strong>const 사용을 지향하자</strong></p>
+<p>변수 선언에는 기본적으로 const를 사용하고 let은 재할당이 필요한 경우에만 사용하도록 하자. </p>
+<p><strong>이유</strong></p>
+<ul>
+<li>변수를 선언하는 시점에는 재할당이 필요할 지 잘모르는 경우가 많다.</li>
+<li>객체는 재할당하는 경우가 드물다</li>
+<li>재할당이 꼭 필요하다면 그때 let 으로 바꾸자 </li>
+</ul>
+<p><strong>ES6 이상인 경우 var은 사용하지 말자</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/22/javascript-14Problem-of-GlobalVariable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1482,107 +1677,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/28/javascript-ASCII-Unicode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/28/javascript-ASCII-Unicode/" class="post-title-link" itemprop="url">javascript ASCII, Unicode</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-28 18:30:58 / Modified: 18:31:42" itemprop="dateCreated datePublished" datetime="2020-08-28T18:30:58+09:00">2020-08-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="아스키-코드-ASCII-amp-유니코드-Unicode-정리"><a href="#아스키-코드-ASCII-amp-유니코드-Unicode-정리" class="headerlink" title="아스키 코드(ASCII)&amp; 유니코드 (Unicode) 정리"></a>아스키 코드(ASCII)&amp; 유니코드 (Unicode) 정리</h1><h2 id="문자인코딩이-필요한-이유"><a href="#문자인코딩이-필요한-이유" class="headerlink" title="문자인코딩이 필요한 이유"></a>문자인코딩이 필요한 이유</h2><h3 id="먼저-프로그래밍-언어란"><a href="#먼저-프로그래밍-언어란" class="headerlink" title="먼저, 프로그래밍 언어란?"></a>먼저, 프로그래밍 언어란?</h3><p><strong>컴퓨터는 사람의 언어를 이해하지 못한다.</strong> 컴퓨터는 기계어만을 이해할 수 있다. </p>
-<p>그렇기 때문에 컴퓨터에게 명령을 내리기 위해서는 인간의 언어인 자연어를 기계어로 바꿔서 명령을 해주어야 한다. 하지만 이진수로 이루어진 기계어를 <strong>직접 입력한다는 것은 복잡하고 어렵다.</strong>  </p>
-<p> 사람과 컴퓨터의 소통을 매개하기 위해 필요한 것이 컴파일러라는 번역기이다. 우리는 이 번역기에 <strong>프로그래밍 언어</strong>로 작성한 프로그램을 보내주면 컴파일러가 프로그래밍 언어를 기계어로 번역해준다. </p>
-<p>즉 프로그래밍언어는 <strong>인간과 컴퓨터의 소통을 매개</strong>하기 위해 만들어진 언어이다.</p>
-<h3 id="문자-인코딩은-문자열을-컴퓨터에-전달하는-것이다"><a href="#문자-인코딩은-문자열을-컴퓨터에-전달하는-것이다" class="headerlink" title="문자 인코딩은 문자열을 컴퓨터에 전달하는 것이다."></a>문자 인코딩은 문자열을 컴퓨터에 전달하는 것이다.</h3><p>명령, 즉 우리의 언어를 기계어로 컴퓨터에게 전달하고 컴퓨터로부터 출력값을 전달받기위해서, </p>
-<p>프로그래밍 언어에서는 어떤 값을 어떤 기계어로 변환할 것인지,그리고 컴퓨터가 처리한 정보를 어떻게 변환할 지에 대한 체계를 도입하고 있다. </p>
-<p>여기서 인코딩과 디코딩이라는 개념을 짚어보자</p>
-<ul>
-<li>인코딩 :  사용자가 입력한 문자나 기호들을 컴퓨터가 이용할 수 있는 신호로 만드는 것</li>
-<li>디코딩 :  인코딩된 신호를 다시 인간이 이해할수 있게 해독하는 것</li>
-</ul>
-<p>예로 우리가 ‘영어’로 작성한 프로그램을 기계어로 바꿔야된다. 그것이 <strong>문자 인코딩</strong>이다. 그런데 문자 인코딩을 위해서는 일관된 체계가 필요하다. 문자인코딩에 대한 기준, 체계를 정리한것이 <strong>문자열 세트</strong>이다. </p>
-<p>일반적으로 문자 인코딩과 문자열 세트는 <strong>어떤 문자를 사용할 수 있으며 어떤 식으로 표현되는지를 나타내는 데서 동의어로 취급</strong>되기도한다.</p>
-<h3 id="문자-인코딩은-어떻게-이루어지는가"><a href="#문자-인코딩은-어떻게-이루어지는가" class="headerlink" title="문자 인코딩은 어떻게 이루어지는가"></a>문자 인코딩은 어떻게 이루어지는가</h3><p>문자 인코딩 형태(character encoding form) :  문자열 세트 내의 문자들을 컴퓨터 시스템에서 사용할 목적으르 일정한 범위 안의 정수(코드 값) 으로 변환한다. </p>
-<h2 id="아스키코드와-유니코드"><a href="#아스키코드와-유니코드" class="headerlink" title="아스키코드와 유니코드"></a>아스키코드와 유니코드</h2><p>문자열 세트의 표준으로서, 초기에는 <strong>아스키코드</strong>가 활용되었다. 아스키코드는 ‘<strong>영어</strong>‘라는 언어에 대한 인코딩 기준이다.  하지만 프로그래밍이  세계적으로 점차 확대됨에 따라 영어 하나로는 한계점이 있었다.더욱이 7비트만을 활용하는 아스키 특성상 다른 언어를 새로이 집어 넣는 것도 불가 하였다. 그래서 확장판인 <strong>유니코드</strong>가 등장하였다. 최초버전의 용량이 무려 2byte, 즉 16비트 65536개의 문자를 표현할 수 있다. 버전이 확장됨에 따라 현재 100만자 이상을 표현할 수 있다.</p>
-<h2 id="1-ASCII"><a href="#1-ASCII" class="headerlink" title="1. ASCII"></a>1. ASCII</h2><p>아스키 인코딩의 특징을 알아보자</p>
-<ul>
-<li><p>7비트 인코딩</p>
-</li>
-<li><p>1비트는 오류검출용으로 사용</p>
-</li>
-<li><p>33개의 제어문자, 95개의 출력 가능 문자</p>
-</li>
-<li><p>출력가능문자 : 52개 알파벳 대소문자 / 10개 숫자 / 32개 특수문자  1개 공백문자 </p>
-<p>아스키 코드표</p>
-</li>
-</ul>
-<p><img src="https://t1.daumcdn.net/cfile/tistory/216CE84C52694FF020" alt="ASCII Table - 아스키 코드표"></p>
-<h2 id="2-유니코드"><a href="#2-유니코드" class="headerlink" title="2. 유니코드"></a>2. 유니코드</h2><p>유니코드는 기존의 1byte에 문자열 셋을 할당한 방식에서, 더 많은 언어를 표시하고자 국제적으로 만들어진 표준코드이다. </p>
-<p>다음과같은특징이 있다.</p>
-<ul>
-<li>가변 인코딩 방식(글자마다 byte 길이가 다르다.)</li>
-</ul>
-<p><img src="https://miro.medium.com/max/1624/1*A6GcpKbbG-u6ps66f_rEjg.png" alt="Image for post"></p>
-<p>(출처 : 위키피디아)</p>
-<ul>
-<li>아스키코드와 호환된다.</li>
-<li>확장 가능하다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1648,7 +1746,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
