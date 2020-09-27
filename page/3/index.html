@@ -148,6 +148,143 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/24/javascript-05Expression-Statement/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/24/javascript-05Expression-Statement/" class="post-title-link" itemprop="url">javascript 05Expression&Statement</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-24 17:30:45" itemprop="dateCreated datePublished" datetime="2020-08-24T17:30:45+09:00">2020-08-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-03 17:06:28" itemprop="dateModified" datetime="2020-09-03T17:06:28+09:00">2020-09-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="표현식과-문"><a href="#표현식과-문" class="headerlink" title="표현식과 문"></a>표현식과 문</h1><h2 id="keyword-값-리터럴-표현식-문"><a href="#keyword-값-리터럴-표현식-문" class="headerlink" title="keyword : 값, 리터럴, 표현식, 문"></a>keyword : 값, 리터럴, 표현식, 문</h2><h3 id="용어-정리"><a href="#용어-정리" class="headerlink" title="용어 정리"></a>용어 정리</h3><ul>
+<li><p>값 : 식이 평가되어 생성된 결과</p>
+<ul>
+<li>생성된 결과는 메모리에 저장된다.</li>
+<li>표현식은 곧 값으로 평가된다.</li>
+</ul>
+</li>
+<li><p>리터럴 : 사람이 이해할 수 있는 문자 또는 약속된 기호를 사용해 값을 생성하는 표기방식</p>
+<ul>
+<li>뇌피셜로는.. 자바스크립트 엔진으로 하여금 ‘리터럴 a 는 b다’라고 해석하도록 미리 설정해놓은 값들의 집합?</li>
+</ul>
+</li>
+<li><p>표현식 : 값으로 평가되는 문</p>
+<ul>
+<li>리터럴도 값으로 생성된다 &gt;&gt; 리터럴도 표현식</li>
+<li>연산자 표현식도 평가되어 값 생성 &gt;&gt; 연산자 표현식도 표현식</li>
+<li>식별자도 참조하면 값으로 평가 &gt;&gt; 식별자 참조도 표현식</li>
+<li>결론: 값으로 평가되는건 전부 표현식</li>
+</ul>
+</li>
+<li><p>문 : 프로그램을 구성하는 기본단위이자 최소 실행 단위</p>
+<ul>
+<li>토큰 : 문법적인 의미를 가지며, 더 이상 나눌 수 없는 코드의 기본 요소(국어로 따지면 형태소쯤..?)</li>
+<li>문은 여러 토큰으로 이루어짐</li>
+<li>문의 종류로는 선언문, 조건문 반복문 등이 있다. </li>
+<li>문의 집합이 곧 프로그램</li>
+</ul>
+<h2 id="1-값"><a href="#1-값" class="headerlink" title="1. 값"></a>1. 값</h2></li>
+</ul>
+<p>값(value)은 식(표현식, expression)이 평가(evaluate)되어 생성된 결과를 말한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 + 20; &#x2F;&#x2F;30</span><br></pre></td></tr></table></figure>
+
+<p>10은 값이다 20은 값이다.  변수는 하나의 값을 저장하기 위해 확보한 메모리 공간 자체 또는 그 메모리 공간을 식별할 수 있는 이름이다. 변수 안에 하나의 값이 들어간다. 하나의 값을 위해 확보한 메모리 공간이 변수이다. </p>
+<p>즉, 메모리 공간 안에 들어갈 수 있는 것이 값이다. </p>
+<p><code>위 식을 다시 이해해보자</code></p>
+<p>10 + 20 을 cpu가 계산해서 30이라는 결과가 나왔고 그 결과값도 메모리에 저장된다. 순서가있다. 10이라는 값을 만들고, 20이라는 기호를 가지고 20이라는 2진수값을 만들어서 메모리에 저장한다. 3번째로 +를 수행한다. 10 과 20 이 메모리 공간내에 값으로 저장되어있는 것이 전제가 되어야 하기 때문이다. 그 다음에 30이라는 새로운 값이 만들어진다. 값의 생성된다. 휘발유 처럼 날라가는 게아니고 메모리 상에 들어간다 . </p>
+<p>**값은 표현식이 평가된 결과이다. **</p>
+<p>10도 값을 만드는 것이고 20 도 값을 만드는 것이고 10 + 20도 값을 만든다. </p>
+<p>10 + 20이 새로운 값을 만들어냈다. 라고 표현한다. 10 + 20 이 평가되어 숫자 값 30을 생성했다라고 표현한다. </p>
+<p>10 + 20이라는 것이 <strong>평가</strong>된 결과가 값이다. </p>
+<p>평가는 값을 생성해서 메모리에 집어넣는것이다. </p>
+<p>아래 식의 할당을 이해해보자. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var sum &#x3D; 10 + 20;</span><br></pre></td></tr></table></figure>
+
+<p>sum 이 등록되어있는지 확인한다.  할당할 수 있다고 판단한 후 10 + 20을 평가한다. 30이 메모리 공간에 저장되고 sum 이 그 메모리 공간을 가리킨다. </p>
+<h2 id="리터럴"><a href="#리터럴" class="headerlink" title="리터럴"></a>리터럴</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p>우리가 코드에 3을 썼다면 값을 만들라고 컴퓨터에게 명령하는 것이다. 컴퓨터가 숫자 값3을 만들어서 메모리에 저장한다. </p>
+<p>리터럴을 정의해보면 사람이 이해할 수 있는 문자 또는 약속된 기호를 사용해 **값을 생성하는 표기 방식(notation)**이다.  </p>
+<p>숫자를 타이핑하면 순수한 텍스트 3이다. 실행을 시키면 평가가 일어나고, 평가가 되면 3이라는 이진수 값을 생성해서 집어넣는다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 정수 리터럴</span><br><span class="line">100</span><br><span class="line">&#x2F;&#x2F;부동소수점 리터럴</span><br><span class="line">10.5</span><br><span class="line">&#x2F;&#x2F; 2진수 리터럴(ob로 시작)</span><br><span class="line">0b01000001</span><br><span class="line">&#x2F;&#x2F; 8진수 리터럴</span><br><span class="line">0o101</span><br><span class="line">&#x2F;&#x2F;16진수 리터럴</span><br><span class="line">0x41</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;문자열 리터럴</span><br><span class="line">&#x2F;&#x2F;문자열을 바로 만들 수 있다 &gt; 자바스크립트의 장점</span><br><span class="line">&quot;Hello&quot;</span><br><span class="line">&quot;World&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;불리언 리터럴</span><br><span class="line">true</span><br><span class="line">false</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; null 리터럴</span><br><span class="line">null</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; undefined 리터럴</span><br><span class="line">undefined</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;여러개의 값을 하나의 값처럼 사용하는 data structure</span><br><span class="line">&#x2F;&#x2F; 객체 리터럴</span><br><span class="line">&#123; name: &#39;Lee&#39;, address: &#39;Seoul&#39;&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 배열 리터럴</span><br><span class="line">[1, 2, 3]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 함수 리터럴</span><br><span class="line">function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 정규 표현식 리터럴</span><br><span class="line">&#x2F;[A-Z]+&#x2F;g</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="표현식"><a href="#표현식" class="headerlink" title="표현식"></a>표현식</h2><p>값으로 평가될 수 있는 문(statement)이다.</p>
+<p>문은 프로그램을 구성하는 기본단위하다.</p>
+<p>코딩할때 문을 만드는 것이다.</p>
+<p>문과 표현식의 차이</p>
+<p>문은 구와 절로 구성된다. 문장의 구성요소들을 컴퓨터 공학에서는 토큰이라고 부른다. </p>
+<p>토큰이 뭉쳐서 하나의 명령이 된다. </p>
+<p>실행될 수 있으면 모두 문이다</p>
+<p>최소 실행단위이다. 문이 실행되면 무슨일인가가 일어난다 (에러포함)</p>
+<p>표현식인 문이 있고 표현식이 아닌문이있다.</p>
+<h2 id="세미콜론"><a href="#세미콜론" class="headerlink" title="세미콜론"></a>세미콜론</h2><p>문의 끝을 명확히하고 컴퓨터에게 최소 실행 단위를 알려주기 위해서 사용한다. 컴퓨터가 헷갈리지 않게 하기 위함이다.</p>
+<p>보통 프로그래밍 언어에서 문의 종료를 </p>
+<ul>
+<li>줄바꿈</li>
+<li>세미콜론</li>
+</ul>
+<p>로 표현하는데 자바스크립트는 세미콜론을 사용한다.</p>
+<p>줄바꿈이 있어도 엔진이 문의 종료라고 추정하고 세미콜론을 붙여준다. </p>
+<p>이를 세미콜론 자동삽입기능이라고 한다. (ASI)</p>
+<h3 id="완료값"><a href="#완료값" class="headerlink" title="완료값"></a>완료값</h3><p>표현식이 아닌문을 실행하면 undefined 를 출력한다. 다만 평가 결과가 아니므로 값으로 기능하지 않는다. </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/24/javascript-04Variable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -848,72 +985,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/13/0812-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/13/0812-TIL/" class="post-title-link" itemprop="url">0812 TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-13 17:48:37 / Modified: 17:50:13" itemprop="dateCreated datePublished" datetime="2020-08-13T17:48:37+09:00">2020-08-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="오늘-한일"><a href="#오늘-한일" class="headerlink" title="오늘 한일"></a>오늘 한일</h2><ul>
-<li>스타벅스 반응형 작업 <ul>
-<li>자바스크립트 미디어쿼리</li>
-<li>flexbox layout</li>
-<li>헤더 조금 완성</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -983,7 +1054,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
