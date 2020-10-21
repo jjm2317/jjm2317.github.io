@@ -148,6 +148,374 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/21/27Array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/21/27Array/" class="post-title-link" itemprop="url">27Array</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-21 18:36:12 / Modified: 18:36:50" itemprop="dateCreated datePublished" datetime="2020-10-21T18:36:12+09:00">2020-10-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h1><ul>
+<li><p>동일한 메모리공간을 연속적으로 확보한다.</p>
+</li>
+<li><p>random access가빠르다 O(1);</p>
+</li>
+<li><p>유사배열객체와는 속도의 차이가 있다.</p>
+</li>
+<li><p>자료구조 사용이유</p>
+<ul>
+<li>관련있는 것들끼리 모으기 위해</li>
+</ul>
+</li>
+<li><p>배열을 만들때 요소의 타입이 갖도록 해야한다.</p>
+<ul>
+<li>최적화가 일어나기 때문</li>
+</ul>
+</li>
+</ul>
+<h2 id="배열-메서드"><a href="#배열-메서드" class="headerlink" title="배열 메서드"></a>배열 메서드</h2><h3 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray"></a>Array.isArray</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;true</span><br><span class="line">Array.isArray([]); &#x2F;&#x2F;true</span><br><span class="line">Array.isArray([1,2]);</span><br><span class="line">Array.isArray(new Array());</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;false</span><br><span class="line">Array.isArray();</span><br><span class="line">Array.isArray(&#123;&#125;);</span><br><span class="line">Array.isArray(null);</span><br><span class="line">Array.isArray(undefined);</span><br><span class="line">Array.isArray(1);</span><br><span class="line">Array.isArray(&#39;Array&#39;);</span><br><span class="line">Array.isArray(true);</span><br><span class="line">Array.isArray(false);</span><br><span class="line">Array.isArray(&#123;0 : 1, length: 1&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-indexOf"><a href="#Array-prototype-indexOf" class="headerlink" title="Array.prototype.indexOf"></a>Array.prototype.indexOf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1,2,3,4];</span><br><span class="line"></span><br><span class="line">arr.indexOf(2); &#x2F;&#x2F;1</span><br><span class="line">arr.indexOf(4); &#x2F;&#x2F;-1</span><br><span class="line">arr.indexOf(2,2);&#x2F;&#x2F;2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const foods &#x3D; [&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;];</span><br><span class="line"></span><br><span class="line">if (foods.indexOf(&#39;orange&#39;) &#x3D;&#x3D;&#x3D; -1) &#123;</span><br><span class="line">    foods.push(&#39;orange&#39;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(foods);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-push"><a href="#Array-prototype-push" class="headerlink" title="Array.prototype.push"></a>Array.prototype.push</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1,2];</span><br><span class="line"></span><br><span class="line">let result &#x3D; arr.push(3, 4);</span><br><span class="line">console.log(result);&#x2F;&#x2F;4</span><br><span class="line"></span><br><span class="line">console.log(arr); &#x2F;&#x2F; [1, 2, 3, 4];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2];</span><br><span class="line"></span><br><span class="line">arr[arr.length] &#x3D; 3;</span><br><span class="line">console.log(arr); &#x2F;&#x2F; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2];</span><br><span class="line"></span><br><span class="line">const newArr &#x3D; [...arr, 3];</span><br><span class="line">console.log(newArr); &#x2F;&#x2F; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-pop"><a href="#Array-prototype-pop" class="headerlink" title="Array.prototype.pop"></a>Array.prototype.pop</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2];</span><br><span class="line"></span><br><span class="line">let result &#x3D; arr.pop();</span><br><span class="line">console.log(result); &#x2F;&#x2F;2</span><br><span class="line"></span><br><span class="line">console.log(arr); &#x2F;&#x2F;[1]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">const Stack &#x3D; (function () &#123;</span><br><span class="line">    function Stack(array &#x3D; []) &#123;</span><br><span class="line">        if (!Array.isArray(array))&#123;</span><br><span class="line">            throw new TypeError(&#96;$&#123;array&#125; is not an array.&#96;);</span><br><span class="line">        &#125;</span><br><span class="line">        this.array &#x3D; arrayp</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Stack.prototype &#x3D; &#123;</span><br><span class="line">        constructor: Stack,</span><br><span class="line">        </span><br><span class="line">        push(value) &#123;</span><br><span class="line">            return this.array.push(value);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        pop() &#123;</span><br><span class="line">            return this.array.pop();</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        entries() &#123;</span><br><span class="line">            return [... this.array]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    return Stack</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line">const Stack &#x3D; new Stack ([1, 2]);</span><br><span class="line">console.log(stack.entries()); &#x2F;&#x2F; [1, 2]</span><br><span class="line"></span><br><span class="line">stack.push(3);</span><br><span class="line">console.log(stack.entries()); &#x2F;&#x2F; [1, 2, 3]</span><br><span class="line"></span><br><span class="line">stack.pop();</span><br><span class="line">console.log(stack.entries()); &#x2F;&#x2F; [1, 2]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Stack &#123;</span><br><span class="line">    #array; &#x2F;&#x2F; private class member</span><br><span class="line">    </span><br><span class="line">    constructor(array &#x3D; []) &#123;</span><br><span class="line">        if (!Array.isArray(array)) &#123;</span><br><span class="line">            throw new TypeError(&#96;$&#123;array&#125; is not an array.&#96;);</span><br><span class="line">        &#125;</span><br><span class="line">        this.#array &#x3D; array;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    push(value) &#123;</span><br><span class="line">        return this.#array.push(value);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    pop() &#123;</span><br><span class="line">        return this.#array.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    entries() &#123;</span><br><span class="line">        return [...this.#array];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-unshift"><a href="#Array-prototype-unshift" class="headerlink" title="Array.prototype.unshift"></a>Array.prototype.unshift</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2];</span><br><span class="line"></span><br><span class="line">let result &#x3D; arr.unshift(3, 4);</span><br><span class="line"></span><br><span class="line">console.log(result); &#x2F;&#x2F;4</span><br><span class="line"></span><br><span class="line">console.log(arr); &#x2F;&#x2F; [3, 4, 1, 2]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2];</span><br><span class="line"></span><br><span class="line">const newArr &#x3D; [3, ...arr];</span><br><span class="line">console.log(newArr); &#x2F;&#x2F; [3, 1, 2]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const arr1 &#x3D; [1, 2];</span><br><span class="line">console.log(arr1.unshift(3));&#x2F;&#x2F;3</span><br><span class="line">console.log(arr1);&#x2F;&#x2F; [3, 1, 2]</span><br><span class="line"></span><br><span class="line">arr1.unshift([1, 2]);</span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[ [ 1, 2 ], 3, 1, 2 ] 전달 받은 배열을 그대로 저장</span><br><span class="line"></span><br><span class="line">const arr2 &#x3D; [1, 2];</span><br><span class="line">arr2.unshift([3, 4], 1);</span><br><span class="line">console.log(arr2); &#x2F;&#x2F;[ [ 3, 4 ], 1, 1, 2 ] 숫자 배열 혼합도 그대로 저장</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8-6-Array-prototype-shift"><a href="#8-6-Array-prototype-shift" class="headerlink" title="8.6 Array.prototype.shift"></a>8.6 Array.prototype.shift</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2];</span><br><span class="line"></span><br><span class="line">let result &#x3D; arr.shift();</span><br><span class="line">console.log(result); &#x2F;&#x2F; 1</span><br><span class="line"></span><br><span class="line">console.log(arr); &#x2F;&#x2F; [2]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 큐 생성자 함수</span><br><span class="line">const Queue &#x3D; (function () &#123;</span><br><span class="line">    function Queue(array &#x3D; []) &#123;</span><br><span class="line">        this.array &#x3D; array;</span><br><span class="line">    &#125;</span><br><span class="line">    Queue.prototype &#x3D; &#123;</span><br><span class="line">        constructor: Queue,</span><br><span class="line">        </span><br><span class="line">        enqueue(element) &#123;</span><br><span class="line">            this.array.push(element);</span><br><span class="line">        &#125;</span><br><span class="line">        dequeue(element) &#123;</span><br><span class="line">            this.array.shift();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        entries()&#123;</span><br><span class="line">            return [...this.array];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return Queue;</span><br><span class="line">    </span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 큐 클래스</span><br><span class="line">class Queue &#123;</span><br><span class="line">    #array;</span><br><span class="line">    </span><br><span class="line">    constructor(array &#x3D; []) &#123;</span><br><span class="line">        if(!(array instanceof Array)) &#123;</span><br><span class="line">            throw new TypeError(&#96;$&#123;array&#125; is not array&#96;);</span><br><span class="line">        &#125;</span><br><span class="line">        this.#array &#x3D; array;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    enqueue (element) &#123;</span><br><span class="line">        this.#array.push(element);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dequeue () &#123;</span><br><span class="line">        this.#array.shift();</span><br><span class="line">    &#125;</span><br><span class="line">    entries() &#123;</span><br><span class="line">        return [...this.aray];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return Queue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Array-prototype-concat"><a href="#Array-prototype-concat" class="headerlink" title="Array.prototype.concat"></a>Array.prototype.concat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const arr1 &#x3D; [1, 2];</span><br><span class="line">const arr2 &#x3D; [3, 4];</span><br><span class="line"></span><br><span class="line">let result &#x3D; arr.concat(arr2);</span><br><span class="line">console.log(result); [1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line">result &#x3D; arr1.concat(3);</span><br><span class="line">console.log(result); &#x2F;&#x2F; [1, 2, 3]</span><br><span class="line"></span><br><span class="line">result &#x3D; arr1.concat(arr2, 5);</span><br><span class="line">console.log(result); &#x2F;&#x2F;[1, 2, 3, 4, 5]</span><br><span class="line"></span><br><span class="line">consol.log(arr1); &#x2F;&#x2F; [1, 2]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const arr1 &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">const arr2 &#x3D; arr1.concat(1,2,3);</span><br><span class="line"></span><br><span class="line">console.log(arr2);&#x2F;&#x2F;[ 1, 2, 3, 1, 2, 3 ]</span><br><span class="line">console.log(arr1);&#x2F;&#x2F;[ 1, 2, 3 ] 원본 배열 안 변한다.</span><br><span class="line"></span><br><span class="line">console.log(arr1.concat([1,2]));&#x2F;&#x2F;[ 1, 2, 3, 1, 2 ] &#x2F;&#x2F;배열 인수도 가능</span><br><span class="line">console.log([1, 2].concat(arr1, 3));&#x2F;&#x2F;[ 1, 2, 1, 2, 3, 3 ] 배열과 숫자 혼합 가능</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const arr1 &#x3D; [3, 4];</span><br><span class="line"></span><br><span class="line">arr.unshift(1, 2);</span><br><span class="line"></span><br><span class="line">console.log(arr1); &#x2F;&#x2F; [1,2,3,4]</span><br><span class="line"></span><br><span class="line">arr1.push(5, 6);</span><br><span class="line"></span><br><span class="line">console.log(arr1); &#x2F;&#x2F; [1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line">const arr2 &#x3D; [3, 4];</span><br><span class="line"></span><br><span class="line">let result &#x3D; [1, 2].concat(arr2);</span><br><span class="line"></span><br><span class="line">console.log(result); &#x2F;&#x2F;[1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line">result &#x3D; result.concat(5, 6);</span><br><span class="line">console.log(result); &#x2F;&#x2F; [1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Array.prototype.concat 메서드 스프레드 문법 대체</span><br><span class="line">const arr1 &#x3D; [1, 2];</span><br><span class="line"></span><br><span class="line">let result &#x3D; [0, ...arr1, 3, 4];</span><br><span class="line">console.log(result); &#x2F;&#x2F; [0, 1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line">result &#x3D; [...result, ...[5, 6]];</span><br><span class="line"></span><br><span class="line">console.log(result); &#x2F;&#x2F; [0, 1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-splice"><a href="#Array-prototype-splice" class="headerlink" title="Array.prototype.splice"></a>Array.prototype.splice</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3, 4];</span><br><span class="line"></span><br><span class="line">const result &#x3D; arr.splice(1, 2, 20, 30);</span><br><span class="line"></span><br><span class="line">console.log(result); &#x2F;&#x2F; [2, 3]</span><br><span class="line"></span><br><span class="line">console.log(arr);[1, 20, 30, 4]</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const arr1 &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">console.log(arr1.splice(1,1,1)); &#x2F;&#x2F; [2] 제거한 요소를 배열로 반환</span><br><span class="line">console.log(arr1); &#x2F;&#x2F; [ 1, 1, 3 ] 원본 배열 직접 변경</span><br><span class="line"></span><br><span class="line">arr1.splice(1,0, [3,4]);</span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[ 1, [ 3, 4 ], 1, 3 ] 배열 요소 전달시 그대로 저장</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 특정 요소 모두 제거</span><br><span class="line">function remove(arr, item) &#123;</span><br><span class="line">  if(!(Array.isArray(arr))) &#123;</span><br><span class="line">    throw new TypeError(&#96;$&#123;arr&#125; is not array&#96;);</span><br><span class="line">  &#125;</span><br><span class="line">  let index &#x3D; arr.indexOf(item);</span><br><span class="line"></span><br><span class="line">  if(!(index &#x3D;&#x3D;&#x3D; -1)) &#123;</span><br><span class="line">    arr.splice(index, 1);</span><br><span class="line">    return remove(arr, item);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(remove([1, 2, 3, 2, 4, 5, 2], 2)); &#x2F;&#x2F; [1, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-slice"><a href="#Array-prototype-slice" class="headerlink" title="Array.prototype.slice"></a>Array.prototype.slice</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-join"><a href="#Array-prototype-join" class="headerlink" title="Array.prototype.join"></a>Array.prototype.join</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3, 4];</span><br><span class="line"></span><br><span class="line">arr.join(); &#x2F;&#x2F; 1, 2, 3, 4</span><br><span class="line"></span><br><span class="line">console.log(arr);</span><br><span class="line">&#x2F;&#x2F;[1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-reverse"><a href="#Array-prototype-reverse" class="headerlink" title="Array.prototype.reverse"></a>Array.prototype.reverse</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">const result &#x3D; arr.reverse();</span><br><span class="line"></span><br><span class="line">console.log(arr); [3, 2, 1];</span><br><span class="line">console.log(result); [3, 2, 1]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Array-prototype-fill"><a href="#Array-prototype-fill" class="headerlink" title="Array.prototype.fill"></a>Array.prototype.fill</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">const res &#x3D; arr.fill(0);</span><br><span class="line"></span><br><span class="line">console.log(arr); &#x2F;&#x2F; [0, 0, 0]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">arr.fill(0, 1);</span><br><span class="line"></span><br><span class="line">console.log(arr); &#x2F;&#x2F; [1, 0, 0]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const todos &#x3D; [</span><br><span class="line">    &#123; id: 4, content: &#39;JavaScript&#39;&#125;,</span><br><span class="line">    &#123; id: 1, content: &#39;HTML&#39;&#125;,</span><br><span class="line">    &#123; id: 2, content: &#39;CSS&#39;&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">function compare(key) &#123;</span><br><span class="line">    return (a, b) &#x3D;&gt; (a[key] &gt; b[key] ? 1 : (a[key] &gt; b[key] ? -1 : 0));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">todos.sort(compare(&#39;content&#39;));</span><br><span class="line">console.log(todos);</span><br><span class="line"></span><br><span class="line">todos.sort(compare(&#39;content&#39;));</span><br><span class="line">console.log(todos);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-forEach"><a href="#Array-prototype-forEach" class="headerlink" title="Array.prototype.forEach"></a>Array.prototype.forEach</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const numbers &#x3D; [1, 2, 3];</span><br><span class="line">let pows &#x3D; [];</span><br><span class="line"></span><br><span class="line">for(let i &#x3D; 0; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    pows.push(numbers[i] ** 2);</span><br><span class="line">&#125;</span><br><span class="line">console.log(pows); [1, 4, 9]</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const numbers &#x3D; [1, 2, 3];</span><br><span class="line">let pows &#x3D; [];</span><br><span class="line"></span><br><span class="line">numbers.forEach(item &#x3D;&gt; pows.push(item ** 2));</span><br><span class="line">console.log(pows);</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].forEach((item, index, arr) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#96;요소값: $&#123;item&#125;, 인덱스: $&#123;index&#125;, this: $&#123;JSON.stringify(arr)&#125;&#96;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const numbers &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">numbers.forEach((item, index, arr) &#x3D;&gt; &#123; arr[index] &#x3D; item ** 2;&#125;);</span><br><span class="line">console.log(numbers);</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Numbers &#123;</span><br><span class="line">    numberArray &#x3D; [];</span><br><span class="line">    </span><br><span class="line">    multiply(arr) &#123;</span><br><span class="line">        arr.forEach(function (item)&#123;</span><br><span class="line">            this.numberArray.push(item * item);</span><br><span class="line">        &#125;); &#x2F;&#x2F;TypeError</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const numbers &#x3D; new Numbers();</span><br><span class="line">numbers.multiply([1, 2, 3]);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-map"><a href="#Array-prototype-map" class="headerlink" title="Array.prototype.map"></a>Array.prototype.map</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const numbers &#x3D; [1, 4, 9];</span><br><span class="line"></span><br><span class="line">const roots &#x3D; numbers.map(item &#x3D;&gt; Math.sqrt(item));</span><br><span class="line"></span><br><span class="line">console.log(roots);</span><br><span class="line"></span><br><span class="line">console.log(numbers);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].map((item, index, arr) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#96;item, index, JSON.stringify(arr)&#96;);</span><br><span class="line">    return item;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Prefixer &#123;</span><br><span class="line">    constructor(prefix) &#123;</span><br><span class="line">        this.prefix &#x3D; prefix;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    add(arr) &#123;</span><br><span class="line">        return arr.map(function (item) &#123;</span><br><span class="line">            return this.prefix + item;</span><br><span class="line">        &#125;, this);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const prefixer &#x3D; new Prefixer(&#39;-webkit-&#39;);</span><br><span class="line">console.log(prefixer.add([&#39;transition&#39;, &#39;user-select&#39;]));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Prefixer &#123;</span><br><span class="line">    constructor(prefix) &#123;</span><br><span class="line">        this.prefix &#x3D; prefix;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    add(arr) &#123;</span><br><span class="line">        arr.map((item) &#x3D;&gt; this.prefix + item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Array-prototype-filter"><a href="#Array-prototype-filter" class="headerlink" title="Array.prototype.filter"></a>Array.prototype.filter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const numbers &#x3D; [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">const odds &#x3D; numbers.filter(item &#x3D;&gt; item % 2);</span><br><span class="line"></span><br><span class="line">console.log(odds);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].filter((item, index, arr) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#96;$&#123;item, index, JSON.stringify(arr)&#125;&#96;);</span><br><span class="line">    return item % 2;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Users &#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">        this.users &#x3D; [</span><br><span class="line">            &#123; id: 1, name: &#39;Lee&#39;&#125;,</span><br><span class="line">            &#123; id: 2, name: &#39;Kim&#39;&#125;</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    findById(id) &#123;</span><br><span class="line">        return this.users.filter(user &#x3D;&gt; user.id &#x3D;&#x3D;&#x3D; id);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    remove(id) &#123;</span><br><span class="line">        this.users &#x3D; this.user.filter(user.id !&#x3D;&#x3D; id)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Array-prototype-reduce"><a href="#Array-prototype-reduce" class="headerlink" title="Array.prototype.reduce"></a>Array.prototype.reduce</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const sum &#x3D; [1, 2, 3, 4].reduce((accumulator, currentValue, index, array) &#x3D;&gt; accumulator + currentValue, 0);</span><br><span class="line"></span><br><span class="line">console.log(sum); &#x2F;&#x2F;10</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const values &#x3D; [1, 2, 3, 4, 5, 6];</span><br><span class="line"></span><br><span class="line">const average &#x3D; values.reduce((acc, cur, i, &#123; length&#125;) &#x3D;&gt; &#123;</span><br><span class="line">    return i &#x3D;&#x3D;&#x3D; length - 1 ? (acc + cur) &#x2F; length : acc + cur;</span><br><span class="line">&#125;, 0);</span><br><span class="line"></span><br><span class="line">console.log(average);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const values &#x3D; [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">const max &#x3D; values.reduce((acc, cur) &#x3D;&gt; (acc &gt; cur ? acc : cur), 0);</span><br><span class="line"></span><br><span class="line">console.log(max);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const values &#x3D; [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">const max &#x3D; Math.max(...values);</span><br><span class="line"></span><br><span class="line">console.log(max);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const fruits &#x3D; [&#39;banana&#39;, &#39;apple&#39;, &#39;orange&#39;, &#39;orange&#39;, &#39;apple&#39;];</span><br><span class="line"></span><br><span class="line">const count &#x3D; fruits.reduce((acc, cur) &#x3D;&gt; &#123;</span><br><span class="line">    acc[cur] &#x3D; (acc[cur] || 0) + 1;</span><br><span class="line">    return acc;</span><br><span class="line">&#125;, &#123;&#125;);</span><br><span class="line"></span><br><span class="line">console.log(count);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const values &#x3D; [1, [2, 3], 4, [5, 6]];</span><br><span class="line">const flatten &#x3D; values.reduce((acc, cur) &#x3D;&gt; acc.concat(cur), []);</span><br><span class="line">console.log(flatten);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[1, [2, 3], 4, [5, 6]].flat();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const values &#x3D; [1, 2, 1, 3, 5, 4, 5, 3, 4, 4];</span><br><span class="line"></span><br><span class="line">const result &#x3D; [... Set(values)];</span><br><span class="line">console.log</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const values &#x3D; [1, 2, 1, 3, 5, 4, 5, 3, 4, 4];</span><br><span class="line"></span><br><span class="line">const result &#x3D; values.filter((acc, cur, i, arr) &#x3D;&gt; &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const values &#x3D; [1, 2, 1, 3, 5, 4, 5, 3, 4, 4];</span><br><span class="line"></span><br><span class="line">const result &#x3D; values.reduce((acc, cur, i, arr) &#x3D;&gt; &#123;</span><br><span class="line">    if (arr.indexOf(cur) &#x3D;&#x3D;&#x3D; i)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Array-prototype-map-1"><a href="#Array-prototype-map-1" class="headerlink" title="Array.prototype.map"></a>Array.prototype.map</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const numbers &#x3D; [1, 4, 9]</span><br><span class="line"></span><br><span class="line">const roots &#x3D; numbers.map(item &#x3D;&gt; Math.sqrt(item));</span><br><span class="line"></span><br><span class="line">console.log(roots);</span><br><span class="line">&#x2F;&#x2F; [1, 2, 3]</span><br><span class="line"></span><br><span class="line">console.log(numbers); [1, 4, 9]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].map((item,index, arr) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#96;$&#123;item, index, JSON.stringify(arr)&#125;&#96;);</span><br><span class="line">    return item;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Prefixer &#123;</span><br><span class="line">    constructor(prefix) &#123;</span><br><span class="line">        this.prefix &#x3D; prefix;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    add(arr) &#123;</span><br><span class="line">        return arr.map(item &#x3D;&gt; this.prefix + item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Array-prototype-filter-1"><a href="#Array-prototype-filter-1" class="headerlink" title="Array.prototype.filter"></a>Array.prototype.filter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const numbers &#x3D; [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">const odds &#x3D; numbers.filter(item &#x3D;&gt; item % 2);</span><br><span class="line">console.log(odds);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3].filter((item, index, arr) &#x3D;&gt; &#123;</span><br><span class="line">    return item %2;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Users &#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">        this.users &#x3D; [</span><br><span class="line">            &#123;id : 1, name: &#39;Lee&#39;&#125;,</span><br><span class="line">            &#123;id : 2, name: &#39;Kim&#39;&#125;</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    findById(id) &#123;</span><br><span class="line">        return this.users.filter(item &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; id);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    remove(id) &#123;</span><br><span class="line">        this.users &#x3D; this.users.filter(item &#x3D;&gt; item.id !&#x3D;&#x3D; id);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/21/javascript-ArrayPractice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/21/javascript-ArrayPractice/" class="post-title-link" itemprop="url">javascript ArrayPractice</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-21 18:35:43 / Modified: 19:15:03" itemprop="dateCreated datePublished" datetime="2020-10-21T18:35:43+09:00">2020-10-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-html-생성"><a href="#1-html-생성" class="headerlink" title="1. html 생성"></a>1. html 생성</h1><p>아래 배열을 사용하여 html을 생성하는 함수를 작성하라.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;Javascript&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> html = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  todos.forEach(<span class="function"><span class="params">todo</span> =&gt;</span> &#123;</span><br><span class="line">    html += <span class="string">`&lt;li id = <span class="subst">$&#123;todo.id&#125;</span>&gt;</span></span><br><span class="line"><span class="string">    &lt;label&gt;&lt;input type =&quot;checkbox&quot; <span class="subst">$&#123;todo.completed === <span class="literal">true</span> ? <span class="string">&#x27;checked&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;</span>&gt;<span class="subst">$&#123;todo.content&#125;</span>&lt;/label&gt;</span></span><br><span class="line"><span class="string">&lt;/li&gt;</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> html;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(render());</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&lt;li id=&quot;3&quot;&gt;</span></span><br><span class="line"><span class="comment">  &lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;HTML&lt;/label&gt;</span></span><br><span class="line"><span class="comment">&lt;/li&gt;</span></span><br><span class="line"><span class="comment">&lt;li id=&quot;2&quot;&gt;</span></span><br><span class="line"><span class="comment">  &lt;label&gt;&lt;input type=&quot;checkbox&quot; checked&gt;CSS&lt;/label&gt;</span></span><br><span class="line"><span class="comment">&lt;/li&gt;</span></span><br><span class="line"><span class="comment">&lt;li id=&quot;1&quot;&gt;</span></span><br><span class="line"><span class="comment">  &lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;Javascript&lt;/label&gt;</span></span><br><span class="line"><span class="comment">&lt;/li&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="2-특정-프로퍼티-값-추출"><a href="#2-특정-프로퍼티-값-추출" class="headerlink" title="2. 특정 프로퍼티 값 추출"></a>2. 특정 프로퍼티 값 추출</h1><p>요소의 프로퍼티(id, content, completed)를 문자열 인수로 전달하면 todos의 각 요소 중, 해당 프로퍼티의 값만을 추출한 배열을 반환하는 함수를 작성하라.</p>
+<p>단, for 문이나 Array#forEach는 사용하지 않도록 하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;Javascript&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getValues</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> todos.map(<span class="function"><span class="params">todo</span> =&gt;</span> todo[key]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getValues(<span class="string">&#x27;id&#x27;</span>)); <span class="comment">// [3, 2, 1]</span></span><br><span class="line"><span class="built_in">console</span>.log(getValues(<span class="string">&#x27;content&#x27;</span>)); <span class="comment">// [&#x27;HTML&#x27;, &#x27;CSS&#x27;, &#x27;Javascript&#x27;]</span></span><br><span class="line"><span class="built_in">console</span>.log(getValues(<span class="string">&#x27;completed&#x27;</span>)); <span class="comment">// [false, true, false]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="3-프로퍼티-정렬"><a href="#3-프로퍼티-정렬" class="headerlink" title="3. 프로퍼티 정렬"></a>3. 프로퍼티 정렬</h1><p>요소의 프로퍼티(id, content, completed)를 문자열 인수로 전달하면 todos의 요소를 정렬하는 함수를 작성하라.</p>
+<p>단, todos는 변경되지 않도록 하자.</p>
+<p>참고: <a target="_blank" rel="noopener" href="https://poiemaweb.com/fastcampus/array#91-arrayprototypesort">Array.prototype.sort</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;Javascript&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortBy</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [...todos].sort(<span class="function">(<span class="params">v1, v2</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> v1[key] &gt; v2[key] ? <span class="number">1</span> : (v1[key] &lt; v2[key] ? <span class="number">-1</span> : <span class="number">0</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sortBy(<span class="string">&#x27;id&#x27;</span>));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123; id: 1, content: &#x27;Javascript&#x27;, completed: false &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 2, content: &#x27;CSS&#x27;, completed: true &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 3, content: &#x27;HTML&#x27;, completed: false &#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(sortBy(<span class="string">&#x27;content&#x27;</span>));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123; id: 2, content: &#x27;CSS&#x27;, completed: true &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 3, content: &#x27;HTML&#x27;, completed: false &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 1, content: &#x27;Javascript&#x27;, completed: false &#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(sortBy(<span class="string">&#x27;completed&#x27;</span>));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123; id: 3, content: &#x27;HTML&#x27;, completed: false &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 1, content: &#x27;Javascript&#x27;, completed: false &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 2, content: &#x27;CSS&#x27;, completed: true &#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="4-새로운-요소-추가"><a href="#4-새로운-요소-추가" class="headerlink" title="4. 새로운 요소 추가"></a>4. 새로운 요소 추가</h1><p>새로운 요소(예를 들어 <code>&#123; id: 4, content: &#39;Test&#39;, completed: false &#125;</code>)를 인수로 전달하면 todos의 선두에 새로운 요소를 추가하는 함수를 작성하라. 단, Array#push는 사용하지 않도록 하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;Javascript&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">newTodo</span>) </span>&#123;</span><br><span class="line">    todos = [newTodo,...todos];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addTodo(&#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">content</span>: <span class="string">&#x27;Test&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(todos);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123; id: 4, content: &#x27;Test&#x27;, completed: false &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 3, content: &#x27;HTML&#x27;, completed: false &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 2, content: &#x27;CSS&#x27;, completed: true &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 1, content: &#x27;Javascript&#x27;, completed: false &#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="5-특정-요소-삭제"><a href="#5-특정-요소-삭제" class="headerlink" title="5. 특정 요소 삭제"></a>5. 특정 요소 삭제</h1><p>todos에서 삭제할 요소의 id를 인수로 전달하면 해당 요소를 삭제하는 함수를 작성하라.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;Javascript&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeTodo</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    todos = todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.id !== id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">removeTodo(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(todos);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123; id: 3, content: &#x27;HTML&#x27;, completed: false &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 1, content: &#x27;Javascript&#x27;, completed: false &#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="6-특정-요소의-프로퍼티-값-반전"><a href="#6-특정-요소의-프로퍼티-값-반전" class="headerlink" title="6. 특정 요소의 프로퍼티 값 반전"></a>6. 특정 요소의 프로퍼티 값 반전</h1><p>todos에서 대상 요소의 id를 인수로 전달하면 해당 요소의 completed 프로퍼티 값을 반전하는 함수를 작성하라.</p>
+<p>hint) 기존 객체의 특정 프로퍼티를 변경/추가하여 새로운 객체를 생성하려면 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a> 또는 <a target="_blank" rel="noopener" href="https://poiemaweb.com/fastcampus/spread-syntax#3-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%EB%82%B4%EB%B6%80%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%BD%EC%9A%B0">스프레드 문법</a>을 사용한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;Javascript&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleCompletedById</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    todos.forEach(<span class="function">(<span class="params">todo,i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(todo.id === id) &#123;</span><br><span class="line">      todos[i] = &#123;...todo, ...&#123;<span class="attr">completed</span>: !todo.completed&#125;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;) ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">toggleCompletedById(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(todos);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123; id: 3, content: &#x27;HTML&#x27;, completed: false &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 2, content: &#x27;CSS&#x27;, completed: false &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 1, content: &#x27;Javascript&#x27;, completed: false &#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="7-모든-요소의-completed-프로퍼티-값을-true로-설정"><a href="#7-모든-요소의-completed-프로퍼티-값을-true로-설정" class="headerlink" title="7. 모든 요소의 completed 프로퍼티 값을 true로 설정"></a>7. 모든 요소의 completed 프로퍼티 값을 true로 설정</h1><p>todos의 모든 요소의 completed 프로퍼티 값을 true로 설정하는 함수를 작성하라.</p>
+<p>hint) 기존 객체의 특정 프로퍼티를 변경/추가하여 새로운 객체를 생성하려면 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a> 또는 <a target="_blank" rel="noopener" href="https://poiemaweb.com/fastcampus/spread-syntax#3-%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%EB%82%B4%EB%B6%80%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%BD%EC%9A%B0">스프레드 문법</a>을 사용한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;Javascript&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleCompletedAll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   todos.forEach(<span class="function">(<span class="params">todo,i</span>) =&gt;</span> todos[i] = &#123;...todo,...&#123;<span class="attr">completed</span> : <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">toggleCompletedAll();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(todos);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123; id: 3, content: &#x27;HTML&#x27;, completed: true &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 2, content: &#x27;CSS&#x27;, completed: true &#125;,</span></span><br><span class="line"><span class="comment">  &#123; id: 1, content: &#x27;Javascript&#x27;, completed: true &#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="8-completed-프로퍼티의-값이-true인-요소의-갯수-구하기"><a href="#8-completed-프로퍼티의-값이-true인-요소의-갯수-구하기" class="headerlink" title="8. completed 프로퍼티의 값이 true인 요소의 갯수 구하기"></a>8. completed 프로퍼티의 값이 true인 요소의 갯수 구하기</h1><p>todos에서 완료(completed: true)한 할일의 갯수를 구하는 함수를 작성하라.</p>
+<p>단, for 문, Array#forEach는 사용하지 않도록 하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;Javascript&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">countCompletedTodos</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.completed === <span class="literal">true</span>).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(countCompletedTodos()); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="9-id-프로퍼티의-값-중에서-최대값-구하기"><a href="#9-id-프로퍼티의-값-중에서-최대값-구하기" class="headerlink" title="9. id 프로퍼티의 값 중에서 최대값 구하기"></a>9. id 프로퍼티의 값 중에서 최대값 구하기</h1><p>todos의 id 프로퍼티의 값 중에서 최대값을 구하는 함수를 작성하라.</p>
+<p>단, for 문, Array#forEach는 사용하지 않도록 하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;Javascript&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMaxId</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> todos.length ? <span class="built_in">Math</span>.max(...todos.map(<span class="function"><span class="params">todo</span> =&gt;</span> todo.id)) : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getMaxId()); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/19/javascript-push-pop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2086,144 +2454,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/18/javascript-function-practice/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/18/javascript-function-practice/" class="post-title-link" itemprop="url">javascript function practice</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-18 16:43:03 / Modified: 17:56:12" itemprop="dateCreated datePublished" datetime="2020-09-18T16:43:03+09:00">2020-09-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="0918-function-과제"><a href="#0918-function-과제" class="headerlink" title="0918 function 과제"></a>0918 function 과제</h1><h2 id="문제-1-1-10-000의-숫자-중-8이-등장하는-횟수-구하기-Google"><a href="#문제-1-1-10-000의-숫자-중-8이-등장하는-횟수-구하기-Google" class="headerlink" title="문제 1. 1 ~ 10,000의 숫자 중 8이 등장하는 횟수 구하기 (Google)"></a>문제 1. 1 ~ 10,000의 숫자 중 8이 등장하는 횟수 구하기 (Google)</h2><p>1부터 10,000까지 8이라는 숫자가 총 몇번 나오는가? 이를 구하는 함수를 완성하라.<br>단, 8이 포함되어 있는 숫자의 갯수를 카운팅 하는 것이 아니라 8이라는 숫자를 모두 카운팅 해야 한다. 예를 들어 8808은 3, 8888은 4로 카운팅 해야 한다.<br>(hint) 문자열 중 n번째에 있는 문자 : str.charAt(n) or str[n]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function getCount8 () &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">console.log(getCount8()); &#x2F;&#x2F; 4000</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Answer</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function getCount8 () &#123;</span><br><span class="line">  let string &#x3D; &#39;&#39;;</span><br><span class="line">  let count &#x3D; 0;</span><br><span class="line">  for( let i &#x3D; 1; i &lt;&#x3D; 10000; i++)&#123;</span><br><span class="line">    string +&#x3D; i;</span><br><span class="line">  &#125;</span><br><span class="line">  for( let j &#x3D; 0; j &lt; string.length; j ++)&#123;</span><br><span class="line">    if(string[j] &#x3D;&#x3D;&#x3D; &#39;8&#39;) count++;</span><br><span class="line">  &#125;</span><br><span class="line">  return count;</span><br><span class="line">&#125;</span><br><span class="line">console.log(getCount8());&#x2F;&#x2F;4000</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="문제-2-이상한-문자-만들기"><a href="#문제-2-이상한-문자-만들기" class="headerlink" title="문제 2. 이상한 문자 만들기"></a>문제 2. 이상한 문자 만들기</h2><p>toWeirdCase함수는 문자열을 인수로 전달받는다. 문자열 s에 각 단어의 짝수번째 인덱스 문자는 대문자로, 홀수번째 인덱스 문자는 소문자로 바꾼 문자열을 리턴하도록 함수를 완성하라.<br>예를 들어 s가 ‘hello world’라면 첫 번째 단어는 ‘HeLlO’, 두 번째 단어는 ‘WoRlD’로 바꿔 ‘HeLlO WoRlD’를 리턴한다.<br>주의) 문자열 전체의 짝/홀수 인덱스가 아니라 단어(공백을 기준)별로 짝/홀수 인덱스를 판단한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function toWeirdCase(s) &#123;&#125;console.log(toWeirdCase(&#39;hello world&#39;));    &#x2F;&#x2F; &#39;HeLlO WoRlD&#39;</span><br><span class="line">console.log(toWeirdCase(&#39;my name is lee&#39;)); &#x2F;&#x2F; &#39;My NaMe Is LeE&#39;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Answer</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">function toWeirdCase(s)&#123;</span><br><span class="line">  let index &#x3D; 0;</span><br><span class="line">  let newString &#x3D; &#39;&#39;;</span><br><span class="line">  for (let i &#x3D; 0; i&lt;s.length; i++)&#123;</span><br><span class="line">    let asciiNum &#x3D; s[i].charCodeAt(0);</span><br><span class="line">    &#x2F;&#x2F;공백이면 넘어가기</span><br><span class="line">    if (s[i] &#x3D;&#x3D;&#x3D; &#39; &#39;)&#123;</span><br><span class="line">      newString +&#x3D; &#39; &#39;;</span><br><span class="line">      index &#x3D; 0;</span><br><span class="line">      continue;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;알파벳 아니면 그냥 저장</span><br><span class="line">    if(!((asciiNum &gt;&#x3D;65 &amp;&amp; asciiNum &lt;&#x3D; 90) || (asciiNum &gt;&#x3D;97 &amp;&amp; asciiNum &lt;&#x3D; 122)))&#123;</span><br><span class="line">      newString +&#x3D; s[i];</span><br><span class="line">      index ++;</span><br><span class="line">      continue;</span><br><span class="line">    &#125;</span><br><span class="line">    if (index % 2 &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">      &#x2F;&#x2F; 대문자면 그냥 저장, 소문자면 대문자로바꾸기</span><br><span class="line">      if(asciiNum &gt;&#x3D;65 &amp;&amp; asciiNum &lt;&#x3D; 90)&#123;</span><br><span class="line">        newString +&#x3D; s[i];</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        newString +&#x3D; String.fromCharCode(asciiNum - 32)</span><br><span class="line">      &#125;</span><br><span class="line">      index ++;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      &#x2F;&#x2F;대문자면 소문자로 바꾸기, 소문자면 그냥 저장</span><br><span class="line">      if(asciiNum &gt;&#x3D;65 &amp;&amp; asciiNum &lt;&#x3D; 90)&#123;</span><br><span class="line">        newString +&#x3D; String.fromCharCode(asciiNum + 32)</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        newString +&#x3D; s[i];</span><br><span class="line">      &#125;</span><br><span class="line">      index ++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return newString;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(toWeirdCase(&#39;ahf@@sk!!dhf fD%%FDFas&#39;));</span><br><span class="line">&#x2F;&#x2F;AhF@@sK!!dHf Fd%%FdFaS</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/18/javascript-SearchPractice/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/18/javascript-SearchPractice/" class="post-title-link" itemprop="url">javascript SearchPractice</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-18 12:57:42 / Modified: 13:10:33" itemprop="dateCreated datePublished" datetime="2020-09-18T12:57:42+09:00">2020-09-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="선형-검색-이진검색-과제"><a href="#선형-검색-이진검색-과제" class="headerlink" title="선형 검색 이진검색 과제"></a>선형 검색 이진검색 과제</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">function linearSearch(array, target)&#123;</span><br><span class="line">  for(let i &#x3D; 0; i &lt; array.length; i ++)&#123;</span><br><span class="line">    if(array[i]&#x3D;&#x3D;&#x3D;target)&#123;</span><br><span class="line">      return i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(linearSearch([1,2,3,4,5,6] , 6));</span><br><span class="line"></span><br><span class="line">function binarySearch(array, target) &#123;</span><br><span class="line">  let start &#x3D; 0;</span><br><span class="line">  let end &#x3D; array.length - 1;</span><br><span class="line">  let mid &#x3D; parseInt(( start + end ) &#x2F; 2)  </span><br><span class="line"></span><br><span class="line">  while (start !&#x3D;&#x3D; end) &#123;</span><br><span class="line">    if(array[mid] &lt; target ) &#123;</span><br><span class="line">      start &#x3D; mid + 1;</span><br><span class="line">      mid &#x3D; parseInt(( start + end ) &#x2F; 2);</span><br><span class="line">    &#125;else if (array[mid] &gt; target) &#123;</span><br><span class="line">      end &#x3D; mid - 1;</span><br><span class="line">      mid &#x3D; parseInt(( start + end ) &#x2F; 2);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if(array[mid] &#x3D;&#x3D;&#x3D; target)&#123;</span><br><span class="line">      return mid;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(binarySearch([1,2,3,4,5,6],4));</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2293,7 +2523,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
