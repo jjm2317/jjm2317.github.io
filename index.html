@@ -148,6 +148,242 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/22/javascript-Spread/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/22/javascript-Spread/" class="post-title-link" itemprop="url">javascript Spread</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-22 16:13:32 / Modified: 16:13:46" itemprop="dateCreated datePublished" datetime="2020-10-22T16:13:32+09:00">2020-10-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="스프레드-문법"><a href="#스프레드-문법" class="headerlink" title="스프레드 문법"></a>스프레드 문법</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">console.log(... [1, 2, 3]); &#x2F;&#x2F;1 2 3</span><br><span class="line"></span><br><span class="line">console.log(...&#39;Hello&#39;); &#x2F;&#x2F; H e l l o</span><br><span class="line"></span><br><span class="line">console.log(...new Map([[&#39;a&#39;, &#39;1&#39;], [&#39;b&#39;, &#39;2&#39;]]))&#x2F;&#x2F; [&#39;a&#39;, &#39;1&#39;] [&#39;b&#39;, &#39;2&#39;]</span><br><span class="line">console.log(...new Set([1, 2, 3])); &#x2F;&#x2F;1 2 3</span><br><span class="line"></span><br><span class="line">console.log(...&#123;a: 1, b: 2&#125;);</span><br><span class="line">&#x2F;&#x2F; TypeError</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const list &#x3D; ...[1, 2, 3]; &#x2F;&#x2F;SyntaxError</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-함수-호출문의-인수-목록에서-사용하는-경우"><a href="#1-함수-호출문의-인수-목록에서-사용하는-경우" class="headerlink" title="1. 함수 호출문의 인수 목록에서 사용하는 경우"></a>1. 함수 호출문의 인수 목록에서 사용하는 경우</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3];</span><br><span class="line">const max &#x3D; Math.max(arr); &#x2F;&#x2F;NaN</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Math.max(1); &#x2F;&#x2F;1</span><br><span class="line">Math.max(1, 2); &#x2F;&#x2F;2</span><br><span class="line">Math.max(1, 2, 3); &#x2F;&#x2F;3</span><br><span class="line">Math.max(); &#x2F;&#x2F;-Infinity</span><br><span class="line"></span><br><span class="line">Math.max([1,2,3]); &#x2F;&#x2F;NaN</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">var max &#x3D; Math.max.apply(null, arr); &#x2F;&#x2F;3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const max &#x3D; Math.max(...arr)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Rest 파라미터</span><br><span class="line"></span><br><span class="line">function foo(...rest) &#123;</span><br><span class="line">    console.log(rest);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(...[1, 2, 3]);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-배열-리터럴-내부에서-사용하는-경우"><a href="#2-배열-리터럴-내부에서-사용하는-경우" class="headerlink" title="2. 배열 리터럴 내부에서 사용하는 경우"></a>2. 배열 리터럴 내부에서 사용하는 경우</h2><h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1, 2].concat([3, 4]);</span><br><span class="line">console.log(arr); &#x2F;&#x2F;[1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const arr&#x3D; [...[1, 2], ...[3, 4]];</span><br><span class="line">console.log(arr); &#x2F;&#x2F;[1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr1 &#x3D; [1,4];</span><br><span class="line">var arr2 &#x3D; [2, 3];</span><br><span class="line"></span><br><span class="line">arr1.splice(1, 0, arr2);</span><br><span class="line"></span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[1,[2, 3], 4]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr1&#x3D; [1, 4];</span><br><span class="line">var arr2 &#x3D; [2, 3];</span><br><span class="line"></span><br><span class="line">Array.prototype.splice.apply(arr1, [1, 0].concat(arr2));</span><br><span class="line">console.log(arr1);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr1 &#x3D; [1, 4];</span><br><span class="line">const arr2 &#x3D; [2, 3];</span><br><span class="line"></span><br><span class="line">arr1.splice(1, 0, ...arr2);</span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="배열-복사"><a href="#배열-복사" class="headerlink" title="배열 복사"></a>배열 복사</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var origin &#x3D; [1, 2];</span><br><span class="line">var copy &#x3D; origin.slice();</span><br><span class="line"></span><br><span class="line">console.log(copy);</span><br><span class="line">console.log(copy &#x3D;&#x3D;&#x3D; origin); &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const origin &#x3D; [1, 2];</span><br><span class="line">const copy &#x3D; [...origin];</span><br><span class="line"></span><br><span class="line">console.log(copy); [1, 2]</span><br><span class="line">console.log(copy &#x3D;&#x3D;&#x3D; origin); &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="이터러블을-배열로-변환"><a href="#이터러블을-배열로-변환" class="headerlink" title="이터러블을 배열로 변환"></a>이터러블을 배열로 변환</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function sum() &#123;</span><br><span class="line">    var args &#x3D; Array.prototype.slice.call(arguments);</span><br><span class="line">    </span><br><span class="line">    return args.reduce(function (pre, cur)&#123;</span><br><span class="line">        return pre + cur;</span><br><span class="line">    &#125;, 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2, 3)); &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const arrayLike &#x3D; &#123;</span><br><span class="line">    0: 1,</span><br><span class="line">    1: 2,</span><br><span class="line">    2: 3,</span><br><span class="line">    length: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const arr &#x3D; Array.prototype.slice.call(arrayLike); &#x2F;&#x2F;[1, 2, 3]</span><br><span class="line">console.log(Array.isArray(arr));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function sum() &#123;</span><br><span class="line">    return [...arguments].reduce((pre, cur) &#x3D;&gt; pre + cur, 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2, 3)); &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const sum &#x3D; (...args) &#x3D;&gt; args.reduce((pre, cur) &#x3D;&gt; pre + cur, 0);</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2, 3));</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const arrayLike &#x3D; &#123;</span><br><span class="line">    0: 1,</span><br><span class="line">    1: 2,</span><br><span class="line">    2: 3,</span><br><span class="line">    length: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const arr &#x3D; [...arrayLike]</span><br><span class="line">&#x2F;&#x2F;TypeError</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Array.from(arrayLike); &#x2F;&#x2F; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="객체-리터럴-내부에서-사용하는-경우"><a href="#객체-리터럴-내부에서-사용하는-경우" class="headerlink" title="객체 리터럴 내부에서 사용하는 경우"></a>객체 리터럴 내부에서 사용하는 경우</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123; x: 1, y: 2&#125;; </span><br><span class="line">const copy &#x3D; &#123;...obj&#125;;</span><br><span class="line">console.log(copy); &#x2F;&#x2F;&#123;x: 1, y: 2&#125;</span><br><span class="line">console.log(obj &#x3D;&#x3D;&#x3D; copy); &#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">const merged &#x3D; &#123;x: 1, y: 2, ...&#123;a: 3, b: 4&#125;&#125;;</span><br><span class="line">console.log(merged); &#x2F;&#x2F; &#123;x: 1, y: 2, a: 3, b: 4&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const merged &#x3D; Object.assign(&#123;&#125;, &#123;x: 1, y: 2&#125;, &#123;y: 10, z: 3&#125;);</span><br><span class="line">console.log(merged)l &#x2F;&#x2F;&#123;x: 1, y: 10, z: 3&#125;</span><br><span class="line"></span><br><span class="line">const changed &#x3D; Object.assign(&#123;&#125;, &#123;x: 1, y: 2&#125;, &#123;y: 100&#125;);</span><br><span class="line">console.log(changed); &#x2F;&#x2F;&#123;x: 1, y: 100&#125;</span><br><span class="line"></span><br><span class="line">const added &#x3D; Object.assigin(&#123;&#125;, &#123;x: 1, y: 2&#125;, &#123;z: 0&#125;);</span><br><span class="line">console.log(added); &#x2F;&#x2F; &#123;x: 1, y: 2, z: 0&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const merged &#x3D; &#123;...&#123;x: 1, y: 2&#125;, ...&#123;y: 10, z: 3&#125;&#125;;</span><br><span class="line">console.log(merged); &#x2F;&#x2F;&#123;x: 1, y: 10, z: 3&#125;</span><br><span class="line"></span><br><span class="line">const changed &#x3D; &#123;...&#123;x: 1, y: 2&#125;, y: 100&#125;;</span><br><span class="line"></span><br><span class="line">console.log(changed); &#x2F;&#x2F;&#123;x: 1, y: 100&#125;</span><br><span class="line"></span><br><span class="line">const added &#x3D; &#123;...&#123;x: 1, y: 2&#125;, z: 0&#125;;</span><br><span class="line"></span><br><span class="line">console.log(added); &#x2F;&#x2F;&#123;x: 1, y: 2, z: 0&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/22/javascript-Number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/22/javascript-Number/" class="post-title-link" itemprop="url">javascript Number</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-22 15:43:43 / Modified: 15:44:03" itemprop="dateCreated datePublished" datetime="2020-10-22T15:43:43+09:00">2020-10-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h1><h2 id="1-Number-생성자-함수"><a href="#1-Number-생성자-함수" class="headerlink" title="1. Number 생성자 함수"></a>1. Number 생성자 함수</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const numObj &#x3D; new Number();</span><br><span class="line">console.log(numObj); &#x2F;&#x2F; Number &#123;[[PrimitiveValue]]: 0&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const numObj &#x3D; new Number(10);</span><br><span class="line">console.log(numObj); &#x2F;&#x2F;Number &#123;[[PrimitiveValue]] : 10&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let numObj &#x3D; new Number(&#39;10&#39;);</span><br><span class="line">console.log(numObj); &#x2F;&#x2F; Number &#123;[[PrimitiveValue]]: 10&#125;</span><br><span class="line">numObj &#x3D; new Number(&#39;Hello&#39;);</span><br><span class="line">console.log(numObj); &#x2F;&#x2F; Number &#123;[[PrimitiveValue]]: NaN&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-Number-프로퍼티"><a href="#2-Number-프로퍼티" class="headerlink" title="2. Number 프로퍼티"></a>2. Number 프로퍼티</h2><h3 id="2-1-Number-EPSILON"><a href="#2-1-Number-EPSILON" class="headerlink" title="2.1 Number.EPSILON"></a>2.1 Number.EPSILON</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0.1 + 0.2;&#x2F;&#x2F;0.30000000000000004</span><br><span class="line">0.1 + 0.2 &#x3D;&#x3D;&#x3D; 0.3;&#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function isEqual(a,b)&#123;</span><br><span class="line">    return Math.abs(a-b) &lt; Number.EPSILON;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">isEqual(0.1 + 0.2, 0.3); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-2-Number-MAX-VALUE"><a href="#2-2-Number-MAX-VALUE" class="headerlink" title="2.2 Number.MAX_VALUE"></a>2.2 Number.MAX_VALUE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number.MAX_VALUE; &#x2F;&#x2F; 1.7976931348623157e+308</span><br><span class="line">Infinity &gt; Number.MAX_VALUE</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-Number-MIN-VALUE"><a href="#2-3-Number-MIN-VALUE" class="headerlink" title="2.3 Number.MIN_VALUE"></a>2.3 Number.MIN_VALUE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number.MIN_VALUE; &#x2F;&#x2F; 5e-324</span><br><span class="line">NUMBER.MIN_VALUE &gt; 0;&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-4-NUMBER-MAX-SAFE-INTEGER"><a href="#2-4-NUMBER-MAX-SAFE-INTEGER" class="headerlink" title="2.4 NUMBER.MAX_SAFE_INTEGER"></a>2.4 NUMBER.MAX_SAFE_INTEGER</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number.MAX_SAFE_INTEGER; &#x2F;&#x2F; 9007199254740991</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-5-Number-MIN-SAFE-INTEGER"><a href="#2-5-Number-MIN-SAFE-INTEGER" class="headerlink" title="2.5 Number.MIN_SAFE_INTEGER"></a>2.5 Number.MIN_SAFE_INTEGER</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number.MIN_SAFE_INTEGER; &#x2F;&#x2F;-9007199254740991</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-6-Number-POSITIVE-INFINITY"><a href="#2-6-Number-POSITIVE-INFINITY" class="headerlink" title="2.6 Number.POSITIVE_INFINITY"></a>2.6 Number.POSITIVE_INFINITY</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number.POSITIVE_INFINITY; &#x2F;&#x2F;Infinity</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-7-Number-NEGATIVE-INFINITY"><a href="#2-7-Number-NEGATIVE-INFINITY" class="headerlink" title="2.7 Number.NEGATIVE_INFINITY"></a>2.7 Number.NEGATIVE_INFINITY</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number.NEGATIVE_INFINITY; &#x2F;&#x2F; -Infinity</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-8-Number-NaN"><a href="#2-8-Number-NaN" class="headerlink" title="2.8 Number.NaN"></a>2.8 Number.NaN</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number.NaN; &#x2F;&#x2F; NaN</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-Number-메서드"><a href="#3-Number-메서드" class="headerlink" title="3. Number 메서드"></a>3. Number 메서드</h2><h3 id="3-1-Number-isFinite"><a href="#3-1-Number-isFinite" class="headerlink" title="3.1 Number.isFinite"></a>3.1 Number.isFinite</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Number.isFinite(0);</span><br><span class="line">Number.isFinite(Number.MAX_VALUE); &#x2F;&#x2F;true</span><br><span class="line">Number.isFinite(Number.MIN_VALUE)l &#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">Number.isFinite(Infinity); &#x2F;&#x2F;false</span><br><span class="line">Number.isFinite(-Infinity); &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number.isFinite(NaN); &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Number.isFinite(null) ;&#x2F;&#x2F; false</span><br><span class="line"></span><br><span class="line">isFinite(null); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-2-Number-isInteger"><a href="#3-2-Number-isInteger" class="headerlink" title="3.2 Number.isInteger"></a>3.2 Number.isInteger</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Number.isInteger(0); &#x2F;&#x2F; true</span><br><span class="line">Number.isInteger(123); &#x2F;&#x2F;true</span><br><span class="line">Number.isInteger(-123); &#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">Number.isInteger(0.5); &#x2F;&#x2F;false</span><br><span class="line">Number.isInteger(&#39;123&#39;); &#x2F;&#x2F;false</span><br><span class="line">Number.isInteger(false); &#x2F;&#x2F;false</span><br><span class="line">Number.isInteger(Infinity); &#x2F;&#x2F;false</span><br><span class="line">Number.isInteger(-Infinity); &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-3-Number-isNaN"><a href="#3-3-Number-isNaN" class="headerlink" title="3.3 Number.isNaN"></a>3.3 Number.isNaN</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number.isNaN(NaN); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number.isNaN(undefined); &#x2F;&#x2F;false</span><br><span class="line">isNaN(undefined); &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/21/27Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2123,341 +2359,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/23/javascript-15let-const-BlockLevelScope/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/23/javascript-15let-const-BlockLevelScope/" class="post-title-link" itemprop="url">let, const & BlockLevelScope</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-23 19:53:38 / Modified: 19:55:34" itemprop="dateCreated datePublished" datetime="2020-09-23T19:53:38+09:00">2020-09-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="let-const와-블록-레벨-스코프"><a href="#let-const와-블록-레벨-스코프" class="headerlink" title="let, const와 블록 레벨 스코프"></a>let, const와 블록 레벨 스코프</h1><h2 id="1-var-키워드로-선언한-변수의-문제점"><a href="#1-var-키워드로-선언한-변수의-문제점" class="headerlink" title="1. var 키워드로 선언한 변수의 문제점"></a>1. var 키워드로 선언한 변수의 문제점</h2><p><strong>ES5 까지의 변수 선언</strong></p>
-<p>ES5까지 변수를 선언할 수 있는 유일한 방법은 var 키워들ㄹ 사용하는 것이었다. var 키워드로 선언된 변수는 다른 언어와는 구별되는 독특한 특징이 있으며, 주의를 기울이지 않으면 심각한 문제를 발생시킬 수 있다.</p>
-<h3 id="1-1-변수-중복-선언-허용"><a href="#1-1-변수-중복-선언-허용" class="headerlink" title="1.1 변수 중복 선언 허용"></a>1.1 변수 중복 선언 허용</h3><p><strong>중복 선언시 var 키워드가 없는 것처럼 동작</strong></p>
-<p>var 키워드로 선언한 변수는  중복선언이 가능하다.</p>
-<ul>
-<li>같은 스코프 내에서 중복 선언이 가능하다.</li>
-<li>초기화문이 있는 변수 선언문은 자바 스크립트 엔진에 의해 var 키워드가 없는 것처럼 동작한다.</li>
-<li>초기화문이 없는 변수 선언문을 중복선언하면 무시된다. </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 1;</span><br><span class="line">var y &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;같은 스코프 내 중복 선언 허용</span><br><span class="line">&#x2F;&#x2F; var 키워드가 없는 것처럼 동작</span><br><span class="line">var x &#x3D; 100;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;초기화 문이 없으면 무시, 에러x</span><br><span class="line">var y;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;x : 100, y : 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>문제점</strong></p>
-<p>동일한 이름의 변수가 이미 선언되어 있는 것을 모르고 변수를 중복 선언 하면서 값까지 할당했다면 의도치 않게 먼저 선언된 변수 값이 변경 되는 부작용 발생</p>
-<h3 id="1-2-함수-레벨-스코프"><a href="#1-2-함수-레벨-스코프" class="headerlink" title="1.2 함수 레벨 스코프"></a>1.2 함수 레벨 스코프</h3><p><strong>함수의 코드 블록만을 스코프로 인정</strong></p>
-<p>var 키워드로 선언한 변수는 오로지 함수의 코드 블록만을 지역 스코프로 인정한다. 따라서 함수 외부에서 var 키워드로 선언한 변수는 코드 블록 내에서 선언해도 모두 전역 변수가 된다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;함수 외 코드블록은 스코프로 인정하지 않는다.</span><br><span class="line">&#x2F;&#x2F;x 변수 중복된다</span><br><span class="line">if(true) &#123;</span><br><span class="line">    var x &#x3D; 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(x); &#x2F;&#x2F;10</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;for 문도 마찬가지</span><br><span class="line">for(var i &#x3D; 0; i&lt;5; i++)&#123;</span><br><span class="line">console.log(i); &#x2F;&#x2F;0 1 2 3 4 </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>문제점</strong></p>
-<p>함수 레벨 스코프를 인지 못하고 전역 변수를 선언하게 된다. 그러면 의도치 않게 변수값을 변경할 수 있다.</p>
-<h3 id="1-3-변수-호이스팅"><a href="#1-3-변수-호이스팅" class="headerlink" title="1.3 변수 호이스팅"></a>1.3 변수 호이스팅</h3><p><strong>변수 호이스팅으로 초기화까지 일어난다.</strong></p>
-<p>var 키워드로 변수를 선언하면 변수 호이스팅에 의해 변수 선언문이 스코프의 선두로 끌어 올려진 것처럼 동작한다. 즉, 변수 호이스팅에 의해 var 키워드로 선언한 변수는 변수 선언문 이전에 참조할 수 있다. 변수 할당문 이전에 변수를 참조하면 undefined를 반환한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(num);&#x2F;&#x2F;undefined</span><br><span class="line"></span><br><span class="line">num &#x3D; 100;</span><br><span class="line"></span><br><span class="line">console.log(num);100</span><br><span class="line"></span><br><span class="line">var num;</span><br></pre></td></tr></table></figure>
-
-<p><strong>var 변수 호이스팅의 문제점</strong></p>
-<p>변수 선언문 이전에 변수를 참조하는 것은 변수 호이스팅에 의해 에러를 발생시키지는 않는다 하지만 다음과 같은 문제가 있다.</p>
-<ul>
-<li>프로그램의 흐름상 맞지 않다.</li>
-<li>가독성을 떨어뜨린다.</li>
-<li>오류 발생 가능성이 높아진다.</li>
-</ul>
-<h2 id="2-let-키워드"><a href="#2-let-키워드" class="headerlink" title="2. let 키워드"></a>2. let 키워드</h2><p><strong>let 과 const의 도입</strong></p>
-<p>var 키워드의 여러 문제점을 보완하기 위해서 ES6에서는 새로운 변수 선언 키워드가 추가 되었다. </p>
-<ul>
-<li>let</li>
-<li>const</li>
-</ul>
-<p>var 키워드와의 차이를 알아보자</p>
-<h3 id="2-1-변수-중복-선언-금지"><a href="#2-1-변수-중복-선언-금지" class="headerlink" title="2.1 변수 중복 선언 금지"></a>2.1 변수 중복 선언 금지</h3><p><strong>let 키워드는 중복 선언 미허용</strong></p>
-<p>var 키워드로 이름이 동일한 변수를 중복 선언하면 아무런 에러를 발생하지 않는다. 인간은 실수하는 동물이기에 의도치않게, 실수로 값을 재할당 할 수도 있다. 즉, 오류 발생 가능성이 높아진다. </p>
-<p>let 키워드의 경우 이름이 같은 변수를 중복 선언 하면 문법 에러(SyntaxError) 를 발생시킨다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var num1 &#x3D; 100;</span><br><span class="line">var num1 &#x3D; 200;</span><br><span class="line">&#x2F;&#x2F;var 키워드로 선언된 변수는 중복선언 허용</span><br><span class="line">&#x2F;&#x2F;중복 선언시 var 키워드가 없는 것처럼 동작</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let num2 &#x3D; 123;</span><br><span class="line">let num2 &#x3D; 456;</span><br><span class="line"> &#x2F;&#x2F; let이나 const 키워드로 선언한 변수는 중복선언을 허용하지 않는다. </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-2-블록-레벨-스코프"><a href="#2-2-블록-레벨-스코프" class="headerlink" title="2.2 블록 레벨 스코프"></a>2.2 블록 레벨 스코프</h3><p><strong>let , const 키워드는 블록 레벨 스코프를 따른다</strong></p>
-<p>var 키워드로 선언된 변수는 오로지 함수의 코드 블록만을 지역 스코프를 따른다. 하지만 let 키워드로 선언한 변수는 모든 코드블록을 지역 스코프로 인정한다. (함수, if 문, while 문, try/catch) 등을 지역 스코프로 인정하는 블록레벨 스코프를 따른다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let num &#x3D; 1;</span><br><span class="line">&#123;</span><br><span class="line">    let num &#x3D; 2;</span><br><span class="line">    let bar &#x3D; 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(num); &#x2F;&#x2F;2</span><br><span class="line">console.log(bar); &#x2F;&#x2F; ReferenceError</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-3-변수-호이스팅"><a href="#2-3-변수-호이스팅" class="headerlink" title="2.3 변수 호이스팅"></a>2.3 변수 호이스팅</h3><p><strong>let 키워드로 선언한 변수의 호이스팅</strong></p>
-<p>var 키워드로 선언한 변수와 달리 let 키워드로 선언한 변수는 변수호이스팅이 발생하지 않는 것처럼 동작한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a); &#x2F;&#x2F;ReferenceError</span><br><span class="line">let foo;</span><br></pre></td></tr></table></figure>
-
-<p>위와 같이 let 키워드로 선언한 변수를 선언문 이전에 참조하면 참조에러가 발생한다. </p>
-<p><strong>이유</strong></p>
-<p><strong>기존의 var 키워드의 변수 선언</strong></p>
-<p>var 키워드로 선언한 변수는 런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언단계와 초기화단계가 <strong>한번에</strong> 진행된다</p>
-<ol>
-<li>선언 단계에서 실행 컨텍스트의 렉시컬 환경에 변수 식별자를 등록해 자바스크립트 엔진에 변수의 존재를 알린다.</li>
-<li>초기화 단계에서 undefined로 변수를 초기화한다.</li>
-</ol>
-<p>따라서 변수 선언문 이전에 변수에 접근해도 에러가 발생하지 않는다. 다만 의도한 값대신 undefined가 할당되어 있다. </p>
-<p><strong>let 키워드의 선언단계와 초기화 단계</strong></p>
-<p>let 키워드로 선언한 변수는 선언단계와 초기화 단계가 분리되어 진행된다. </p>
-<ol>
-<li>런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언 단계 실행</li>
-<li><strong>런타임</strong>이 되어 변수선언문에 도달했을때 초기화 단계 실행</li>
-</ol>
-<p>런타임 이전에 초기화 단계를 실행 하지않으므로 변수선언문 이전에 참조하려고 하면 참조 에러가 발생한다.</p>
-<p><strong>일시적 사각지대란</strong></p>
-<p> let 키워드로 선언한 변수는 스코프의 시작 지점부터 초기화단계 시작 지점까지 변수를 참조할 수 없다. </p>
-<p>스코프의 시작 지점부터 초기화 시작 지점까지 변수를 참조할 수 없는 구간을 **일시적 사각지대(Temporal Dead Zone; TDZ)**라고 부른다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;일시적 사각지대</span><br><span class="line">console.log(foo); &#x2F;&#x2F;ReferenceError</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &quot;&quot;</span><br><span class="line">let foo;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>let 키워드의 변수 호이스팅</strong></p>
-<p>let 키워드로 선언한 변수는 변수 호이스팅이 발생하지 않는 것 같지만 그렇지 않다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let bar &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    console.log(bar); &#x2F;&#x2F;ReferenceError</span><br><span class="line">    </span><br><span class="line">    let bar &#x3D;10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>만일 변수 호이스팅이 발생하지 않는다면 bar를 출력했을때 전역에서 할당한 1이 출력되어야 정상이지만, 참조에러가 발생한다. </p>
-<p>let 키워드도 스코프 시작전에 선언단계, 초기화단계 중 선언단계는 진행하기 때문이다. </p>
-<h3 id="2-4-전역-객체와-let"><a href="#2-4-전역-객체와-let" class="headerlink" title="2.4 전역 객체와 let"></a>2.4 전역 객체와 let</h3><p><strong>var 키워드로 선언한 변수는 전역 객체의 프로퍼티가 된다.</strong> </p>
-<p>var 키워드로 선언한 전역 변수, 전역 함수와 암묵적 전역은 전역 객체 window or global의 프로퍼티가 된다. 전역 객체의 프로퍼티를 참조할 땐 window를 생략가능하다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 전역변수</span><br><span class="line">var foo;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 전역 함수</span><br><span class="line">fuction bar() </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 암묵적 전역</span><br><span class="line">x &#x3D; 1</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;위 모두 전역 객체 window의 프로퍼티</span><br><span class="line">&#x2F;&#x2F;선언 및 참조 시 window 식별자는 생략 가능</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>let 키워드는 전역 객체의 프로퍼티가 아니다.</strong></p>
-<p>let 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 아닌, 전역 렉시컬 환경의 선언적 환경 레코드에 존재하게 된다. </p>
-<h2 id="3-const-키워드"><a href="#3-const-키워드" class="headerlink" title="3. const 키워드"></a>3. const 키워드</h2><h3 id="3-1-선언과-초기화"><a href="#3-1-선언과-초기화" class="headerlink" title="3.1 선언과 초기화"></a>3.1 선언과 초기화</h3><p><strong>const 키워드로 선언한 변수는 선언과 동시에 초기화한다.</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const foo &#x3D; 1;</span><br><span class="line"></span><br><span class="line">const bar; &#x2F;&#x2F; SyntaxError</span><br></pre></td></tr></table></figure>
-
-<p>초기화 없이 선언만 하면 문법 에러가 발생한다. </p>
-<p><strong>const, 스코프와 호이스팅</strong></p>
-<p>const 키워드로 선언한 변수는 블록레벨 스코프를 가지며, 변수호이스팅이 발생하지 않는 것처럼 동작한다. </p>
-<h3 id="3-2-재할당-금지"><a href="#3-2-재할당-금지" class="headerlink" title="3.2 재할당 금지"></a>3.2 재할당 금지</h3><p><strong>const 키워드로 선언한 변수는 재할당이 금지된다.</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const foo &#x3D; 10;</span><br><span class="line"></span><br><span class="line">foo &#x3D; 5;&#x2F;&#x2F; TypeError</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-3-상수"><a href="#3-3-상수" class="headerlink" title="3.3 상수"></a>3.3 상수</h3><p><strong>const 키워드의 이용</strong></p>
-<p>원시값은 immutable value 이다. 그리고 const 키워드로 선언한 변수에 원시값을 할당한다면 <strong>재할당 없이</strong> 변수값을 변경할 수 없다. 그렇기 때문에 const 키워드를 이용해 상수를 표현할 수 있다.</p>
-<p><strong>상수의 뜻</strong></p>
-<p>변수의 상대 개념인 상수는 재할당이 금지된 변수를 말한다. 상수도 값을 저장하기 위한 메모리 공간이 필요하므로 변수이다. 일반적인 변수와는 달리 재할당이 금지된다. </p>
-<p><strong>상수의 장점</strong></p>
-<ul>
-<li>상태를 유지한다</li>
-<li>가독성이 높아진다</li>
-<li>유지보수가 편하다.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 세율같은 경우 쉽게 변하지 않으며, 고정값을 사용해야 한다.</span><br><span class="line">const TAX_RATE &#x3D; 0,1;</span><br><span class="line">let preTaxPrice &#x3D; 100;</span><br><span class="line"></span><br><span class="line">let afterTaxPrice &#x3D; preTaxPrice + (preTaxPrice * TAX_RATE)</span><br></pre></td></tr></table></figure>
-
-<p>const 키워드로 선언한 변수에 원시값을 할당한다면 선언문 이후에 값을 변경할 수 없으며 상태가 유지된다.</p>
-<p>또한 세율을 상수로 정의하여 의미를 쉽게 알 수 있다. 즉 가독성이 높아진다.</p>
-<p>세율이 변경된다면 상수만을 변경하면 되므로 유지 보수성이 향상된다. </p>
-<p><strong>상수의 일반적인 표기</strong></p>
-<p>상수의 이름은 대문자로 선언해 상수임을 명확히 나타낸다.</p>
-<p>여러개의 단어로 이루어진 경우 언더스코어로 구분한 스네이크 케이스로 표현한다. </p>
-<h3 id="3-3-const-키워드와-객체"><a href="#3-3-const-키워드와-객체" class="headerlink" title="3.3 const 키워드와 객체"></a>3.3 const 키워드와 객체</h3><p><strong>객체의 경우 값의 변경이 가능하다.</strong></p>
-<p>원시값의 경우 불변값이기 때문에 재할당없이 값의 변경이 불가하며, const로 선언한 경우 재할당까지도 불가하다. </p>
-<p>하지만, 객체의 경우 가변 값 (mutable value) 이기 때문에 재할당없이도 값을 변경할 수 있다. </p>
-<p>const 키워드는 재할당을 금지할 뿐이다.  객체는 자유롭게 변경될 수 있다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const student &#x3D; &#123;</span><br><span class="line">    name: &#39;Jiman&#39;,</span><br><span class="line">    age: 23</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">student.age &#x3D; 24;</span><br><span class="line">console.log(student)&#x2F;&#x2F; &#123;name: &#39;jiman&#39;, age: 24&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="4-var-vs-let-vs-const"><a href="#4-var-vs-let-vs-const" class="headerlink" title="4. var vs. let vs. const"></a>4. var vs. let vs. const</h2><p><strong>const 사용을 지향하자</strong></p>
-<p>변수 선언에는 기본적으로 const를 사용하고 let은 재할당이 필요한 경우에만 사용하도록 하자. </p>
-<p><strong>이유</strong></p>
-<ul>
-<li>변수를 선언하는 시점에는 재할당이 필요할 지 잘모르는 경우가 많다.</li>
-<li>객체는 재할당하는 경우가 드물다</li>
-<li>재할당이 꼭 필요하다면 그때 let 으로 바꾸자 </li>
-</ul>
-<p><strong>ES6 이상인 경우 var은 사용하지 말자</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/22/javascript-14Problem-of-GlobalVariable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/22/javascript-14Problem-of-GlobalVariable/" class="post-title-link" itemprop="url">javascript 14Problem of GlobalVariable</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-22 16:39:18 / Modified: 16:39:25" itemprop="dateCreated datePublished" datetime="2020-09-22T16:39:18+09:00">2020-09-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="전역-변수의-문제점"><a href="#전역-변수의-문제점" class="headerlink" title="전역 변수의 문제점"></a>전역 변수의 문제점</h1><p>전역변수는 사용을 지양하는 것이 좋다. 많은 문제를 야기하기 때문이다. 전역변수의 사용이 꼭 필요한 경우가 아니라면, 지역변수를 사용하도록 해야한다.  이는 변수의 생명주기와 관련이 있다. </p>
-<h2 id="1-변수의-생명주기"><a href="#1-변수의-생명주기" class="headerlink" title="1. 변수의 생명주기"></a>1. 변수의 생명주기</h2><h3 id="1-1-지역-변수의-생명주기"><a href="#1-1-지역-변수의-생명주기" class="headerlink" title="1.1 지역 변수의 생명주기"></a>1.1 지역 변수의 생명주기</h3><p><strong>변수에도 생명주기(life cycle)가 있다</strong></p>
-<p>변수는 선언에 의해 생성되고 할당에 의해 값을 갖는다. 그리고 언젠가 소멸된다. 변수에도 생물과 같이 생성되고 소멸되는 생명주기가 있다. </p>
-<p>만약 변수에 생명주기가 없다면? 한번 선언된 변수는 프로그램자체를 종료하지 않는 한 계속 메모리 공간을 차지하고 있을 것이다. </p>
-<p>변수는 자신의 선언된 위치(스코프) 에서 생성되고 소멸한다. 전역변수의 생명 주기는 애플리케이션의 생명 주기와 같다. 하지만 지역변수의 경우 함수가 호출되면 생성되고 함수가 종료하면 소멸한다. 다음 예제를 살펴보자</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">    const x &#x3D; &#39;local&#39;;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; local</span><br><span class="line">    return x;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;함수가 호출되면 함수foo의 지역스코프가 생성되고 해당 위치에서 식별자가 생성된다. foo 스코프 안에서 x는 foo의 지역변수여서 foo함수 몸체 내에서 참조할 수 있다.</span><br><span class="line">foo(); </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;전역에서는 x가 선언된 적이 없다. 스코프 체인에서 상위스코프에서 하위스코프의 변수를 참조할 수 없다. 다음과 같이 에러 발생</span><br><span class="line">console.log(x); &#x2F;&#x2F; ReferenceError: x is not defined</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>지역 변수가 생성되는 시점</strong></p>
-<p>함수 몸체의 문들은 함수가 호출되어야 실행된다. 그렇기때문에 위 예제에서 지역변수 x에 대한 변수 선언문은 함수가 <strong>호출</strong>되기 전까지 생성되지 않는다.</p>
-<p>전역변수의 경우 위치에 상관없이 가장 먼저 실행된다. 자바스크립트 엔진은 런타임 이전에 변수 선언을 완료한다. </p>
-<p>단, 함수 내부에서 선언된 변수는 함수가 호출된 직후에 함수 몸체 내부의 문들이 실행되기 이전에, 엔진에 의해 가장먼저 실행된다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function foo()&#123;</span><br><span class="line">    const x &#x3D; &#39;local&#39;;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; local</span><br><span class="line">    return x;</span><br><span class="line">&#125;</span><br><span class="line">foo(); </span><br></pre></td></tr></table></figure>
-
-<p>foo 함수를 호출하면 foo 함수 몸체 내부의 문들이 실행되기 이전에 변수 선언문이 가장 먼저 실행되어 x 변수가 선언된다. 그 후 함수 몸체를 구성하는 문들이 순차적으로 실행되기 시작하고 변수 할당문이 실행되면 x 변수에 값이 할당된다. </p>
-<p><strong>지역변수가 소멸되는 시점</strong></p>
-<p>위 예제에서 함수 foo 가 종료하면 변수 x도 소멸되어 생명주기가 종료된다. 함수 내부에서 선언된 지역변수 x는 foo 함수가 호출되어 실행되는 동안에만 유효하다. 즉, 지역변수의 생명주기는 함수의 생명주기와 일치한다. </p>
-<p><strong>지역 변수가 함수보다 오래 생존하는 경우</strong></p>
-<p>대부분의 지역변수의 경우 함수가 종료되면 같이 소멸한다. 하지만 특정한 경우에 함수보다 오래 생존할 수 있다.</p>
-<p>변수는 하나의 값을 저장하기 위해 확보한 메모리 공간 자체 또는 그 메모리 공간을 식별하기 위해 붙인 이름이다. </p>
-<p>따라서, 변수의 생명주기는 메모리 공간이 확보된 시점부터 메모리 공간이 해제 되어 가용 메모리 풀에 반환되는 시점까지이다. </p>
-<p>함수 내부에서 선언된 지역 변수는 함수가 생성한 스코프에 등록된다. 함수가 생성한 스코프는 렉시컬 환경이라 부르는 물리적인 실체가 있다. 따라서 변수는 자신이 등록된 스코프가 소멸될 때까지 유효하다. <strong>할당된 메모리 공간은 더 이상 참조하지 않을때</strong> 가비지 컬렉터에 의해 메모리 해제되어 가용메모리풀에 반환된다. </p>
-<p>다시 말해, 메모리 공간이 참조되고 있다면 해당 메모리공간은 해제되지 않고 유효하다. 생성되었던 스코프의 경우에도 누군가 해당 스코프를 참조하고 있으면 소멸되지 않고 남아 있는다. </p>
-<p>일반적으로 함수가 종료하면 함수가 생성한 스코프도 소멸한다. 하지만 누군가 스코프를 참조하고 있다면 스코프는 해제되지않고 생존하게 된다.  </p>
-<p><strong>호이스팅은 스코프를 단위로 동작한다.</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let x &#x3D; &#39;global&#39;;</span><br><span class="line"></span><br><span class="line">function foo()&#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; 초기화 에러 발생</span><br><span class="line">    let x &#x3D; &#39;local&#39;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();</span><br><span class="line">console.log(x); &#x2F;&#x2F; global</span><br></pre></td></tr></table></figure>
-
-<p>foo 함수를 호출했을때 x를 출력하는 문에서 초기화에러가 발생한다. 호이스팅이 전역에서만 한번 일어난다면 global이 출력될 것으로 기대되나, 호이스팅은 스코프를 단위로 동작하기 때문에 스코프마다 일어난다. 그렇기 때문에 let변수의 특성상 선언만 되는 호이스팅이 일어나고 초기화가 안되어있으므로 초기화 에러를 발생시킨다.</p>
-<p>지역변수의 호이스팅은 지역변수의 선언이 지역스코프의 선두로 끌어 올려진 것처럼 동작한다. 따라서 지역변수는 함수 호출, 스코프생성과 동시에 생성된다. 호이스팅을 다시 정의해 보면 변수 선언이 스코프의 선두로 끌어오려진 것처럼 동작하는 자바스크립트 고유의 특징이다. </p>
-<h3 id="1-2-전역변수의-생명주기"><a href="#1-2-전역변수의-생명주기" class="headerlink" title="1.2 전역변수의 생명주기"></a>1.2 전역변수의 생명주기</h3><p><strong>자바스크립트의 전역코드는 명시적인 호출 없이 실행된다</strong></p>
-<p>c나 java 같은 경우 main 함수를 호출함으로서 코드를 실행한다.  자바스크립트는 이와 달리, 함수호출과 같이 전역코드를 실행 하는 특별한 진입점(entry point)이 없이 코드가 로드되자마자 곧바로 해석되고 실행된다.</p>
-<p>함수는 함수 몸체의 마지막 문 또는 반환문이 실행되면 종료한다. 하지만 전역코드는 반환문을 사용할 수 없으므로 마지막 문이 실행되어 더 이상 실행할 문이 없을 때 종료한다. </p>
-<p><strong>전역 변수의 생명주기는 전역 객체의 생명주기와 일치</strong></p>
-<p>지역 변수의 경우 생명주기가 함수의 생명주기와 일치하였다. 반면 var 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 된다. 이는 전역 변수의 생명주기가 <strong>전역 객체</strong>의 생명주기와 일치하는 것을 말한다. 브라우저 환경에서 전역 객체는 window 이므로 브라우저 환경에서 var 키워드로 선언한 전역 변수는 전역 객체 windwo 의 프로퍼티 이다. 전역 객체 window 는 웹 페이지를 닫기 전까지 유효하다. 따라서 브라우저 환경에서 var 키워드로 선언한 전역 변수 역시 웹페이지를 닫을 때 까지 유효하다. </p>
-<p>전역 변수는 자바스크립트파일이 생성되자마자 태어나고 전역객체가 끝날때 (탭을 닫거나 브라우저를 닫거나) 죽는다. 다시말해, var 키워드로 서언한 전역 변수의 생명 주기는 전역 객체의 생명주기와 일치한다.  </p>
-<p><strong>전역 객체(global object)란</strong></p>
-<p>전역 객체는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 어떤 객체보다도 먼저 생성되는 특수한 객체다. 전역 객체는 클라이언트 사이드 환경(브라우저)에서는 window, 서버 사이드 환경(Node.js)에서는 global 객체를 의미한다. 환경에 따라 전역 객체를 가리키는 다양한 식별자(windwo, self, this, frames, global)가 존재하였으나 ES11(ECMAScript 11)에서 globalThis로 통일되었다. </p>
-<p>전역 객체에는 표준 빌트인 객체(Object, String, Number, Function, Array…)</p>
-<p>와 환경에 따른 호스트 객체(클라이언트 Web API 또는 Node.js의 호스트 API), 그리고 var키워드로 선언한 전역 변수와 전역 함수를 프로퍼티로 갖는다. </p>
-<h2 id="2-전역-변수의-문제점"><a href="#2-전역-변수의-문제점" class="headerlink" title="2. 전역 변수의 문제점"></a>2. 전역 변수의 문제점</h2><p><strong>암묵적 결합</strong></p>
-<p>전역 변수를 선언한 의도는 전역, 즉 코드 어디서든 참조하고 할당할 수 있는 변수를 사용하겠다는 것이다. 이는 모든 코드가 전역 변수를 참조하고 변경할 수 있는 암묵적 결합(implicit coupling)을 허용하는 것이다. 변수의 유효범위가 크면 클수록 코드의 가독성은 나빠지고 의도치 않게 상태가 변경될 수 있는 위험성도 높아진다. </p>
-<p><strong>긴 생명 주기</strong></p>
-<p>전역 변수는 생명주기가 길다. 따라서 메모리 리소스도 오랜 기간 소비한다. 또한 전역 변수의 상태를 변경할 수 있는 시간도 길고 기회도 많다. </p>
-<p>더욱이 var 키워드는 변수의 중복선언을 허용하므로 생명주기가 긴 전역 변수는 변수 이름이 중복될 가능성이 있다. 변수 이름이 중복되면 의도치 않은 재할당이 이뤄진다. </p>
-<p>반면에, 지역 변수의 경우 전역 변수보다생명주기가 훨씬 짧다. 크지 않은 함수의 지역 변수는 생존 시간이 극히 짧다. 따라서 지역 변수의 상태를 변경할 수 있는 시간도 짧고 기회도 적다. 이는 전역 변수보다 상태 변경에 의한 오류가 발생할 확률이 작다는 것을 의미한다. 메모리 리소드도 짧은 기간만 소비한다.</p>
-<p><strong>스코프 체인 상에서 종점에 존재</strong></p>
-<p>변수를 검색할따 하위 스코프에서 상위스코프로 차례로 검색한다. 전역 변수는 스코프체인의 종점에 존재한다. 변수가 검색될때 우선순위가 가장 낮으므로 가장 마지막에 검색된다. 전역 변수는 검색속도가 가장 느리다는 뜻이다. 차이는 크지 않지만 속도의 차이가 있다.</p>
-<p><strong>네임 스페이스 오염</strong></p>
-<p>자바 스크립트 코드의 여러파일을 삽입하면 분리되어 있더라도 하나의 전역 스코프를 공유한다. 큰 문제점이라고 할 수 있다. 전역 스코프를 공유하기 때문에 다른 파일 내에서 동일한 이름으로 명명된 전역 변수나 전역 함수가 같은 스코프 내에 존재할 경우 예상치 못한 결과를 가져올 수 있다. </p>
-<h2 id="3-전역-변수의-사용을-억제하는-방법"><a href="#3-전역-변수의-사용을-억제하는-방법" class="headerlink" title="3. 전역 변수의 사용을 억제하는 방법"></a>3. 전역 변수의 사용을 억제하는 방법</h2><p><strong>전역 변수대신 지역 변수를 사용해야된다</strong></p>
-<p>전역 변수의 무분별한 사용은 위험하기 때문에 전역 변수를 반드시 사용해야 할 이유를 찾지 못했다면 지역 변수를 사용해야 한다. 변수의 스코프는 좁을수록 좋다. 전역 변수를 절대 사용하는 것은 불가능에 가까우므로 최대한 전역 변수의 사용을 억제하도록 해야한다. </p>
-<p>전역 변수의 사용을 억제하는 방법은 다음과 같다.</p>
-<h3 id="3-1-즉시-실행-함수"><a href="#3-1-즉시-실행-함수" class="headerlink" title="3.1 즉시 실행 함수"></a>3.1 즉시 실행 함수</h3><p>즉시 실행 함수의 특징을 이용한 꼼수이다. 즉시 실행 함수는 함수 정의와 동시에 호출되며, 단 한 번만 호출된다. 모든 코드를 즉시 실행 함수로 감싸면 모든 변수는 즉시 실행 함수의 지역 변수가 된다. 이러한 특성을 이용해 전역 변수의 사용을 제한하는 방법이다. </p>
-<p>이 방법을 사용하면 전역 변수를 생성하지 않으므로 라이브러리 등에 자주 사용된다. </p>
-<h3 id="3-2-네임-스페이스-객체"><a href="#3-2-네임-스페이스-객체" class="headerlink" title="3,2 네임 스페이스 객체"></a>3,2 네임 스페이스 객체</h3><p>전역에 네임스페이스(namespace)  역할을 담당할 객체를 생성하고 전역 변수처럼 사용하고 싶은 변수를 프로퍼티를 추가하는 방법이다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const MYAPP &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">MYAPP.name &#x3D; &#39;Jeong&#39;;</span><br><span class="line"></span><br><span class="line">console.log(MYAPP.name) ; &#x2F;&#x2F; Jeong</span><br></pre></td></tr></table></figure>
-
-
-
-<p>네임 스페이스 객체에 또 다른 네임 스페이스 객체를 프로퍼티로 추가해서 계층적으로 네임 스페이스를 구성할 수도 있다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const MYAPP &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">MYAPP.person &#x3D; &#123;</span><br><span class="line">name: &#39;Jeong&#39;,</span><br><span class="line">age: 23</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(MYAPP.person.age); &#x2F;&#x2F; 23</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>네임스페이스를 분리해서 식별자 충돌을 방지하는 효과는 있다. 하지만 객체 자체가 전역 변수에 할당되므로 그다지 유용하지 않다.</p>
-<h3 id="3-3-모듈-패턴"><a href="#3-3-모듈-패턴" class="headerlink" title="3.3 모듈 패턴"></a>3.3 모듈 패턴</h3><p>모듈 패턴은 클래스를 모방해서 관련이 있는 변수와 함수를 모아 즉시 실행 함수로 감싸 하나의 모듈을 만든다. 모듈 패턴은 자바스크립트의 강력한 기능인 클로져를 기반으로 동작한다. 모듈 패턴의 특징은 전역 변수의 억제는 물론 캡슐화까지 구현할 수 있다는 것이다. </p>
-<p>**캡슐화(encapsulation)**는 객체의 상태(state)를 나타내는 프로퍼티와 프로퍼티를 참조하고 조작할 수 있는 동작(behavior)인 메서드를 하나로 묶는 것을 말한다. 캡슐화는 객체의 특정 프로퍼티나 메서드를 감출 목적으로 사용하기도 하는데 이를 정보 은닉 (information hiding)이라고 한다.</p>
-<p>대부분의 객체지향 프로그래밍 언어는 클래스를 구성하는 멤버에 대해 public, private, protected 등의 접근 제한자(access modifier )를 사용해 공개 범위를 한정할 수 있다. public 으로 선언된 데이터 또는 메서드는 외부에서 접근이 가능하지만 private으로 선언된 경우는 외부에서 접근할 수 없고 내부에서만 사용된다. </p>
-<p>이것은 클래스 외부에는 제한된 접근 권한ㄴ을 제공하며 원하지 않는 외부의 접근으로부터 내부를 보호하는 기능을 한다.</p>
-<p>하지만 자바 스크립트는 public, private, protected 등의 접근 제한자를 제공하지 않는다. 모듈 패턴은 전역 네임 스페이스의 오염을 막는 기능을 물론 한정적이기는 하지만 정보은닉을 구현하기 위해 사용한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">const Counter &#x3D; (function() &#123;</span><br><span class="line">&#x2F;&#x2F;private 변수</span><br><span class="line">    let num &#x3D; 0;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;외부로 공개할 데이터나 메서드를 프로퍼티로 추가한 객체를 반환한다. </span><br><span class="line">    return &#123;</span><br><span class="line">        increase()&#123;</span><br><span class="line">            return ++num;</span><br><span class="line">        &#125;,</span><br><span class="line">        decrease()&#123;</span><br><span class="line">            return --num;</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;;</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;private 변수는 외부로 노출되지 않는다. </span><br><span class="line">console.log(Counter.num); &#x2F;&#x2F; undefined</span><br><span class="line"></span><br><span class="line">console.log(Counter.increase()); &#x2F;&#x2F;1</span><br><span class="line"></span><br><span class="line">console.log(Counter.increase()); &#x2F;&#x2F;2</span><br><span class="line">console.log(Counter.decrease()); &#x2F;&#x2F; 1</span><br><span class="line">console.log(Counter.decrease()); &#x2F;&#x2F;0</span><br></pre></td></tr></table></figure>
-
-<p>위 예제의 즉시 실행 함수는 객체를 반환한다. 이 객체에는 외부에 노출하고 싶은 변수나 함수를 담아 반환한다. 이때 반환되는 객체의 프로퍼티는 외부에 노출되는 퍼블릭 멤버(public member) 이다. 외부로 노출하고 싶지 않은 변수나 함수는 반환하는 객체에 추가하지 않으면 외부에서 접근할 수 없는 프라이빗 멤버(private member)가 된다.</p>
-<h3 id="3-4-ES6-모듈"><a href="#3-4-ES6-모듈" class="headerlink" title="3.4 ES6 모듈"></a>3.4 ES6 모듈</h3><p><strong>ES6 모듈은 파일 자체의 독자적인 스코프 제공</strong></p>
-<p>ES6 모듈을 사용하면 더는 전역 변수를 사용할 수 없다. ES 6 모듈은 파일 자체의 독자적인 모듈 스코프를 제공한다. 즉, 모듈 내에서 var 키워드로 선언한 변수는 더는 전역 변수가 아니며 window 객체의 프로퍼티도 아니다.</p>
-<p>모던 브라우저(Chrome 61, FF 60, SF 10.1, Edge 16 이상) 에서 ES6모듈을 사용할 수 있따. script 태그에 type = “module” 어트리뷰트를 추가하면 로드된 자바스크립트 파일은 모듈로서 동작한다. 모듈의 파일 확장자는 mjs를 권장한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type &#x3D; &quot;module&quot; src &#x3D; &quot;lib.mjs&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type &#x3D; &quot;module&quot; src &#x3D; &quot;app.mjs&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>ES6 모듈은 IE를 포함한 구형 브라우저에서는 동작하지 않으며, 브라우저의 ES6 모듈 기능을 사용하더라도 트랜스파일링이나 번들링이 필요하기 때문에 아직까지는 브라우저가 지원하는 ES6 모듈 기능보다는 Webpack 등의 모듈 번들러를 사용하는 것이 일반적이다. </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2523,7 +2428,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
