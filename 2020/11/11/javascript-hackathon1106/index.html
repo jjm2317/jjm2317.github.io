@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jjm2317.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="11&#x2F;06 해커톤 주제  이상형 월드컵 조건에 따라 사진 필터링    다음부터는  작업 단위마다 데드라인 정하기 git 사용법 확실히 공부하고 진행 기획 더 신경써서 하기  index.html123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript hackathon1106">
+<meta property="og:url" content="https://jjm2317.github.io/2020/11/11/javascript-hackathon1106/index.html">
+<meta property="og:site_name" content="Jeong Jiman&#39;s blog">
+<meta property="og:description" content="11&#x2F;06 해커톤 주제  이상형 월드컵 조건에 따라 사진 필터링    다음부터는  작업 단위마다 데드라인 정하기 git 사용법 확실히 공부하고 진행 기획 더 신경써서 하기  index.html123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-10T23:50:00.000Z">
+<meta property="article:modified_time" content="2020-11-11T00:05:04.722Z">
+<meta property="article:author" content="Jeong Jiman">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://jjm2317.github.io/2020/11/11/javascript-hackathon1106/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>javascript hackathon1106 | Jeong Jiman's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jeong Jiman's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Awesome node.jser..</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/11/11/javascript-hackathon1106/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          javascript hackathon1106
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-11 08:50:00 / Modified: 09:05:04" itemprop="dateCreated datePublished" datetime="2020-11-11T08:50:00+09:00">2020-11-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="11-06-해커톤"><a href="#11-06-해커톤" class="headerlink" title="11/06 해커톤"></a>11/06 해커톤</h1><ul>
+<li>주제 <ul>
+<li>이상형 월드컵</li>
+<li>조건에 따라 사진 필터링</li>
+</ul>
+</li>
+</ul>
+<p><strong>다음부터는</strong></p>
+<ul>
+<li>작업 단위마다 데드라인 정하기</li>
+<li>git 사용법 확실히 공부하고 진행</li>
+<li>기획 더 신경써서 하기</li>
+</ul>
+<h2 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;ko&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">  &lt;title&gt;Worldcup&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;reset-css@5.0.1&#x2F;reset.css&quot;&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;css&#x2F;style.css&quot;&gt;</span><br><span class="line">  &lt;script src&#x3D;&quot;js&#x2F;data.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;script src&#x3D;&quot;js&#x2F;app.js&quot; defer&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;!--랜딩1--&gt;</span><br><span class="line">    &lt;!-- &lt;div class&#x3D;&quot;wrap2&quot;&gt;</span><br><span class="line">      &lt;div class&#x3D;&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;h1&gt;logo&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;div&gt; --&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;main&quot;&gt;</span><br><span class="line">      &lt;h2&gt;이상형 월드컵&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;p&gt;너.의.맘.이.궁.금.해&lt;&#x2F;p&gt;</span><br><span class="line">      &lt;div class&#x3D;&quot;gender active&quot;&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;woman&quot;&gt;여자&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;man&quot;&gt;남자&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;next&quot;&gt;NEXT&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;div class&#x3D;&quot;job&quot;&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;prev&quot;&gt;이전&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;singer&quot;&gt;가수&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;actor&quot;&gt;배우&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;all&quot;&gt;모두&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;start&quot;&gt;START&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;div class&#x3D;&quot;battle&quot;&gt;</span><br><span class="line">        &lt;h3&gt;16강&lt;&#x2F;h3&gt;</span><br><span class="line">        &lt;figure class&#x3D;&quot;left&quot;&gt;</span><br><span class="line">          &lt;img src&#x3D;&quot;&quot; alt&#x3D;&quot;leftimg&quot;&gt;</span><br><span class="line">          &lt;caption&gt;이름&lt;&#x2F;caption&gt;</span><br><span class="line">        &lt;&#x2F;figure&gt;</span><br><span class="line">        &lt;figure class&#x3D;&quot;right&quot;&gt;</span><br><span class="line">          &lt;img src&#x3D;&quot;&quot; alt&#x3D;&quot;rightimg&quot;&gt;</span><br><span class="line">          &lt;caption&gt;이름&lt;&#x2F;caption&gt;</span><br><span class="line">        &lt;&#x2F;figure&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;!-- &lt;div class&#x3D;&quot;battle&quot;&gt;</span><br><span class="line">        &lt;figure&gt;</span><br><span class="line">          &lt;img src&#x3D;&quot;&quot; alt&#x3D;&quot;&quot;&gt;</span><br><span class="line">          &lt;caption&gt;당신의 이상형은 IMGNAME입니다.&lt;&#x2F;caption&gt;</span><br><span class="line">        &lt;&#x2F;figure&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;retry&quot;&gt;Goback&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;rank&quot;&gt;랭킹보기&lt;&#x2F;button&gt;</span><br><span class="line">      &lt;&#x2F;div&gt; --&gt;</span><br><span class="line">      &lt;span&gt;FAST&lt;&#x2F;span&gt;</span><br><span class="line">      &lt;span&gt;CAMPUS COUPLE&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br></pre></td><td class="code"><pre><span class="line">const $gender &#x3D; document.querySelector(&#39;.gender&#39;);</span><br><span class="line">const $job &#x3D; document.querySelector(&#39;.job&#39;);</span><br><span class="line">const $next &#x3D; document.querySelector(&#39;.gender &gt; .next&#39;)</span><br><span class="line">const $singer &#x3D; document.querySelector(&#39;.singer&#39;);</span><br><span class="line">const $start &#x3D; document.querySelector(&#39;.start&#39;);</span><br><span class="line">const $battle &#x3D; document.querySelector(&#39;.battle&#39;);</span><br><span class="line">const $h3 &#x3D; document.querySelector(&#39;.battle h3&#39;);</span><br><span class="line">const $leftImg &#x3D; document.querySelector(&#39;.left &gt; img&#39;);</span><br><span class="line">const $rightImg &#x3D; document.querySelector(&#39;.right &gt; img&#39;);</span><br><span class="line">&#x2F;&#x2F;gender 선택 시작</span><br><span class="line">let jobKey &#x3D; &#39;&#39;;</span><br><span class="line">let genderChoice &#x3D;&#39;&#39;;</span><br><span class="line">let NewidealType &#x3D; [];</span><br><span class="line">let numArr &#x3D; [];</span><br><span class="line">let count &#x3D; 0;</span><br><span class="line">let check &#x3D; [];</span><br><span class="line">let match8Index &#x3D; [];</span><br><span class="line">let match4Index &#x3D; [];</span><br><span class="line">let match2Index &#x3D; [];</span><br><span class="line">let match1Index &#x3D; [];</span><br><span class="line">let match8 &#x3D; [];</span><br><span class="line">let match4 &#x3D; [];</span><br><span class="line">let match2 &#x3D; [];</span><br><span class="line">let match1 &#x3D; [];</span><br><span class="line">let tournament &#x3D;[]  </span><br><span class="line">function getRandomInt(min, max) &#123;</span><br><span class="line">  min &#x3D; Math.ceil(min);</span><br><span class="line">  max &#x3D; Math.floor(max);</span><br><span class="line">  return Math.floor(Math.random() * (max - min)) + min; &#x2F;&#x2F;최댓값은 제외, 최솟값은 포함</span><br><span class="line">&#125;</span><br><span class="line">const ranDom &#x3D; n &#x3D;&gt; &#123;</span><br><span class="line">  while (!(numArr.length &#x3D;&#x3D;&#x3D; n))&#123;</span><br><span class="line">    while (1)&#123;</span><br><span class="line">      let num &#x3D; getRandomInt(0, n)</span><br><span class="line">      if(!numArr.includes(num))&#123;</span><br><span class="line">       numArr.push(num);</span><br><span class="line">       break;</span><br><span class="line">      &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;gender 선택 이벤트 핸들러 등록</span><br><span class="line">$gender.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(e.target.matches(&#39;.gender &gt; next&#39;)) return;</span><br><span class="line">  if(e.target.matches (&#39;.gender &gt; .woman&#39;))&#123;</span><br><span class="line">    genderChoice &#x3D; &#39;w&#39;</span><br><span class="line">  &#125;</span><br><span class="line">  else if(e.target.matches(&#39;.gender &gt; .man&#39;))&#123;</span><br><span class="line">    genderChoice &#x3D; &#39;m&#39;</span><br><span class="line">  &#125; else return; </span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;gender 선택 끝</span><br><span class="line">&#x2F;&#x2F; next 버튼을 누르면 gender에 active 삭제, job에 active 추가하는 이벤트 핸들러</span><br><span class="line">$next.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if ( !genderChoice ) &#123;</span><br><span class="line">    alert(&#39;성별을 선택하세요!&#39;);</span><br><span class="line">    return;</span><br><span class="line">  &#125;;</span><br><span class="line">  e.target.parentNode.classList.remove(&#39;active&#39;);</span><br><span class="line">  $job.classList.add(&#39;active&#39;);</span><br><span class="line">  console.log($job);</span><br><span class="line">&#125;</span><br><span class="line">$job.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if (e.target.matches(&#39;.job &gt; .prev&#39;)) &#123;</span><br><span class="line">    $job.classList.remove(&#39;active&#39;);</span><br><span class="line">    $gender.classList.add(&#39;active&#39;);</span><br><span class="line">    jobKey &#x3D; &#39;&#39;;</span><br><span class="line">    genderChoice &#x3D; &#39;&#39;;</span><br><span class="line">  &#125; else if (e.target.matches(&#39;.job &gt; .singer&#39;))&#123;</span><br><span class="line">    jobkey &#x3D; &#39;singer&#39;</span><br><span class="line">  &#125; else if (e.target.matches(&#39;.job &gt; .actor&#39;)) &#123;</span><br><span class="line">    jobkey &#x3D; &#39;actor&#39;</span><br><span class="line">  &#125; else if(e.target.matches(&#39;.job &gt; .all&#39;))&#123;</span><br><span class="line">    jobkey &#x3D; &#39;all&#39;</span><br><span class="line">  &#125; else return;</span><br><span class="line">  console.log(jobkey);</span><br><span class="line">&#125;</span><br><span class="line">$start.onclick &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">   NewidealType &#x3D; idealType.filter(ideal &#x3D;&gt; &#123;</span><br><span class="line">    return jobkey&#x3D;&#x3D;&#x3D;&#39;all&#39; ? ideal.gender &#x3D;&#x3D;&#x3D; genderChoice : </span><br><span class="line">    ideal.gender &#x3D;&#x3D;&#x3D; genderChoice &amp;&amp; ideal.job &#x3D;&#x3D;&#x3D; jobkey </span><br><span class="line">  &#125;);</span><br><span class="line">  if (jobkey &#x3D;&#x3D;&#x3D; &#39;all&#39; ) &#123;</span><br><span class="line">    ranDom(32);</span><br><span class="line">    numArr.length &#x3D; 16;</span><br><span class="line">    randomItem(NewidealType);</span><br><span class="line">    NewidealType.length &#x3D; 16;</span><br><span class="line">  &#125;</span><br><span class="line">  $job.classList.remove(&#39;active&#39;);</span><br><span class="line">  $battle.classList.add(&#39;active&#39;);</span><br><span class="line">  tournament &#x3D; matchImage(NewidealType);</span><br><span class="line">  renderImage(tournament,0);</span><br><span class="line"> &#125; </span><br><span class="line"> const randomItem &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  NewidealType &#x3D; NewidealType.map((item, i, arr) &#x3D;&gt; arr[numArr[i]]);</span><br><span class="line">  &#125;</span><br><span class="line">  const matchImage &#x3D; (match) &#x3D;&gt; &#123;</span><br><span class="line">    const res &#x3D; match.map(item &#x3D;&gt; &#123;</span><br><span class="line">      console.log(item);</span><br><span class="line">      return item.path&#125;);</span><br><span class="line">    console.log(res);</span><br><span class="line">    return res;</span><br><span class="line">  &#125;</span><br><span class="line">const renderImage &#x3D; (pathSet, n) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(pathSet[2*n]);</span><br><span class="line">  $leftImg.setAttribute(&#39;src&#39;, pathSet[2*n]);</span><br><span class="line">  $rightImg.setAttribute(&#39;src&#39;, pathSet[2*n+1]);</span><br><span class="line">&#125;</span><br><span class="line">$battle.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  count &#x3D; count + 1;</span><br><span class="line">  &#x2F;&#x2F; if (e.target &#x3D;&#x3D;&#x3D; $leftImg) &#123;</span><br><span class="line">  &#x2F;&#x2F;   NewidealType[0].lank &#x3D; 1;</span><br><span class="line">  &#x2F;&#x2F; &#125; else &#123;</span><br><span class="line">  &#x2F;&#x2F;   NewidealType[0].lank &#x3D; 1;</span><br><span class="line">  &#x2F;&#x2F; &#125;</span><br><span class="line">  console.log(count);</span><br><span class="line">  console.log(tournament)</span><br><span class="line">  if(count &lt; 8)&#123;</span><br><span class="line">    renderImage(tournament,count);</span><br><span class="line">    if(e.target.parentNode.matches(&#39;.left&#39;))&#123;</span><br><span class="line">      match8Index.push(2*count);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      match8Index.push(2*count+1);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if(count &gt;&#x3D;8 &amp;&amp; count&lt;12) &#123;</span><br><span class="line">    renderImage(tournament,count-8);</span><br><span class="line">    if(e.target.parentNode.matches(&#39;.left&#39;))&#123;</span><br><span class="line">      match4Index.push(2*(count-8));</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      match4Index.push(2*(count-8)+1);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if(count &gt;&#x3D;12 &amp;&amp; count&lt;14)&#123;</span><br><span class="line">    renderImage(tournament,count-12);</span><br><span class="line">    if(e.target.parentNode.matches(&#39;.left&#39;))&#123;</span><br><span class="line">      match2Index.push(2*(count-12));</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      match2Index.push(2*(count-12)+1);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if(count &#x3D;&#x3D;&#x3D; 14)&#123;</span><br><span class="line">    renderImage(tournament,count-14);</span><br><span class="line">    if(e.target.parentNode.matches(&#39;.left&#39;))&#123;</span><br><span class="line">      match1Index.push(2*(count - 14));</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      match1Index.push(2*(count-14)+1);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (count &#x3D;&#x3D;&#x3D; 8) &#123;</span><br><span class="line">    $h3.textContent &#x3D; &#39;8강&#39;;</span><br><span class="line">  &#125; else if(count &#x3D;&#x3D;&#x3D; 12) &#123;</span><br><span class="line">    $h3.textContent &#x3D; &#39;4강&#39;;</span><br><span class="line">  &#125; else if(count &#x3D;&#x3D;&#x3D; 14)&#123;</span><br><span class="line">    $h3.textContent &#x3D; &#39;결승&#39;</span><br><span class="line">  &#125; else if(count &#x3D;&#x3D;&#x3D; 15)&#123;</span><br><span class="line">    $h3.textContent &#x3D; &#39;&#39;</span><br><span class="line">  &#125;</span><br><span class="line">  if(count&#x3D;&#x3D;&#x3D;8)&#123;</span><br><span class="line">    match8 &#x3D; NewidealType.filter((_,i) &#x3D;&gt; match8Index.includes(i))</span><br><span class="line">    console.log(match8);</span><br><span class="line">    tournament&#x3D; matchImage(match8);</span><br><span class="line">  &#125;;</span><br><span class="line">  if(count&#x3D;&#x3D;&#x3D;12)&#123;</span><br><span class="line">    match4 &#x3D; match8.filter((_,i) &#x3D;&gt; match4Index.includes(i))</span><br><span class="line">    console.log(match4);</span><br><span class="line">    tournament&#x3D;matchImage(match4);</span><br><span class="line">  &#125;;</span><br><span class="line">  if(count&#x3D;&#x3D;&#x3D;14)&#123;match2 &#x3D; match4.filter((_,i) &#x3D;&gt; match2Index.includes(i));</span><br><span class="line">    console.log(match2);</span><br><span class="line">    tournament &#x3D; matchImage(match2);</span><br><span class="line">  &#125;</span><br><span class="line">  if(count&#x3D;&#x3D;&#x3D;15)&#123;match1 &#x3D; match2.filter((_,i) &#x3D;&gt; match1Index.includes(i));</span><br><span class="line">    console.log(match1);  </span><br><span class="line">    tournament &#x3D; matchImage(match1);</span><br><span class="line">    e.target.classList.add(&#39;champion&#39;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">if (count &#x3D;&#x3D;&#x3D; 15) &#123;</span><br><span class="line">  renderImage(tournament, count -15);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; const matchImage &#x3D; match &#x3D;&gt; &#123;</span><br><span class="line">&#x2F;&#x2F;   let res &#x3D; match.map(item &#x3D;&gt; item.path);</span><br><span class="line">&#x2F;&#x2F;   return res;</span><br><span class="line">&#x2F;&#x2F;   console.log(NewidealType)</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br><span class="line">&#x2F;&#x2F; const renderImage &#x3D; (pathset, n) &#x3D;&gt; &#123;</span><br><span class="line">&#x2F;&#x2F;   $leftImg.setAttribute(&#39;src&#39;, pathset[2*n]);</span><br><span class="line">&#x2F;&#x2F;   $rightImg.setAttribute(&#39;src&#39;, pathset[2*n+1]);</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="style-css"><a href="#style-css" class="headerlink" title="style.css"></a>style.css</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  width: 1100px;</span><br><span class="line">  height:800px;</span><br><span class="line">  position: relative;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  &#x2F;* border:1px solid red; *&#x2F;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  box-sizing:border-box ;</span><br><span class="line">&#125;</span><br><span class="line">button&#123;</span><br><span class="line">  background-color: #ddd;</span><br><span class="line">  border:none</span><br><span class="line">&#125;</span><br><span class="line">.main &#123;</span><br><span class="line">  width: 550px;</span><br><span class="line">  height:100%;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  border:1px solid red;</span><br><span class="line">  text-align: center;</span><br><span class="line">  position:relative;</span><br><span class="line">&#125;</span><br><span class="line">.header&#123;</span><br><span class="line">  width:100%;</span><br><span class="line">  height:150px;</span><br><span class="line">  &#x2F;* background-color: royalblue; *&#x2F;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.header h2, p &#123;</span><br><span class="line">  text-align: center;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  font-weight: 800;</span><br><span class="line">&#125;</span><br><span class="line">.header p&#123;</span><br><span class="line">  width:100%;</span><br><span class="line">  padding-top:30px;</span><br><span class="line">  color:#ddd;</span><br><span class="line">&#125;</span><br><span class="line">.header h2&#123;</span><br><span class="line">  width:100%;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top:70px;</span><br><span class="line">  font-size: 40px;</span><br><span class="line">&#125;</span><br><span class="line">.gender,</span><br><span class="line">.job,</span><br><span class="line">.battle &#123;</span><br><span class="line">  width: 550px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* render 1 *&#x2F;</span><br><span class="line">.gender &#123;</span><br><span class="line">  display: none;</span><br><span class="line">  &#x2F;* background-color: tomato; *&#x2F;</span><br><span class="line">&#125;</span><br><span class="line">.gender.active, .job.active &#123;</span><br><span class="line">  display: block;</span><br><span class="line">&#125;</span><br><span class="line">.battle.active &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.woman,</span><br><span class="line">.man,</span><br><span class="line">.singer,</span><br><span class="line">.actor,</span><br><span class="line">.all &#123;</span><br><span class="line">  width: 500px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  display: block;</span><br><span class="line">  margin-bottom: 30px;</span><br><span class="line">  font-size:30px;</span><br><span class="line">  font-weight: 700;</span><br><span class="line">&#125;</span><br><span class="line">.woman:focus,</span><br><span class="line">.man:focus,</span><br><span class="line">.singer:focus,</span><br><span class="line">.actor:focus,</span><br><span class="line">.all:focus&#123;</span><br><span class="line">  color:purple</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* .wrap2 *&#x2F;</span><br><span class="line">.wrap &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  align-items: center;</span><br><span class="line">  width:100%;</span><br><span class="line">  height:800px;</span><br><span class="line">  position: absolute;</span><br><span class="line">  left: 0;</span><br><span class="line">  right: 0;</span><br><span class="line">  z-index: 1;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">&#125;</span><br><span class="line">.wrap &#123;</span><br><span class="line">  background-color: #eee;</span><br><span class="line">&#125;</span><br><span class="line">.wrap &gt; h1 &#123;</span><br><span class="line">  width: 250px;</span><br><span class="line">  height:200px;</span><br><span class="line">  background: url(&#x2F;img&#x2F;logo.png) no-repeat;</span><br><span class="line">  background-size: contain;</span><br><span class="line">  text-indent:-9999px;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">  transform: translateY(-50%);</span><br><span class="line">&#125;</span><br><span class="line">.wrap span&#123;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  position: absolute;</span><br><span class="line">  margin-left: -20px;</span><br><span class="line">  bottom:calc(50% - 50px);</span><br><span class="line">&#125;</span><br><span class="line">.wrap span:nth-child(4)&#123;</span><br><span class="line">  bottom:calc(50% - 100px);</span><br><span class="line">&#125;</span><br><span class="line">.loading &#123;</span><br><span class="line">  animation-duration: 2s;</span><br><span class="line">  animation-name: load;</span><br><span class="line">  animation-fill-mode: forwards;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes load&#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">  transform: translate3d(0);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    transform: translate3d(0, -100%, 0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 랜딩2 *&#x2F;</span><br><span class="line">  .job &#123;</span><br><span class="line">    margin:20px auto;</span><br><span class="line">    display: none;</span><br><span class="line">    background-color: #bbb;</span><br><span class="line">  &#125;</span><br><span class="line">  .job::after&#123;</span><br><span class="line">    content:&#39;&#39;;</span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">  &#125;</span><br><span class="line">.job &gt; .prev &#123;</span><br><span class="line">  width:60px;</span><br><span class="line">  height:60px;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top:47%;</span><br><span class="line">  left: -100px;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  text-indent: -9999px;</span><br><span class="line">  background:url(&#x2F;img&#x2F;prev.png) no-repeat;</span><br><span class="line">  background-size: contain;</span><br><span class="line">&#125;</span><br><span class="line">.container  h2&#123;</span><br><span class="line">  margin-bottom:30px ;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">&#125;</span><br><span class="line">.container p &#123;</span><br><span class="line">  margin-bottom: 30px;</span><br><span class="line">&#125;</span><br><span class="line">.next &#123;</span><br><span class="line">  width: 150px;</span><br><span class="line">  height: 80px;</span><br><span class="line">  font-size: 50px;</span><br><span class="line">&#125;</span><br><span class="line">.start &#123;</span><br><span class="line">  width: 150px;</span><br><span class="line">  height: 80px;</span><br><span class="line">  font-size: 40px;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 랜딩 3 *&#x2F;</span><br><span class="line">.battle &#123;</span><br><span class="line">  display: none;</span><br><span class="line">  margin-top: 30px;</span><br><span class="line">&#125;</span><br><span class="line">.main:nth-child(3) h2 &#123;</span><br><span class="line">  color: #abd5bd;</span><br><span class="line">  margin-bottom: 10px;</span><br><span class="line">&#125;</span><br><span class="line">.main:nth-child(3) .battle h3 &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 75px;</span><br><span class="line">  left: 155px;</span><br><span class="line">  color: white;</span><br><span class="line">&#125;</span><br><span class="line">.main:nth-child(3) .left &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  width: 50%;</span><br><span class="line">  height: 200px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  border: 2px solid;</span><br><span class="line">&#125;</span><br><span class="line">.main:nth-child(3) .right &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  width: 50%;</span><br><span class="line">  height: 200px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  border: 2px solid;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* 랜딩 4*&#x2F;</span><br><span class="line">&#x2F;* 랜딩 4*&#x2F;</span><br><span class="line">.main:nth-child(4) &#123;</span><br><span class="line">&#125;</span><br><span class="line">.battle &#123;</span><br><span class="line">  height: 500px;</span><br><span class="line">  display: none;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  align-items: center;</span><br><span class="line">&#125;</span><br><span class="line">.battle h3 &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 150px;</span><br><span class="line">  color: #000;</span><br><span class="line">  font-size: 35px;</span><br><span class="line">  font-weight: 800;</span><br><span class="line">&#125;</span><br><span class="line">.battle figure&#123;</span><br><span class="line">  width : 100%;</span><br><span class="line">  height: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.battle figure img&#123;</span><br><span class="line">  display: block;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 300px;</span><br><span class="line">  background-color: green;</span><br><span class="line">&#125;</span><br><span class="line">footer &gt; span &#123;</span><br><span class="line">  left:50%;</span><br><span class="line">  font-size: 20px;</span><br><span class="line">  font-weight: 700;</span><br><span class="line">  &#x2F;* display: inline-block; *&#x2F;</span><br><span class="line">  &#x2F;* background-color: royalblue; *&#x2F;</span><br><span class="line">  transform: translateX(-50%);</span><br><span class="line">  position: absolute;</span><br><span class="line">  bottom:100px;</span><br><span class="line">&#125;</span><br><span class="line">footer &gt;span:nth-child(2) &#123;</span><br><span class="line">  bottom:50px;</span><br><span class="line">&#125;</span><br><span class="line">.battleFinal &#123;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br><span class="line">.champion &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  width: 100%;</span><br><span class="line">  transform: scale(2) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>data.js (lank 오타ㅎㅎ.. lank =&gt; rank)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">const idealType &#x3D; [</span><br><span class="line">  &#123; id: 1, job: &#39;singer&#39;, content: &#39;김동현&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;김동현.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 2, job: &#39;singer&#39;, content: &#39;김상균&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;김상균.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 3, job: &#39;singer&#39;, content: &#39;김지범&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;김지범.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 4, job: &#39;singer&#39;, content: &#39;김태영&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;김태영.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 5, job: &#39;singer&#39;, content: &#39;대준&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;대준.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 6, job: &#39;singer&#39;, content: &#39;성민&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;성민.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 7, job: &#39;singer&#39;, content: &#39;슬로우모션&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;슬로우모션.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 8, job: &#39;singer&#39;, content: &#39;웨비&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;웨비.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 9, job: &#39;singer&#39;, content: &#39;이태용&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;이태용.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 10,job: &#39;singer&#39;,  content: &#39;재범&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;재범.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 11,job: &#39;singer&#39;,  content: &#39;정국&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;정국.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 12,job: &#39;singer&#39;,  content: &#39;제이홉&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;제이홉.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 13,job: &#39;singer&#39;,  content: &#39;최수빈&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;최수빈.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 14,job: &#39;singer&#39;,  content: &#39;포맨&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;포맨.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 15,job: &#39;singer&#39;,  content: &#39;포틴&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;포틴.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 16,job: &#39;singer&#39;,  content: &#39;boy&#39; , path: &#39;..&#x2F;남자아이돌&#x2F;boy.jpg&#39;, gender: &#39;m&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 17,job: &#39;singer&#39;,  content: &#39;나연&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;나연.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 18,job: &#39;singer&#39;,  content: &#39;사나&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;사나.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 19,job: &#39;singer&#39;,  content: &#39;레이디&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;레이디.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 20,job: &#39;singer&#39;,  content: &#39;리아&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;리아.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 21,job: &#39;singer&#39;,  content: &#39;무궁화소녀&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;무궁화소녀.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 22,job: &#39;singer&#39;,  content: &#39;산다라박&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;산다라박.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 23,job: &#39;singer&#39;,  content: &#39;설현&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;설현.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 24,job: &#39;singer&#39;,  content: &#39;슬기&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;슬기.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 25,job: &#39;singer&#39;,  content: &#39;신예은&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;신예은.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 26,job: &#39;singer&#39;,  content: &#39;윤하&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;윤하.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 27,job: &#39;singer&#39;,  content: &#39;선미&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;선미.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 28,job: &#39;singer&#39;,  content: &#39;장원영&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;장원영.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 29,job: &#39;singer&#39;,  content: &#39;제니&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;제니.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 30,job: &#39;singer&#39;,  content: &#39;존예진&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;존예진.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 31,job: &#39;singer&#39;,  content: &#39;펀치&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;펀치.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 32,job: &#39;singer&#39;,  content: &#39;지효&#39; , path: &#39;..&#x2F;여자아이돌&#x2F;지효.jpg&#39;, gender: &#39;w&#39; ,lank: 0&#125;,</span><br><span class="line">  &#123; id: 33, job: &#39;actor&#39;, content: &#39;강동원&#39;, path: &#39;..&#x2F;남자배우&#x2F;강동원.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 34, job: &#39;actor&#39;, content: &#39;강하늘&#39;, path: &#39;..&#x2F;남자배우&#x2F;강하늘.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 35, job: &#39;actor&#39;, content: &#39;김수현&#39;, path: &#39;..&#x2F;남자배우&#x2F;김수현.jpeg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 36, job: &#39;actor&#39;, content: &#39;김우빈&#39;, path: &#39;..&#x2F;남자배우&#x2F;김우빈.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 37, job: &#39;actor&#39;, content: &#39;류준열&#39;, path: &#39;..&#x2F;남자배우&#x2F;류준열.jpeg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 38, job: &#39;actor&#39;, content: &#39;박보검&#39;, path: &#39;..&#x2F;남자배우&#x2F;박보검.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 39, job: &#39;actor&#39;, content: &#39;박해일&#39;, path: &#39;..&#x2F;남자배우&#x2F;박해일.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 40, job: &#39;actor&#39;, content: &#39;소지섭&#39;, path: &#39;..&#x2F;남자배우&#x2F;소지섭.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 41, job: &#39;actor&#39;, content: &#39;원빈&#39;, path: &#39;..&#x2F;남자배우&#x2F;원빈.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 42, job: &#39;actor&#39;, content: &#39;유승호&#39;, path: &#39;..&#x2F;남자배우&#x2F;유승호.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 43, job: &#39;actor&#39;, content: &#39;이민호&#39;, path: &#39;..&#x2F;남자배우&#x2F;이민호.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 44, job: &#39;actor&#39;, content: &#39;이병헌&#39;, path: &#39;..&#x2F;남자배우&#x2F;이병헌.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 45, job: &#39;actor&#39;, content: &#39;장기용&#39;, path: &#39;..&#x2F;남자배우&#x2F;장기용.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 46, job: &#39;actor&#39;, content: &#39;정해인&#39;, path: &#39;..&#x2F;남자배우&#x2F;정해인.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 47, job: &#39;actor&#39;, content: &#39;지창욱&#39;, path: &#39;..&#x2F;남자배우&#x2F;지창욱.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 48, job: &#39;actor&#39;, content: &#39;하정우&#39;, path: &#39;..&#x2F;남자배우&#x2F;하정우.jpg&#39;, gender: &#39;m&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 49, job: &#39;actor&#39;, content: &#39;공효진&#39;, path: &#39;..&#x2F;여자배우&#x2F;공효진.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 50, job: &#39;actor&#39;, content: &#39;권나라&#39;, path: &#39;..&#x2F;여자배우&#x2F;권나라.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 51, job: &#39;actor&#39;, content: &#39;김고은&#39;, path: &#39;..&#x2F;여자배우&#x2F;김고은.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 52, job: &#39;actor&#39;, content: &#39;김다미&#39;, path: &#39;..&#x2F;여자배우&#x2F;김다미.jpg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 53, job: &#39;actor&#39;, content: &#39;김태리&#39;, path: &#39;..&#x2F;여자배우&#x2F;김태리.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 54, job: &#39;actor&#39;, content: &#39;문채원&#39;, path: &#39;..&#x2F;여자배우&#x2F;문채원.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 55, job: &#39;actor&#39;, content: &#39;박민영&#39;, path: &#39;..&#x2F;여자배우&#x2F;박민영.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 56, job: &#39;actor&#39;, content: &#39;박소담&#39;, path: &#39;..&#x2F;여자배우&#x2F;박소담.jpg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 57, job: &#39;actor&#39;, content: &#39;박신혜&#39;, path: &#39;..&#x2F;여자배우&#x2F;박신혜.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 58, job: &#39;actor&#39;, content: &#39;박은빈&#39;, path: &#39;..&#x2F;여자배우&#x2F;박은빈.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 59, job: &#39;actor&#39;, content: &#39;서예진&#39;, path: &#39;..&#x2F;여자배우&#x2F;서예진.jpg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 60, job: &#39;actor&#39;, content: &#39;서현진&#39;, path: &#39;..&#x2F;여자배우&#x2F;서현진.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 61, job: &#39;actor&#39;, content: &#39;소희&#39;, path: &#39;..&#x2F;여자배우&#x2F;소희.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 62, job: &#39;actor&#39;, content: &#39;손예찐&#39;, path: &#39;..&#x2F;여자배우&#x2F;손예찐.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 63, job: &#39;actor&#39;, content: &#39;송하윤&#39;, path: &#39;..&#x2F;여자배우&#x2F;송하윤.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">  &#123; id: 64, job: &#39;actor&#39;, content: &#39;정소민&#39;, path: &#39;..&#x2F;여자배우&#x2F;정소민.jpeg&#39;, gender: &#39;w&#39;, lank: 0 &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/10/javascript-restAPI-TodoList/" rel="prev" title="javascript restAPI&TodoList">
+      <i class="fa fa-chevron-left"></i> javascript restAPI&TodoList
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#11-06-%ED%95%B4%EC%BB%A4%ED%86%A4"><span class="nav-number">1.</span> <span class="nav-text">11&#x2F;06 해커톤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#index-html"><span class="nav-number">1.1.</span> <span class="nav-text">index.html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app-js"><span class="nav-number">1.2.</span> <span class="nav-text">app.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#style-css"><span class="nav-number">1.3.</span> <span class="nav-text">style.css</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jeong Jiman</p>
+  <div class="site-description" itemprop="description">All Dev stories found in here.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeong Jiman</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
