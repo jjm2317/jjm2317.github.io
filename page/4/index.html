@@ -148,6 +148,286 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/26/javascript-08ControlFlowStatement/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/26/javascript-08ControlFlowStatement/" class="post-title-link" itemprop="url">javascript 08ControlFlowStatement</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-26 15:38:08" itemprop="dateCreated datePublished" datetime="2020-08-26T15:38:08+09:00">2020-08-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-09 22:28:56" itemprop="dateModified" datetime="2020-09-09T22:28:56+09:00">2020-09-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="제어문"><a href="#제어문" class="headerlink" title="제어문"></a>제어문</h1><ul>
+<li>제어문(control flow statement)는 다음의 경우 사용<ul>
+<li>주어진 조건에 따라 코드블록 실행(조건문)</li>
+<li>코드블록을 반복 실행(반복문)</li>
+</ul>
+</li>
+<li>코드의 실행흐름을 인위적으로 제어<ul>
+<li>가장 심플한 것은 위에서 아래로 예외없이 동작</li>
+<li>모던한 개발 방법론에서는 제어문을 별로 안 좋아한다. </li>
+</ul>
+</li>
+</ul>
+<h2 id="블록문"><a href="#블록문" class="headerlink" title="블록문"></a>블록문</h2><ul>
+<li>0개 이상의 문을 중괄호로 묶은 것(문이 없을 수도 있다)</li>
+<li>여러개의 문을 묶은 하나의 블록을 하나의 실행단위로 취급<ul>
+<li>하나가 실행되면 블록내의 문이 다같이 실행된다는 뜻</li>
+</ul>
+</li>
+<li>제어문과 함수 선언문 등에서 블록문이 사용된다.</li>
+<li>자체 종결성(self closing)이 있어 끝에 세미콜론을 붙이지 않는다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">var num1 &#x3D;1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(num1&lt;2)&#123;</span><br><span class="line">num1++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function increase(num)&#123;</span><br><span class="line">num++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#123;&#125; 로 감싸진 코드 블록이 모두 블록문이다</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-조건문"><a href="#1-조건문" class="headerlink" title="1. 조건문"></a>1. 조건문</h2><p>조건문은 <strong>조건식</strong>과 실행할 <strong>코드블록</strong>의 조합으로 이루어져 있다.</p>
+<ul>
+<li>조건식이 어떤 <strong>값</strong>으로 평가되느냐에 따라 코드블록의 실행 여부가 결정된다.</li>
+<li>조건식은 불리언(boolean)값으로 평가되며 boolean 타입이 아닌 표현식의 경우 boolean 값으로 암묵적 타입변환된다. </li>
+</ul>
+<h3 id="상반되는-두가지-조건의-경우-if-else-문을-사용하자"><a href="#상반되는-두가지-조건의-경우-if-else-문을-사용하자" class="headerlink" title="상반되는 두가지 조건의 경우 if else 문을 사용하자"></a>상반되는 두가지 조건의 경우 if else 문을 사용하자</h3><ul>
+<li>주어진 조건식이 true 인 경우 실행할 코드블록, false인 경우 실행할 코드 블록이 있는 경우 if else 문을 주로 활용한다.</li>
+</ul>
+<h4 id="사용예시는-다음과-같다"><a href="#사용예시는-다음과-같다" class="headerlink" title="사용예시는 다음과 같다"></a>사용예시는 다음과 같다</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var score,grade;</span><br><span class="line">if(score&gt;&#x3D;70)&#123;</span><br><span class="line">    grade &#x3D; &#39;P&#39;;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    grade &#x3D; &#39;F&#39;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="조건을-추가할-경우-else-if-문을-사용하자"><a href="#조건을-추가할-경우-else-if-문을-사용하자" class="headerlink" title="조건을 추가할 경우 else if 문을 사용하자"></a>조건을 추가할 경우 else if 문을 사용하자</h3><ul>
+<li>조건식이 여러개라면 else if 문을 사용</li>
+</ul>
+<h4 id="else-if-문의-사용예시는-다음과-같다"><a href="#else-if-문의-사용예시는-다음과-같다" class="headerlink" title="else if 문의 사용예시는 다음과 같다"></a>else if 문의 사용예시는 다음과 같다</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var score,grade;</span><br><span class="line">if(score &gt;&#x3D; 80)&#123;</span><br><span class="line">    grade &#x3D; &#39;A&#39;;</span><br><span class="line">&#125;else if(score &gt;&#x3D; 60)&#123;</span><br><span class="line">    grade &#x3D; &#39;B&#39;;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    grade &#x3D; &#39;C&#39;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="기타사항"><a href="#기타사항" class="headerlink" title="기타사항"></a>기타사항</h3><ul>
+<li>else, else if 는 필수가 아니라 선택이다. 사용하지 않아도 상관없으며 상황에 따라 추가해서 사용하도록 하자</li>
+<li>코드블록내에 문이 하나면 중괄호를 생략가능하다.</li>
+<li>if else 문은 삼항 조건 연산자로 바꾸어 쓸 수 있다.</li>
+</ul>
+<h3 id="if-else문은-삼항-조건-연산자로-바꿔-쓸-수-있다"><a href="#if-else문은-삼항-조건-연산자로-바꿔-쓸-수-있다" class="headerlink" title="if else문은 삼항 조건 연산자로 바꿔 쓸 수 있다."></a>if else문은 삼항 조건 연산자로 바꿔 쓸 수 있다.</h3><ul>
+<li>if else 문, 삼항 조건 연산자 모두 조건과 그에따른 결과 값이 두가지 이므로 동일하게 구현할 수 있다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var score,grade;</span><br><span class="line">if(score&gt;&#x3D;70)&#123;</span><br><span class="line">    grade &#x3D; &#39;P&#39;;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    grade &#x3D; &#39;F&#39;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 위 제어문을 삼항조건 연산자로 써보자</span><br><span class="line">grade &#x3D; score &gt;&#x3D; 70 ? &#39;P&#39; : &#39;F&#39;; </span><br></pre></td></tr></table></figure>
+
+<p>그렇다면 조건이 3개 이상인 else if 문은 어떻게 삼항 조건 연산자로 구현 할 수 있을까??</p>
+<h4 id="조건이-여러개인-else-if-문을-삼항-조건연산자로-바꾸려면"><a href="#조건이-여러개인-else-if-문을-삼항-조건연산자로-바꾸려면" class="headerlink" title="조건이 여러개인 else if 문을 삼항 조건연산자로 바꾸려면.."></a>조건이 여러개인 else if 문을 삼항 조건연산자로 바꾸려면..</h4><ul>
+<li>다음과 같은 방법을 따른다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var score,grade;</span><br><span class="line">if(score &gt;&#x3D; 80)&#123;</span><br><span class="line">    grade &#x3D; &#39;A&#39;;</span><br><span class="line">&#125;else if(score &gt;&#x3D; 60)&#123;</span><br><span class="line">    grade &#x3D; &#39;B&#39;;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    grade &#x3D; &#39;C&#39;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 위 코드를 삼항 조건 연산자로 구현해보자.</span><br><span class="line">grade &#x3D; score &gt;&#x3D; 80 ? &#39;A&#39; : (score &gt;&#x3D; 60 ? &#39;B&#39; : &#39;C&#39;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>조건 하나하나 순차적으로 분리해 작성하면 된다</li>
+</ul>
+<h3 id="if-else-문-이외에-조건이-여러개인-경우-사용할-수-있는-조건문-switch-문"><a href="#if-else-문-이외에-조건이-여러개인-경우-사용할-수-있는-조건문-switch-문" class="headerlink" title="if else 문 이외에, 조건이 여러개인 경우 사용할 수 있는 조건문 : switch 문"></a>if else 문 이외에, 조건이 여러개인 경우 사용할 수 있는 조건문 : switch 문</h3><ul>
+<li>조건이 여러개일때 if else 문과 switch 문을 주로 사용하는데, 사용하는 상황은 다르다.</li>
+<li>if else 문은 조건식의 <strong>논리적 참, 거짓</strong>을 따질때 사용한다.</li>
+<li>switch 문은 <strong>주어진 표현식의 case</strong>에 따라 실행할 문을 나눌때 사용한다.</li>
+</ul>
+<h4 id="switch문의-사용예시"><a href="#switch문의-사용예시" class="headerlink" title="switch문의 사용예시"></a>switch문의 사용예시</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; if else 문은 조건식의 논리적 참거짓을 판단한다.</span><br><span class="line">var score,grade;</span><br><span class="line">if(score &gt;&#x3D; 80)&#123;</span><br><span class="line">    grade &#x3D; &#39;A&#39;;</span><br><span class="line">&#125;else if(score &gt;&#x3D; 60)&#123;</span><br><span class="line">    grade &#x3D; &#39;B&#39;;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    grade &#x3D; &#39;C&#39;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; switch 문은 주어진 표현식의 평가값에 따라 case 문을 실행한다.</span><br><span class="line">var score, grade;</span><br><span class="line"></span><br><span class="line">switch(score)&#123;</span><br><span class="line">    case 5 : grade &#x3D; &#39;A&#39;;break;</span><br><span class="line">    case 4 : grade &#x3D; &#39;B&#39;;break</span><br><span class="line">    case 3 : grade &#x3D; &#39;C&#39;;break;</span><br><span class="line">    case 2 : grade &#x3D; &#39;D&#39;;break;</span><br><span class="line">    case 1 : grade &#x3D; &#39;E&#39;;break;</span><br><span class="line">    default: grade &#x3D; null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="break-로-case-문을-마무리해주는-것에-주의하자"><a href="#break-로-case-문을-마무리해주는-것에-주의하자" class="headerlink" title="break 로 case 문을 마무리해주는 것에 주의하자"></a>break 로 case 문을 마무리해주는 것에 주의하자</h4><p>case 문을 실행하고 break 문으로 switch 문을 탈출하지 않는다면 다음 case 문, default 문까지 연이어 실행하게되는 상황이 발생한다. 이러한 상황을 fall through 라고 한다.</p>
+<p>그러므로 실행하고자 하는 case 문이 끝났다면 <strong>break 키워드</strong>로 제어문을 탈출해주도록 하자</p>
+<p> break 키워드는 코드블록을 탈출한다는 의미가 있다.</p>
+<ul>
+<li>기타사항<ul>
+<li>fall through 현상을 이용해서 코드를 작성하는 경우도 있다. </li>
+<li>일반적으로 default 문에는 break 키워드를 사용하지 않는다. default가 switch 문의 마무리를 암시하기 때문이다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="폴-스루-fall-through-를-이용한-제어문-작성-예시"><a href="#폴-스루-fall-through-를-이용한-제어문-작성-예시" class="headerlink" title="폴 스루(fall through) 를 이용한 제어문 작성 예시"></a>폴 스루(fall through) 를 이용한 제어문 작성 예시</h4><ul>
+<li><p>월별 일 수를 나타내는 switch 문을 작성해보자.</p>
+</li>
+<li><p>추가적으로 윤년 판별을 삼항 조건연산자로 작성해보자</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var year, month, days;</span><br><span class="line">​&#96;&#96;&#96;</span><br><span class="line">&#x2F;&#x2F; year, month, days에 값을 할당</span><br><span class="line">​&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">switch(month)&#123;</span><br><span class="line">    case 1: case 3: case 5: case 7: case 8: case 10: case 12:</span><br><span class="line">    days &#x3D;31;</span><br><span class="line">    break;</span><br><span class="line">    case 4: case 6: case 9: case 11:</span><br><span class="line">    days &#x3D;30;</span><br><span class="line">    break;</span><br><span class="line">    case 2:</span><br><span class="line">    &#x2F;&#x2F;윤년 판별하기</span><br><span class="line">    &#x2F;&#x2F; 1. 연도가 4로 나누어떨어지는 해(2000, 2004, 2008, 2012, 2016, 2020...)는 윤년이다.</span><br><span class="line">    &#x2F;&#x2F; 2. 연도가 4로 나누어떨어지더라도 연도가 100으로 나누어떨어지는 해(2000, 2100, 2200...)는 평년이다.</span><br><span class="line">    &#x2F;&#x2F; 3. 연도가 400으로 나누어떨어지는 해(2000, 2400, 2800...)는 윤년이다.</span><br><span class="line">    </span><br><span class="line">    days &#x3D; year%4&#x3D;&#x3D;&#x3D;0 ? (year%100&#x3D;&#x3D;&#x3D;0 ? (year%400 &#x3D;&#x3D;&#x3D; 0 ? 29 : 28) : 29) : 28;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 위는 일감으로 써본건데 좀 긴 것 같다.</span><br><span class="line">    &#x2F;&#x2F; 한번의 조건식 평가로 값을 도출하도록 작성해보자</span><br><span class="line">    &#x2F;&#x2F; days &#x3D; (year%4&#x3D;&#x3D;&#x3D;0)&amp;&amp;(year%100!&#x3D;&#x3D;0 || year%400&#x3D;&#x3D;&#x3D;0) ? 29 : 28;</span><br><span class="line">    &#x2F;&#x2F; 이웅모 강사님의 코드는?</span><br><span class="line">    &#x2F;&#x2F;  days &#x3D; ((year % 4 &#x3D;&#x3D;&#x3D; 0 &amp;&amp; year % 100 !&#x3D;&#x3D; 0) || (year % 400 &#x3D;&#x3D;&#x3D; 0)) ? 29 : 28;break;</span><br><span class="line">    </span><br><span class="line">    default :</span><br><span class="line">        console.log(&#39;month 제대로 치세요&#39;)   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="2-반복문"><a href="#2-반복문" class="headerlink" title="2. 반복문"></a>2. 반복문</h2><ul>
+<li><strong>조건식의 평가 값이 true</strong> 인경우 <strong>코드블록을 반복적으로</strong> 실행</li>
+<li>조건식의 평가 값이 false 면 반복문을 탈출한다.</li>
+<li>세가지 반복문이 있다<ul>
+<li>for 문</li>
+<li>while 문</li>
+<li>do while 문</li>
+</ul>
+</li>
+</ul>
+<h3 id="for-문"><a href="#for-문" class="headerlink" title="for 문"></a>for 문</h3><ul>
+<li>조건식 평가 값이 false 일때까지 코드블록 반복 실행</li>
+<li>함수형 프로그래밍하고는 잘 안맞는다.<ul>
+<li>괄호 안에 변수가 만들어지기 때문</li>
+</ul>
+</li>
+<li>실행순서가 특이하다</li>
+</ul>
+<h4 id="for-문은-어떻게-동작할까"><a href="#for-문은-어떻게-동작할까" class="headerlink" title="for 문은 어떻게 동작할까"></a>for 문은 어떻게 동작할까</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var sum &#x3D; 0;</span><br><span class="line">for(var i &#x3D; 1; i&lt;&#x3D;10; i++)&#123;</span><br><span class="line">    sum+&#x3D;i;</span><br><span class="line">&#125;</span><br><span class="line">console.log(sum); &#x2F;&#x2F; 55</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;위 예제에서의 반복문</span><br><span class="line">for(var i &#x3D; 1; i&lt;&#x3D;10; i++)&#123;</span><br><span class="line">    sum+&#x3D;i;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;for(변수선언문;조건식;증감식)&#123;실행할 코드블록&#125; 의 방법으로 이용</span><br><span class="line">&#x2F;&#x2F;for(1번;2번;3번)&#123;4번&#125; 작동순서는 아래와 같다</span><br><span class="line">&#x2F;&#x2F;1번 2번 4번 3번 2번(2번이 계속해서 참이면) 4번 3번 2번 4번 3번 &#x2F;&#x2F;2번(2번이 거짓이면) 반복문 끝</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="좀-더-자세히-for문의-안이-어떻게-동작하는지를-중심으로"><a href="#좀-더-자세히-for문의-안이-어떻게-동작하는지를-중심으로" class="headerlink" title="좀 더 자세히? for문의 () 안이 어떻게 동작하는지를 중심으로"></a>좀 더 자세히? for문의 () 안이 어떻게 동작하는지를 중심으로</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(문1 ; 문2 ; 문3)&#123; 코드블록4&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for 문의  () 안에는 <strong>일반적으로</strong> 3개의 문이 들어간다.  </p>
+<p><strong>조건식 평가 값이 false 일때까지 코드블록 반복 실행</strong> 하는 것이 for 문의 목적이다. 문1~3 으로 <strong>조건식의 평가와 코드블록의 반복여부</strong>를 결정한다.</p>
+<p>for 문에서 코드 실행 순서는 문1 - 문2 - 코드블록4 - 문3 순이다.</p>
+<ul>
+<li>문1 : for 문 첫실행 시 한번만 실행되는 문. 보통 반복을 결정하는데 쓰일 변수를 선언한다.</li>
+<li>문2 : 두번째로 실행되는 문. <strong>boolean 값으로 평가</strong>되어 true인경우 코드블록 4를 실행한다.  </li>
+<li>코드블록 4 : 문2가 true 로 평가되면 실행된다. 문 2가 false 면 실행 안됨.</li>
+<li>문3 : 코드블록 4 실행이 끝나면 실행되는 문. 보통 문 1에서 선언한 변수의 증감식을 삽입한다.</li>
+</ul>
+<h4 id="for-의-안의-3가지-문에-대한-실험"><a href="#for-의-안의-3가지-문에-대한-실험" class="headerlink" title="for 의 () 안의 3가지 문에 대한 실험"></a>for 의 () 안의 3가지 문에 대한 실험</h4><h5 id="먼저-문1에-대해서"><a href="#먼저-문1에-대해서" class="headerlink" title="먼저 문1에 대해서"></a>먼저 문1에 대해서</h5><ul>
+<li>전역변수로 어떤 변수를 선언했고 그 변수를 문2의 조건식에 이용한다면 문1 을 비워두어도 된다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var i&#x3D;0</span><br><span class="line">for( ; i&lt;10; i++)&#123;</span><br><span class="line">  console.log(i);</span><br><span class="line">&#125;&#x2F;&#x2F;0 1 2 ~~~ 9</span><br><span class="line">console.log(i);&#x2F;&#x2F;10, </span><br><span class="line">&#x2F;&#x2F;다른얘기이지만, ()안에서 i를 선언해도 console.log(i)가 10이다.var 키워드의 특성때문이다.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>문 1에는 표현식인 문과 표현식이 아닌 문 전부 들어갈 수 있다.<ul>
+<li>선언문 작성이 가능하며, 할당문 작성역시 가능하다.</li>
+</ul>
+</li>
+</ul>
+<h5 id="문2-에-대해서"><a href="#문2-에-대해서" class="headerlink" title="문2 에 대해서"></a>문2 에 대해서</h5><ul>
+<li><strong>boolean 값</strong>으로 평가된다(중요!)<ul>
+<li>boolean 값으로 평가되지 않는 표현식도 암묵적 타입변환</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">for(var i&#x3D;0; i&#x3D;0; i++)&#123;</span><br><span class="line">    console.log(&#39;코드블록 실행&#39;);</span><br><span class="line">&#125;</span><br><span class="line">console.log(&#39;코드블록 미실행&#39;);</span><br><span class="line">&#x2F;&#x2F; 코드블록 미실행</span><br><span class="line">&#x2F;&#x2F; i&#x3D;0 이라는 할당문은 0으로 평가되어 false로 암묵적 변환된다.</span><br><span class="line"></span><br><span class="line">for(var i&#x3D;0; i&#x3D;&#x3D;&#x3D;0; i++)&#123;</span><br><span class="line">    console.log(&#39;코드블록 실행&#39;);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 코드블록 실행</span><br><span class="line">&#x2F;&#x2F; i&#x3D;&#x3D;&#x3D;0은 true 이다.</span><br><span class="line"></span><br><span class="line">for(;1;)&#123;</span><br><span class="line">    console.log(&#39;무한루프&#39;);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 무한루프~~~~ </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;2번째 문은 boolean 값으로 평가된다는 점 꼭 기억하자</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="문3-에-대해서"><a href="#문3-에-대해서" class="headerlink" title="문3 에 대해서"></a>문3 에 대해서</h5><ul>
+<li>3번째 문에는 <strong>표현식인 문</strong>이 위치 할 수 있다.</li>
+<li>문3은 별로 궁금한게 없어서 별거 안했다.</li>
+</ul>
+<h5 id="for-문은-안의-문들과-코드블록의-실행순서-각문의-특징만-알면-끝난다"><a href="#for-문은-안의-문들과-코드블록의-실행순서-각문의-특징만-알면-끝난다" class="headerlink" title="for 문은 ()안의 문들과 코드블록의 실행순서, 각문의 특징만 알면 끝난다."></a>for 문은 ()안의 문들과 코드블록의 실행순서, 각문의 특징만 알면 끝난다.</h5><ul>
+<li><p>여기까지 공부한 바로는 그렇다.</p>
+</li>
+<li><p>혼자 가설 세우고 검증해봤지만 나중에 사양을 직접 살펴보자</p>
+</li>
+</ul>
+<h3 id="while-문"><a href="#while-문" class="headerlink" title="while 문"></a>while 문</h3><ul>
+<li>for 문과 마찬가지로 while문 역시 <strong>조건식 평가결과가 참</strong>이면 <strong>코드블록 반복실행</strong></li>
+<li>for 문과는 어떤 차이?<ul>
+<li>for 문은 반복횟수가 명확할때 사용</li>
+<li>while 문은 반복횟수가 불명확할 때 사용</li>
+</ul>
+</li>
+</ul>
+<h4 id="for-문과-비슷하게-동작한다-다만-실행-순서가-조금-다르다"><a href="#for-문과-비슷하게-동작한다-다만-실행-순서가-조금-다르다" class="headerlink" title="for 문과 비슷하게 동작한다. 다만 실행 순서가 조금 다르다."></a>for 문과 비슷하게 동작한다. 다만 실행 순서가 조금 다르다.</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while(조건식)&#123;</span><br><span class="line">    실행할 문들</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 조건식을 먼저 평가하고 true 이면 코드블록을 실행한다.</span><br><span class="line">&#x2F;&#x2F; 조건식은 for의 문2와 마찬가지로 boolean 값으로 평가된다.</span><br><span class="line">&#x2F;&#x2F; 코드블록이 끝나면 다시 조건식을 평가한다. 조건식 평가 값이 false 일때 까지 반복실행</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="while문의-조건식이-항상-참이면-무한루프이다"><a href="#while문의-조건식이-항상-참이면-무한루프이다" class="headerlink" title="while문의 조건식이 항상 참이면, 무한루프이다."></a>while문의 조건식이 항상 참이면, 무한루프이다.</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var num &#x3D;0 ;</span><br><span class="line">while(1)&#123;</span><br><span class="line">    console.log(num++);</span><br><span class="line">&#125;&#x2F;&#x2F;0 1 2 3 4 5 6 ~~ 무한루프가 걸렸다</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;보통 break 키워드로 반복문을 탈출한다.</span><br><span class="line"></span><br><span class="line">var num &#x3D;0;</span><br><span class="line">while(1)&#123;</span><br><span class="line">    console.log(num++);</span><br><span class="line">    if(num&#x3D;&#x3D;&#x3D;10)&#123;break;&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 0 1 2 3 4 5 6 7 8 9</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="do-while-문"><a href="#do-while-문" class="headerlink" title="do while 문"></a>do while 문</h3><ul>
+<li>마찬가지이다. 실행순서만 조금 다르다.<ul>
+<li>코드블록을 먼저 실행하고 조건식을 평가한다.</li>
+<li>일단 실행한다는데에 의의가 있다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var num &#x3D;1;</span><br><span class="line"></span><br><span class="line">do&#123;</span><br><span class="line">    console.log(num++);</span><br><span class="line">&#125;while(num&lt;10)</span><br><span class="line">&#x2F;&#x2F; 1 2 3 4 5 6 7 8 9</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-break-문"><a href="#3-break-문" class="headerlink" title="3. break 문"></a>3. break 문</h2><h3 id="일부-코드블록을-탈출하는-break-문"><a href="#일부-코드블록을-탈출하는-break-문" class="headerlink" title="일부 코드블록을 탈출하는 break 문"></a>일부 코드블록을 탈출하는 break 문</h3><ul>
+<li><p>break 문으로 탈출할 수 있는 문은 다음과 같다.</p>
+<ul>
+<li>레이블 문</li>
+<li>반복문(for, for in , for of, while, do while)</li>
+<li>switch 문</li>
+</ul>
+</li>
+<li><p>위 문 이외의 문에서는 동작안함 (SyntaxError)</p>
+<ul>
+<li><pre><code>if(1)&#123;
+    break;
+&#125;//SyntaxError
+//if 문에서 동작 안함
+//바깥의 코드블록을 탈출
+&lt;!--hexoPostRenderEscape:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#### 레이블문이란? &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- 식별자가 붙은 문이다.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- 레이블 문의 식별자에는 따로 키워드를 안붙여도 되는듯하다.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;##### 레이블 문의 사용예시&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;:hexoPostRenderEscape--&gt;
+for(var i =0; i&lt;10; i++)&#123;
+for(var j =0; j&lt;10; j++)&#123;
+    if (i===3 &amp;&amp; j===3)&#123;
+        break;
+    &#125;
+&#125;
+&#125;
+console.log(i, j);// 10 10
+// 내부 for 문만 탈출 했기때문에 외부 for 문으로 다시 돌아가 반복 실행한다. 
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>//3 3 의결과를 얻고 싶다면 레이블 문을 이용하자.</p>
+<p>all : for(var i =0; i&lt;10; i++){<br>    for(var j =0; j&lt;10; j++){<br>        if (i===3 &amp;&amp; j===3){<br>            break all;<br>        }<br>    }<br>}<br>console.log(i, j); // 3 3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">레이블 문 사용 시 코드 가독성이 나빠져서 잘 사용 안한다고 한다.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 4. continue 문</span><br><span class="line"></span><br><span class="line">- 반복문의 증감식으로 바로 이동시킨다. </span><br><span class="line">- 탈출은 아니다.</span><br><span class="line"></span><br><span class="line">### continue 문 사용예시</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>// 1~10에서 홀수만 출력해보자</p>
+<p>for(var i=0;i&lt;10;i++){<br>    if(i%2===0)continue;<br>    console.log(i);<br>}<br>//위와 같이 continue 문을 사용할 수 있다.</p>
+<p>// 위코드는 아래와 같은 결과이다.<br>for(var i=0;i&lt;10;i++){<br>    if(i%2!==0){<br>     console.log(i);<br>    }<br>}<br>// continue 문을 썼을 때보다 더 가독성이 좋아보인다.<br>// continue 문은 본래 코드의 if 문 내의 실행코드가 많을 때 사용하면 효율적이다.</p>
+<pre><code></code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/25/javascript-07Operator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1519,65 +1799,6 @@ console.log(x=3); //3
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/18/html-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/18/html-intro/" class="post-title-link" itemprop="url">html intro</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-18 19:33:46 / Modified: 19:36:03" itemprop="dateCreated datePublished" datetime="2020-08-18T19:33:46+09:00">2020-08-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="html-등장-배경"><a href="#html-등장-배경" class="headerlink" title="html 등장 배경"></a>html 등장 배경</h3><p>팀 버너스리가 유럽 핵연구소 다녔었는데 논문이 많았다. 공부하기 힘듬. 논문 문서들을 대상으로 각주를 놓고 점프할 수 있는 기능을 만든게 html이다. html을 논문에만 쓰지말고 여러정보로 확장. 디자인이 구려서 스타일링을 하자는 needs가 생김 &gt;&gt; css 등장. css</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1647,7 +1868,7 @@ console.log(x=3); //3
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
