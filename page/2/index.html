@@ -148,6 +148,412 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/23/javascript-AlgoPractice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/23/javascript-AlgoPractice/" class="post-title-link" itemprop="url">javascript AlgoPractice</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-10-23 11:23:16" itemprop="dateCreated datePublished" datetime="2020-10-23T11:23:16+09:00">2020-10-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-25 15:05:48" itemprop="dateModified" datetime="2020-10-25T15:05:48+09:00">2020-10-25</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="알고리즘-연습"><a href="#알고리즘-연습" class="headerlink" title="알고리즘 연습"></a>알고리즘 연습</h1><h2 id="1-짝수와-홀수"><a href="#1-짝수와-홀수" class="headerlink" title="1. 짝수와 홀수"></a>1. 짝수와 홀수</h2><p>evenOrOdd 함수는 정수 num을 매개변수로 받는다. num은 1이상의 정수이며, num이 음수인 경우는 없다. num이 짝수일 경우 ‘Even’을 반환하고 홀수인 경우 ‘Odd’를 반환하도록 evenOrOdd 함수를 완성하라.</p>
+<p>단, if문을 사용한 답과 삼항 조건 연산자를 사용한 답 두가지를 제시하여야 한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if문</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">evenOrOdd</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(num % <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Odd&#x27;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Even&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(evenOrOdd(<span class="number">2</span>)); <span class="comment">// Even</span></span><br><span class="line"><span class="built_in">console</span>.log(evenOrOdd(<span class="number">3</span>)); <span class="comment">// Odd</span></span><br><span class="line"><span class="built_in">console</span>.log(evenOrOdd(<span class="number">1000</span>)); <span class="comment">// Even</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3항 연산자</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">evenOrOdd</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num % <span class="number">2</span> ? <span class="string">&#x27;Odd&#x27;</span> : <span class="string">&#x27;Even&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(evenOrOdd(<span class="number">2</span>)); <span class="comment">// Even</span></span><br><span class="line"><span class="built_in">console</span>.log(evenOrOdd(<span class="number">3</span>)); <span class="comment">// Odd</span></span><br><span class="line"><span class="built_in">console</span>.log(evenOrOdd(<span class="number">1000</span>)); <span class="comment">// Even</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-1-10-000의-숫자-중-8이-등장하는-횟수-구하기-Google"><a href="#2-1-10-000의-숫자-중-8이-등장하는-횟수-구하기-Google" class="headerlink" title="2. 1 ~ 10,000의 숫자 중 8이 등장하는 횟수 구하기 (Google)"></a>2. 1 ~ 10,000의 숫자 중 8이 등장하는 횟수 구하기 (Google)</h2><p>1부터 10,000까지 8이라는 숫자가 총 몇번 나오는가? 이를 구하는 함수를 완성하라.</p>
+<p>단, 8이 포함되어 있는 숫자의 갯수를 카운팅 하는 것이 아니라 8이라는 숫자를 모두 카운팅 해야 한다. 예를 들어 8808은 3, 8888은 4로 카운팅 해야 한다.</p>
+<p>(hint) 문자열 중 n번째에 있는 문자 : str.charAt(n) or str[n]</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCount8</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">10000</span>; i++)&#123;</span><br><span class="line">        str += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [...str].reduce(<span class="function">(<span class="params">pre, cur, i, arr</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> cur === <span class="string">&#x27;8&#x27;</span> ? ++pre : pre; </span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getCount8()); <span class="comment">// 4000</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-문자열-다루기"><a href="#3-문자열-다루기" class="headerlink" title="3. 문자열 다루기"></a>3. 문자열 다루기</h2><p>alphaString46 함수는 문자열 s를 매개변수로 입력받는다. s의 길이가 4 ~ 6이고, 숫자로만 구성되어 있는지 확인하는 alphaString46 함수를 완성하라.</p>
+<p>예를 들어 s가 ‘a234’이면 false를 리턴하고 ‘1234’라면 true를 리턴한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">alphaString46</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!(<span class="keyword">typeof</span>(s) === <span class="string">&#x27;string&#x27;</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(!(s.length&gt;=<span class="number">4</span> &amp;&amp; s.length&lt;=<span class="number">6</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="literal">true</span>;</span><br><span class="line">    [...s].forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Number</span>.isNaN(+item)) res = <span class="literal">false</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(alphaString46(<span class="string">&#x27;1234&#x27;</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(alphaString46(<span class="string">&#x27;9014&#x27;</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(alphaString46(<span class="string">&#x27;723&#x27;</span>));  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(alphaString46(<span class="string">&#x27;a234&#x27;</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(alphaString46(<span class="string">&#x27;&#x27;</span>));     <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(alphaString46());       <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-문자열-내-p와-y의-개수"><a href="#4-문자열-내-p와-y의-개수" class="headerlink" title="4. 문자열 내 p와 y의 개수"></a>4. 문자열 내 p와 y의 개수</h2><p>numPY함수는 대문자와 소문자가 섞여있는 문자열 s를 인수로 전달받는다. s에 존재하는 ‘p’의 개수와 ‘y’의 갯수를 비교해 같으면 true, 다르면 false를 리턴하도록 함수를 완성하라. 대소문자를 구별하지 않으며 ‘p’, ‘y’ 모두 하나도 없는 경우는 항상 true를 리턴한다.</p>
+<p>예를 들어 s가 ‘pPoooyY’면 true를 리턴하고 ‘Pyy’라면 false를 리턴한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">numPY</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">arguments</span>.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">let</span> numP = [...s].filter(<span class="function"><span class="params">item</span> =&gt;</span> item === <span class="string">&#x27;p&#x27;</span> || item === <span class="string">&#x27;P&#x27;</span>).length;</span><br><span class="line">      <span class="keyword">let</span> numS = [...s].filter(<span class="function"><span class="params">item</span> =&gt;</span> item === <span class="string">&#x27;y&#x27;</span> || item === <span class="string">&#x27;Y&#x27;</span>).length;</span><br><span class="line">      <span class="keyword">return</span> numP === numS ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(numPY(<span class="string">&#x27;pPoooyY&#x27;</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(numPY(<span class="string">&#x27;Pyy&#x27;</span>));     <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(numPY(<span class="string">&#x27;ab&#x27;</span>));      <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(numPY(<span class="string">&#x27;&#x27;</span>));        <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(numPY());          <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-이상한-문자-만들기"><a href="#5-이상한-문자-만들기" class="headerlink" title="5. 이상한 문자 만들기"></a>5. 이상한 문자 만들기</h2><p>toWeirdCase함수는 문자열을 인수로 전달받는다. 문자열 s에 각 단어의 짝수번째 인덱스 문자는 대문자로, 홀수번째 인덱스 문자는 소문자로 바꾼 문자열을 리턴하도록 함수를 완성하라.</p>
+<p>예를 들어 s가 ‘hello world’라면 첫 번째 단어는 ‘HeLlO’, 두 번째 단어는 ‘WoRlD’로 바꿔 ‘HeLlO WoRlD’를 리턴한다.</p>
+<p>주의) 문자열 전체의 짝/홀수 인덱스가 아니라 단어(공백을 기준)별로 짝/홀수 인덱스를 판단한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toWeirdCase</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> newStr = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] === <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">            newStr += <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">            count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        newStr += count % <span class="number">2</span> === <span class="number">0</span> ? s[i].toUpperCase() : s[i].toLowerCase();</span><br><span class="line">        ++count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newStr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(toWeirdCase(<span class="string">&#x27;hello world&#x27;</span>));    <span class="comment">// &#x27;HeLlO WoRlD&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(toWeirdCase(<span class="string">&#x27;my name is lee&#x27;</span>)); <span class="comment">// &#x27;My NaMe Is LeE&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-핸드폰번호-가리기"><a href="#6-핸드폰번호-가리기" class="headerlink" title="6. 핸드폰번호 가리기"></a>6. 핸드폰번호 가리기</h2><p>핸드폰 요금 고지서에 표시할 전화번호는 개인정보 보호를 위해 맨 뒷자리 4자리를 제외한 나머지를 <code>*</code>으로 바꿔야 한다. 전화번호를 나타내는 문자열 str을 입력받는 hideNumbers 함수를 완성하라 예를들어 s가 ‘01033334444’면 <code>*******4444</code>를 리턴하고, ‘027778888’인 경우는 <code>*****8888</code>을 리턴한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hideNumbers</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> n = str.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">let</span> i = n; i&gt;=n - <span class="number">3</span>; i--) &#123;</span><br><span class="line">        res = str[i] + res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">let</span> i = n - <span class="number">4</span>; i&gt;=<span class="number">0</span>; i--) &#123;</span><br><span class="line">        res = <span class="string">&#x27;*&#x27;</span> + res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(hideNumbers(<span class="string">&#x27;01033334444&#x27;</span>)); <span class="comment">// *******4444</span></span><br><span class="line"><span class="built_in">console</span>.log(hideNumbers(<span class="string">&#x27;027778888&#x27;</span>));   <span class="comment">// *****8888</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-문자열을-숫자로-바꾸기"><a href="#7-문자열을-숫자로-바꾸기" class="headerlink" title="7. 문자열을 숫자로 바꾸기"></a>7. 문자열을 숫자로 바꾸기</h2><p>strToInt 메서드는 문자열을 인수로 전달받는다. 전달받은 문자열 인수를 숫자로 변환한 결과를 반환하도록 strToInt를 작성하라.</p>
+<p>예를 들어 str이 ‘1234’이면 1234를 반환하고, ‘-1234’이면 -1234를 반환한다. str은 부호(+,-)와 숫자로만 구성되어 있고, 잘못된 값이 입력되는 경우는 없다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strToInt</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Number</span>(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(strToInt(<span class="string">&#x27;1234&#x27;</span>));  <span class="comment">// 1234</span></span><br><span class="line"><span class="built_in">console</span>.log(strToInt(<span class="string">&#x27;-1234&#x27;</span>)); <span class="comment">// -1234</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-수박수박수박수박수박수"><a href="#8-수박수박수박수박수박수" class="headerlink" title="8. 수박수박수박수박수박수?"></a>8. 수박수박수박수박수박수?</h2><p>waterMelon 함수는 정수를 인수로 전달받는다. 길이가 n이고, 수박수박수…와 같은 패턴을 유지하는 문자열을 리턴하도록 함수를 완성하라.</p>
+<p>예를 들어 n이 4이면 ‘수박수박’을 리턴하고 3이라면 ‘수박수’를 리턴한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">waterMelon</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(&#123;<span class="attr">length</span> : n&#125;,<span class="function">(<span class="params">_,i</span>) =&gt;</span> i % <span class="number">2</span> ? <span class="string">&#x27;박&#x27;</span> : <span class="string">&#x27;수&#x27;</span>).join(<span class="string">&#x27;&#x27;</span>).toString();</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;n이 3인 경우: &#x27;</span>+ waterMelon(<span class="number">3</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;n이 4인 경우: &#x27;</span>+ waterMelon(<span class="number">4</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-정수제곱근-판별하기"><a href="#9-정수제곱근-판별하기" class="headerlink" title="9. 정수제곱근 판별하기"></a>9. 정수제곱근 판별하기</h2><p>nextSqaure함수는 정수를 인수로 전달받는다. n이 임의의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고, n이 임의의 정수 x의 제곱이 아니라면 ‘no’를 리턴하는 함수를 작성하라.</p>
+<p>예를 들어 n이 121이라면 이는 정수 11의 제곱이므로 (11+1)의 제곱인 144를 리턴하고, 3이라면 ‘no’을 리턴한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nextSqaure</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;<span class="number">0</span> || <span class="built_in">arguments</span>.length === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;no&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> num = <span class="built_in">Math</span>.sqrt(n);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Number</span>.isInteger(num) ? (num+<span class="number">1</span>) **<span class="number">2</span> : <span class="string">&#x27;no&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(nextSqaure());    <span class="comment">// no</span></span><br><span class="line"><span class="built_in">console</span>.log(nextSqaure(<span class="number">0</span>));   <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(nextSqaure(<span class="number">1</span>));   <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(nextSqaure(<span class="number">2</span>));   <span class="comment">// no</span></span><br><span class="line"><span class="built_in">console</span>.log(nextSqaure(<span class="number">3</span>));   <span class="comment">// no</span></span><br><span class="line"><span class="built_in">console</span>.log(nextSqaure(<span class="number">121</span>)); <span class="comment">// 144</span></span><br><span class="line"><span class="built_in">console</span>.log(nextSqaure(<span class="number">165</span>)); <span class="comment">// no</span></span><br><span class="line"><span class="built_in">console</span>.log(nextSqaure(<span class="number">400</span>)); <span class="comment">// 441</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="10-배열의-최대-최소값-구하기"><a href="#10-배열의-최대-최소값-구하기" class="headerlink" title="10. 배열의 최대/최소값 구하기"></a>10. 배열의 최대/최소값 구하기</h2><p>배열의 요소 중 최대값/최소값을 반환하는 함수를 완성하라.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMaxValueFromArray</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> array.reduce(<span class="function">(<span class="params">pre,cur,i,arr</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> pre &lt;= cur ? cur : pre;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getMaxValueFromArray([<span class="number">3</span>, <span class="number">6</span>, <span class="number">-2</span>, <span class="number">-5</span>, <span class="number">7</span>, <span class="number">3</span>])); <span class="comment">// 7</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMinValueFromArray</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> array.reduce(<span class="function">(<span class="params">pre,cur, i, arr</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> pre &gt; cur ? cur : pre;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getMinValueFromArray([<span class="number">3</span>, <span class="number">6</span>, <span class="number">-2</span>, <span class="number">-5</span>, <span class="number">7</span>, <span class="number">3</span>])); <span class="comment">// -5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="11-Check-Palindrom"><a href="#11-Check-Palindrom" class="headerlink" title="11. Check Palindrom"></a>11. Check Palindrom</h2><p>palindrome(팰린드롬/회문)은 왼쪽에서 오른쪽으로 읽은 다음, 오른쪽부터 왼쪽으로 다시 읽어도 똑같은 형태와 의미를 유지하는 문장이나 단어를 지칭한다. 인자로 전달한 문자열이 palindrome인지 검사하여 Boolean값을 반환하는 함수를 완성하라. 단, 반드시 1자 이상의 문자열을 인자로 전달한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPalindrom</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">  count = <span class="built_in">Math</span>.round(str.length) - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> left = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> right = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">    left += str[i];</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">    right += str[str.length - i - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> left === right ? <span class="literal">true</span> : <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(checkPalindrom(<span class="string">&#x27;dad&#x27;</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(checkPalindrom(<span class="string">&#x27;mom&#x27;</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(checkPalindrom(<span class="string">&#x27;palindrom&#x27;</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(checkPalindrom(<span class="string">&#x27;s&#x27;</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="12-중복-요소-제거"><a href="#12-중복-요소-제거" class="headerlink" title="12. 중복 요소 제거"></a>12. 중복 요소 제거</h2><p>인수로 전달된 배열의 요소 중에서 중복된 요소를 제외하고 유니크한 요소만을 반환하는 함수를 작성하라.</p>
+<p>for 문은 사용하지 않도록 하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniq</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> array.reduce(<span class="function">(<span class="params">pre, cur,i, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(arr.indexOf(cur) === i) &#123;</span><br><span class="line">      pre.push(cur);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pre;</span><br><span class="line">  &#125;,[]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(uniq([<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">4</span>])); <span class="comment">// [ 2, 1, 3, 4 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="13-중복없는-배열"><a href="#13-중복없는-배열" class="headerlink" title="13. 중복없는 배열"></a>13. 중복없는 배열</h2><p>길이가 n인 배열에 1부터 n까지 숫자가 중복 없이 한 번씩 들어 있는지를 확인하려고 한다. 1부터 n까지 숫자가 중복 없이 한 번씩 들어 있는 경우 true를, 아닌 경우 false를 반환하도록 함수 isNotOverlapArray을 완성하라. 단, 배열의 요소는 정수이다.</p>
+<p>예를 들어 주어진 배열이 [4, 1, 3, 2]이라면 true, [4, 1, 3] 또는 [1, 3]이라면 false를 반환한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNotOverlapArray</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> res = <span class="literal">true</span>;</span><br><span class="line">  array.forEach(<span class="function">(<span class="params">item, i, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(arr.indexOf(i+<span class="number">1</span>) === <span class="number">-1</span>) res = <span class="literal">false</span>; </span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isNotOverlapArray([<span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>])); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(isNotOverlapArray([<span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>]));    <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="14-중복된-요소"><a href="#14-중복된-요소" class="headerlink" title="14. 중복된 요소"></a>14. 중복된 요소</h2><p>인수로 전달된 배열의 요소 중에서 중복된 요소만으로 구성된 배열을 반환하는 함수를 작성하라.</p>
+<p>for 문은 사용하지 않도록 하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findDuplicated</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> array.reduce(<span class="function">(<span class="params">pre, cur, i, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(arr.indexOf(cur) !== i) pre.push(cur);</span><br><span class="line">    <span class="keyword">return</span> pre;  </span><br><span class="line">  &#125;,[]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> pre.sort();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(findDuplicated([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])); <span class="comment">// [ 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="15-약수의-합"><a href="#15-약수의-합" class="headerlink" title="15. 약수의 합"></a>15. 약수의 합</h2><p>어떤 수를 입력받아 그 수의 약수를 모두 더한 수를 구하는 sumDivisor 함수를 완성하라. 예를 들어 12가 입력된다면 12의 약수는 [1, 2, 3, 4, 6, 12]가 되고, 총 합은 28이 되므로 28을 반환한다.</p>
+<p>약수(約數, divisor)는 어떤 수를 나누었을 때 나머지가 0인 수를 말하며, 배수 관계와 서로 반대되는 개념이다</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumDivisor</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= num ; i ++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(num % i === <span class="number">0</span>) &#123;</span><br><span class="line">      sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sumDivisor(<span class="number">12</span>)); <span class="comment">// 28</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="16-소수-찾기"><a href="#16-소수-찾기" class="headerlink" title="16. 소수 찾기"></a>16. 소수 찾기</h2><p>numberOfPrime 메서드는 정수 n을 매개변수로 입력받는다. 1부터 입력받은 숫자 n 사이에 있는 소수의 개수를 반환하도록 numberOfPrime 함수를 완성하라. 예를 들어 10을 입력받았다면, 1부터 10 사이의 소수는 [2,3,5,7] 4개가 존재하므로 4를 반환한다.</p>
+<p>소수(素數, prime number)는 2, 3, 5, 7, 11, 13, 17…과 같이 1과 자신 이외의 어떤 수로도 나눠지지 않는 1보다 큰 양의 정수이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">numberOfPrime</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> res = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= n ; i ++) &#123;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> k = <span class="number">1</span>; k &lt;= i; k++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(i % k === <span class="number">0</span>) ++count;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span>(count === <span class="number">2</span>) ++res;</span><br><span class="line">    count = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(numberOfPrime(<span class="number">10</span>)); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="17-피보나치-수"><a href="#17-피보나치-수" class="headerlink" title="17. 피보나치 수"></a>17. 피보나치 수</h2><p>피보나치 수는 0과 1로 시작하며, 다음 피보나치 수는 바로 앞의 두 피보나치 수의 합이 된다. 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946…</p>
+<p>2 이상의 n이 입력되었을 때, n번째 피보나치 수를 반환하는 fibonacci 함수를 작성하라. 예를 들어 n = 3이라면 2를 반환한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> pre = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> med = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> cur = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> ( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)&#123;</span><br><span class="line">    med = cur;</span><br><span class="line">    cur = cur + pre;</span><br><span class="line">    pre = med;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">2</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">3</span>)); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">4</span>)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">5</span>)); <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">6</span>)); <span class="comment">// 8</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="18-각-자릿수의-합-구하기"><a href="#18-각-자릿수의-합-구하기" class="headerlink" title="18. 각 자릿수의 합 구하기"></a>18. 각 자릿수의 합 구하기</h2><p>정수 n이 주어지면, n의 각 자릿수의 합을 구해서 반환하는 digitSum 함수를 완성하라. 예를 들어 n = 123이면 1 + 2 + 3 = 6을 반환한다. 단, n은 100,000,000 이하의 정수로 한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">digitSum</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n&gt;<span class="number">100000000</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">let</span> str = n.toString();</span><br><span class="line">  <span class="keyword">let</span> res = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++)&#123;</span><br><span class="line">    res += +str[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(digitSum(<span class="number">123</span>));  <span class="comment">// 6</span></span><br><span class="line"><span class="built_in">console</span>.log(digitSum(<span class="number">987</span>));  <span class="comment">// 24</span></span><br><span class="line"><span class="built_in">console</span>.log(digitSum(<span class="number">100000001</span>));  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="19-하샤드-수"><a href="#19-하샤드-수" class="headerlink" title="19. 하샤드 수"></a>19. 하샤드 수</h2><p>하샤드 수는 그 수의 각 자릿수 숫자의 합으로 그 수가 나누어지는 양의 정수를 말한다.</p>
+<p>양의 정수 x가 하샤드 수이려면 x의 자릿수의 합으로 x가 나누어져야 한다. 예를들어 18의 자릿수 합은 1+8=9이고, 18은 9로 나누어 떨어지므로 18은 하샤드 수이다.</p>
+<p>10, 12, 18, 20, 21, 24, 27, 30, 36, 40, 42, 45, 48, 50, 54, 60, 63, 70, 72, 80, 81, 84, 90, 100, 102, 108, 110, 111, 112, 114, 117, 120, 126, 132, 133, 135, 140, 144, 150, 152, 153, 156, 162, 171, 180, 190, 192, 195, 198, 200</p>
+<p>Harshad함수는 양의 정수 n을 매개변수로 입력받는다. 이 n이 하샤드수인지 아닌지 판단하는 함수를 완성하라.</p>
+<p>예를 들어 n이 10, 12, 18이면 True를 리턴 11, 13이면 False를 리턴한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isHarshad</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = n.toString();</span><br><span class="line">  <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> res;</span><br><span class="line">  <span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">    sum += +str[i];</span><br><span class="line">  &#125;</span><br><span class="line">  res = n % sum ===<span class="number">0</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isHarshad(<span class="number">10</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(isHarshad(<span class="number">12</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(isHarshad(<span class="number">18</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(isHarshad(<span class="number">11</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(isHarshad(<span class="number">13</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="20-배열의-첫-요소와-마지막-요소로-배열-만들기"><a href="#20-배열의-첫-요소와-마지막-요소로-배열-만들기" class="headerlink" title="20. 배열의 첫 요소와 마지막 요소로 배열 만들기"></a>20. 배열의 첫 요소와 마지막 요소로 배열 만들기</h2><p>배열의 첫 요소와 마지막 요소를 나타내는 정수를 인자로 받아 정수의 배열을 반환하는 함수를 완성하라. 예를 들어 인수가 [10, 15]인 경우, [ 10, 11, 12, 13, 14, 15 ]를 반환한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateRange</span>(<span class="params">from, to</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> res = [];</span><br><span class="line">  <span class="keyword">let</span> order = to - <span class="keyword">from</span> &gt;=<span class="number">0</span> ? <span class="string">&#x27;up&#x27;</span> : <span class="string">&#x27;down&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> num = <span class="built_in">Math</span>.abs(<span class="keyword">from</span> - to ) + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(order === <span class="string">&#x27;up&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="keyword">from</span>; i &lt; <span class="keyword">from</span> + num ; i++) &#123;</span><br><span class="line">      res.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(order === <span class="string">&#x27;down&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="keyword">from</span>; i &gt; <span class="keyword">from</span> - num ; i--) &#123;</span><br><span class="line">      res.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(generateRange(<span class="number">10</span>, <span class="number">15</span>)); <span class="comment">// [ 10, 11, 12, 13, 14, 15 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="21-두-정수-사이의-합"><a href="#21-두-정수-사이의-합" class="headerlink" title="21. 두 정수 사이의 합"></a>21. 두 정수 사이의 합</h2><p>adder 함수는 정수 x, y를 인수로 전달받는다. 두 수와 두 수 사이에 있는 모든 정수를 더해서 리턴하도록 함수를 완성하라.</p>
+<p>x와 y가 같은 경우는 둘 중 아무 수나 리턴한다. x, y는 음수나 0, 양수일 수 있으며 둘의 대소 관계도 정해져 있지 않다.</p>
+<p>예를 들어 x가 3, y가 5이면 12를 리턴한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">adder</span>(<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr = [];</span><br><span class="line">  <span class="keyword">let</span> mid = [];</span><br><span class="line">  arr.push(x);</span><br><span class="line">  arr.push(y);</span><br><span class="line">  arr.sort();</span><br><span class="line">  <span class="keyword">const</span> first = arr[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">const</span> last = arr[arr.length <span class="number">-1</span>];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; last - first - <span class="number">1</span>; i++)&#123;</span><br><span class="line">    mid.push(first + i +<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  arr = [first, ...mid, last];</span><br><span class="line">  <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">pre,cur</span>) =&gt;</span> pre+cur,<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(adder(<span class="number">3</span>, <span class="number">5</span>)); <span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="22-배열의-인접한-요소곱-중-가장-큰-값-구하기"><a href="#22-배열의-인접한-요소곱-중-가장-큰-값-구하기" class="headerlink" title="22. 배열의 인접한 요소곱 중 가장 큰 값 구하기"></a>22. 배열의 인접한 요소곱 중 가장 큰 값 구하기</h2><p>인수로 주어진 정수의 배열에서 인접한 요소의 곱이 가장 큰 값을 반환하는 함수를 완성하라. 예를 들어 인수가 [3, 6, -2, -5, 7, 3]인 경우, 21을 반환한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">adjacentElementsProduct</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> newArr =[]</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i =<span class="number">0</span>; i&lt;arr.length - <span class="number">1</span>; i++)&#123;</span><br><span class="line">    newArr.push(arr[i] * arr[i+<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max(...newArr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(adjacentElementsProduct([<span class="number">3</span>, <span class="number">6</span>, <span class="number">-2</span>, <span class="number">-5</span>, <span class="number">7</span>, <span class="number">3</span>])); <span class="comment">// 21</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="23-배열에서-특정-값만을-구하기"><a href="#23-배열에서-특정-값만을-구하기" class="headerlink" title="23. 배열에서 특정 값만을 구하기"></a>23. 배열에서 특정 값만을 구하기</h2><p>인수로 주어진 배열 arr에서 짝수이고 3보다 큰 수만을 구하여 이를 배열로 반환하는 함수를 작성하라</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> newArr = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> item % <span class="number">2</span> === <span class="number">0</span> &amp;&amp; item &gt; <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getArray([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])); <span class="comment">// [ 4, 6 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="24-평균구하기"><a href="#24-평균구하기" class="headerlink" title="24. 평균구하기"></a>24. 평균구하기</h2><p>인수로 주어진 배열의 평균을 구하는 함수를 완성하라.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">average</span>(<span class="params">array</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> n = array.length;</span><br><span class="line">  <span class="keyword">return</span> array.reduce(<span class="function">(<span class="params">pre,cur,i,arr</span>) =&gt;</span> pre + cur, <span class="number">0</span>) / n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(average([<span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>])); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="25-최단-거리-1차원-점의-쌍-구하기-DAUM"><a href="#25-최단-거리-1차원-점의-쌍-구하기-DAUM" class="headerlink" title="25. 최단 거리 1차원 점의 쌍 구하기 (DAUM)"></a>25. 최단 거리 1차원 점의 쌍 구하기 (DAUM)</h2><p>1차원의 점들이 주어졌을 때, 그 중 가장 거리가 짧은 것(들)의 쌍을 배열로 반환하는 함수를 작성하라. (단 점들의 배열은 모두 정렬되어있다고 가정한다.) 예를들어 [1, 3, 4, 8, 13, 17, 20, 23, 24]이 주어졌다면, 결과값은 [[3, 4], [23, 24]]가 될 것이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMinDistance</span>(<span class="params">array</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> n = array.length;</span><br><span class="line">  <span class="keyword">const</span> res = [];</span><br><span class="line">  <span class="keyword">let</span> newArr = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span> ; i ++) &#123;</span><br><span class="line">    newArr.push(array[i+<span class="number">1</span>] - array[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> min = <span class="built_in">Math</span>.min(...newArr);</span><br><span class="line">  <span class="keyword">const</span> resIndex = [];</span><br><span class="line">  newArr.forEach(<span class="function">(<span class="params">item, i, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(min === item) resIndex.push(arr.indexOf(item,i));</span><br><span class="line">  &#125;)</span><br><span class="line">  resIndex.forEach(<span class="function"><span class="params">item</span> =&gt;</span> res.push([array[item],array[item + <span class="number">1</span>]]))</span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1차원 점의 배열</span></span><br><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">20</span>, <span class="number">23</span>, <span class="number">24</span>];</span><br><span class="line"><span class="built_in">console</span>.log(findMinDistance(array)); <span class="comment">// [[3, 4], [23, 24]]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="26-특별한-정렬"><a href="#26-특별한-정렬" class="headerlink" title="26. 특별한 정렬"></a>26. 특별한 정렬</h2><p>n개의 정수를 가진 배열이 있다. 이 배열은 양의 정수와 음의 정수를 모두 가지고 있다. 이 배열을 좀 특별한 방법으로 정렬해야 한다. 음의 정수는 앞쪽에 내림차순으로, 양의 정수는 뒷쪽에 있어야 한다. 단, 인수로 주어진 원본 배열은 변경되지 않아야 한다.</p>
+<p>예를 들어, [-1, 1, 3, -2, 2, 0]이 주어졌을 때, [-1, -2, 0, 1, 2, 3]를 반환한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">specialSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> pos = array.filter(<span class="function"><span class="params">item</span> =&gt;</span> item &gt;=<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> neg = array.filter(<span class="function"><span class="params">item</span> =&gt;</span> item &lt; <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  pos.sort();</span><br><span class="line">  neg.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b - a);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [...neg, ...pos];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> testArray = [<span class="number">-1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">-2</span>, <span class="number">2</span>, <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(testArray); <span class="comment">// [ -1, 1, 3, -2, 2, 0 ]</span></span><br><span class="line"><span class="built_in">console</span>.log(specialSort(testArray)); <span class="comment">// [ -1, -2, 0, 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="27-요일-구하기"><a href="#27-요일-구하기" class="headerlink" title="27. 요일 구하기"></a>27. 요일 구하기</h2><p>2016년 1월 1일은 금요일이다. 2016년 a월 b일은 무슨 요일일까? 두 수 a, b를 입력받아 a월 b일이 무슨 요일인지 출력하는 getDayName 함수를 완성하라.</p>
+<p>요일의 이름은 일요일부터 토요일까지 각각 SUN, MON, TUE, WED, THU, FRI, SAT를 출력한다. 예를 들어 a=5, b=24가 입력된다면 5월 24일은 화요일이므로 TUE를 반환한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDayName</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> resDay = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">  resDay.setFullYear(<span class="number">2016</span>, a - <span class="number">1</span>, b);</span><br><span class="line">  <span class="keyword">const</span> day = [<span class="string">&#x27;SUN&#x27;</span>, <span class="string">&#x27;MON&#x27;</span>, <span class="string">&#x27;TUE&#x27;</span>, <span class="string">&#x27;WED&#x27;</span>, <span class="string">&#x27;THU&#x27;</span>, <span class="string">&#x27;FRI&#x27;</span>, <span class="string">&#x27;SAT&#x27;</span>];</span><br><span class="line">  <span class="keyword">return</span> day[resDay.getDay()];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getDayName(<span class="number">5</span>, <span class="number">24</span>)); <span class="comment">// TUE</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="28-일주일-날짜-구하기"><a href="#28-일주일-날짜-구하기" class="headerlink" title="28. 일주일 날짜 구하기"></a>28. 일주일 날짜 구하기</h2><p>오늘을 기준으로 YYYY-MM-DD 형식의 문자열을 요소로 갖는 배열로 일주일 간의 날짜를 구하는 함수를 완성하라. 단, 함수가 반환하는 배열은 일요일부터 시작해서 토요일까지 구성한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCurrentWeek</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  <span class="keyword">const</span> res = [];</span><br><span class="line">  <span class="keyword">const</span> n = today.getDay();</span><br><span class="line">  <span class="keyword">const</span> time = today.getTime() - n * <span class="number">86400000</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">    res.push(<span class="keyword">new</span> <span class="built_in">Date</span>(time + i * <span class="number">86400000</span> ).toISOString().slice(<span class="number">0</span>, <span class="number">10</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getCurrentWeek());</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">오늘이 2020-04-21인 경우,</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#x27;2020-04-19&#x27;,</span></span><br><span class="line"><span class="comment">  &#x27;2020-04-20&#x27;,</span></span><br><span class="line"><span class="comment">  &#x27;2020-04-21&#x27;,</span></span><br><span class="line"><span class="comment">  &#x27;2020-04-22&#x27;,</span></span><br><span class="line"><span class="comment">  &#x27;2020-04-23&#x27;,</span></span><br><span class="line"><span class="comment">  &#x27;2020-04-24&#x27;,</span></span><br><span class="line"><span class="comment">  &#x27;2020-04-25&#x27;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/22/javascript-Distructuring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/22/javascript-Distructuring/" class="post-title-link" itemprop="url">javascript Distructuring</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-22 16:45:14 / Modified: 16:45:31" itemprop="dateCreated datePublished" datetime="2020-10-22T16:45:14+09:00">2020-10-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="디스트럭처링-할당"><a href="#디스트럭처링-할당" class="headerlink" title="디스트럭처링 할당"></a>디스트럭처링 할당</h1><h2 id="1-배열-디스트럭처링-할당"><a href="#1-배열-디스트럭처링-할당" class="headerlink" title="1. 배열 디스트럭처링 할당"></a>1. 배열 디스트럭처링 할당</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">var one &#x3D; arr[0];</span><br><span class="line">var two &#x3D; arr[1];</span><br><span class="line">var three &#x3D; arr[2];</span><br><span class="line"></span><br><span class="line">console.log(one, two, three); &#x2F;&#x2F; 1 2 3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">const [one, two, three] &#x3D;arr;</span><br><span class="line"></span><br><span class="line">console.log(one, two, three); &#x2F;&#x2F;1  2 3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const [x, y] &#x3D; [1, 2];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const [x, y]; &#x2F;&#x2F; SyntaxError</span><br><span class="line">const [a, b] &#x3D; &#123;&#125;; &#x2F;&#x2F;TypeError</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let x, y;</span><br><span class="line">[x, y] &#x3D; [1, 2];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const [a, b] &#x3D; [1, 2];</span><br><span class="line">console.log(a, b); &#x2F;&#x2F; 1 2</span><br><span class="line"></span><br><span class="line">const [c, d] &#x3D; [1];</span><br><span class="line">console.log(c, d); &#x2F;&#x2F; 1 undefined</span><br><span class="line"></span><br><span class="line">const [e, f] &#x3D; [1, 2, 3];</span><br><span class="line">console.log(e, f); &#x2F;&#x2F;1 2</span><br><span class="line"></span><br><span class="line">const [g, , h]&#x3D; [1, 2, 3];</span><br><span class="line">console.log(g, h); &#x2F;&#x2F; 1 3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const [a, b ,c &#x3D;3] &#x3D;[1, 2];</span><br><span class="line">console.log(a, b, c); &#x2F;&#x2F; 1 2 3</span><br><span class="line"></span><br><span class="line">const [e, f &#x3D; 10, g &#x3D; 3] &#x3D; [1, 2];</span><br><span class="line">console.log(e, f, g); &#x2F;&#x2F; 1 2 3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">function parseURL(url &#x3D; &#39;&#39;) &#123;</span><br><span class="line">    const parsedURL &#x3D; url.match(&#x2F;^(\w+):\&#x2F;\&#x2F;([^&#x2F;]+)\&#x2F;(.*)$&#x2F;);</span><br><span class="line">    console.log(parsedURL);</span><br><span class="line">    &#x2F;*</span><br><span class="line">     [</span><br><span class="line">    &#39;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;ko&#x2F;docs&#x2F;Web&#x2F;JavaScript&#39;,</span><br><span class="line">    &#39;https&#39;,</span><br><span class="line">    &#39;developer.mozilla.org&#39;,</span><br><span class="line">    &#39;ko&#x2F;docs&#x2F;Web&#x2F;JavaScript&#39;,</span><br><span class="line">    index: 0,</span><br><span class="line">    input: &#39;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;ko&#x2F;docs&#x2F;Web&#x2F;JavaScript&#39;,</span><br><span class="line">    groups: undefined</span><br><span class="line">  ]</span><br><span class="line">    *&#x2F;</span><br><span class="line">    </span><br><span class="line">    if(!parsedURL) return &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    const [, protocol, host, path] &#x3D; parsedURL;</span><br><span class="line">    </span><br><span class="line">    return &#123; protocol, host, path&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const aprsedURL &#x3D; parseURL(&#39;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;ko&#x2F;docs&#x2F;Web&#x2F;JavaScript&#39;);</span><br><span class="line"></span><br><span class="line">console.log(parsedURL);</span><br><span class="line">&#x2F;*</span><br><span class="line">&#123;</span><br><span class="line">  protocol: &#39;https&#39;,</span><br><span class="line">  host: &#39;developer.mozilla.org&#39;,</span><br><span class="line">  path: &#39;ko&#x2F;docs&#x2F;Web&#x2F;JavaScript&#39;</span><br><span class="line">&#125;</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const [x, ...y] &#x3D; [1, 2, 3];</span><br><span class="line">console.log(x, y); &#x2F;&#x2F;1 [2, 3]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="객체-디스트럭처링-할당"><a href="#객체-디스트럭처링-할당" class="headerlink" title="객체 디스트럭처링 할당"></a>객체 디스트럭처링 할당</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var user &#x3D; &#123; firstName: &#39;Ungmo&#39;, lastName: &#39;Lee&#39;&#125;;</span><br><span class="line"></span><br><span class="line">var firstName &#x3D; user.firstName;</span><br><span class="line">var lastName &#x3D; user.lastName;</span><br><span class="line"></span><br><span class="line">console.log(firstName, lastName); &#x2F;&#x2F;Ungmo Lee</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const user &#x3D; &#123; firstName: &#39;Ungmo&#39;, lastName: &#39;Lee&#39;&#125;;</span><br><span class="line"></span><br><span class="line">const &#123;lastNAme, firstName&#125; &#x3D; user;</span><br><span class="line"></span><br><span class="line">console.log(firstName, lastName); &#x2F;&#x2F;Ungmo Lee</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#123; lastName, firstName&#125; &#x3D; &#123;firstName: &#39;Ungmo&#39;, lastName: &#39;Lee&#39;&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const &#123; lastName, firstName&#125;; &#x2F;&#x2F;SyntaxError</span><br><span class="line"></span><br><span class="line">const &#123; lastName, firstName&#125; &#x3D; null;&#x2F;&#x2F;TypeError</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const &#123; lastName, firstName&#125; &#x3D; user;</span><br><span class="line"></span><br><span class="line">const &#123; lastName: lastName, firstName: firstName&#125; &#x3D; user; </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const user &#x3D; &#123; firstName: &#39;Ungmo&#39;, lastName: &#39;Lee&#39;&#125;;</span><br><span class="line"></span><br><span class="line">const &#123; lastName: ln, firstName: fn&#125; &#x3D; user;</span><br><span class="line"></span><br><span class="line">console.log(fn, ln); &#x2F;&#x2F; Ungmo Lee</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123; firstName &#x3D; &#39;Ungmo&#39;, lastName&#125; &#x3D; &#123;lastName: &#39;Lee&#39;&#125;;</span><br><span class="line">console.log(firstName, lastName); &#x2F;&#x2F;Ungmo Lee</span><br><span class="line"></span><br><span class="line">const &#123;firstName: fn &#x3D; &#39;Ungmo&#39;, lastName: ln&#125; &#x3D;&#123; lastName: &#39;Lee&#39;&#125;;</span><br><span class="line">console.log(fn, ln); &#x2F;&#x2F;Ungmo Lee</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const str &#x3D; &#39;Hello&#39;;</span><br><span class="line"></span><br><span class="line">const &#123; length&#125; &#x3D; str;</span><br><span class="line">console.log(length) ;&#x2F;&#x2F; 5</span><br><span class="line"></span><br><span class="line">const todo &#x3D; &#123; id: 1, content: &#39;HTML&#39;, compelted: true&#125;;</span><br><span class="line"></span><br><span class="line">const &#123; id &#125; &#x3D; todo;</span><br><span class="line">console.log(id); &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function printTodo() &#123;</span><br><span class="line">    console.log(&#96;할일 $&#123;todo.content&#125;은 $&#123;todo.completed ? &#39;완료&#39; : &#39;비완료&#39;&#125; 상태입니다.&#96;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printTodo( &#123; id: 1, content: &#39;HTML&#39;, completed: true&#125;);</span><br><span class="line">&#x2F;&#x2F;할일 HTML은 완료 상태입니다.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function printTodo(&#123;content, completed&#125;) &#123;</span><br><span class="line">    console.log(&#96;할일 $&#123;content&#125;은 $&#123;completed? &#39;완료&#39; : &#39;비완료&#39;&#125; 상태입니다.&#96;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printTodo(&#123; id: 1, content: &#39;HTML&#39;, completed: true&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const todos &#x3D; [</span><br><span class="line">    &#123; id: 1, content: &#39;HTML&#39;, completed: true&#125;,</span><br><span class="line">    &#123; id: 2, content: &#39;CSS&#39;, completed: false&#125;,</span><br><span class="line">    &#123; id: 3, content: &#39;JS&#39;, completed: false&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">const [, &#123;id&#125;] &#x3D; todos;</span><br><span class="line">console.log(id); &#x2F;&#x2F;2 </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const user &#x3D; &#123;</span><br><span class="line">    name: &#39;Lee&#39;,</span><br><span class="line">    address: &#123;</span><br><span class="line">        zipCode: &#39;03068&#39;,</span><br><span class="line">        city: &#39;Seoul&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const &#123; address: &#123; city &#125;&#125; &#x3D; user;</span><br><span class="line">console.log(city); &#x2F;&#x2F;Seoul</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const &#123; x, ...rest&#125; &#x3D; &#123;x: 1, y: 2, z: 3&#125;;</span><br><span class="line"></span><br><span class="line">console.log(x, rest); &#x2F;&#x2F;1 &#123;y: 2, z: 3&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/22/javascript-Spread/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/22/javascript-Spread/" class="post-title-link" itemprop="url">javascript Spread</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-10-22 16:13:32 / Modified: 16:13:46" itemprop="dateCreated datePublished" datetime="2020-10-22T16:13:32+09:00">2020-10-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="스프레드-문법"><a href="#스프레드-문법" class="headerlink" title="스프레드 문법"></a>스프레드 문법</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">console.log(... [1, 2, 3]); &#x2F;&#x2F;1 2 3</span><br><span class="line"></span><br><span class="line">console.log(...&#39;Hello&#39;); &#x2F;&#x2F; H e l l o</span><br><span class="line"></span><br><span class="line">console.log(...new Map([[&#39;a&#39;, &#39;1&#39;], [&#39;b&#39;, &#39;2&#39;]]))&#x2F;&#x2F; [&#39;a&#39;, &#39;1&#39;] [&#39;b&#39;, &#39;2&#39;]</span><br><span class="line">console.log(...new Set([1, 2, 3])); &#x2F;&#x2F;1 2 3</span><br><span class="line"></span><br><span class="line">console.log(...&#123;a: 1, b: 2&#125;);</span><br><span class="line">&#x2F;&#x2F; TypeError</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const list &#x3D; ...[1, 2, 3]; &#x2F;&#x2F;SyntaxError</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-함수-호출문의-인수-목록에서-사용하는-경우"><a href="#1-함수-호출문의-인수-목록에서-사용하는-경우" class="headerlink" title="1. 함수 호출문의 인수 목록에서 사용하는 경우"></a>1. 함수 호출문의 인수 목록에서 사용하는 경우</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3];</span><br><span class="line">const max &#x3D; Math.max(arr); &#x2F;&#x2F;NaN</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Math.max(1); &#x2F;&#x2F;1</span><br><span class="line">Math.max(1, 2); &#x2F;&#x2F;2</span><br><span class="line">Math.max(1, 2, 3); &#x2F;&#x2F;3</span><br><span class="line">Math.max(); &#x2F;&#x2F;-Infinity</span><br><span class="line"></span><br><span class="line">Math.max([1,2,3]); &#x2F;&#x2F;NaN</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">var max &#x3D; Math.max.apply(null, arr); &#x2F;&#x2F;3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const max &#x3D; Math.max(...arr)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Rest 파라미터</span><br><span class="line"></span><br><span class="line">function foo(...rest) &#123;</span><br><span class="line">    console.log(rest);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(...[1, 2, 3]);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-배열-리터럴-내부에서-사용하는-경우"><a href="#2-배열-리터럴-내부에서-사용하는-경우" class="headerlink" title="2. 배열 리터럴 내부에서 사용하는 경우"></a>2. 배열 리터럴 내부에서 사용하는 경우</h2><h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1, 2].concat([3, 4]);</span><br><span class="line">console.log(arr); &#x2F;&#x2F;[1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const arr&#x3D; [...[1, 2], ...[3, 4]];</span><br><span class="line">console.log(arr); &#x2F;&#x2F;[1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr1 &#x3D; [1,4];</span><br><span class="line">var arr2 &#x3D; [2, 3];</span><br><span class="line"></span><br><span class="line">arr1.splice(1, 0, arr2);</span><br><span class="line"></span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[1,[2, 3], 4]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr1&#x3D; [1, 4];</span><br><span class="line">var arr2 &#x3D; [2, 3];</span><br><span class="line"></span><br><span class="line">Array.prototype.splice.apply(arr1, [1, 0].concat(arr2));</span><br><span class="line">console.log(arr1);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr1 &#x3D; [1, 4];</span><br><span class="line">const arr2 &#x3D; [2, 3];</span><br><span class="line"></span><br><span class="line">arr1.splice(1, 0, ...arr2);</span><br><span class="line">console.log(arr1); &#x2F;&#x2F;[1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="배열-복사"><a href="#배열-복사" class="headerlink" title="배열 복사"></a>배열 복사</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var origin &#x3D; [1, 2];</span><br><span class="line">var copy &#x3D; origin.slice();</span><br><span class="line"></span><br><span class="line">console.log(copy);</span><br><span class="line">console.log(copy &#x3D;&#x3D;&#x3D; origin); &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const origin &#x3D; [1, 2];</span><br><span class="line">const copy &#x3D; [...origin];</span><br><span class="line"></span><br><span class="line">console.log(copy); [1, 2]</span><br><span class="line">console.log(copy &#x3D;&#x3D;&#x3D; origin); &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="이터러블을-배열로-변환"><a href="#이터러블을-배열로-변환" class="headerlink" title="이터러블을 배열로 변환"></a>이터러블을 배열로 변환</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function sum() &#123;</span><br><span class="line">    var args &#x3D; Array.prototype.slice.call(arguments);</span><br><span class="line">    </span><br><span class="line">    return args.reduce(function (pre, cur)&#123;</span><br><span class="line">        return pre + cur;</span><br><span class="line">    &#125;, 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2, 3)); &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const arrayLike &#x3D; &#123;</span><br><span class="line">    0: 1,</span><br><span class="line">    1: 2,</span><br><span class="line">    2: 3,</span><br><span class="line">    length: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const arr &#x3D; Array.prototype.slice.call(arrayLike); &#x2F;&#x2F;[1, 2, 3]</span><br><span class="line">console.log(Array.isArray(arr));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function sum() &#123;</span><br><span class="line">    return [...arguments].reduce((pre, cur) &#x3D;&gt; pre + cur, 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2, 3)); &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const sum &#x3D; (...args) &#x3D;&gt; args.reduce((pre, cur) &#x3D;&gt; pre + cur, 0);</span><br><span class="line"></span><br><span class="line">console.log(sum(1, 2, 3));</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const arrayLike &#x3D; &#123;</span><br><span class="line">    0: 1,</span><br><span class="line">    1: 2,</span><br><span class="line">    2: 3,</span><br><span class="line">    length: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const arr &#x3D; [...arrayLike]</span><br><span class="line">&#x2F;&#x2F;TypeError</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Array.from(arrayLike); &#x2F;&#x2F; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="객체-리터럴-내부에서-사용하는-경우"><a href="#객체-리터럴-내부에서-사용하는-경우" class="headerlink" title="객체 리터럴 내부에서 사용하는 경우"></a>객체 리터럴 내부에서 사용하는 경우</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123; x: 1, y: 2&#125;; </span><br><span class="line">const copy &#x3D; &#123;...obj&#125;;</span><br><span class="line">console.log(copy); &#x2F;&#x2F;&#123;x: 1, y: 2&#125;</span><br><span class="line">console.log(obj &#x3D;&#x3D;&#x3D; copy); &#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">const merged &#x3D; &#123;x: 1, y: 2, ...&#123;a: 3, b: 4&#125;&#125;;</span><br><span class="line">console.log(merged); &#x2F;&#x2F; &#123;x: 1, y: 2, a: 3, b: 4&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const merged &#x3D; Object.assign(&#123;&#125;, &#123;x: 1, y: 2&#125;, &#123;y: 10, z: 3&#125;);</span><br><span class="line">console.log(merged)l &#x2F;&#x2F;&#123;x: 1, y: 10, z: 3&#125;</span><br><span class="line"></span><br><span class="line">const changed &#x3D; Object.assign(&#123;&#125;, &#123;x: 1, y: 2&#125;, &#123;y: 100&#125;);</span><br><span class="line">console.log(changed); &#x2F;&#x2F;&#123;x: 1, y: 100&#125;</span><br><span class="line"></span><br><span class="line">const added &#x3D; Object.assigin(&#123;&#125;, &#123;x: 1, y: 2&#125;, &#123;z: 0&#125;);</span><br><span class="line">console.log(added); &#x2F;&#x2F; &#123;x: 1, y: 2, z: 0&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const merged &#x3D; &#123;...&#123;x: 1, y: 2&#125;, ...&#123;y: 10, z: 3&#125;&#125;;</span><br><span class="line">console.log(merged); &#x2F;&#x2F;&#123;x: 1, y: 10, z: 3&#125;</span><br><span class="line"></span><br><span class="line">const changed &#x3D; &#123;...&#123;x: 1, y: 2&#125;, y: 100&#125;;</span><br><span class="line"></span><br><span class="line">console.log(changed); &#x2F;&#x2F;&#123;x: 1, y: 100&#125;</span><br><span class="line"></span><br><span class="line">const added &#x3D; &#123;...&#123;x: 1, y: 2&#125;, z: 0&#125;;</span><br><span class="line"></span><br><span class="line">console.log(added); &#x2F;&#x2F;&#123;x: 1, y: 2, z: 0&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/10/22/javascript-Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1661,789 +2067,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/24/javascript-17Constructor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/24/javascript-17Constructor/" class="post-title-link" itemprop="url">javascript 17Constructor</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-24 21:26:53 / Modified: 21:27:09" itemprop="dateCreated datePublished" datetime="2020-09-24T21:26:53+09:00">2020-09-24</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="생성자-함수에-의한-객체-생성"><a href="#생성자-함수에-의한-객체-생성" class="headerlink" title="생성자 함수에 의한 객체 생성"></a>생성자 함수에 의한 객체 생성</h1><h2 id="1-Object-생성자-함수"><a href="#1-Object-생성자-함수" class="headerlink" title="1. Object 생성자 함수"></a>1. Object 생성자 함수</h2><p><strong>생성자 함수란</strong></p>
-<p>생성자 함수(constructor)란 new 연산자와 함께 호출하여 객체(instance)를 생성하는 함수를 말한다. 생성자 함수에 의해 생성된 객체를 인스턴스(instance)라고 한다. </p>
-<p><strong>Object 생성자 함수에 의한 객체 생성</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; new Object();</span><br><span class="line"></span><br><span class="line">person.name &#x3D; &#39;Jeong&#39;;</span><br><span class="line">person.sayHello &#x3D; function () &#123;</span><br><span class="line">    console.log(&#96;My name is $&#123;this.name&#125;&#96;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(person); &#x2F;&#x2F;&#123;name: &#39;Jeong&#39;, sayHello: f&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>자바스크립트의 빌트인(built in, 내장) 생성자 함수</strong></p>
-<p>자바스크립트는 Object 생성자 함수 이외에도 String, Number, Boolean, Function, Array, Date, RegExp, Promise 등의 빌트인 생성자 함수를 제공한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; String 생성자 함수</span><br><span class="line">const strObj &#x3D; new String(&#39;Jeong&#39;);</span><br><span class="line">console.log(strObj); &#x2F;&#x2F;[String: &#39;Jeong&#39;]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Number 생성자 함수</span><br><span class="line">const numObj &#x3D; new Number(111);</span><br><span class="line">console.log(numObj); &#x2F;&#x2F; [Number: 111]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Boolean 생성자 함수</span><br><span class="line">const boolObj &#x3D; new Boolean(true); &#x2F;&#x2F; [Boolean: true]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Function 생성자 함수</span><br><span class="line">const func &#x3D; new Function(&#39;x&#39;, &#39;return x * x&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Array 생성자 함수</span><br><span class="line">const arr &#x3D; new Array(1,3,5);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;RegExp 생성자 함수</span><br><span class="line">const regExp &#x3D; new RegExp(&#x2F;ab+c&#x2F;i);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Date 생성자 함수</span><br><span class="line">const date &#x3D; new Date();</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="2-생성자-함수"><a href="#2-생성자-함수" class="headerlink" title="2. 생성자 함수"></a>2. 생성자 함수</h2><h3 id="2-1-객체-리터럴에-의한-객체-생성-방식의-문제점"><a href="#2-1-객체-리터럴에-의한-객체-생성-방식의-문제점" class="headerlink" title="2.1 객체 리터럴에 의한 객체 생성 방식의 문제점"></a>2.1 객체 리터럴에 의한 객체 생성 방식의 문제점</h3><p><strong>객체를 여러개 생성하기 번거롭다</strong></p>
-<p>객체 리터럴에 의한 객체 생성 방식은 직관적이고 간편하다. 하지만객체 리터럴에 의한 객체 생성 방식은 단 하나의 객체만 생성한다. </p>
-<p>동일한 프로퍼티를 갖는 객체를 여러개 생성해야 하는 경우 매번 같은프로퍼티를 기술해야 하기 때문에 비효율적이다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const circle1 &#x3D; &#123;</span><br><span class="line">    radius: 5,</span><br><span class="line">    getDiameter() &#123;</span><br><span class="line">        return 2 * this.radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(circle1.getDiameter()); &#x2F;&#x2F;10</span><br><span class="line"></span><br><span class="line">const circle2 &#x3D; &#123;</span><br><span class="line">    radius: 10,</span><br><span class="line">    getDiamter() &#123;</span><br><span class="line">        return 2 * this.radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(circle2.getDiameter()); &#x2F;&#x2F; 20</span><br></pre></td></tr></table></figure>
-
-<p>동일한 객체를 여러개 생성한다면, 같은 내용의 메서드를 여러번 기술해야되는 번거로움이 있다. </p>
-<p><strong>메서드는 동일한 경우가 많다</strong></p>
-<p>객체는 프로퍼티를 통해 객체 고유의 상태(state)를 표현한다. 그리고 메서드를 통해 상태 데이터인 프로퍼티를 참조하고 조작하는 동작(behavior)을 표현한다. 객체마다 프로퍼티 값이 다를 수 있찌만 메서드는 내용이 동일한 경우가 일반적이다.</p>
-<h3 id="2-2-생성자-함수에-의한-객체-생성-방식의-장점"><a href="#2-2-생성자-함수에-의한-객체-생성-방식의-장점" class="headerlink" title="2.2 생성자 함수에 의한 객체 생성 방식의 장점"></a>2.2 생성자 함수에 의한 객체 생성 방식의 장점</h3><p><strong>간편하게 동일한 구조의 객체를 여러개  생성 가능하다.</strong></p>
-<p>생성자 함수에 의한 객체 생성 방식은 마치 객체(instance)를 생성하기 위한 템플릿 (클래스)처럼 생성자 함수를 사용하여 프로퍼티 구조가 동일한 객체 여러 개를 간편하게 생성할 수 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Circle(radius) &#123;</span><br><span class="line">    this.radius &#x3D; radius;</span><br><span class="line">    this.getDiameter &#x3D; function () &#123;</span><br><span class="line">        return 2 * this.radius;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const circle1 &#x3D; new Circle(5);</span><br><span class="line">console.log(circle1.getDiameter());&#x2F;&#x2F; 10</span><br><span class="line"></span><br><span class="line">const circle2 &#x3D; new Circle(10);</span><br><span class="line">console.log(circle2.getDiameter()); &#x2F;&#x2F; 20</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>this 바인딩은 함수 호출 방식에 따라 결정된다.</strong></p>
-<ul>
-<li>일반 함수로 호출<ul>
-<li>전역객체에 바인딩</li>
-</ul>
-</li>
-<li>메서드로 호출<ul>
-<li>메서드를 호출한 객체</li>
-</ul>
-</li>
-<li>생성자 함수로 호출<ul>
-<li>생성자 함수가 생성할 인스턴스</li>
-</ul>
-</li>
-</ul>
-<p><strong>생성자 함수는 일반함수와 호출 방식에 차이가 있다</strong></p>
-<p>생성자 함수는 이름 그대로 객체(인스턴스)를 생성하는 함수다. 하지만 자바와 같은 클래스 기반 객체지향 언어의 생성자(constructor)와는 다르게 그 형식이 정해져 있는 것이 아니라 일반 함수와 동일한 방법으로 생성자 함수를 정의한다. </p>
-<p>일반함수와는 호출방식에서 차이가 있다. </p>
-<ul>
-<li>new 연산자와 함께 호출<ul>
-<li>생성자 함수로 동작</li>
-</ul>
-</li>
-<li>new 연산자 없이 호출<ul>
-<li>일반 함수로 동작</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;일반함수로 호출 시 this는 전역 객체를 가리킨다.</span><br><span class="line">const rect1 &#x3D; Rectangle(2, 3);</span><br><span class="line">console.log(width); &#x2F;&#x2F; 2</span><br><span class="line">console.log(heigth); &#x2F;&#x2F; 3</span><br><span class="line">getArea();&#x2F;&#x2F; 6 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-3-생성자-함수의-인스턴스-생성-과정"><a href="#2-3-생성자-함수의-인스턴스-생성-과정" class="headerlink" title="2.3 생성자 함수의 인스턴스 생성 과정"></a>2.3 생성자 함수의 인스턴스 생성 과정</h3><p><strong>인스턴스 생성과 초기화</strong></p>
-<p>생성자 함수의 함수 몸체에서 수행해야 하는 것이 무엇인지 생각해보자. 생성자 함수의 역할은 프로퍼티 구조가 동일한 인스턴스를 생성하기 위한 템플릿(클래스)으로서 동작하여 인스턴스를 생성하는 것과 생성된 인스턴스를 초기화(인스턴스 프로퍼티 추가 및 초기값 할당)하는 것이다. </p>
-<p>생성자 함수가 인스턴스를 생성하는 것은 필수이고, 생성된 인스턴스를 초기화하는 것은 옵션이다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F;인스턴스 초기화</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;인스턴스 생성</span><br><span class="line">const rect1 &#x3D; new Rectangle( 3, 4); 가로3 세로4인 객체 생성</span><br></pre></td></tr></table></figure>
-
-<p><strong>인스턴스는 암묵적으로 생성되고 반환된다.</strong></p>
-<p>생성자 함수의 내부 코드를 보면 this에 프로퍼티를 추가해서 초기화하는 것을 알 수 있다. 하지만 인스턴스를 생성하는 코드는 보이지 않는다.</p>
-<p>자바스크립트 엔진은 암묵적인 처리를 통해 인스턴스를 생성하고 반환한다. </p>
-<p>new 연산자와 함께 생성자 함수를 호출하면 자바스크립트 엔진은 다음과 같은 과정을 거쳐 암묵적으로 인스턴스를 생성하고 인스턴스를 초기화한 후 암묵적으로 인스턴스를 반환한다.</p>
-<p><strong>1. 인스턴스 생성과 this 바인딩</strong></p>
-<p>new 연산자와 함깨 생성자 함수가 호출 되면 암묵적으로 빈 객체가 생성된다. 이 빈 객체가 생성자 함수가 생성한 인스턴스이며, 이 빈 객체는 this에 바인딩된다. </p>
-<p>즉 생성자 함수의 내부의 this는 생성할 인스턴스를 가리킨다.</p>
-<p>이 처리는 런타임 이전에 실행된다. </p>
-<p><strong>바인딩(binding)이란</strong></p>
-<p>바인딩(name binding)이란 식별자와 값을 연결하는 과정을 의미한다. </p>
-<p>변수 선언의 경우 변수이름과 확보된 메모리공간을 바인딩하는 것이다. this는 키워드이지만 식별자 역할을 한다. this 바인딩은 this와 this가 가리킬 객체를 바인딩하는 것이다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F; 1. 런타임 이전에 암묵적으로 빈 객체가 생성되고 this에 바인딩된다. </span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">new Rectangle(2,3);</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>2. 인스턴스 초기화</strong></p>
-<p>생성자 함수에 기술되어 있는 코드가 한 줄씩 실행되어 this에 바인딩되어 있는 인스턴스를 초기화한다. </p>
-<p>this에 바인딩되어 있는 객체에 프로퍼티와 메서드를 추가하고 인수로 전달받은 초기값을 바인딩된 인스턴스의 프로퍼티에 할당한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F; 1. 런타임 이전에 암묵적으로 빈 객체가 생성되고 this에 바인딩된다. </span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 2. this에 바인딩된 인스턴스를 초기화한다.</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">new Rectangle(2,3);</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>3. 인스턴스 반환</strong></p>
-<p>생성자 함수의 모든 문이실행되고 인스턴스의 생성, 초기화가 끝나면 자바스크립트 엔진은 암묵적으로 해당 인스턴스를 반환한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F; 1. 런타임 이전에 암묵적으로 빈 객체가 생성되고 this에 바인딩된다. </span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 2. this에 바인딩된 인스턴스를 초기화한다.</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">    &#x2F;&#x2F;3. this에 바인딩된 인스턴스 암묵적 반환</span><br><span class="line">&#125;</span><br><span class="line">new Rectangle(2,3);</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>return 값을 명시한다면?</strong></p>
-<p>만약 this가 아닌 다른 객체를 명시적으로 반환하면 this에 바인딩된 인스턴스가 반환되는 것이 아니라, 명시적으로 기술한 객체가 반환된다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F; 1. 런타임 이전에 암묵적으로 빈 객체가 생성되고 this에 바인딩된다. </span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 2. this에 바인딩된 인스턴스를 초기화한다.</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">    &#x2F;&#x2F;3.this에 바인딩된 인스턴스 암묵적 반환</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;객체를 명시적으로 반환시 this반환이 무시된다.</span><br><span class="line">    return &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">const rect1 &#x3D; new Rectangle(2,3);</span><br><span class="line"></span><br><span class="line">console.log(rect1);&#x2F;&#x2F;&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>원시값을 반환한다면</strong> 원시값반환이 무시되고 암묵적으로 this가 반환된다.</p>
-<p>결론적으로 생성자 함수를 만들 때 return 문을 사용하면 안된다. 생성자 함수의 기본 동작을 훼손하기 때문이다. </p>
-<h3 id="2-4-내부-메서드-Call-과-Construct"><a href="#2-4-내부-메서드-Call-과-Construct" class="headerlink" title="2.4 내부 메서드 [[Call]]과 [[Construct]]"></a>2.4 내부 메서드 [[Call]]과 [[Construct]]</h3><p><strong>함수는 일반 객체와 동일하게 동작할 수 있다.</strong></p>
-<p>함수 선언문 또는 함수 표현식으로 정의한 함수는 일반 함수로 호출할 수 있으며, 생성자 함수로서 호출할 수도 있다.</p>
-<p>생성자 함수로 호출하는 것은 new 연산자와 함께 함수를 호출하여 객체를 생성하는 것이다. </p>
-<p>함수는 객체이므로 일반 객체(ordinary object)와 동일하게 동작할 수 있다. 함수 객체는 일반 객체가 가지고 있는 내부 슬롯과 내부 메서드를 모두 가지고 있기 때문이다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;&#125;</span><br><span class="line">&#x2F;&#x2F;함수는 객체이므로 프로퍼티를 소유할 수 있다</span><br><span class="line">foo.name &#x3D; &#39;Jiman&#39;;</span><br><span class="line">&#x2F;&#x2F;메서드도 소유할 수 있다.</span><br><span class="line">foo.getName &#x3D; function() &#123;return this.name&#125;;</span><br><span class="line"></span><br><span class="line">console.log(foo.getName()); &#x2F;&#x2F;Jiman</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>함수와 일반 객체의 차이점</strong></p>
-<p>함수는 객체이지만 일반 객체와는 다르다.  일반객체는 호출할 수 없지만 함수는 호출할 수 있다. </p>
-<p>함수는 일반 객체가 가진 내부 슬롯과 내부메서드를 가지고 있고, 추가로 함수로 동작하기 위한 내부 슬롯과 내부메서드를 가지고 있다. </p>
-<p>함수 객체만을 위한 내부 슬롯,메서드 예시</p>
-<ul>
-<li>내부슬롯  <ul>
-<li>[[Environment]], [[FormalParameters]] 등</li>
-</ul>
-</li>
-<li>내부 메서드<ul>
-<li>[[Call]], [[Construct]] 등</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;&#125;</span><br><span class="line"></span><br><span class="line">foo(); &#x2F;&#x2F; 내부 메서드 [[Call]] 호출</span><br><span class="line"></span><br><span class="line">new foo(); &#x2F;&#x2F; 내부메서드 [[Construct]] 호출</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>함수객체의 내부 메서드</strong></p>
-<p>내부 메서드 [[Call]] 을 갖는 함수 객체를 callable이라 하며, 내부 메서드 [[Construct]]를 갖는 함수 객체를 constructor, [[Construct]]를 갖지 않는 객체를 non-constructor 이라고 부른다.</p>
-<p>callable은 호출할 수 있는 객체, 즉 함수를 말한다.</p>
-<p>constructor는 생성자 함수로서 호출할 수 있는 함수, non-constructor는 객체를 생성자 함수로서 호출할 수 없는 함수를 의미한다.</p>
-<p>호출이 가능한 것은 함수 객체가 되기위한 필요조건이다. 즉 모든 함수 객체는 내부메서드 [[Call]]  을 가져서 callable 이어야한다.</p>
-<p>단, 모든 함수 객체가 [[Construct]]를 갖는 것은 아니다. 모든 함수는 호출 가능하지만, 모든 함수가 생성자 함수로서 호출가능하진 않다.</p>
-<ul>
-<li>모든 함수는 callable이다.</li>
-<li>constructor인 함수도 있고 non-constructor인 함수도 있다</li>
-</ul>
-<h3 id="2-5-constructor와-non-constructor의-구분"><a href="#2-5-constructor와-non-constructor의-구분" class="headerlink" title="2.5 constructor와 non-constructor의 구분"></a>2.5 constructor와 non-constructor의 구분</h3><p><strong>함수 정의 방식에 따른 constructor 구분</strong></p>
-<p>자바스크립트 엔진이 어떻게 constructor와 non-constructor를 구분하는지 살펴보자. 자바스크립트 엔진은 함수 정의를 평가하여 함수객체를 생성할 때, 함수 정의 방식에 따라 함수를 constructor과 non-constructor로 구분한다.</p>
-<ul>
-<li>constructor : 함수 선언문, 함수 표현식, 클래스</li>
-<li>non-constructor : 메서드(ES6메서드 축약 표현), 화살표 함수<ul>
-<li>메서드는 메서드 축약표현만을 인정한다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;constructor</span><br><span class="line">&#x2F;&#x2F;일반 함수 정의: 함수 선언문, 함수 표현식</span><br><span class="line"></span><br><span class="line">function foo() &#123;&#125;</span><br><span class="line">const bar &#x3D; function () &#123;&#125;;</span><br><span class="line">const baz &#x3D; &#123;</span><br><span class="line">    f: function()&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F;baz의 프로퍼티 f에 할당된 함수는 일반적인 의미로는 메서드이지만 ES6에서는 메서드로 인정하지 않는 일반함수이다.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;일반 함수로 정의된 함수는 constructor</span><br><span class="line">new foo();</span><br><span class="line">new bar();</span><br><span class="line">new baz.f();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;non-constructor</span><br><span class="line">&#x2F;&#x2F;화살표 함수, 메서드</span><br><span class="line"></span><br><span class="line">const arrow &#x3D; () &#x3D;&gt; &#123;&#125;;</span><br><span class="line">const obj &#x3D; &#123;</span><br><span class="line">    f()&#123;&#125; &#x2F;&#x2F;축약표현만이 메서드로 인정</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;constructor 가 아니다, 에러 발생</span><br><span class="line">new arrow();</span><br><span class="line">new obj.f();</span><br><span class="line">&#x2F;&#x2F;TypeError: arrow(obj.f) is not a constructor</span><br></pre></td></tr></table></figure>
-
-<p><strong>ECMAScript 사양에서의 메서드</strong></p>
-<p>일반적으로 함수를 프로퍼티 값으로 사용하면 메서드로 통칭한다. 그러나 ECMAScript 사양에서는 메서드란 ES6의 메서드 축약표현을 의미한다. 즉 메서드는 다음 조건을 만족해야한다.</p>
-<ul>
-<li>함수를 프로퍼티 값으로 사용</li>
-<li>메서드 축약표현으로 기술</li>
-</ul>
-<p><strong>함수의 호출방식에 따른 내부 메서드 동작</strong></p>
-<p>함수를 일반 함수로 호출했을때와 new 연산자와 함께 생성자 함수로 호출했을 때 호출되는 내부메서드가 다르다</p>
-<ul>
-<li>일반 함수로서 호출<ul>
-<li>[[Call]] 호출</li>
-</ul>
-</li>
-<li>생성자 함수로서 호출<ul>
-<li>[[Constructor]] 호출</li>
-<li>non-constructor 호출 시 에러</li>
-</ul>
-</li>
-</ul>
-<p><strong>주의점</strong></p>
-<p>일반함수로 사용할 것을 목적으로 정의한 일반함수를 new 연산자와 호출하면 목적과는 달리 생성자 함수로 동작할 수 있다. </p>
-<h3 id="2-6-new-연산자"><a href="#2-6-new-연산자" class="headerlink" title="2.6 new 연산자"></a>2.6 new 연산자</h3><p><strong>new 연산자를 통한 호출방식 구분</strong></p>
-<p>일반 함수와 생성자 함수에 특별한 형식적 차이는 없다. new 연산자와 함께 함수를 호출하면 해당 함수는 생성자 함수로 동작한다. 다시 말해, 함수 객체의 내부 메서드 [[Call]] 이 호출되는 것이 아니라 [[Construct]]가 호출된다.</p>
-<p>new 연산자와 함께 호출하는 함수는 constructor 이어야 한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;생성자 함수로서 정의하지 않은 일반 함수</span><br><span class="line">function foo()&#123;return 100;&#125;</span><br><span class="line">const obj1 &#x3D; new foo();</span><br><span class="line"></span><br><span class="line">console.log(obj1);&#x2F;&#x2F;&#123;&#125; 원시값을 반환하는 return 문이 무시되고 빈 객체가 할당</span><br><span class="line"></span><br><span class="line">function bar() &#123; return [1, 2]&#125;</span><br><span class="line">const obj2 &#x3D; new bar();</span><br><span class="line"></span><br><span class="line">console.log(obj2);&#x2F;&#x2F; [1, 2] return 문이 객체를 반환하므로 해당 객체를 반환</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>생성자 함수를 new 연산자 없이 호출한다면</strong></p>
-<p>new 연산자 없이 생성자 함수를 호출하면 일반함수로 호출된다. 즉, 내부 메서드 [[Construct]]가 아닌 [[Call]]이 호출된다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;생성자 함수</span><br><span class="line">function Rectangle(width, height) &#123;</span><br><span class="line">    this.width &#x3D; width,</span><br><span class="line">    this.height &#x3D; height,</span><br><span class="line">    this.getArea &#x3D; function () &#123;</span><br><span class="line">        return width * height;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const rect1 &#x3D; Rectangle(5,5);</span><br><span class="line"></span><br><span class="line">console.log(rect1); &#x2F;&#x2F;undefined</span><br><span class="line">&#x2F;&#x2F; 반환문이 없는 일반함수는 undefined를 반환한다.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;일반함수 내부의 this는 전역객체가 된다.</span><br><span class="line">console.log(width); 5</span><br><span class="line">console.log(getArea()) ; &#x2F;&#x2F;25</span><br><span class="line"></span><br><span class="line">console.log(rect1.getArea()); &#x2F;&#x2F;TypeError</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>생성자 함수의 표기</strong></p>
-<p>일반함수와 생성자함수에 특별한 형식적 차이는 없다. 그렇기 때문에 의도적으로 생성자 함수를 기술할 때 파스칼케이스로 명명하여 차이를 두도록 하자</p>
-<h3 id="2-7-new-target"><a href="#2-7-new-target" class="headerlink" title="2.7 new.target"></a>2.7 new.target</h3><p><strong>생성자 함수의 일반함수 호출 방지</strong></p>
-<p>생성자 함수가 new 연산자 없이 호출되는 것을 방지하기 위해 파스칼 케이스 컨벤션을 사용하다 하더라도 실수는 언제나 발생할 수 있다.</p>
-<p>이러한 위험성을 피하기 위해 ES6 에서는 new.target을 지원한다.</p>
-<p>new.target은 this와 유사하게 constructor인 모든 함수 내부에서 암묵적인 지역 변수와 같이 사용되며 메타 프로퍼티라고 부른다. IE는 new.target 을 지원하지 않는다</p>
-<p>new.target을 함수 내부에서 사용하면 해당 함수가 new 연산자와 함께 호출되었는지 확인가능하다. </p>
-<ul>
-<li>new 연산자와 함께 생성자 함수로서 호출된경우<ul>
-<li>new.target은 함수 자신을 가리킨다</li>
-</ul>
-</li>
-<li>new 연산자 없이 일반 함수로서 호출된 경우<ul>
-<li>new.target 은 undefined 이다</li>
-<li>일반함수로 호출한 경우 재귀호출로 new와 함께 호출한다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;생성자 함수</span><br><span class="line"></span><br><span class="line">function Book(title,author)&#123;</span><br><span class="line">    if(!new.target)&#123;</span><br><span class="line">        return new Book(title, author);</span><br><span class="line">    &#125;</span><br><span class="line">    this.title &#x3D; title;</span><br><span class="line">    this.author &#x3D; author;</span><br><span class="line">    </span><br><span class="line">    this.getInfo &#x3D; function()&#123;</span><br><span class="line">        return this.title + &#39;, &#39;+this.author;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const book1 &#x3D; Book(&#39;어린왕자&#39;, &#39;생택쥐베리&#39;);</span><br><span class="line"></span><br><span class="line">console.log(book1); &#x2F;&#x2F; &#123;title: ....&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>스코프 세이프 생성자 패턴(scope-safe constructor</strong></p>
-<p>ES6의 문법인 new.target을 사용할 수 없을때 사용한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Book(title,author)&#123;</span><br><span class="line">    if(!this instanceof Book)&#123;</span><br><span class="line">        return new Book(title, author);</span><br><span class="line">    &#125;</span><br><span class="line">    this.title &#x3D; title;</span><br><span class="line">    this.author &#x3D; author;</span><br><span class="line">    </span><br><span class="line">    this.getInfo &#x3D; function()&#123;</span><br><span class="line">        return this.title + &#39;, &#39;+this.author;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>빌트인 생성자 함수와 new</strong></p>
-<ul>
-<li>Object, Function<ul>
-<li>new 없이 호출하여도 new와 함께 호출한 것처럼 동작</li>
-</ul>
-</li>
-<li>String, Number, Boolean<ul>
-<li>new 없이 호출하면 문자열, 숫자, 불리언 값을 반환</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/23/javascript-16PropertyAttribute/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/23/javascript-16PropertyAttribute/" class="post-title-link" itemprop="url">javascript 16PropertyAttribute</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-23 22:53:27 / Modified: 22:53:42" itemprop="dateCreated datePublished" datetime="2020-09-23T22:53:27+09:00">2020-09-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="프로퍼티-어트리뷰트"><a href="#프로퍼티-어트리뷰트" class="headerlink" title="프로퍼티 어트리뷰트"></a>프로퍼티 어트리뷰트</h1><h2 id="1-내부-슬롯과-내부-메서드"><a href="#1-내부-슬롯과-내부-메서드" class="headerlink" title="1. 내부 슬롯과 내부 메서드"></a>1. 내부 슬롯과 내부 메서드</h2><p><strong>자바스크립트 엔진 내부는?</strong></p>
-<p>자바스크립트로 작성한 코드는 자바스크립트 엔진에 의해 해석되고 실행된다. 자바스크립트 엔진도 코드를 실행하기 위해 코딩된 하나의 프로그램이라고 할 수 있다. 자바 스크립트 엔진은 객체지향 언어 C++ 로 코딩되어 있다.  즉 엔진 내부에도 프로그램 구현을 위한 알고리즘이 있다는 이야기이다 .</p>
-<p><strong>내부 슬롯, 내부 메서드란</strong></p>
-<p>내부 슬롯(internal slot) 과 내부 메서드 (internal method)는 자바스크립트 엔진의 구현 알고리즘을 설명하기 위해 ECMAScript 사양에서 사용하는 의사 프로퍼티(pseudo property) 와 의사 메서드(pseudo method) 이다. ECMAScript 사양 에서는 내부슬롯과 내부 메서드를 이중 대괄호(  [[ ]] )로 해당 이름을 감싸서 표현하고 있다. </p>
-<p><strong>내부 슬롯, 내부 메서드의 특징</strong></p>
-<p>내부 슬롯과 내부 메서드는 ECMAScript 사양에 정의된 대로 구현되어 자바스크립트 엔진에서 실제로 동작한다. 하지만 개발자가 직접 접근할 수 있도록 외부로 공개된 객체의 프로퍼티는 아니다. </p>
-<p>내부슬롯과 내부메서드는 자바스크립트 엔진의 내부 로직이므로 원칙적으로 자바스크립트는 내부슬롯과 내부메서드에 직접적으로 접근하거나 호출할 수 있는 방법을 제공하지 않는다. 괜한 문제나 어려움을 유발하지 않기 위해서이다. </p>
-<p>단, 일부 내부 슬롯과 내부 메서드에 한하여 <strong>간접적으로</strong> 접근할 수 있는 수단을 제공한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 모든 객체는 [[Prototype]] 이라는 내부슬롯을 갖는다</span><br><span class="line">&#x2F;&#x2F; 직접 접근은 불가하며 접근자 프로퍼티로 간접 접근은 가능하다.</span><br><span class="line"></span><br><span class="line">const obj &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">o.[[Prototype]]; &#x2F;&#x2F; Uncaught SyntaxError</span><br><span class="line"></span><br><span class="line">o.__proto__ &#x2F;&#x2F; Object.prototype</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="2-프로퍼티-어트리뷰트와-프로퍼티-디스크립터-객체"><a href="#2-프로퍼티-어트리뷰트와-프로퍼티-디스크립터-객체" class="headerlink" title="2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체"></a>2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체</h2><p><strong>프로퍼티 어트리뷰트란</strong></p>
-<p>자바스크립트 엔진은 프로퍼티를 생성할 때 프로퍼티의 상태를 나타내는 프로퍼티 어트리뷰트를 기본값으로 자동 정의한다. </p>
-<p>프로퍼티의 상태란 다음과 같다.</p>
-<ul>
-<li>값(value)</li>
-<li>값의 갱신 가능 여부(writable)</li>
-<li>열거 가능 여부(enumerable)</li>
-<li>재정의 가능 여부(configurable)</li>
-</ul>
-<p>프로퍼티 어트리뷰트는 자바스크립트 엔진이 관리하는 내부 상태 값(meta-property)인 내부 슬롯 [[Value]], [[Writable]], [[Enumerable]], [[Configurable]]를 말한다. </p>
-<p><strong>프로퍼티의 어트리뷰트에 접근하는 법</strong></p>
-<p>프로퍼티 어트리뷰트 역시 직접접근은 불가하다.</p>
-<p>간접적으로 접근하기 위해  Object.getOwnPropertyDiscriptor 메서드를 사용한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const car &#x3D; &#123;</span><br><span class="line">    price: 5000</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Object.getOwnPropertyDiscriptor(car, &#39;price&#39;);</span><br><span class="line">&#x2F;&#x2F;&#123;value: 5000, writable: true, enumerable: true, configurable: true&#125;</span><br></pre></td></tr></table></figure>
-
-<p>메서드를 호출할 때 첫 번째 매개변수에는 객체의 식별자, 두번째는 프로퍼티 키를 문자열로 전달한다. </p>
-<p><strong>주의할 점</strong></p>
-<ul>
-<li>프로퍼티 키는 식별자가 아닌 문자열이다. 인수 전달에 주의해야한다. </li>
-</ul>
-<p><strong>반환 값</strong></p>
-<p>Object.getOwnPropertyDiscriptor 메서드는 프로퍼티 어트리뷰트 정보를 프로퍼티로서 가지는 <strong>프로퍼티 디스크립터(PropertyDescriptor)객체</strong>를 반환한다.</p>
-<ul>
-<li>존재하지 않는 프로퍼티를 인수로 전달할 경우<ul>
-<li>undefined를 반환</li>
-</ul>
-</li>
-<li>상속받은 프로퍼티를 인수로 전달할 경우<ul>
-<li>undefined 반환</li>
-</ul>
-</li>
-</ul>
-<p><strong>모든 프로퍼티의 내부 상태를 알고 싶다면</strong></p>
-<p>Object.getOwnPropertyDiscriptor 메서드의 경우 하나의 프로퍼티의 디스크립터 객체를 반환한다. </p>
-<p>ES8에서 도입된 Object.getOwnPRopertyDescriptors 메서드는 모든 프로퍼티의 프로퍼티 어트리뷰트 정보를 제공한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const car &#x3D; &#123;</span><br><span class="line">    price: 5000,</span><br><span class="line">    brand: &#39;Hyundai&#39;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Object.getOwnPropertyDiscriptors(car);</span><br><span class="line">&#x2F;&#x2F;&#123;</span><br><span class="line">    price: &#123;value: 5000, writable: true, enumerable: true,     configurable: true&#125;,</span><br><span class="line">    brand: &#123;value: &#39;Hyundai&#39;, writable: true, enumerable: true, configurable: true&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="3-데이터-프로퍼티와-접근자-프로퍼티"><a href="#3-데이터-프로퍼티와-접근자-프로퍼티" class="headerlink" title="3. 데이터 프로퍼티와 접근자 프로퍼티"></a>3. 데이터 프로퍼티와 접근자 프로퍼티</h2><p><strong>프로퍼티의 구분</strong></p>
-<p>프로퍼티는 데이터 프로퍼티와 접근자 프로퍼티로 구분할 수 있다.</p>
-<ul>
-<li>데이터 프로퍼티(data property)<ul>
-<li>키와 값으로 구성된 일반적인 프로퍼티다. </li>
-<li>지금까지 살펴본 모든 프로퍼티는 데이터 프로퍼티다.</li>
-</ul>
-</li>
-<li>접근자 프로퍼티(accessor property)<ul>
-<li>자체적으로 값을 갖지 않는다</li>
-<li>다른 데이터 프로퍼티의 값을 <strong>읽거나 저장</strong>할 때 호출되는 접근자 함수(accessor function) 로 구성된 프로퍼티다.</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-1-데이터-프로퍼티"><a href="#3-1-데이터-프로퍼티" class="headerlink" title="3.1 데이터 프로퍼티"></a>3.1 데이터 프로퍼티</h3><p><strong>데이터 프로퍼티의 프로퍼티 어트리뷰트</strong></p>
-<p>데이터 프로퍼티(data property)는 다음과 같은 프로퍼티 어트리뷰트를 갖는다. 이 프로퍼티 어트리뷰트는 자바스크립트 엔진이 프로퍼티를 생성할 때 기본값으로 자동 정의된다. </p>
-<table>
-<thead>
-<tr>
-<th>프로퍼티 어트리뷰트</th>
-<th>프로퍼티 디스크립터 객체의 프로퍼티</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[[Value]]</td>
-<td>value</td>
-<td>- 프로퍼티 키를 통해 프로퍼티 값에 접근하면 반환되는 값이다. <br />- 프로퍼티 키를 통해 프로퍼티 값을 변경하면 [[Value ]]에 값을 재할당<br />- 이때 프로퍼티가 없으면 프로퍼티를 동적 생성 후 생성된 프로퍼티의 [[Value]]에 값을 저장</td>
-</tr>
-<tr>
-<td>[[Writable]]</td>
-<td>writable</td>
-<td>- 프로퍼티 값의 변경 가능 여부를 나타내며 불리언 값을 갖는다<br />- [[Writable]] 의 값이 false인 경우 해당 프로퍼티의 [[Value]]의 값을 변경할 수 없는 읽기 전용 프로퍼티가 된다.</td>
-</tr>
-<tr>
-<td>[[Enumerable]]</td>
-<td>enumerable</td>
-<td>- 프로퍼티의 열거 가능여부를 나타내며 불리언 값을 갖는다<br />- [[Enumerable]]의 값이 false인 경우 해당 프로퍼티는 for…in 문이나 Object.keys 메서드 등으로 열거할 수 있다</td>
-</tr>
-<tr>
-<td>[[Configurable]]</td>
-<td>configurable</td>
-<td>- 프로퍼티의 재정의 가능 여부를 나타내며 불리언 값을 갖는다<br />- [[Configurable]]의 값이 false인 경우 해당 프로퍼티의 삭제, 프로퍼티 어트리뷰트 값의 변경이 금지된다. <br />- 단 [[Writable]]의 true 인경우 [[Value]] 의 변경과 [[Writable]]을 false로 변경하는 것은 허용된다.</td>
-</tr>
-</tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const car &#x3D; &#123;</span><br><span class="line">    price: 1000</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F;데이터프로퍼티의 디스크립터 객체 반환</span><br><span class="line">console.log(Object.getOwnPropertyDiscriptor(car, &#39;price&#39;));</span><br><span class="line">&#x2F;&#x2F;&#123;value: 1000, writable: true, enumerable: true, configurable: true&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;프로퍼티 동적추가</span><br><span class="line">car.brand &#x3D; &#39;Hyundai&#39;;</span><br><span class="line"></span><br><span class="line">console.log(Object.getOwnPropertyDescriptors(car));</span><br><span class="line">&#x2F;&#x2F;&#123;</span><br><span class="line">  price: &#123; value: 1000, writable: true, enumerable: true, configurable: true &#125;,</span><br><span class="line">  brand: &#123;</span><br><span class="line">    value: &#39;Hyundai&#39;,</span><br><span class="line">    writable: true,</span><br><span class="line">    enumerable: true,</span><br><span class="line">    configurable: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>리터럴로 객체를 생성하는 경우,</p>
-<p>프로퍼티가 생성될 때 [[Value]] 는 프로퍼티 값으로, 나머지는 true로 초기화된다. </p>
-<p>프로퍼티를 동적 추가해도 마찬가지이다.</p>
-<h3 id="3-2-접근자-프로퍼티"><a href="#3-2-접근자-프로퍼티" class="headerlink" title="3.2 접근자 프로퍼티"></a>3.2 접근자 프로퍼티</h3><p><strong>접근자 프로퍼티란</strong></p>
-<p>접근자 프로퍼티(accessor property)는 자체적으로 값을 갖지 않고 다른 데이터 프로퍼티의 값을 읽거나 저장할 때 사용되는 접근자 함수(accessor function) 으로 구성된 프로퍼티이다.</p>
-<p><strong>접근자  프로퍼티의 프로퍼티 어트리뷰트</strong> </p>
-<table>
-<thead>
-<tr>
-<th>프로퍼티 어트리뷰트</th>
-<th>프로퍼티 디스크립터 객체의 프로퍼티</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[[Get]]</td>
-<td>get</td>
-<td>- 접근자 프로퍼티를 통해 데이터 프로퍼티의 값을 <strong>읽을 때</strong> 호출되는 접근자 함수이다.<br />- 접근자 프로퍼티 키로 프로퍼티 값에 접근하면 프로퍼티 어트립뷰트 [[Get]]의 값, 즉 getter 함수가 호출되고 그 결과가 프로퍼티 값으로 반환된다.</td>
-</tr>
-<tr>
-<td>[[Set]]</td>
-<td>set</td>
-<td>- 접근자 프로퍼티를 통해 데이터프로퍼티의 값을 저장할 때 호출되는 접근자 함수이다.<br />- 즉, 접근자 프로퍼티 키로 프로퍼티 값을 저장하면 프로퍼티 어트리뷰트 [[Set]]의 값, setter 함수가 호출되고 그 결과가 프로퍼티 값으로 저장된다.</td>
-</tr>
-<tr>
-<td>[[Enumerable]]</td>
-<td>enumerable</td>
-<td>데이터 프로퍼티와 동일</td>
-</tr>
-<tr>
-<td>[[Configurable]]</td>
-<td>configurable</td>
-<td>데이터 프로퍼티와 동일</td>
-</tr>
-</tbody></table>
-<p><strong>접근자 함수의 정의</strong></p>
-<p>접근자 함수는 getter / setter 함수라고도 부른다. 접근자 프로퍼티는 getter와 setter 함수를 모두 정의할 수도 있고 하나만 정의할 수도 있다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F;데이터 프로퍼티</span><br><span class="line">    firstName: &#39;Jiman&#39;,</span><br><span class="line">    lastName: &#39;Jeong&#39;,</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;접근자 프로퍼티</span><br><span class="line">    </span><br><span class="line">    get fullName() &#123;</span><br><span class="line">        return &#96;$&#123;this.firstName&#125; $&#123;this.lastName&#125;&#96;;</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    set fullName(name)&#123;</span><br><span class="line">        [this.firstName, this.lastName] &#x3D; name.split(&#39; &#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; setter 함수의 사용</span><br><span class="line">person.fullName &#x3D; &#39;Chansung Jeong&#39;;</span><br><span class="line"></span><br><span class="line">console.log(person.firstName, person.lastName);</span><br><span class="line">&#x2F;&#x2F;Chansung Jeong</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;getter 함수 사용</span><br><span class="line">console.log(person.fullName)</span><br><span class="line">Chansung Jeong</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>접근자 프로퍼티의 동작 원리</strong></p>
-<p>내부슬롯, 메서드 관점에서, 접근자 프로퍼티 fullName으로 프로퍼티 값에 <strong>접근</strong>하면 내부적으로 [[Get]] 내부 메서드가 호출된다.</p>
-<p>[[Get]] 내부 메서드의 동작</p>
-<ol>
-<li>프로퍼티 키가 유효한지 확인한다. 프로퍼티 키는 문자열 또는 심벌이어야 한다</li>
-<li>프로토 타입 체인에서 프로퍼티를 검색한다. </li>
-<li>검색된 프로퍼티가 데이터 프로퍼티인지, 접근자 프로퍼티인지 확인한다.</li>
-<li>접근자 프로퍼티의 프로퍼티 어트리뷰트 [[Get]]의 값인 getter 함수를 호출하여 결과를 반환한다.  [[Get]]의 값은 해당 프로퍼티의 디스크립터 객체의 get 프로퍼티 값과 같다</li>
-</ol>
-<p><strong>데이터 프로퍼티와 접근자 프로퍼티를 구별하는 법</strong></p>
-<ul>
-<li>Object.getOwnPropertyDiscriptor 메서드가 반환한 프로퍼티 어트리뷰트 정보를 확인한다. </li>
-</ul>
-<h2 id="4-프로퍼티-정의"><a href="#4-프로퍼티-정의" class="headerlink" title="4. 프로퍼티 정의"></a>4. 프로퍼티 정의</h2><p><strong>프로퍼티 정의란</strong></p>
-<p>프로퍼티 정의란 프로퍼티 어트리뷰트를 정의하는 것이다.</p>
-<ul>
-<li>새로운 프로퍼티를 추가하면서 프로퍼티 어트리뷰트를 명시적으로 정의</li>
-<li>기존 프로퍼티의 프로퍼티 어트리뷰트 재정의</li>
-</ul>
-<p>프로퍼티를 정의함으로서 객체의 프로퍼티가 어떻게 동작해야 하는 지 명확히 정의할 수 있다. </p>
-<p><strong>프로퍼티 어트리뷰트를 정의하는 법</strong></p>
-<p>Object.defineProperty 메서드를 사용하면 프로퍼티의 어트리뷰트를 정의할 수 있다. 인수로는 객체의 참조와 데이터 프로퍼티의 키인 문자열, 프로퍼티 디스크립터 객체를 전달한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;데이터 프로퍼티 정의</span><br><span class="line">Object.defineProperty(person, &#39;firstName&#39;, &#123;</span><br><span class="line">    value: &#39;Jiman&#39;,</span><br><span class="line">    writable: true,</span><br><span class="line">    enumerable: true,</span><br><span class="line">    configurable: true</span><br><span class="line">&#125; );</span><br><span class="line">Object.defineProperty(person, &#39;lastName&#39;, &#123;</span><br><span class="line">    value: &#39;Jeong&#39;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(Object.getOwnPropertyDescriptors(person));</span><br><span class="line">&#x2F;&#x2F;&#123;</span><br><span class="line">  firstName: &#123;</span><br><span class="line">    value: &#39;Jiman&#39;,</span><br><span class="line">    writable: true,</span><br><span class="line">    enumerable: true,</span><br><span class="line">    configurable: true</span><br><span class="line">  &#125;,</span><br><span class="line">  lastName: &#123;</span><br><span class="line">    value: &#39;Jeong&#39;,</span><br><span class="line">    writable: false,</span><br><span class="line">    enumerable: false,</span><br><span class="line">    configurable: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;누락된 디스크립터 객체의 프로퍼티는 undefined나 false로 초기화된다.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;[[Writable]], [[Enumerable]], [[Configurable]]이 false</span><br><span class="line"></span><br><span class="line">person.lastName &#x3D; &#39;hihi&#39;;&#x2F;&#x2F;무시된다. 에러는 x</span><br><span class="line">console.log(Object.keys(person));&#x2F;&#x2F;&#123;&quot;firstName&quot;&#125; 열거x</span><br><span class="line">delete person.lastName;</span><br><span class="line">&#x2F;&#x2F;Uncaught TypeError: Cannot redefine property: lastName</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;접근자 프로퍼티 정의</span><br><span class="line"></span><br><span class="line">Object.defineProperty(person,&#39;fullName&#39;, &#123;</span><br><span class="line">    get() &#123;</span><br><span class="line">        return &#96;$&#123;this.firstName&#125; $&#123;this.lastName&#125;&#96;;</span><br><span class="line">    &#125;,</span><br><span class="line">    set(name) &#123;</span><br><span class="line">        [this.firstName, this.lastName] &#x3D; name.split(&#39; &#39;);</span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    enumerable: true,</span><br><span class="line">    configurable: true</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="5-객체-변경-방지"><a href="#5-객체-변경-방지" class="headerlink" title="5. 객체 변경 방지"></a>5. 객체 변경 방지</h2><p><strong>객체는 변경 가능한 값이다</strong></p>
-<p>객체는 재할당 없이 직접 변경할 수 있다. </p>
-<ul>
-<li>프로퍼티 추가 및 삭제</li>
-<li>프로퍼티 값 갱신</li>
-<li>프로퍼티 어트리뷰트 재정의</li>
-</ul>
-<p><strong>객체의 변경을 방지하는 방법</strong></p>
-<p>자바스크립트는 객체의 변경을 방지하는 다양한 메서드를 제공한다. 메서드에 따라 그 범위가 다르다.</p>
-<table>
-<thead>
-<tr>
-<th>구분</th>
-<th>메서드</th>
-<th>프로퍼티 추가</th>
-<th>프로퍼티 삭제</th>
-<th>프로퍼티 값 읽기</th>
-<th>프로퍼티 값 쓰기</th>
-<th>프로퍼티 어트리뷰트 재정의</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>객체 확장 금지</td>
-<td>Object.preventExtensions</td>
-<td>x</td>
-<td>o</td>
-<td>o</td>
-<td>o</td>
-<td>o</td>
-</tr>
-<tr>
-<td>객체 밀봉</td>
-<td>Object.seal</td>
-<td>x</td>
-<td>x</td>
-<td>o</td>
-<td>o</td>
-<td>x</td>
-</tr>
-<tr>
-<td>객체 동결</td>
-<td>Object.freeze</td>
-<td>x</td>
-<td>x</td>
-<td>o</td>
-<td>x</td>
-<td>x</td>
-</tr>
-</tbody></table>
-<h3 id="5-1-객체-확장-금지"><a href="#5-1-객체-확장-금지" class="headerlink" title="5.1 객체 확장 금지"></a>5.1 객체 확장 금지</h3><p><strong>Object.preventExtensions</strong></p>
-<p>Object.preventExtensions 메서드는 객체의 확장을 금지한다. 즉 프로퍼티 추가를 금지하는 것이다. </p>
-<p>다음의 프로퍼티 추가 방법이 모두 금지된다.</p>
-<ul>
-<li>프로퍼티 동적추가</li>
-<li>Object.defineProperty 를 통한 프로퍼티 추가 및 정의</li>
-</ul>
-<p>확장 가능여부는 Object.isExtensible 메서드로 확인 가능하다.</p>
-<h3 id="5-2-객체-밀봉"><a href="#5-2-객체-밀봉" class="headerlink" title="5.2 객체 밀봉"></a>5.2 객체 밀봉</h3><p><strong>Object.seal</strong></p>
-<p>Object.seal 메서드는 객체를 밀봉한다. </p>
-<p>객체 밀봉(seal) 이란 다음을 금지한다.</p>
-<ul>
-<li>프로퍼티 추가 및 삭제</li>
-<li>프로퍼티 어트리뷰트 재정의 금지</li>
-</ul>
-<p>기존 프로퍼티 값의 읽기, 갱신 이외에는 모두 불가하다.</p>
-<p>객체의 밀봉여부는 Object.isSealed 메서드로 확인가능하다.</p>
-<h3 id="5-3-객체-동결"><a href="#5-3-객체-동결" class="headerlink" title="5.3 객체 동결"></a>5.3 객체 동결</h3><p><strong>Object.freeze</strong></p>
-<p>Object.freeze 메서드는 객체를 동결한다. </p>
-<p>객체 동결(freeze)는 다음을 금지한다.</p>
-<ul>
-<li>프로퍼티 추가 및 삭제</li>
-<li>프로퍼티 어트리뷰트 재정의 금지</li>
-<li>프로퍼티 값 갱신</li>
-</ul>
-<p>즉 동결된 객체는 프로퍼티 값 읽기만 가능하다.</p>
-<p>객체의 동결여부는 Object.isFrozen 메서드로 확인가능하다.</p>
-<h3 id="5-4-불변-객체"><a href="#5-4-불변-객체" class="headerlink" title="5.4 불변 객체"></a>5.4 불변 객체</h3><p><strong>중첩 객체까지 동결하는 방법</strong></p>
-<p>얕은 변경 방지(shallow only)가 아닌 중첩객체까지 동결된 불변객체(immutable object) 를 구현하려면,</p>
-<p>객체를 값으로 갖는 모든 프로퍼티에 대해 재귀적으로 Object.freeze 메서드를 호출해야한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function deepFreeze(target) &#123;</span><br><span class="line">    if(target &amp;&amp; typeof target &#x3D;&#x3D;&#x3D; &#39;object&#39; &amp;&amp; !Object.isFrozen(target)) &#123;</span><br><span class="line">        Object.freeze(target);</span><br><span class="line">        </span><br><span class="line">        Object.keys(target).forEach(key &#x3D;&gt; Object.deepFreeze(target[key]));</span><br><span class="line">    &#125;</span><br><span class="line">    return target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/23/javascript-15let-const-BlockLevelScope/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/23/javascript-15let-const-BlockLevelScope/" class="post-title-link" itemprop="url">let, const & BlockLevelScope</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-23 19:53:38 / Modified: 19:55:34" itemprop="dateCreated datePublished" datetime="2020-09-23T19:53:38+09:00">2020-09-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="let-const와-블록-레벨-스코프"><a href="#let-const와-블록-레벨-스코프" class="headerlink" title="let, const와 블록 레벨 스코프"></a>let, const와 블록 레벨 스코프</h1><h2 id="1-var-키워드로-선언한-변수의-문제점"><a href="#1-var-키워드로-선언한-변수의-문제점" class="headerlink" title="1. var 키워드로 선언한 변수의 문제점"></a>1. var 키워드로 선언한 변수의 문제점</h2><p><strong>ES5 까지의 변수 선언</strong></p>
-<p>ES5까지 변수를 선언할 수 있는 유일한 방법은 var 키워들ㄹ 사용하는 것이었다. var 키워드로 선언된 변수는 다른 언어와는 구별되는 독특한 특징이 있으며, 주의를 기울이지 않으면 심각한 문제를 발생시킬 수 있다.</p>
-<h3 id="1-1-변수-중복-선언-허용"><a href="#1-1-변수-중복-선언-허용" class="headerlink" title="1.1 변수 중복 선언 허용"></a>1.1 변수 중복 선언 허용</h3><p><strong>중복 선언시 var 키워드가 없는 것처럼 동작</strong></p>
-<p>var 키워드로 선언한 변수는  중복선언이 가능하다.</p>
-<ul>
-<li>같은 스코프 내에서 중복 선언이 가능하다.</li>
-<li>초기화문이 있는 변수 선언문은 자바 스크립트 엔진에 의해 var 키워드가 없는 것처럼 동작한다.</li>
-<li>초기화문이 없는 변수 선언문을 중복선언하면 무시된다. </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 1;</span><br><span class="line">var y &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;같은 스코프 내 중복 선언 허용</span><br><span class="line">&#x2F;&#x2F; var 키워드가 없는 것처럼 동작</span><br><span class="line">var x &#x3D; 100;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;초기화 문이 없으면 무시, 에러x</span><br><span class="line">var y;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;x : 100, y : 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>문제점</strong></p>
-<p>동일한 이름의 변수가 이미 선언되어 있는 것을 모르고 변수를 중복 선언 하면서 값까지 할당했다면 의도치 않게 먼저 선언된 변수 값이 변경 되는 부작용 발생</p>
-<h3 id="1-2-함수-레벨-스코프"><a href="#1-2-함수-레벨-스코프" class="headerlink" title="1.2 함수 레벨 스코프"></a>1.2 함수 레벨 스코프</h3><p><strong>함수의 코드 블록만을 스코프로 인정</strong></p>
-<p>var 키워드로 선언한 변수는 오로지 함수의 코드 블록만을 지역 스코프로 인정한다. 따라서 함수 외부에서 var 키워드로 선언한 변수는 코드 블록 내에서 선언해도 모두 전역 변수가 된다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;함수 외 코드블록은 스코프로 인정하지 않는다.</span><br><span class="line">&#x2F;&#x2F;x 변수 중복된다</span><br><span class="line">if(true) &#123;</span><br><span class="line">    var x &#x3D; 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(x); &#x2F;&#x2F;10</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;for 문도 마찬가지</span><br><span class="line">for(var i &#x3D; 0; i&lt;5; i++)&#123;</span><br><span class="line">console.log(i); &#x2F;&#x2F;0 1 2 3 4 </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>문제점</strong></p>
-<p>함수 레벨 스코프를 인지 못하고 전역 변수를 선언하게 된다. 그러면 의도치 않게 변수값을 변경할 수 있다.</p>
-<h3 id="1-3-변수-호이스팅"><a href="#1-3-변수-호이스팅" class="headerlink" title="1.3 변수 호이스팅"></a>1.3 변수 호이스팅</h3><p><strong>변수 호이스팅으로 초기화까지 일어난다.</strong></p>
-<p>var 키워드로 변수를 선언하면 변수 호이스팅에 의해 변수 선언문이 스코프의 선두로 끌어 올려진 것처럼 동작한다. 즉, 변수 호이스팅에 의해 var 키워드로 선언한 변수는 변수 선언문 이전에 참조할 수 있다. 변수 할당문 이전에 변수를 참조하면 undefined를 반환한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(num);&#x2F;&#x2F;undefined</span><br><span class="line"></span><br><span class="line">num &#x3D; 100;</span><br><span class="line"></span><br><span class="line">console.log(num);100</span><br><span class="line"></span><br><span class="line">var num;</span><br></pre></td></tr></table></figure>
-
-<p><strong>var 변수 호이스팅의 문제점</strong></p>
-<p>변수 선언문 이전에 변수를 참조하는 것은 변수 호이스팅에 의해 에러를 발생시키지는 않는다 하지만 다음과 같은 문제가 있다.</p>
-<ul>
-<li>프로그램의 흐름상 맞지 않다.</li>
-<li>가독성을 떨어뜨린다.</li>
-<li>오류 발생 가능성이 높아진다.</li>
-</ul>
-<h2 id="2-let-키워드"><a href="#2-let-키워드" class="headerlink" title="2. let 키워드"></a>2. let 키워드</h2><p><strong>let 과 const의 도입</strong></p>
-<p>var 키워드의 여러 문제점을 보완하기 위해서 ES6에서는 새로운 변수 선언 키워드가 추가 되었다. </p>
-<ul>
-<li>let</li>
-<li>const</li>
-</ul>
-<p>var 키워드와의 차이를 알아보자</p>
-<h3 id="2-1-변수-중복-선언-금지"><a href="#2-1-변수-중복-선언-금지" class="headerlink" title="2.1 변수 중복 선언 금지"></a>2.1 변수 중복 선언 금지</h3><p><strong>let 키워드는 중복 선언 미허용</strong></p>
-<p>var 키워드로 이름이 동일한 변수를 중복 선언하면 아무런 에러를 발생하지 않는다. 인간은 실수하는 동물이기에 의도치않게, 실수로 값을 재할당 할 수도 있다. 즉, 오류 발생 가능성이 높아진다. </p>
-<p>let 키워드의 경우 이름이 같은 변수를 중복 선언 하면 문법 에러(SyntaxError) 를 발생시킨다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var num1 &#x3D; 100;</span><br><span class="line">var num1 &#x3D; 200;</span><br><span class="line">&#x2F;&#x2F;var 키워드로 선언된 변수는 중복선언 허용</span><br><span class="line">&#x2F;&#x2F;중복 선언시 var 키워드가 없는 것처럼 동작</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let num2 &#x3D; 123;</span><br><span class="line">let num2 &#x3D; 456;</span><br><span class="line"> &#x2F;&#x2F; let이나 const 키워드로 선언한 변수는 중복선언을 허용하지 않는다. </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-2-블록-레벨-스코프"><a href="#2-2-블록-레벨-스코프" class="headerlink" title="2.2 블록 레벨 스코프"></a>2.2 블록 레벨 스코프</h3><p><strong>let , const 키워드는 블록 레벨 스코프를 따른다</strong></p>
-<p>var 키워드로 선언된 변수는 오로지 함수의 코드 블록만을 지역 스코프를 따른다. 하지만 let 키워드로 선언한 변수는 모든 코드블록을 지역 스코프로 인정한다. (함수, if 문, while 문, try/catch) 등을 지역 스코프로 인정하는 블록레벨 스코프를 따른다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let num &#x3D; 1;</span><br><span class="line">&#123;</span><br><span class="line">    let num &#x3D; 2;</span><br><span class="line">    let bar &#x3D; 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(num); &#x2F;&#x2F;2</span><br><span class="line">console.log(bar); &#x2F;&#x2F; ReferenceError</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-3-변수-호이스팅"><a href="#2-3-변수-호이스팅" class="headerlink" title="2.3 변수 호이스팅"></a>2.3 변수 호이스팅</h3><p><strong>let 키워드로 선언한 변수의 호이스팅</strong></p>
-<p>var 키워드로 선언한 변수와 달리 let 키워드로 선언한 변수는 변수호이스팅이 발생하지 않는 것처럼 동작한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a); &#x2F;&#x2F;ReferenceError</span><br><span class="line">let foo;</span><br></pre></td></tr></table></figure>
-
-<p>위와 같이 let 키워드로 선언한 변수를 선언문 이전에 참조하면 참조에러가 발생한다. </p>
-<p><strong>이유</strong></p>
-<p><strong>기존의 var 키워드의 변수 선언</strong></p>
-<p>var 키워드로 선언한 변수는 런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언단계와 초기화단계가 <strong>한번에</strong> 진행된다</p>
-<ol>
-<li>선언 단계에서 실행 컨텍스트의 렉시컬 환경에 변수 식별자를 등록해 자바스크립트 엔진에 변수의 존재를 알린다.</li>
-<li>초기화 단계에서 undefined로 변수를 초기화한다.</li>
-</ol>
-<p>따라서 변수 선언문 이전에 변수에 접근해도 에러가 발생하지 않는다. 다만 의도한 값대신 undefined가 할당되어 있다. </p>
-<p><strong>let 키워드의 선언단계와 초기화 단계</strong></p>
-<p>let 키워드로 선언한 변수는 선언단계와 초기화 단계가 분리되어 진행된다. </p>
-<ol>
-<li>런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언 단계 실행</li>
-<li><strong>런타임</strong>이 되어 변수선언문에 도달했을때 초기화 단계 실행</li>
-</ol>
-<p>런타임 이전에 초기화 단계를 실행 하지않으므로 변수선언문 이전에 참조하려고 하면 참조 에러가 발생한다.</p>
-<p><strong>일시적 사각지대란</strong></p>
-<p> let 키워드로 선언한 변수는 스코프의 시작 지점부터 초기화단계 시작 지점까지 변수를 참조할 수 없다. </p>
-<p>스코프의 시작 지점부터 초기화 시작 지점까지 변수를 참조할 수 없는 구간을 **일시적 사각지대(Temporal Dead Zone; TDZ)**라고 부른다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;일시적 사각지대</span><br><span class="line">console.log(foo); &#x2F;&#x2F;ReferenceError</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &quot;&quot;</span><br><span class="line">let foo;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>let 키워드의 변수 호이스팅</strong></p>
-<p>let 키워드로 선언한 변수는 변수 호이스팅이 발생하지 않는 것 같지만 그렇지 않다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let bar &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    console.log(bar); &#x2F;&#x2F;ReferenceError</span><br><span class="line">    </span><br><span class="line">    let bar &#x3D;10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>만일 변수 호이스팅이 발생하지 않는다면 bar를 출력했을때 전역에서 할당한 1이 출력되어야 정상이지만, 참조에러가 발생한다. </p>
-<p>let 키워드도 스코프 시작전에 선언단계, 초기화단계 중 선언단계는 진행하기 때문이다. </p>
-<h3 id="2-4-전역-객체와-let"><a href="#2-4-전역-객체와-let" class="headerlink" title="2.4 전역 객체와 let"></a>2.4 전역 객체와 let</h3><p><strong>var 키워드로 선언한 변수는 전역 객체의 프로퍼티가 된다.</strong> </p>
-<p>var 키워드로 선언한 전역 변수, 전역 함수와 암묵적 전역은 전역 객체 window or global의 프로퍼티가 된다. 전역 객체의 프로퍼티를 참조할 땐 window를 생략가능하다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 전역변수</span><br><span class="line">var foo;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 전역 함수</span><br><span class="line">fuction bar() </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 암묵적 전역</span><br><span class="line">x &#x3D; 1</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;위 모두 전역 객체 window의 프로퍼티</span><br><span class="line">&#x2F;&#x2F;선언 및 참조 시 window 식별자는 생략 가능</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>let 키워드는 전역 객체의 프로퍼티가 아니다.</strong></p>
-<p>let 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 아닌, 전역 렉시컬 환경의 선언적 환경 레코드에 존재하게 된다. </p>
-<h2 id="3-const-키워드"><a href="#3-const-키워드" class="headerlink" title="3. const 키워드"></a>3. const 키워드</h2><h3 id="3-1-선언과-초기화"><a href="#3-1-선언과-초기화" class="headerlink" title="3.1 선언과 초기화"></a>3.1 선언과 초기화</h3><p><strong>const 키워드로 선언한 변수는 선언과 동시에 초기화한다.</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const foo &#x3D; 1;</span><br><span class="line"></span><br><span class="line">const bar; &#x2F;&#x2F; SyntaxError</span><br></pre></td></tr></table></figure>
-
-<p>초기화 없이 선언만 하면 문법 에러가 발생한다. </p>
-<p><strong>const, 스코프와 호이스팅</strong></p>
-<p>const 키워드로 선언한 변수는 블록레벨 스코프를 가지며, 변수호이스팅이 발생하지 않는 것처럼 동작한다. </p>
-<h3 id="3-2-재할당-금지"><a href="#3-2-재할당-금지" class="headerlink" title="3.2 재할당 금지"></a>3.2 재할당 금지</h3><p><strong>const 키워드로 선언한 변수는 재할당이 금지된다.</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const foo &#x3D; 10;</span><br><span class="line"></span><br><span class="line">foo &#x3D; 5;&#x2F;&#x2F; TypeError</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-3-상수"><a href="#3-3-상수" class="headerlink" title="3.3 상수"></a>3.3 상수</h3><p><strong>const 키워드의 이용</strong></p>
-<p>원시값은 immutable value 이다. 그리고 const 키워드로 선언한 변수에 원시값을 할당한다면 <strong>재할당 없이</strong> 변수값을 변경할 수 없다. 그렇기 때문에 const 키워드를 이용해 상수를 표현할 수 있다.</p>
-<p><strong>상수의 뜻</strong></p>
-<p>변수의 상대 개념인 상수는 재할당이 금지된 변수를 말한다. 상수도 값을 저장하기 위한 메모리 공간이 필요하므로 변수이다. 일반적인 변수와는 달리 재할당이 금지된다. </p>
-<p><strong>상수의 장점</strong></p>
-<ul>
-<li>상태를 유지한다</li>
-<li>가독성이 높아진다</li>
-<li>유지보수가 편하다.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 세율같은 경우 쉽게 변하지 않으며, 고정값을 사용해야 한다.</span><br><span class="line">const TAX_RATE &#x3D; 0,1;</span><br><span class="line">let preTaxPrice &#x3D; 100;</span><br><span class="line"></span><br><span class="line">let afterTaxPrice &#x3D; preTaxPrice + (preTaxPrice * TAX_RATE)</span><br></pre></td></tr></table></figure>
-
-<p>const 키워드로 선언한 변수에 원시값을 할당한다면 선언문 이후에 값을 변경할 수 없으며 상태가 유지된다.</p>
-<p>또한 세율을 상수로 정의하여 의미를 쉽게 알 수 있다. 즉 가독성이 높아진다.</p>
-<p>세율이 변경된다면 상수만을 변경하면 되므로 유지 보수성이 향상된다. </p>
-<p><strong>상수의 일반적인 표기</strong></p>
-<p>상수의 이름은 대문자로 선언해 상수임을 명확히 나타낸다.</p>
-<p>여러개의 단어로 이루어진 경우 언더스코어로 구분한 스네이크 케이스로 표현한다. </p>
-<h3 id="3-3-const-키워드와-객체"><a href="#3-3-const-키워드와-객체" class="headerlink" title="3.3 const 키워드와 객체"></a>3.3 const 키워드와 객체</h3><p><strong>객체의 경우 값의 변경이 가능하다.</strong></p>
-<p>원시값의 경우 불변값이기 때문에 재할당없이 값의 변경이 불가하며, const로 선언한 경우 재할당까지도 불가하다. </p>
-<p>하지만, 객체의 경우 가변 값 (mutable value) 이기 때문에 재할당없이도 값을 변경할 수 있다. </p>
-<p>const 키워드는 재할당을 금지할 뿐이다.  객체는 자유롭게 변경될 수 있다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const student &#x3D; &#123;</span><br><span class="line">    name: &#39;Jiman&#39;,</span><br><span class="line">    age: 23</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">student.age &#x3D; 24;</span><br><span class="line">console.log(student)&#x2F;&#x2F; &#123;name: &#39;jiman&#39;, age: 24&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="4-var-vs-let-vs-const"><a href="#4-var-vs-let-vs-const" class="headerlink" title="4. var vs. let vs. const"></a>4. var vs. let vs. const</h2><p><strong>const 사용을 지향하자</strong></p>
-<p>변수 선언에는 기본적으로 const를 사용하고 let은 재할당이 필요한 경우에만 사용하도록 하자. </p>
-<p><strong>이유</strong></p>
-<ul>
-<li>변수를 선언하는 시점에는 재할당이 필요할 지 잘모르는 경우가 많다.</li>
-<li>객체는 재할당하는 경우가 드물다</li>
-<li>재할당이 꼭 필요하다면 그때 let 으로 바꾸자 </li>
-</ul>
-<p><strong>ES6 이상인 경우 var은 사용하지 말자</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2509,7 +2136,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -148,6 +148,785 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/24/javascript-17Constructor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/24/javascript-17Constructor/" class="post-title-link" itemprop="url">javascript 17Constructor</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-09-24 21:26:53 / Modified: 21:27:09" itemprop="dateCreated datePublished" datetime="2020-09-24T21:26:53+09:00">2020-09-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="생성자-함수에-의한-객체-생성"><a href="#생성자-함수에-의한-객체-생성" class="headerlink" title="생성자 함수에 의한 객체 생성"></a>생성자 함수에 의한 객체 생성</h1><h2 id="1-Object-생성자-함수"><a href="#1-Object-생성자-함수" class="headerlink" title="1. Object 생성자 함수"></a>1. Object 생성자 함수</h2><p><strong>생성자 함수란</strong></p>
+<p>생성자 함수(constructor)란 new 연산자와 함께 호출하여 객체(instance)를 생성하는 함수를 말한다. 생성자 함수에 의해 생성된 객체를 인스턴스(instance)라고 한다. </p>
+<p><strong>Object 생성자 함수에 의한 객체 생성</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; new Object();</span><br><span class="line"></span><br><span class="line">person.name &#x3D; &#39;Jeong&#39;;</span><br><span class="line">person.sayHello &#x3D; function () &#123;</span><br><span class="line">    console.log(&#96;My name is $&#123;this.name&#125;&#96;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(person); &#x2F;&#x2F;&#123;name: &#39;Jeong&#39;, sayHello: f&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>자바스크립트의 빌트인(built in, 내장) 생성자 함수</strong></p>
+<p>자바스크립트는 Object 생성자 함수 이외에도 String, Number, Boolean, Function, Array, Date, RegExp, Promise 등의 빌트인 생성자 함수를 제공한다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; String 생성자 함수</span><br><span class="line">const strObj &#x3D; new String(&#39;Jeong&#39;);</span><br><span class="line">console.log(strObj); &#x2F;&#x2F;[String: &#39;Jeong&#39;]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Number 생성자 함수</span><br><span class="line">const numObj &#x3D; new Number(111);</span><br><span class="line">console.log(numObj); &#x2F;&#x2F; [Number: 111]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Boolean 생성자 함수</span><br><span class="line">const boolObj &#x3D; new Boolean(true); &#x2F;&#x2F; [Boolean: true]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Function 생성자 함수</span><br><span class="line">const func &#x3D; new Function(&#39;x&#39;, &#39;return x * x&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Array 생성자 함수</span><br><span class="line">const arr &#x3D; new Array(1,3,5);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;RegExp 생성자 함수</span><br><span class="line">const regExp &#x3D; new RegExp(&#x2F;ab+c&#x2F;i);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Date 생성자 함수</span><br><span class="line">const date &#x3D; new Date();</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-생성자-함수"><a href="#2-생성자-함수" class="headerlink" title="2. 생성자 함수"></a>2. 생성자 함수</h2><h3 id="2-1-객체-리터럴에-의한-객체-생성-방식의-문제점"><a href="#2-1-객체-리터럴에-의한-객체-생성-방식의-문제점" class="headerlink" title="2.1 객체 리터럴에 의한 객체 생성 방식의 문제점"></a>2.1 객체 리터럴에 의한 객체 생성 방식의 문제점</h3><p><strong>객체를 여러개 생성하기 번거롭다</strong></p>
+<p>객체 리터럴에 의한 객체 생성 방식은 직관적이고 간편하다. 하지만객체 리터럴에 의한 객체 생성 방식은 단 하나의 객체만 생성한다. </p>
+<p>동일한 프로퍼티를 갖는 객체를 여러개 생성해야 하는 경우 매번 같은프로퍼티를 기술해야 하기 때문에 비효율적이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const circle1 &#x3D; &#123;</span><br><span class="line">    radius: 5,</span><br><span class="line">    getDiameter() &#123;</span><br><span class="line">        return 2 * this.radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(circle1.getDiameter()); &#x2F;&#x2F;10</span><br><span class="line"></span><br><span class="line">const circle2 &#x3D; &#123;</span><br><span class="line">    radius: 10,</span><br><span class="line">    getDiamter() &#123;</span><br><span class="line">        return 2 * this.radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(circle2.getDiameter()); &#x2F;&#x2F; 20</span><br></pre></td></tr></table></figure>
+
+<p>동일한 객체를 여러개 생성한다면, 같은 내용의 메서드를 여러번 기술해야되는 번거로움이 있다. </p>
+<p><strong>메서드는 동일한 경우가 많다</strong></p>
+<p>객체는 프로퍼티를 통해 객체 고유의 상태(state)를 표현한다. 그리고 메서드를 통해 상태 데이터인 프로퍼티를 참조하고 조작하는 동작(behavior)을 표현한다. 객체마다 프로퍼티 값이 다를 수 있찌만 메서드는 내용이 동일한 경우가 일반적이다.</p>
+<h3 id="2-2-생성자-함수에-의한-객체-생성-방식의-장점"><a href="#2-2-생성자-함수에-의한-객체-생성-방식의-장점" class="headerlink" title="2.2 생성자 함수에 의한 객체 생성 방식의 장점"></a>2.2 생성자 함수에 의한 객체 생성 방식의 장점</h3><p><strong>간편하게 동일한 구조의 객체를 여러개  생성 가능하다.</strong></p>
+<p>생성자 함수에 의한 객체 생성 방식은 마치 객체(instance)를 생성하기 위한 템플릿 (클래스)처럼 생성자 함수를 사용하여 프로퍼티 구조가 동일한 객체 여러 개를 간편하게 생성할 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Circle(radius) &#123;</span><br><span class="line">    this.radius &#x3D; radius;</span><br><span class="line">    this.getDiameter &#x3D; function () &#123;</span><br><span class="line">        return 2 * this.radius;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const circle1 &#x3D; new Circle(5);</span><br><span class="line">console.log(circle1.getDiameter());&#x2F;&#x2F; 10</span><br><span class="line"></span><br><span class="line">const circle2 &#x3D; new Circle(10);</span><br><span class="line">console.log(circle2.getDiameter()); &#x2F;&#x2F; 20</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>this 바인딩은 함수 호출 방식에 따라 결정된다.</strong></p>
+<ul>
+<li>일반 함수로 호출<ul>
+<li>전역객체에 바인딩</li>
+</ul>
+</li>
+<li>메서드로 호출<ul>
+<li>메서드를 호출한 객체</li>
+</ul>
+</li>
+<li>생성자 함수로 호출<ul>
+<li>생성자 함수가 생성할 인스턴스</li>
+</ul>
+</li>
+</ul>
+<p><strong>생성자 함수는 일반함수와 호출 방식에 차이가 있다</strong></p>
+<p>생성자 함수는 이름 그대로 객체(인스턴스)를 생성하는 함수다. 하지만 자바와 같은 클래스 기반 객체지향 언어의 생성자(constructor)와는 다르게 그 형식이 정해져 있는 것이 아니라 일반 함수와 동일한 방법으로 생성자 함수를 정의한다. </p>
+<p>일반함수와는 호출방식에서 차이가 있다. </p>
+<ul>
+<li>new 연산자와 함께 호출<ul>
+<li>생성자 함수로 동작</li>
+</ul>
+</li>
+<li>new 연산자 없이 호출<ul>
+<li>일반 함수로 동작</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;일반함수로 호출 시 this는 전역 객체를 가리킨다.</span><br><span class="line">const rect1 &#x3D; Rectangle(2, 3);</span><br><span class="line">console.log(width); &#x2F;&#x2F; 2</span><br><span class="line">console.log(heigth); &#x2F;&#x2F; 3</span><br><span class="line">getArea();&#x2F;&#x2F; 6 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-생성자-함수의-인스턴스-생성-과정"><a href="#2-3-생성자-함수의-인스턴스-생성-과정" class="headerlink" title="2.3 생성자 함수의 인스턴스 생성 과정"></a>2.3 생성자 함수의 인스턴스 생성 과정</h3><p><strong>인스턴스 생성과 초기화</strong></p>
+<p>생성자 함수의 함수 몸체에서 수행해야 하는 것이 무엇인지 생각해보자. 생성자 함수의 역할은 프로퍼티 구조가 동일한 인스턴스를 생성하기 위한 템플릿(클래스)으로서 동작하여 인스턴스를 생성하는 것과 생성된 인스턴스를 초기화(인스턴스 프로퍼티 추가 및 초기값 할당)하는 것이다. </p>
+<p>생성자 함수가 인스턴스를 생성하는 것은 필수이고, 생성된 인스턴스를 초기화하는 것은 옵션이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F;인스턴스 초기화</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;인스턴스 생성</span><br><span class="line">const rect1 &#x3D; new Rectangle( 3, 4); 가로3 세로4인 객체 생성</span><br></pre></td></tr></table></figure>
+
+<p><strong>인스턴스는 암묵적으로 생성되고 반환된다.</strong></p>
+<p>생성자 함수의 내부 코드를 보면 this에 프로퍼티를 추가해서 초기화하는 것을 알 수 있다. 하지만 인스턴스를 생성하는 코드는 보이지 않는다.</p>
+<p>자바스크립트 엔진은 암묵적인 처리를 통해 인스턴스를 생성하고 반환한다. </p>
+<p>new 연산자와 함께 생성자 함수를 호출하면 자바스크립트 엔진은 다음과 같은 과정을 거쳐 암묵적으로 인스턴스를 생성하고 인스턴스를 초기화한 후 암묵적으로 인스턴스를 반환한다.</p>
+<p><strong>1. 인스턴스 생성과 this 바인딩</strong></p>
+<p>new 연산자와 함깨 생성자 함수가 호출 되면 암묵적으로 빈 객체가 생성된다. 이 빈 객체가 생성자 함수가 생성한 인스턴스이며, 이 빈 객체는 this에 바인딩된다. </p>
+<p>즉 생성자 함수의 내부의 this는 생성할 인스턴스를 가리킨다.</p>
+<p>이 처리는 런타임 이전에 실행된다. </p>
+<p><strong>바인딩(binding)이란</strong></p>
+<p>바인딩(name binding)이란 식별자와 값을 연결하는 과정을 의미한다. </p>
+<p>변수 선언의 경우 변수이름과 확보된 메모리공간을 바인딩하는 것이다. this는 키워드이지만 식별자 역할을 한다. this 바인딩은 this와 this가 가리킬 객체를 바인딩하는 것이다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F; 1. 런타임 이전에 암묵적으로 빈 객체가 생성되고 this에 바인딩된다. </span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">new Rectangle(2,3);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>2. 인스턴스 초기화</strong></p>
+<p>생성자 함수에 기술되어 있는 코드가 한 줄씩 실행되어 this에 바인딩되어 있는 인스턴스를 초기화한다. </p>
+<p>this에 바인딩되어 있는 객체에 프로퍼티와 메서드를 추가하고 인수로 전달받은 초기값을 바인딩된 인스턴스의 프로퍼티에 할당한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F; 1. 런타임 이전에 암묵적으로 빈 객체가 생성되고 this에 바인딩된다. </span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 2. this에 바인딩된 인스턴스를 초기화한다.</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">new Rectangle(2,3);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>3. 인스턴스 반환</strong></p>
+<p>생성자 함수의 모든 문이실행되고 인스턴스의 생성, 초기화가 끝나면 자바스크립트 엔진은 암묵적으로 해당 인스턴스를 반환한다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F; 1. 런타임 이전에 암묵적으로 빈 객체가 생성되고 this에 바인딩된다. </span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 2. this에 바인딩된 인스턴스를 초기화한다.</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">    &#x2F;&#x2F;3. this에 바인딩된 인스턴스 암묵적 반환</span><br><span class="line">&#125;</span><br><span class="line">new Rectangle(2,3);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>return 값을 명시한다면?</strong></p>
+<p>만약 this가 아닌 다른 객체를 명시적으로 반환하면 this에 바인딩된 인스턴스가 반환되는 것이 아니라, 명시적으로 기술한 객체가 반환된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Rectangle(width &#x3D; 1, height &#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F; 1. 런타임 이전에 암묵적으로 빈 객체가 생성되고 this에 바인딩된다. </span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 2. this에 바인딩된 인스턴스를 초기화한다.</span><br><span class="line">    this.width &#x3D; width;</span><br><span class="line">    this.height &#x3D; height;</span><br><span class="line">    </span><br><span class="line">    this.getArea()&#123;</span><br><span class="line">        return this.width * this.height;</span><br><span class="line">    &#125;;</span><br><span class="line">    &#x2F;&#x2F;3.this에 바인딩된 인스턴스 암묵적 반환</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;객체를 명시적으로 반환시 this반환이 무시된다.</span><br><span class="line">    return &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">const rect1 &#x3D; new Rectangle(2,3);</span><br><span class="line"></span><br><span class="line">console.log(rect1);&#x2F;&#x2F;&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>원시값을 반환한다면</strong> 원시값반환이 무시되고 암묵적으로 this가 반환된다.</p>
+<p>결론적으로 생성자 함수를 만들 때 return 문을 사용하면 안된다. 생성자 함수의 기본 동작을 훼손하기 때문이다. </p>
+<h3 id="2-4-내부-메서드-Call-과-Construct"><a href="#2-4-내부-메서드-Call-과-Construct" class="headerlink" title="2.4 내부 메서드 [[Call]]과 [[Construct]]"></a>2.4 내부 메서드 [[Call]]과 [[Construct]]</h3><p><strong>함수는 일반 객체와 동일하게 동작할 수 있다.</strong></p>
+<p>함수 선언문 또는 함수 표현식으로 정의한 함수는 일반 함수로 호출할 수 있으며, 생성자 함수로서 호출할 수도 있다.</p>
+<p>생성자 함수로 호출하는 것은 new 연산자와 함께 함수를 호출하여 객체를 생성하는 것이다. </p>
+<p>함수는 객체이므로 일반 객체(ordinary object)와 동일하게 동작할 수 있다. 함수 객체는 일반 객체가 가지고 있는 내부 슬롯과 내부 메서드를 모두 가지고 있기 때문이다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;&#125;</span><br><span class="line">&#x2F;&#x2F;함수는 객체이므로 프로퍼티를 소유할 수 있다</span><br><span class="line">foo.name &#x3D; &#39;Jiman&#39;;</span><br><span class="line">&#x2F;&#x2F;메서드도 소유할 수 있다.</span><br><span class="line">foo.getName &#x3D; function() &#123;return this.name&#125;;</span><br><span class="line"></span><br><span class="line">console.log(foo.getName()); &#x2F;&#x2F;Jiman</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>함수와 일반 객체의 차이점</strong></p>
+<p>함수는 객체이지만 일반 객체와는 다르다.  일반객체는 호출할 수 없지만 함수는 호출할 수 있다. </p>
+<p>함수는 일반 객체가 가진 내부 슬롯과 내부메서드를 가지고 있고, 추가로 함수로 동작하기 위한 내부 슬롯과 내부메서드를 가지고 있다. </p>
+<p>함수 객체만을 위한 내부 슬롯,메서드 예시</p>
+<ul>
+<li>내부슬롯  <ul>
+<li>[[Environment]], [[FormalParameters]] 등</li>
+</ul>
+</li>
+<li>내부 메서드<ul>
+<li>[[Call]], [[Construct]] 등</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;&#125;</span><br><span class="line"></span><br><span class="line">foo(); &#x2F;&#x2F; 내부 메서드 [[Call]] 호출</span><br><span class="line"></span><br><span class="line">new foo(); &#x2F;&#x2F; 내부메서드 [[Construct]] 호출</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>함수객체의 내부 메서드</strong></p>
+<p>내부 메서드 [[Call]] 을 갖는 함수 객체를 callable이라 하며, 내부 메서드 [[Construct]]를 갖는 함수 객체를 constructor, [[Construct]]를 갖지 않는 객체를 non-constructor 이라고 부른다.</p>
+<p>callable은 호출할 수 있는 객체, 즉 함수를 말한다.</p>
+<p>constructor는 생성자 함수로서 호출할 수 있는 함수, non-constructor는 객체를 생성자 함수로서 호출할 수 없는 함수를 의미한다.</p>
+<p>호출이 가능한 것은 함수 객체가 되기위한 필요조건이다. 즉 모든 함수 객체는 내부메서드 [[Call]]  을 가져서 callable 이어야한다.</p>
+<p>단, 모든 함수 객체가 [[Construct]]를 갖는 것은 아니다. 모든 함수는 호출 가능하지만, 모든 함수가 생성자 함수로서 호출가능하진 않다.</p>
+<ul>
+<li>모든 함수는 callable이다.</li>
+<li>constructor인 함수도 있고 non-constructor인 함수도 있다</li>
+</ul>
+<h3 id="2-5-constructor와-non-constructor의-구분"><a href="#2-5-constructor와-non-constructor의-구분" class="headerlink" title="2.5 constructor와 non-constructor의 구분"></a>2.5 constructor와 non-constructor의 구분</h3><p><strong>함수 정의 방식에 따른 constructor 구분</strong></p>
+<p>자바스크립트 엔진이 어떻게 constructor와 non-constructor를 구분하는지 살펴보자. 자바스크립트 엔진은 함수 정의를 평가하여 함수객체를 생성할 때, 함수 정의 방식에 따라 함수를 constructor과 non-constructor로 구분한다.</p>
+<ul>
+<li>constructor : 함수 선언문, 함수 표현식, 클래스</li>
+<li>non-constructor : 메서드(ES6메서드 축약 표현), 화살표 함수<ul>
+<li>메서드는 메서드 축약표현만을 인정한다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;constructor</span><br><span class="line">&#x2F;&#x2F;일반 함수 정의: 함수 선언문, 함수 표현식</span><br><span class="line"></span><br><span class="line">function foo() &#123;&#125;</span><br><span class="line">const bar &#x3D; function () &#123;&#125;;</span><br><span class="line">const baz &#x3D; &#123;</span><br><span class="line">    f: function()&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F;baz의 프로퍼티 f에 할당된 함수는 일반적인 의미로는 메서드이지만 ES6에서는 메서드로 인정하지 않는 일반함수이다.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;일반 함수로 정의된 함수는 constructor</span><br><span class="line">new foo();</span><br><span class="line">new bar();</span><br><span class="line">new baz.f();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;non-constructor</span><br><span class="line">&#x2F;&#x2F;화살표 함수, 메서드</span><br><span class="line"></span><br><span class="line">const arrow &#x3D; () &#x3D;&gt; &#123;&#125;;</span><br><span class="line">const obj &#x3D; &#123;</span><br><span class="line">    f()&#123;&#125; &#x2F;&#x2F;축약표현만이 메서드로 인정</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;constructor 가 아니다, 에러 발생</span><br><span class="line">new arrow();</span><br><span class="line">new obj.f();</span><br><span class="line">&#x2F;&#x2F;TypeError: arrow(obj.f) is not a constructor</span><br></pre></td></tr></table></figure>
+
+<p><strong>ECMAScript 사양에서의 메서드</strong></p>
+<p>일반적으로 함수를 프로퍼티 값으로 사용하면 메서드로 통칭한다. 그러나 ECMAScript 사양에서는 메서드란 ES6의 메서드 축약표현을 의미한다. 즉 메서드는 다음 조건을 만족해야한다.</p>
+<ul>
+<li>함수를 프로퍼티 값으로 사용</li>
+<li>메서드 축약표현으로 기술</li>
+</ul>
+<p><strong>함수의 호출방식에 따른 내부 메서드 동작</strong></p>
+<p>함수를 일반 함수로 호출했을때와 new 연산자와 함께 생성자 함수로 호출했을 때 호출되는 내부메서드가 다르다</p>
+<ul>
+<li>일반 함수로서 호출<ul>
+<li>[[Call]] 호출</li>
+</ul>
+</li>
+<li>생성자 함수로서 호출<ul>
+<li>[[Constructor]] 호출</li>
+<li>non-constructor 호출 시 에러</li>
+</ul>
+</li>
+</ul>
+<p><strong>주의점</strong></p>
+<p>일반함수로 사용할 것을 목적으로 정의한 일반함수를 new 연산자와 호출하면 목적과는 달리 생성자 함수로 동작할 수 있다. </p>
+<h3 id="2-6-new-연산자"><a href="#2-6-new-연산자" class="headerlink" title="2.6 new 연산자"></a>2.6 new 연산자</h3><p><strong>new 연산자를 통한 호출방식 구분</strong></p>
+<p>일반 함수와 생성자 함수에 특별한 형식적 차이는 없다. new 연산자와 함께 함수를 호출하면 해당 함수는 생성자 함수로 동작한다. 다시 말해, 함수 객체의 내부 메서드 [[Call]] 이 호출되는 것이 아니라 [[Construct]]가 호출된다.</p>
+<p>new 연산자와 함께 호출하는 함수는 constructor 이어야 한다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;생성자 함수로서 정의하지 않은 일반 함수</span><br><span class="line">function foo()&#123;return 100;&#125;</span><br><span class="line">const obj1 &#x3D; new foo();</span><br><span class="line"></span><br><span class="line">console.log(obj1);&#x2F;&#x2F;&#123;&#125; 원시값을 반환하는 return 문이 무시되고 빈 객체가 할당</span><br><span class="line"></span><br><span class="line">function bar() &#123; return [1, 2]&#125;</span><br><span class="line">const obj2 &#x3D; new bar();</span><br><span class="line"></span><br><span class="line">console.log(obj2);&#x2F;&#x2F; [1, 2] return 문이 객체를 반환하므로 해당 객체를 반환</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>생성자 함수를 new 연산자 없이 호출한다면</strong></p>
+<p>new 연산자 없이 생성자 함수를 호출하면 일반함수로 호출된다. 즉, 내부 메서드 [[Construct]]가 아닌 [[Call]]이 호출된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;생성자 함수</span><br><span class="line">function Rectangle(width, height) &#123;</span><br><span class="line">    this.width &#x3D; width,</span><br><span class="line">    this.height &#x3D; height,</span><br><span class="line">    this.getArea &#x3D; function () &#123;</span><br><span class="line">        return width * height;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const rect1 &#x3D; Rectangle(5,5);</span><br><span class="line"></span><br><span class="line">console.log(rect1); &#x2F;&#x2F;undefined</span><br><span class="line">&#x2F;&#x2F; 반환문이 없는 일반함수는 undefined를 반환한다.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;일반함수 내부의 this는 전역객체가 된다.</span><br><span class="line">console.log(width); 5</span><br><span class="line">console.log(getArea()) ; &#x2F;&#x2F;25</span><br><span class="line"></span><br><span class="line">console.log(rect1.getArea()); &#x2F;&#x2F;TypeError</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>생성자 함수의 표기</strong></p>
+<p>일반함수와 생성자함수에 특별한 형식적 차이는 없다. 그렇기 때문에 의도적으로 생성자 함수를 기술할 때 파스칼케이스로 명명하여 차이를 두도록 하자</p>
+<h3 id="2-7-new-target"><a href="#2-7-new-target" class="headerlink" title="2.7 new.target"></a>2.7 new.target</h3><p><strong>생성자 함수의 일반함수 호출 방지</strong></p>
+<p>생성자 함수가 new 연산자 없이 호출되는 것을 방지하기 위해 파스칼 케이스 컨벤션을 사용하다 하더라도 실수는 언제나 발생할 수 있다.</p>
+<p>이러한 위험성을 피하기 위해 ES6 에서는 new.target을 지원한다.</p>
+<p>new.target은 this와 유사하게 constructor인 모든 함수 내부에서 암묵적인 지역 변수와 같이 사용되며 메타 프로퍼티라고 부른다. IE는 new.target 을 지원하지 않는다</p>
+<p>new.target을 함수 내부에서 사용하면 해당 함수가 new 연산자와 함께 호출되었는지 확인가능하다. </p>
+<ul>
+<li>new 연산자와 함께 생성자 함수로서 호출된경우<ul>
+<li>new.target은 함수 자신을 가리킨다</li>
+</ul>
+</li>
+<li>new 연산자 없이 일반 함수로서 호출된 경우<ul>
+<li>new.target 은 undefined 이다</li>
+<li>일반함수로 호출한 경우 재귀호출로 new와 함께 호출한다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;생성자 함수</span><br><span class="line"></span><br><span class="line">function Book(title,author)&#123;</span><br><span class="line">    if(!new.target)&#123;</span><br><span class="line">        return new Book(title, author);</span><br><span class="line">    &#125;</span><br><span class="line">    this.title &#x3D; title;</span><br><span class="line">    this.author &#x3D; author;</span><br><span class="line">    </span><br><span class="line">    this.getInfo &#x3D; function()&#123;</span><br><span class="line">        return this.title + &#39;, &#39;+this.author;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const book1 &#x3D; Book(&#39;어린왕자&#39;, &#39;생택쥐베리&#39;);</span><br><span class="line"></span><br><span class="line">console.log(book1); &#x2F;&#x2F; &#123;title: ....&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>스코프 세이프 생성자 패턴(scope-safe constructor</strong></p>
+<p>ES6의 문법인 new.target을 사용할 수 없을때 사용한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Book(title,author)&#123;</span><br><span class="line">    if(!this instanceof Book)&#123;</span><br><span class="line">        return new Book(title, author);</span><br><span class="line">    &#125;</span><br><span class="line">    this.title &#x3D; title;</span><br><span class="line">    this.author &#x3D; author;</span><br><span class="line">    </span><br><span class="line">    this.getInfo &#x3D; function()&#123;</span><br><span class="line">        return this.title + &#39;, &#39;+this.author;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>빌트인 생성자 함수와 new</strong></p>
+<ul>
+<li>Object, Function<ul>
+<li>new 없이 호출하여도 new와 함께 호출한 것처럼 동작</li>
+</ul>
+</li>
+<li>String, Number, Boolean<ul>
+<li>new 없이 호출하면 문자열, 숫자, 불리언 값을 반환</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/23/javascript-16PropertyAttribute/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/23/javascript-16PropertyAttribute/" class="post-title-link" itemprop="url">javascript 16PropertyAttribute</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-09-23 22:53:27 / Modified: 22:53:42" itemprop="dateCreated datePublished" datetime="2020-09-23T22:53:27+09:00">2020-09-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="프로퍼티-어트리뷰트"><a href="#프로퍼티-어트리뷰트" class="headerlink" title="프로퍼티 어트리뷰트"></a>프로퍼티 어트리뷰트</h1><h2 id="1-내부-슬롯과-내부-메서드"><a href="#1-내부-슬롯과-내부-메서드" class="headerlink" title="1. 내부 슬롯과 내부 메서드"></a>1. 내부 슬롯과 내부 메서드</h2><p><strong>자바스크립트 엔진 내부는?</strong></p>
+<p>자바스크립트로 작성한 코드는 자바스크립트 엔진에 의해 해석되고 실행된다. 자바스크립트 엔진도 코드를 실행하기 위해 코딩된 하나의 프로그램이라고 할 수 있다. 자바 스크립트 엔진은 객체지향 언어 C++ 로 코딩되어 있다.  즉 엔진 내부에도 프로그램 구현을 위한 알고리즘이 있다는 이야기이다 .</p>
+<p><strong>내부 슬롯, 내부 메서드란</strong></p>
+<p>내부 슬롯(internal slot) 과 내부 메서드 (internal method)는 자바스크립트 엔진의 구현 알고리즘을 설명하기 위해 ECMAScript 사양에서 사용하는 의사 프로퍼티(pseudo property) 와 의사 메서드(pseudo method) 이다. ECMAScript 사양 에서는 내부슬롯과 내부 메서드를 이중 대괄호(  [[ ]] )로 해당 이름을 감싸서 표현하고 있다. </p>
+<p><strong>내부 슬롯, 내부 메서드의 특징</strong></p>
+<p>내부 슬롯과 내부 메서드는 ECMAScript 사양에 정의된 대로 구현되어 자바스크립트 엔진에서 실제로 동작한다. 하지만 개발자가 직접 접근할 수 있도록 외부로 공개된 객체의 프로퍼티는 아니다. </p>
+<p>내부슬롯과 내부메서드는 자바스크립트 엔진의 내부 로직이므로 원칙적으로 자바스크립트는 내부슬롯과 내부메서드에 직접적으로 접근하거나 호출할 수 있는 방법을 제공하지 않는다. 괜한 문제나 어려움을 유발하지 않기 위해서이다. </p>
+<p>단, 일부 내부 슬롯과 내부 메서드에 한하여 <strong>간접적으로</strong> 접근할 수 있는 수단을 제공한다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 모든 객체는 [[Prototype]] 이라는 내부슬롯을 갖는다</span><br><span class="line">&#x2F;&#x2F; 직접 접근은 불가하며 접근자 프로퍼티로 간접 접근은 가능하다.</span><br><span class="line"></span><br><span class="line">const obj &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">o.[[Prototype]]; &#x2F;&#x2F; Uncaught SyntaxError</span><br><span class="line"></span><br><span class="line">o.__proto__ &#x2F;&#x2F; Object.prototype</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="2-프로퍼티-어트리뷰트와-프로퍼티-디스크립터-객체"><a href="#2-프로퍼티-어트리뷰트와-프로퍼티-디스크립터-객체" class="headerlink" title="2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체"></a>2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체</h2><p><strong>프로퍼티 어트리뷰트란</strong></p>
+<p>자바스크립트 엔진은 프로퍼티를 생성할 때 프로퍼티의 상태를 나타내는 프로퍼티 어트리뷰트를 기본값으로 자동 정의한다. </p>
+<p>프로퍼티의 상태란 다음과 같다.</p>
+<ul>
+<li>값(value)</li>
+<li>값의 갱신 가능 여부(writable)</li>
+<li>열거 가능 여부(enumerable)</li>
+<li>재정의 가능 여부(configurable)</li>
+</ul>
+<p>프로퍼티 어트리뷰트는 자바스크립트 엔진이 관리하는 내부 상태 값(meta-property)인 내부 슬롯 [[Value]], [[Writable]], [[Enumerable]], [[Configurable]]를 말한다. </p>
+<p><strong>프로퍼티의 어트리뷰트에 접근하는 법</strong></p>
+<p>프로퍼티 어트리뷰트 역시 직접접근은 불가하다.</p>
+<p>간접적으로 접근하기 위해  Object.getOwnPropertyDiscriptor 메서드를 사용한다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const car &#x3D; &#123;</span><br><span class="line">    price: 5000</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Object.getOwnPropertyDiscriptor(car, &#39;price&#39;);</span><br><span class="line">&#x2F;&#x2F;&#123;value: 5000, writable: true, enumerable: true, configurable: true&#125;</span><br></pre></td></tr></table></figure>
+
+<p>메서드를 호출할 때 첫 번째 매개변수에는 객체의 식별자, 두번째는 프로퍼티 키를 문자열로 전달한다. </p>
+<p><strong>주의할 점</strong></p>
+<ul>
+<li>프로퍼티 키는 식별자가 아닌 문자열이다. 인수 전달에 주의해야한다. </li>
+</ul>
+<p><strong>반환 값</strong></p>
+<p>Object.getOwnPropertyDiscriptor 메서드는 프로퍼티 어트리뷰트 정보를 프로퍼티로서 가지는 <strong>프로퍼티 디스크립터(PropertyDescriptor)객체</strong>를 반환한다.</p>
+<ul>
+<li>존재하지 않는 프로퍼티를 인수로 전달할 경우<ul>
+<li>undefined를 반환</li>
+</ul>
+</li>
+<li>상속받은 프로퍼티를 인수로 전달할 경우<ul>
+<li>undefined 반환</li>
+</ul>
+</li>
+</ul>
+<p><strong>모든 프로퍼티의 내부 상태를 알고 싶다면</strong></p>
+<p>Object.getOwnPropertyDiscriptor 메서드의 경우 하나의 프로퍼티의 디스크립터 객체를 반환한다. </p>
+<p>ES8에서 도입된 Object.getOwnPRopertyDescriptors 메서드는 모든 프로퍼티의 프로퍼티 어트리뷰트 정보를 제공한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const car &#x3D; &#123;</span><br><span class="line">    price: 5000,</span><br><span class="line">    brand: &#39;Hyundai&#39;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Object.getOwnPropertyDiscriptors(car);</span><br><span class="line">&#x2F;&#x2F;&#123;</span><br><span class="line">    price: &#123;value: 5000, writable: true, enumerable: true,     configurable: true&#125;,</span><br><span class="line">    brand: &#123;value: &#39;Hyundai&#39;, writable: true, enumerable: true, configurable: true&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="3-데이터-프로퍼티와-접근자-프로퍼티"><a href="#3-데이터-프로퍼티와-접근자-프로퍼티" class="headerlink" title="3. 데이터 프로퍼티와 접근자 프로퍼티"></a>3. 데이터 프로퍼티와 접근자 프로퍼티</h2><p><strong>프로퍼티의 구분</strong></p>
+<p>프로퍼티는 데이터 프로퍼티와 접근자 프로퍼티로 구분할 수 있다.</p>
+<ul>
+<li>데이터 프로퍼티(data property)<ul>
+<li>키와 값으로 구성된 일반적인 프로퍼티다. </li>
+<li>지금까지 살펴본 모든 프로퍼티는 데이터 프로퍼티다.</li>
+</ul>
+</li>
+<li>접근자 프로퍼티(accessor property)<ul>
+<li>자체적으로 값을 갖지 않는다</li>
+<li>다른 데이터 프로퍼티의 값을 <strong>읽거나 저장</strong>할 때 호출되는 접근자 함수(accessor function) 로 구성된 프로퍼티다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-1-데이터-프로퍼티"><a href="#3-1-데이터-프로퍼티" class="headerlink" title="3.1 데이터 프로퍼티"></a>3.1 데이터 프로퍼티</h3><p><strong>데이터 프로퍼티의 프로퍼티 어트리뷰트</strong></p>
+<p>데이터 프로퍼티(data property)는 다음과 같은 프로퍼티 어트리뷰트를 갖는다. 이 프로퍼티 어트리뷰트는 자바스크립트 엔진이 프로퍼티를 생성할 때 기본값으로 자동 정의된다. </p>
+<table>
+<thead>
+<tr>
+<th>프로퍼티 어트리뷰트</th>
+<th>프로퍼티 디스크립터 객체의 프로퍼티</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[[Value]]</td>
+<td>value</td>
+<td>- 프로퍼티 키를 통해 프로퍼티 값에 접근하면 반환되는 값이다. <br />- 프로퍼티 키를 통해 프로퍼티 값을 변경하면 [[Value ]]에 값을 재할당<br />- 이때 프로퍼티가 없으면 프로퍼티를 동적 생성 후 생성된 프로퍼티의 [[Value]]에 값을 저장</td>
+</tr>
+<tr>
+<td>[[Writable]]</td>
+<td>writable</td>
+<td>- 프로퍼티 값의 변경 가능 여부를 나타내며 불리언 값을 갖는다<br />- [[Writable]] 의 값이 false인 경우 해당 프로퍼티의 [[Value]]의 값을 변경할 수 없는 읽기 전용 프로퍼티가 된다.</td>
+</tr>
+<tr>
+<td>[[Enumerable]]</td>
+<td>enumerable</td>
+<td>- 프로퍼티의 열거 가능여부를 나타내며 불리언 값을 갖는다<br />- [[Enumerable]]의 값이 false인 경우 해당 프로퍼티는 for…in 문이나 Object.keys 메서드 등으로 열거할 수 있다</td>
+</tr>
+<tr>
+<td>[[Configurable]]</td>
+<td>configurable</td>
+<td>- 프로퍼티의 재정의 가능 여부를 나타내며 불리언 값을 갖는다<br />- [[Configurable]]의 값이 false인 경우 해당 프로퍼티의 삭제, 프로퍼티 어트리뷰트 값의 변경이 금지된다. <br />- 단 [[Writable]]의 true 인경우 [[Value]] 의 변경과 [[Writable]]을 false로 변경하는 것은 허용된다.</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const car &#x3D; &#123;</span><br><span class="line">    price: 1000</span><br><span class="line">&#125;;</span><br><span class="line">&#x2F;&#x2F;데이터프로퍼티의 디스크립터 객체 반환</span><br><span class="line">console.log(Object.getOwnPropertyDiscriptor(car, &#39;price&#39;));</span><br><span class="line">&#x2F;&#x2F;&#123;value: 1000, writable: true, enumerable: true, configurable: true&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;프로퍼티 동적추가</span><br><span class="line">car.brand &#x3D; &#39;Hyundai&#39;;</span><br><span class="line"></span><br><span class="line">console.log(Object.getOwnPropertyDescriptors(car));</span><br><span class="line">&#x2F;&#x2F;&#123;</span><br><span class="line">  price: &#123; value: 1000, writable: true, enumerable: true, configurable: true &#125;,</span><br><span class="line">  brand: &#123;</span><br><span class="line">    value: &#39;Hyundai&#39;,</span><br><span class="line">    writable: true,</span><br><span class="line">    enumerable: true,</span><br><span class="line">    configurable: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>리터럴로 객체를 생성하는 경우,</p>
+<p>프로퍼티가 생성될 때 [[Value]] 는 프로퍼티 값으로, 나머지는 true로 초기화된다. </p>
+<p>프로퍼티를 동적 추가해도 마찬가지이다.</p>
+<h3 id="3-2-접근자-프로퍼티"><a href="#3-2-접근자-프로퍼티" class="headerlink" title="3.2 접근자 프로퍼티"></a>3.2 접근자 프로퍼티</h3><p><strong>접근자 프로퍼티란</strong></p>
+<p>접근자 프로퍼티(accessor property)는 자체적으로 값을 갖지 않고 다른 데이터 프로퍼티의 값을 읽거나 저장할 때 사용되는 접근자 함수(accessor function) 으로 구성된 프로퍼티이다.</p>
+<p><strong>접근자  프로퍼티의 프로퍼티 어트리뷰트</strong> </p>
+<table>
+<thead>
+<tr>
+<th>프로퍼티 어트리뷰트</th>
+<th>프로퍼티 디스크립터 객체의 프로퍼티</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[[Get]]</td>
+<td>get</td>
+<td>- 접근자 프로퍼티를 통해 데이터 프로퍼티의 값을 <strong>읽을 때</strong> 호출되는 접근자 함수이다.<br />- 접근자 프로퍼티 키로 프로퍼티 값에 접근하면 프로퍼티 어트립뷰트 [[Get]]의 값, 즉 getter 함수가 호출되고 그 결과가 프로퍼티 값으로 반환된다.</td>
+</tr>
+<tr>
+<td>[[Set]]</td>
+<td>set</td>
+<td>- 접근자 프로퍼티를 통해 데이터프로퍼티의 값을 저장할 때 호출되는 접근자 함수이다.<br />- 즉, 접근자 프로퍼티 키로 프로퍼티 값을 저장하면 프로퍼티 어트리뷰트 [[Set]]의 값, setter 함수가 호출되고 그 결과가 프로퍼티 값으로 저장된다.</td>
+</tr>
+<tr>
+<td>[[Enumerable]]</td>
+<td>enumerable</td>
+<td>데이터 프로퍼티와 동일</td>
+</tr>
+<tr>
+<td>[[Configurable]]</td>
+<td>configurable</td>
+<td>데이터 프로퍼티와 동일</td>
+</tr>
+</tbody></table>
+<p><strong>접근자 함수의 정의</strong></p>
+<p>접근자 함수는 getter / setter 함수라고도 부른다. 접근자 프로퍼티는 getter와 setter 함수를 모두 정의할 수도 있고 하나만 정의할 수도 있다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F;데이터 프로퍼티</span><br><span class="line">    firstName: &#39;Jiman&#39;,</span><br><span class="line">    lastName: &#39;Jeong&#39;,</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F;접근자 프로퍼티</span><br><span class="line">    </span><br><span class="line">    get fullName() &#123;</span><br><span class="line">        return &#96;$&#123;this.firstName&#125; $&#123;this.lastName&#125;&#96;;</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    set fullName(name)&#123;</span><br><span class="line">        [this.firstName, this.lastName] &#x3D; name.split(&#39; &#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; setter 함수의 사용</span><br><span class="line">person.fullName &#x3D; &#39;Chansung Jeong&#39;;</span><br><span class="line"></span><br><span class="line">console.log(person.firstName, person.lastName);</span><br><span class="line">&#x2F;&#x2F;Chansung Jeong</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;getter 함수 사용</span><br><span class="line">console.log(person.fullName)</span><br><span class="line">Chansung Jeong</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>접근자 프로퍼티의 동작 원리</strong></p>
+<p>내부슬롯, 메서드 관점에서, 접근자 프로퍼티 fullName으로 프로퍼티 값에 <strong>접근</strong>하면 내부적으로 [[Get]] 내부 메서드가 호출된다.</p>
+<p>[[Get]] 내부 메서드의 동작</p>
+<ol>
+<li>프로퍼티 키가 유효한지 확인한다. 프로퍼티 키는 문자열 또는 심벌이어야 한다</li>
+<li>프로토 타입 체인에서 프로퍼티를 검색한다. </li>
+<li>검색된 프로퍼티가 데이터 프로퍼티인지, 접근자 프로퍼티인지 확인한다.</li>
+<li>접근자 프로퍼티의 프로퍼티 어트리뷰트 [[Get]]의 값인 getter 함수를 호출하여 결과를 반환한다.  [[Get]]의 값은 해당 프로퍼티의 디스크립터 객체의 get 프로퍼티 값과 같다</li>
+</ol>
+<p><strong>데이터 프로퍼티와 접근자 프로퍼티를 구별하는 법</strong></p>
+<ul>
+<li>Object.getOwnPropertyDiscriptor 메서드가 반환한 프로퍼티 어트리뷰트 정보를 확인한다. </li>
+</ul>
+<h2 id="4-프로퍼티-정의"><a href="#4-프로퍼티-정의" class="headerlink" title="4. 프로퍼티 정의"></a>4. 프로퍼티 정의</h2><p><strong>프로퍼티 정의란</strong></p>
+<p>프로퍼티 정의란 프로퍼티 어트리뷰트를 정의하는 것이다.</p>
+<ul>
+<li>새로운 프로퍼티를 추가하면서 프로퍼티 어트리뷰트를 명시적으로 정의</li>
+<li>기존 프로퍼티의 프로퍼티 어트리뷰트 재정의</li>
+</ul>
+<p>프로퍼티를 정의함으로서 객체의 프로퍼티가 어떻게 동작해야 하는 지 명확히 정의할 수 있다. </p>
+<p><strong>프로퍼티 어트리뷰트를 정의하는 법</strong></p>
+<p>Object.defineProperty 메서드를 사용하면 프로퍼티의 어트리뷰트를 정의할 수 있다. 인수로는 객체의 참조와 데이터 프로퍼티의 키인 문자열, 프로퍼티 디스크립터 객체를 전달한다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;데이터 프로퍼티 정의</span><br><span class="line">Object.defineProperty(person, &#39;firstName&#39;, &#123;</span><br><span class="line">    value: &#39;Jiman&#39;,</span><br><span class="line">    writable: true,</span><br><span class="line">    enumerable: true,</span><br><span class="line">    configurable: true</span><br><span class="line">&#125; );</span><br><span class="line">Object.defineProperty(person, &#39;lastName&#39;, &#123;</span><br><span class="line">    value: &#39;Jeong&#39;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(Object.getOwnPropertyDescriptors(person));</span><br><span class="line">&#x2F;&#x2F;&#123;</span><br><span class="line">  firstName: &#123;</span><br><span class="line">    value: &#39;Jiman&#39;,</span><br><span class="line">    writable: true,</span><br><span class="line">    enumerable: true,</span><br><span class="line">    configurable: true</span><br><span class="line">  &#125;,</span><br><span class="line">  lastName: &#123;</span><br><span class="line">    value: &#39;Jeong&#39;,</span><br><span class="line">    writable: false,</span><br><span class="line">    enumerable: false,</span><br><span class="line">    configurable: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;누락된 디스크립터 객체의 프로퍼티는 undefined나 false로 초기화된다.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;[[Writable]], [[Enumerable]], [[Configurable]]이 false</span><br><span class="line"></span><br><span class="line">person.lastName &#x3D; &#39;hihi&#39;;&#x2F;&#x2F;무시된다. 에러는 x</span><br><span class="line">console.log(Object.keys(person));&#x2F;&#x2F;&#123;&quot;firstName&quot;&#125; 열거x</span><br><span class="line">delete person.lastName;</span><br><span class="line">&#x2F;&#x2F;Uncaught TypeError: Cannot redefine property: lastName</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;접근자 프로퍼티 정의</span><br><span class="line"></span><br><span class="line">Object.defineProperty(person,&#39;fullName&#39;, &#123;</span><br><span class="line">    get() &#123;</span><br><span class="line">        return &#96;$&#123;this.firstName&#125; $&#123;this.lastName&#125;&#96;;</span><br><span class="line">    &#125;,</span><br><span class="line">    set(name) &#123;</span><br><span class="line">        [this.firstName, this.lastName] &#x3D; name.split(&#39; &#39;);</span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    enumerable: true,</span><br><span class="line">    configurable: true</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-객체-변경-방지"><a href="#5-객체-변경-방지" class="headerlink" title="5. 객체 변경 방지"></a>5. 객체 변경 방지</h2><p><strong>객체는 변경 가능한 값이다</strong></p>
+<p>객체는 재할당 없이 직접 변경할 수 있다. </p>
+<ul>
+<li>프로퍼티 추가 및 삭제</li>
+<li>프로퍼티 값 갱신</li>
+<li>프로퍼티 어트리뷰트 재정의</li>
+</ul>
+<p><strong>객체의 변경을 방지하는 방법</strong></p>
+<p>자바스크립트는 객체의 변경을 방지하는 다양한 메서드를 제공한다. 메서드에 따라 그 범위가 다르다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>메서드</th>
+<th>프로퍼티 추가</th>
+<th>프로퍼티 삭제</th>
+<th>프로퍼티 값 읽기</th>
+<th>프로퍼티 값 쓰기</th>
+<th>프로퍼티 어트리뷰트 재정의</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>객체 확장 금지</td>
+<td>Object.preventExtensions</td>
+<td>x</td>
+<td>o</td>
+<td>o</td>
+<td>o</td>
+<td>o</td>
+</tr>
+<tr>
+<td>객체 밀봉</td>
+<td>Object.seal</td>
+<td>x</td>
+<td>x</td>
+<td>o</td>
+<td>o</td>
+<td>x</td>
+</tr>
+<tr>
+<td>객체 동결</td>
+<td>Object.freeze</td>
+<td>x</td>
+<td>x</td>
+<td>o</td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h3 id="5-1-객체-확장-금지"><a href="#5-1-객체-확장-금지" class="headerlink" title="5.1 객체 확장 금지"></a>5.1 객체 확장 금지</h3><p><strong>Object.preventExtensions</strong></p>
+<p>Object.preventExtensions 메서드는 객체의 확장을 금지한다. 즉 프로퍼티 추가를 금지하는 것이다. </p>
+<p>다음의 프로퍼티 추가 방법이 모두 금지된다.</p>
+<ul>
+<li>프로퍼티 동적추가</li>
+<li>Object.defineProperty 를 통한 프로퍼티 추가 및 정의</li>
+</ul>
+<p>확장 가능여부는 Object.isExtensible 메서드로 확인 가능하다.</p>
+<h3 id="5-2-객체-밀봉"><a href="#5-2-객체-밀봉" class="headerlink" title="5.2 객체 밀봉"></a>5.2 객체 밀봉</h3><p><strong>Object.seal</strong></p>
+<p>Object.seal 메서드는 객체를 밀봉한다. </p>
+<p>객체 밀봉(seal) 이란 다음을 금지한다.</p>
+<ul>
+<li>프로퍼티 추가 및 삭제</li>
+<li>프로퍼티 어트리뷰트 재정의 금지</li>
+</ul>
+<p>기존 프로퍼티 값의 읽기, 갱신 이외에는 모두 불가하다.</p>
+<p>객체의 밀봉여부는 Object.isSealed 메서드로 확인가능하다.</p>
+<h3 id="5-3-객체-동결"><a href="#5-3-객체-동결" class="headerlink" title="5.3 객체 동결"></a>5.3 객체 동결</h3><p><strong>Object.freeze</strong></p>
+<p>Object.freeze 메서드는 객체를 동결한다. </p>
+<p>객체 동결(freeze)는 다음을 금지한다.</p>
+<ul>
+<li>프로퍼티 추가 및 삭제</li>
+<li>프로퍼티 어트리뷰트 재정의 금지</li>
+<li>프로퍼티 값 갱신</li>
+</ul>
+<p>즉 동결된 객체는 프로퍼티 값 읽기만 가능하다.</p>
+<p>객체의 동결여부는 Object.isFrozen 메서드로 확인가능하다.</p>
+<h3 id="5-4-불변-객체"><a href="#5-4-불변-객체" class="headerlink" title="5.4 불변 객체"></a>5.4 불변 객체</h3><p><strong>중첩 객체까지 동결하는 방법</strong></p>
+<p>얕은 변경 방지(shallow only)가 아닌 중첩객체까지 동결된 불변객체(immutable object) 를 구현하려면,</p>
+<p>객체를 값으로 갖는 모든 프로퍼티에 대해 재귀적으로 Object.freeze 메서드를 호출해야한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function deepFreeze(target) &#123;</span><br><span class="line">    if(target &amp;&amp; typeof target &#x3D;&#x3D;&#x3D; &#39;object&#39; &amp;&amp; !Object.isFrozen(target)) &#123;</span><br><span class="line">        Object.freeze(target);</span><br><span class="line">        </span><br><span class="line">        Object.keys(target).forEach(key &#x3D;&gt; Object.deepFreeze(target[key]));</span><br><span class="line">    &#125;</span><br><span class="line">    return target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/23/javascript-15let-const-BlockLevelScope/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/23/javascript-15let-const-BlockLevelScope/" class="post-title-link" itemprop="url">let, const & BlockLevelScope</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-09-23 19:53:38 / Modified: 19:55:34" itemprop="dateCreated datePublished" datetime="2020-09-23T19:53:38+09:00">2020-09-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="let-const와-블록-레벨-스코프"><a href="#let-const와-블록-레벨-스코프" class="headerlink" title="let, const와 블록 레벨 스코프"></a>let, const와 블록 레벨 스코프</h1><h2 id="1-var-키워드로-선언한-변수의-문제점"><a href="#1-var-키워드로-선언한-변수의-문제점" class="headerlink" title="1. var 키워드로 선언한 변수의 문제점"></a>1. var 키워드로 선언한 변수의 문제점</h2><p><strong>ES5 까지의 변수 선언</strong></p>
+<p>ES5까지 변수를 선언할 수 있는 유일한 방법은 var 키워들ㄹ 사용하는 것이었다. var 키워드로 선언된 변수는 다른 언어와는 구별되는 독특한 특징이 있으며, 주의를 기울이지 않으면 심각한 문제를 발생시킬 수 있다.</p>
+<h3 id="1-1-변수-중복-선언-허용"><a href="#1-1-변수-중복-선언-허용" class="headerlink" title="1.1 변수 중복 선언 허용"></a>1.1 변수 중복 선언 허용</h3><p><strong>중복 선언시 var 키워드가 없는 것처럼 동작</strong></p>
+<p>var 키워드로 선언한 변수는  중복선언이 가능하다.</p>
+<ul>
+<li>같은 스코프 내에서 중복 선언이 가능하다.</li>
+<li>초기화문이 있는 변수 선언문은 자바 스크립트 엔진에 의해 var 키워드가 없는 것처럼 동작한다.</li>
+<li>초기화문이 없는 변수 선언문을 중복선언하면 무시된다. </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 1;</span><br><span class="line">var y &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;같은 스코프 내 중복 선언 허용</span><br><span class="line">&#x2F;&#x2F; var 키워드가 없는 것처럼 동작</span><br><span class="line">var x &#x3D; 100;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;초기화 문이 없으면 무시, 에러x</span><br><span class="line">var y;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;x : 100, y : 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>문제점</strong></p>
+<p>동일한 이름의 변수가 이미 선언되어 있는 것을 모르고 변수를 중복 선언 하면서 값까지 할당했다면 의도치 않게 먼저 선언된 변수 값이 변경 되는 부작용 발생</p>
+<h3 id="1-2-함수-레벨-스코프"><a href="#1-2-함수-레벨-스코프" class="headerlink" title="1.2 함수 레벨 스코프"></a>1.2 함수 레벨 스코프</h3><p><strong>함수의 코드 블록만을 스코프로 인정</strong></p>
+<p>var 키워드로 선언한 변수는 오로지 함수의 코드 블록만을 지역 스코프로 인정한다. 따라서 함수 외부에서 var 키워드로 선언한 변수는 코드 블록 내에서 선언해도 모두 전역 변수가 된다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;함수 외 코드블록은 스코프로 인정하지 않는다.</span><br><span class="line">&#x2F;&#x2F;x 변수 중복된다</span><br><span class="line">if(true) &#123;</span><br><span class="line">    var x &#x3D; 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(x); &#x2F;&#x2F;10</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;for 문도 마찬가지</span><br><span class="line">for(var i &#x3D; 0; i&lt;5; i++)&#123;</span><br><span class="line">console.log(i); &#x2F;&#x2F;0 1 2 3 4 </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>문제점</strong></p>
+<p>함수 레벨 스코프를 인지 못하고 전역 변수를 선언하게 된다. 그러면 의도치 않게 변수값을 변경할 수 있다.</p>
+<h3 id="1-3-변수-호이스팅"><a href="#1-3-변수-호이스팅" class="headerlink" title="1.3 변수 호이스팅"></a>1.3 변수 호이스팅</h3><p><strong>변수 호이스팅으로 초기화까지 일어난다.</strong></p>
+<p>var 키워드로 변수를 선언하면 변수 호이스팅에 의해 변수 선언문이 스코프의 선두로 끌어 올려진 것처럼 동작한다. 즉, 변수 호이스팅에 의해 var 키워드로 선언한 변수는 변수 선언문 이전에 참조할 수 있다. 변수 할당문 이전에 변수를 참조하면 undefined를 반환한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(num);&#x2F;&#x2F;undefined</span><br><span class="line"></span><br><span class="line">num &#x3D; 100;</span><br><span class="line"></span><br><span class="line">console.log(num);100</span><br><span class="line"></span><br><span class="line">var num;</span><br></pre></td></tr></table></figure>
+
+<p><strong>var 변수 호이스팅의 문제점</strong></p>
+<p>변수 선언문 이전에 변수를 참조하는 것은 변수 호이스팅에 의해 에러를 발생시키지는 않는다 하지만 다음과 같은 문제가 있다.</p>
+<ul>
+<li>프로그램의 흐름상 맞지 않다.</li>
+<li>가독성을 떨어뜨린다.</li>
+<li>오류 발생 가능성이 높아진다.</li>
+</ul>
+<h2 id="2-let-키워드"><a href="#2-let-키워드" class="headerlink" title="2. let 키워드"></a>2. let 키워드</h2><p><strong>let 과 const의 도입</strong></p>
+<p>var 키워드의 여러 문제점을 보완하기 위해서 ES6에서는 새로운 변수 선언 키워드가 추가 되었다. </p>
+<ul>
+<li>let</li>
+<li>const</li>
+</ul>
+<p>var 키워드와의 차이를 알아보자</p>
+<h3 id="2-1-변수-중복-선언-금지"><a href="#2-1-변수-중복-선언-금지" class="headerlink" title="2.1 변수 중복 선언 금지"></a>2.1 변수 중복 선언 금지</h3><p><strong>let 키워드는 중복 선언 미허용</strong></p>
+<p>var 키워드로 이름이 동일한 변수를 중복 선언하면 아무런 에러를 발생하지 않는다. 인간은 실수하는 동물이기에 의도치않게, 실수로 값을 재할당 할 수도 있다. 즉, 오류 발생 가능성이 높아진다. </p>
+<p>let 키워드의 경우 이름이 같은 변수를 중복 선언 하면 문법 에러(SyntaxError) 를 발생시킨다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var num1 &#x3D; 100;</span><br><span class="line">var num1 &#x3D; 200;</span><br><span class="line">&#x2F;&#x2F;var 키워드로 선언된 변수는 중복선언 허용</span><br><span class="line">&#x2F;&#x2F;중복 선언시 var 키워드가 없는 것처럼 동작</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let num2 &#x3D; 123;</span><br><span class="line">let num2 &#x3D; 456;</span><br><span class="line"> &#x2F;&#x2F; let이나 const 키워드로 선언한 변수는 중복선언을 허용하지 않는다. </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-2-블록-레벨-스코프"><a href="#2-2-블록-레벨-스코프" class="headerlink" title="2.2 블록 레벨 스코프"></a>2.2 블록 레벨 스코프</h3><p><strong>let , const 키워드는 블록 레벨 스코프를 따른다</strong></p>
+<p>var 키워드로 선언된 변수는 오로지 함수의 코드 블록만을 지역 스코프를 따른다. 하지만 let 키워드로 선언한 변수는 모든 코드블록을 지역 스코프로 인정한다. (함수, if 문, while 문, try/catch) 등을 지역 스코프로 인정하는 블록레벨 스코프를 따른다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let num &#x3D; 1;</span><br><span class="line">&#123;</span><br><span class="line">    let num &#x3D; 2;</span><br><span class="line">    let bar &#x3D; 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(num); &#x2F;&#x2F;2</span><br><span class="line">console.log(bar); &#x2F;&#x2F; ReferenceError</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-변수-호이스팅"><a href="#2-3-변수-호이스팅" class="headerlink" title="2.3 변수 호이스팅"></a>2.3 변수 호이스팅</h3><p><strong>let 키워드로 선언한 변수의 호이스팅</strong></p>
+<p>var 키워드로 선언한 변수와 달리 let 키워드로 선언한 변수는 변수호이스팅이 발생하지 않는 것처럼 동작한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a); &#x2F;&#x2F;ReferenceError</span><br><span class="line">let foo;</span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 let 키워드로 선언한 변수를 선언문 이전에 참조하면 참조에러가 발생한다. </p>
+<p><strong>이유</strong></p>
+<p><strong>기존의 var 키워드의 변수 선언</strong></p>
+<p>var 키워드로 선언한 변수는 런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언단계와 초기화단계가 <strong>한번에</strong> 진행된다</p>
+<ol>
+<li>선언 단계에서 실행 컨텍스트의 렉시컬 환경에 변수 식별자를 등록해 자바스크립트 엔진에 변수의 존재를 알린다.</li>
+<li>초기화 단계에서 undefined로 변수를 초기화한다.</li>
+</ol>
+<p>따라서 변수 선언문 이전에 변수에 접근해도 에러가 발생하지 않는다. 다만 의도한 값대신 undefined가 할당되어 있다. </p>
+<p><strong>let 키워드의 선언단계와 초기화 단계</strong></p>
+<p>let 키워드로 선언한 변수는 선언단계와 초기화 단계가 분리되어 진행된다. </p>
+<ol>
+<li>런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언 단계 실행</li>
+<li><strong>런타임</strong>이 되어 변수선언문에 도달했을때 초기화 단계 실행</li>
+</ol>
+<p>런타임 이전에 초기화 단계를 실행 하지않으므로 변수선언문 이전에 참조하려고 하면 참조 에러가 발생한다.</p>
+<p><strong>일시적 사각지대란</strong></p>
+<p> let 키워드로 선언한 변수는 스코프의 시작 지점부터 초기화단계 시작 지점까지 변수를 참조할 수 없다. </p>
+<p>스코프의 시작 지점부터 초기화 시작 지점까지 변수를 참조할 수 없는 구간을 **일시적 사각지대(Temporal Dead Zone; TDZ)**라고 부른다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;일시적 사각지대</span><br><span class="line">console.log(foo); &#x2F;&#x2F;ReferenceError</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &quot;&quot;</span><br><span class="line">let foo;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>let 키워드의 변수 호이스팅</strong></p>
+<p>let 키워드로 선언한 변수는 변수 호이스팅이 발생하지 않는 것 같지만 그렇지 않다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let bar &#x3D; 1;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    console.log(bar); &#x2F;&#x2F;ReferenceError</span><br><span class="line">    </span><br><span class="line">    let bar &#x3D;10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>만일 변수 호이스팅이 발생하지 않는다면 bar를 출력했을때 전역에서 할당한 1이 출력되어야 정상이지만, 참조에러가 발생한다. </p>
+<p>let 키워드도 스코프 시작전에 선언단계, 초기화단계 중 선언단계는 진행하기 때문이다. </p>
+<h3 id="2-4-전역-객체와-let"><a href="#2-4-전역-객체와-let" class="headerlink" title="2.4 전역 객체와 let"></a>2.4 전역 객체와 let</h3><p><strong>var 키워드로 선언한 변수는 전역 객체의 프로퍼티가 된다.</strong> </p>
+<p>var 키워드로 선언한 전역 변수, 전역 함수와 암묵적 전역은 전역 객체 window or global의 프로퍼티가 된다. 전역 객체의 프로퍼티를 참조할 땐 window를 생략가능하다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 전역변수</span><br><span class="line">var foo;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 전역 함수</span><br><span class="line">fuction bar() </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 암묵적 전역</span><br><span class="line">x &#x3D; 1</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;위 모두 전역 객체 window의 프로퍼티</span><br><span class="line">&#x2F;&#x2F;선언 및 참조 시 window 식별자는 생략 가능</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>let 키워드는 전역 객체의 프로퍼티가 아니다.</strong></p>
+<p>let 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 아닌, 전역 렉시컬 환경의 선언적 환경 레코드에 존재하게 된다. </p>
+<h2 id="3-const-키워드"><a href="#3-const-키워드" class="headerlink" title="3. const 키워드"></a>3. const 키워드</h2><h3 id="3-1-선언과-초기화"><a href="#3-1-선언과-초기화" class="headerlink" title="3.1 선언과 초기화"></a>3.1 선언과 초기화</h3><p><strong>const 키워드로 선언한 변수는 선언과 동시에 초기화한다.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const foo &#x3D; 1;</span><br><span class="line"></span><br><span class="line">const bar; &#x2F;&#x2F; SyntaxError</span><br></pre></td></tr></table></figure>
+
+<p>초기화 없이 선언만 하면 문법 에러가 발생한다. </p>
+<p><strong>const, 스코프와 호이스팅</strong></p>
+<p>const 키워드로 선언한 변수는 블록레벨 스코프를 가지며, 변수호이스팅이 발생하지 않는 것처럼 동작한다. </p>
+<h3 id="3-2-재할당-금지"><a href="#3-2-재할당-금지" class="headerlink" title="3.2 재할당 금지"></a>3.2 재할당 금지</h3><p><strong>const 키워드로 선언한 변수는 재할당이 금지된다.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const foo &#x3D; 10;</span><br><span class="line"></span><br><span class="line">foo &#x3D; 5;&#x2F;&#x2F; TypeError</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-3-상수"><a href="#3-3-상수" class="headerlink" title="3.3 상수"></a>3.3 상수</h3><p><strong>const 키워드의 이용</strong></p>
+<p>원시값은 immutable value 이다. 그리고 const 키워드로 선언한 변수에 원시값을 할당한다면 <strong>재할당 없이</strong> 변수값을 변경할 수 없다. 그렇기 때문에 const 키워드를 이용해 상수를 표현할 수 있다.</p>
+<p><strong>상수의 뜻</strong></p>
+<p>변수의 상대 개념인 상수는 재할당이 금지된 변수를 말한다. 상수도 값을 저장하기 위한 메모리 공간이 필요하므로 변수이다. 일반적인 변수와는 달리 재할당이 금지된다. </p>
+<p><strong>상수의 장점</strong></p>
+<ul>
+<li>상태를 유지한다</li>
+<li>가독성이 높아진다</li>
+<li>유지보수가 편하다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 세율같은 경우 쉽게 변하지 않으며, 고정값을 사용해야 한다.</span><br><span class="line">const TAX_RATE &#x3D; 0,1;</span><br><span class="line">let preTaxPrice &#x3D; 100;</span><br><span class="line"></span><br><span class="line">let afterTaxPrice &#x3D; preTaxPrice + (preTaxPrice * TAX_RATE)</span><br></pre></td></tr></table></figure>
+
+<p>const 키워드로 선언한 변수에 원시값을 할당한다면 선언문 이후에 값을 변경할 수 없으며 상태가 유지된다.</p>
+<p>또한 세율을 상수로 정의하여 의미를 쉽게 알 수 있다. 즉 가독성이 높아진다.</p>
+<p>세율이 변경된다면 상수만을 변경하면 되므로 유지 보수성이 향상된다. </p>
+<p><strong>상수의 일반적인 표기</strong></p>
+<p>상수의 이름은 대문자로 선언해 상수임을 명확히 나타낸다.</p>
+<p>여러개의 단어로 이루어진 경우 언더스코어로 구분한 스네이크 케이스로 표현한다. </p>
+<h3 id="3-3-const-키워드와-객체"><a href="#3-3-const-키워드와-객체" class="headerlink" title="3.3 const 키워드와 객체"></a>3.3 const 키워드와 객체</h3><p><strong>객체의 경우 값의 변경이 가능하다.</strong></p>
+<p>원시값의 경우 불변값이기 때문에 재할당없이 값의 변경이 불가하며, const로 선언한 경우 재할당까지도 불가하다. </p>
+<p>하지만, 객체의 경우 가변 값 (mutable value) 이기 때문에 재할당없이도 값을 변경할 수 있다. </p>
+<p>const 키워드는 재할당을 금지할 뿐이다.  객체는 자유롭게 변경될 수 있다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const student &#x3D; &#123;</span><br><span class="line">    name: &#39;Jiman&#39;,</span><br><span class="line">    age: 23</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">student.age &#x3D; 24;</span><br><span class="line">console.log(student)&#x2F;&#x2F; &#123;name: &#39;jiman&#39;, age: 24&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-var-vs-let-vs-const"><a href="#4-var-vs-let-vs-const" class="headerlink" title="4. var vs. let vs. const"></a>4. var vs. let vs. const</h2><p><strong>const 사용을 지향하자</strong></p>
+<p>변수 선언에는 기본적으로 const를 사용하고 let은 재할당이 필요한 경우에만 사용하도록 하자. </p>
+<p><strong>이유</strong></p>
+<ul>
+<li>변수를 선언하는 시점에는 재할당이 필요할 지 잘모르는 경우가 많다.</li>
+<li>객체는 재할당하는 경우가 드물다</li>
+<li>재할당이 꼭 필요하다면 그때 let 으로 바꾸자 </li>
+</ul>
+<p><strong>ES6 이상인 경우 var은 사용하지 말자</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/22/javascript-14Problem-of-GlobalVariable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1217,372 +1996,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/01/0824-0828-TIL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/01/0824-0828-TIL/" class="post-title-link" itemprop="url">0824~0828 TIL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-01 23:06:38 / Modified: 23:10:53" itemprop="dateCreated datePublished" datetime="2020-09-01T23:06:38+09:00">2020-09-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="0824-0828-TIL"><a href="#0824-0828-TIL" class="headerlink" title="0824~0828 TIL"></a>0824~0828 TIL</h1><h2 id="한-일들"><a href="#한-일들" class="headerlink" title="한 일들"></a>한 일들</h2><ul>
-<li>자바스크립트 변수, 데이터 타입, 표현식 등등 기본 개념 이해</li>
-<li>공부한 내용 정리하여 블로그 작성</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/01/javascript-11primitiveValue-vs-objectValue/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/01/javascript-11primitiveValue-vs-objectValue/" class="post-title-link" itemprop="url">javascript 11primitiveValue vs objectValue</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-01 22:08:08" itemprop="dateCreated datePublished" datetime="2020-09-01T22:08:08+09:00">2020-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-02 12:05:48" itemprop="dateModified" datetime="2020-09-02T12:05:48+09:00">2020-09-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="원시값과-객체의-비교"><a href="#원시값과-객체의-비교" class="headerlink" title="원시값과 객체의 비교"></a>원시값과 객체의 비교</h1><p>자바스크립트에는 7가지 데이터 타입이 있었다. 그리고 그 데이터 타입은 <strong>원시타입(primitive type)</strong> 과 <strong>객체타입(object/reference type)</strong> 으로 분류되었다.</p>
-<ul>
-<li>원시 타입<ul>
-<li>number</li>
-<li>string</li>
-<li>boolean</li>
-<li>undefined</li>
-<li>null</li>
-<li>symbol</li>
-</ul>
-</li>
-<li>객체 타입<ul>
-<li>함수, 객체 등등</li>
-</ul>
-</li>
-</ul>
-<p>원시 타입에서도 number, string 등 데이터 타입을 나누어 놓은 이유가 존재하였다. 자세한 내용은 데이터타입 포스팅에서 다루었다. </p>
-<p>원시타입과 객체 타입을 나누어 놓은 이유는 무엇일까? 두 타입의 차이점을 먼저 짚어보자. 크게 3가지 측면에서 차이가 있다. </p>
-<ul>
-<li>원시 타입의 값, 즉 원시값은 변경 불가능한 값(immutable value)이다. 객체는 변경 가능한 값(mutable value)이다. <ul>
-<li>변수에 저장된 값을 변경하고자할때, 원시값은 변경불가하기때문에 재할당에 의해 변경해야되지만, 객체는 재할당없이 값을 변경 가능하다.</li>
-</ul>
-</li>
-<li>원시값을 변수에 할당하면 변수에 실제값이 저장된다. 이에 비해 객체를 변수에 할당하면 변수에는 참조값이 저장이된다. <ul>
-<li>참조값은 객체 값을 저장한 메모리 주소를 가리킨다.</li>
-</ul>
-</li>
-<li>원시값을 갖는 변수를 다른 변수에 할당하면 원본의 <strong>원시값이</strong> <strong>복사</strong>되어 전달된다.이를 값에 의한 전달 (pass by value) 라고 한다.  객체를 가리키는 변수를 다른 변수에 할당하면 원본의 <strong>참조값이 복사</strong>되어 전달된다. 이를 참조에 의한 전달(pass by reference) 이라고 한다.  </li>
-</ul>
-<p>즉 변경 가능성, 저장값, 전달 방식에서 차이가 있다.</p>
-<p> 이 관점에서 원시 값과 객체를 분석해보자</p>
-<h2 id="1-원시값"><a href="#1-원시값" class="headerlink" title="1. 원시값"></a>1. 원시값</h2><h3 id="1-1-원시값은-변경-불가능한-값이다"><a href="#1-1-원시값은-변경-불가능한-값이다" class="headerlink" title="1.1 원시값은 변경 불가능한 값이다."></a>1.1 원시값은 변경 불가능한 값이다.</h3><p>원시타입(primitive type)의 값, 원시값은 변경 불가능한 값 (immutable value) 이다. </p>
-<p>한번 생성된 원시 값은 읽기 전용(read only) 값으로서 변경할 수 없다.</p>
-<p><code>값을 변경할 수 없다?</code></p>
-<p>값은 표현식이 평가되어 생성된 결과로 메모리에 저장되어 있다. 메모리에 저장된 값은 변경 불가능하다는 뜻이다. </p>
-<p>헷갈릴 수 있는 개념에 대해 짚고 넘어가보자. 변수와 값은 구분해서 생각해야하낟. </p>
-<ul>
-<li>변수 : 하나의 값을 저장하기 위해 확보한 메모리 공간 자체 또는 그 메모리 공간을 식별하기 위해 붙인 이름</li>
-<li>값 : 변수에 저장된 데이터로서 표현식이 평가되어 생성된 결과</li>
-</ul>
-<p>변경 불가 하다는 것은 변수가 아니라 값에 대한 진술이다.</p>
-<p>원시값은 변경 불가능하다는 말은 <strong>원시값 자체를 변경할 수 없다</strong>는 것이지 변수 값을 변경할 수 없다는 것이 아니다. </p>
-<p>다만, <strong>변수의 값이 변경</strong>되는 것은 원시값 자체의 변화가 아닌, 재할당을 통해 <strong>새로 생성된 원시값을 변수에 할당</strong>하는 것이다. 즉 엄밀히 말해서는 변수의 값이 교체되는 것이다.  </p>
-<p>그렇다면 변수의 상대개념인 상수는 어떨까?</p>
-<p>상수는 <strong>재할당이 금지된 변수</strong>이다. 상수도 값을 저장하기 위한 메모리 공간이 필요하므로 변수라고 할 수 있다. 다만 변수는 재할당을 통해 변수 값을 변경(교체)할 수 있지만 상수는 단 한번만 할당이 허용되므로 변수 값을 변경(교체)할 수 없다.  이처럼 상수는 재할당이 금지된 <strong>변수</strong>일 뿐이지, 변경 불가능한 값의 범주에 포함시키지는 않는다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 상수는 immutable한 값이 아닌 재할당이 금지된 변수이다.</span><br><span class="line">&#x2F;&#x2F; 상수에 객체를 할당할 시 변경 가능하다는 예시가 있다.</span><br><span class="line"></span><br><span class="line">const obj &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj.key &#x3D; &#39;value&#39;;</span><br><span class="line">console.log(obj); </span><br><span class="line">&#x2F;&#x2F;&#123;key: value&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>변수의 재할당은 어떻게 일어날까?</code></p>
-<p>원시값은 변경 불가능한 값이다. 변수에 재할당을 하게되면 원시값이 저장된 메모리공간으로 접근해서 값을 변경하는 것이 아니다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var num &#x3D; 10;</span><br><span class="line">&#x2F;&#x2F;값의 재할당</span><br><span class="line">num &#x3D; 5;</span><br></pre></td></tr></table></figure>
-
-<p>num이라는 변수에 10이라는 숫자가 저장되어 있다. 5를 재할당 할 경우 10 이 저장되어 있는 메모리공간으로 접근해서 <strong>값을 변경하는 것이 아니라 새로운 메모리 공간을 확보</strong>해서 5를 저장한 후 num이라는 변수 이름을 연결해준다.  10은 가비지 컬렉터에 의해 메모리공간확보가 해제된다. </p>
-<p>이렇게 처리하는 이유는 컴퓨터 입장에서 편하기 때문이다. </p>
-<p>원시값의 이러한 특성을 불변성(immutaility)라고 한다.  불변성을 갖는 원시값을 할당한 변수는 재할당 의외에 변수 값을 변경할 수 있는 방법이 없다. </p>
-<h3 id="1-2-문자열과-불변성"><a href="#1-2-문자열과-불변성" class="headerlink" title="1.2 문자열과 불변성"></a>1.2 문자열과 불변성</h3><p>원시값을 메모리 공간에 저장하기 위해서는, <strong>확보해야 하는 메모리 공간의 크기를 결정해야한다</strong>.  원시타입 별로 확보해야하는 메모리 공간의 크기가 정해져 있는 것이다.  ECMAScript 사양을 보면 문자열 타입 (2byte)와 숫자타입(8byte)는 메모리공간의 크기가 명시되어있는 반면에 다른 원시타입은 명시 되어있지 않고 브라우저 제조사의 구현에따라 다를 수 있다. </p>
-<p>문자열 값은 다른 원시값과 비교해 독특한 특징이 있다.</p>
-<ul>
-<li>문자열은 0개 이상의 문자(character)로 이뤄진 집합이다.</li>
-<li>1개의 문자는 2byte의 메모리 공간에 저장된다.</li>
-<li>문자열은 몇 개의 문자로 이뤄졌느냐에 따라 필요한 메모리 공간의 크기가 결정된다.</li>
-</ul>
-<p>즉, 문자열은 확보해야하는 메모리공간의 크기가 고정된 다른 원시값과 다르게 <strong>문자의 개수에 따라 확보되는 메모리공간의 크기가 다르다</strong>. 1개의 문자로 된 문자열은 2byte, 5개의 문자로 이뤄진 문자열은 10byte가 필요하다.(실제 계산은 다르긴하다.)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str1 &#x3D; &#39;&#39;;</span><br><span class="line">var str2 &#x3D; &#39;jiman&#39;;</span><br><span class="line">&#x2F;&#x2F;필요한 메모리 공간의 크기가 다르다.</span><br></pre></td></tr></table></figure>
-
-<p>C와 자바에서는 문자열 데이터 타입이 따로 없다. </p>
-<p>c에서는 문자타입(char)들의 배열로 문자열을 처리하고, 자바에서는 String 객체로 문자열을 처리한다. </p>
-<p>자바스크립트에서는 string이라는 데이터 타입을 제공하는 것이다. 데이터의 신뢰성을 보장하는, 자바스크립트의 장점이다.  </p>
-<p>원시타입인 문자열 역시 변경 불가능하다. </p>
-<p>문자열에는 독특한 특징이 하나 더 있는데 바로 유사 배열 객체 (array-like-object)라는 것이다. </p>
-<p><strong>유사 배열 객체란?</strong></p>
-<p>배열 처럼 인덱스로 프로퍼티 값에 접근할 수 있으며, length 프로퍼티를 갖는 객체이다. </p>
-<p>즉 문자열은 인덱스로 각 문자 하나하나 에 접근할 수 있고 length 프로퍼티도 갖는다. for 문으로 순회하는 것도 가능하다. </p>
-<p>다만 원시값인 문자열을 객체처럼 사용하면 원시값을 감싸는 래퍼 객체로 자동 변환된다. </p>
-<p><strong>문자열은 변경 불가능한 원시값이다.</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var str &#x3D; &#39;jiman&#39;;</span><br><span class="line">str[0] &#x3D; &#39;J&#39;;</span><br><span class="line">console.log(str[0]);</span><br><span class="line">&#x2F;&#x2F;jiman</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;원시값이기때문에 개별문자의 변경이 불가하다. </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="1-3-값에-의한-전달-pass-by-value"><a href="#1-3-값에-의한-전달-pass-by-value" class="headerlink" title="1.3 값에 의한 전달(pass by value)"></a>1.3 값에 의한 전달(pass by value)</h3><p>어떤 변수에 기존에 원시값을 할당했던 변수를 할당하면 어떻게 될까?</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var original &#x3D; 10;</span><br><span class="line">var copy &#x3D; original;</span><br><span class="line"></span><br><span class="line">console.log(original, copy);&#x2F;&#x2F; 10 10</span><br><span class="line"></span><br><span class="line">original &#x3D; 20;</span><br><span class="line"></span><br><span class="line">console.log(original, copy); 20 10</span><br></pre></td></tr></table></figure>
-
-<p>copy에 original을 할당할때 original이 10으로 평가되어 새로운메모리 공간을 확보하고 10을 저장한 후 copy를 연결한다. 즉,  copy에는 original의 원시값이 복사되어 전달된다. 이를 값에의한전달 이라고 한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var original &#x3D; 10;</span><br><span class="line">var copy &#x3D; original;</span><br><span class="line"></span><br><span class="line">console.log( original, copy); &#x2F;&#x2F; 10 10</span><br><span class="line">console.log(original &#x3D;&#x3D;&#x3D; copy); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">orignal &#x3D; 20;</span><br><span class="line">console.log( original &#x3D;&#x3D;&#x3D; copy); &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
-
-<p>original 과 copy는 평가되었을때 동일한 숫자 값이지만, 두 값을 저장한 메모리공간의 위치는 다르다. 즉 orignal과 copy에 저장된 값은 별개의 값이다. </p>
-<p>ECMAScript 사양에 변수를 통한 메모리 관리가 명확히 정의되지 않아서 값에 의한 전달시 두가지 경우가 있을 수 있다. </p>
-<ul>
-<li>식별자를 할당했을때 같은 원시값을 참조하였다가 재할당시 새로운 생성값을 참조</li>
-<li>식별자 할당시부터 새로운 메모리공간 생성후 평가값저장후 참조</li>
-</ul>
-<p>파이썬은 전자처럼 동작한다고 한다. 할당 시점에 두 변수가 기억하는 메모리주소가 같느냐 다르냐이다. </p>
-<p><strong>중요한것은 두 변수의 원시값이 결국엔 서로다른 메모리 공간에 저장된 다는 것이다.</strong>  서로 간섭하지 않는다.  </p>
-<h2 id="2-객체"><a href="#2-객체" class="headerlink" title="2. 객체"></a>2. 객체</h2><p>객체 값을 생성할때 메모리공간의 크기는 어떻게 될까?</p>
-<p>객체는 다음과 같은 특징이있다.</p>
-<ul>
-<li>객체는 프로퍼티의 개수가 고정되어 있지 않고, 동적으로 추가되고 삭제될 수 있다.</li>
-<li>프로퍼티 값에 제약이 없다. </li>
-<li>즉, 원시값과 같이 확보해야할 메모리 공간의 크기를 사전에 정해 둘 수 없다. </li>
-</ul>
-<p>객체는 복합적인 자료구조이다. 원시값과 비교하였을 때 복잡하고 브라우저 제조사마다 구현방식이 다를 수 있댜. 소비하는 메모리가 상대적으로 적은 원시값에 비해, 객체는 소비하는 메모리가 경우에 따라 매우 클 수 있다. </p>
-<p>객체를 생성하고 프로퍼티에 접근하는 것도 원시값과 비교할 때 비용이 많이든다. </p>
-<h3 id="2-1-객체는-변경-가능한-값이다"><a href="#2-1-객체는-변경-가능한-값이다" class="headerlink" title="2.1 객체는 변경 가능한 값이다."></a>2.1 객체는 변경 가능한 값이다.</h3><p>객체는 변경 가능한 값(mutable value) 이다.  변수에 원시값을 할당하면, 변수를 통해 해당 메모리공간에 저장된 값으로 직접 접근한다. 하지만, 객체를 할당한다면, 변수를 통해서 **참조값(reference value)**에 접근한다. </p>
-<p>참조값은 <strong>객체가 저장된 메모리공간의 메모리 주소</strong>이다. 이 참조값을 통해 객체가 저장된 메모리공간에 접근할 수 있다.  그래서 원시값을 할당한 변수의 경우 변수는 ~~값을 갖는다 라고 표현하지만, 객체의 경우 변수는 객체를 가리키고(point) 있다 라고 표현한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var object &#x3D; &#123;</span><br><span class="line">    key: &#39;value&#39;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;변수 objdect 는 객체&#123;key: &#39;value&#39;&#125;를 가리키고(참조하고) 있다.</span><br></pre></td></tr></table></figure>
-
-<p>변수의 값을 변경해보자. 원시값은 재할당 외에는 방법이 없다. </p>
-<p>하지만 객체는 변경 가능한 값이므로 객체를 할당한 변수는 재할당 없이 객체를 직접 변경할 수 있다. </p>
-<ul>
-<li>프로퍼티 동적 추가</li>
-<li>프로퍼티 값 갱신 </li>
-<li>프로퍼티 삭제</li>
-</ul>
-<p>위 사항 모두 가능하다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var object &#x3D; &#123;</span><br><span class="line">    key: &#39;value&#39;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;object 변수에 객체 할당</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;프로퍼티 키 동적 추가</span><br><span class="line">object.addedKey&#x3D;&#39;value1&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;프로퍼티 값 갱신</span><br><span class="line">object.key &#x3D; &#39;modifiedValue&#39;;</span><br><span class="line"></span><br><span class="line">console.log(object);</span><br><span class="line">&#x2F;&#x2F;&#123; key: &#39;modifiedValue&#39;, addedKey: &#39;value1&#39; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>변수에는 객체의 참조값이 할당되어 있다.  프로퍼티 값을 조작할때 변수에 재할당은 하지 않았으므로 변수의 참조값이 변경되지않는다. </p>
-<p>객체가 새로이 생성되지 않고 변경가능하게 설계된 이유는 무엇일까?</p>
-<p>객체를 생성하고 관리하는 방식이 복잡하고 비용이 많이 드는일이다. 객체는 크기가 매우 클 수도 있고 원시값처럼 크기가 일정하지도 않으며 프로퍼티 값이 객체일 수 도있다. 그렇기때문에 복사해서 생성하는 비용이 많이든다. 메모리의 효율적 소비가 어렵고 성능이 나빠진다. </p>
-<p>그렇기때문에 원시값 처럼 이전값을 복사해서 새롭게 생성하지 않는다. 객체는 메모리를 효율적으로 사용하고, 복사 및 생성비용을 절약하기 위해 변경가능한 값으로 설계되어 있다. 데이터의 신뢰성이 원시값에 비해 떨어지지만, 메모리 사용의 효율성과 성능을 고려한 것이다. </p>
-<p>결론적으로 메모리 관점에서 효율성을 얻었지만 구조적인 단점도 가지고 있다.</p>
-<p>이러한 단점에 따른 부작용이 있다.</p>
-<p>바로 여러 개의 식별자가 하나의 객체를 공유할 수 있다는 것이다. </p>
-<p>얕은 복사와 깊은 복사의 개념을 짚고 넘어가자.</p>
-<p>객체의 프로퍼티 값으로 객체를 가지고 있다고 했을 때,</p>
-<ul>
-<li>얕은복사 : 한단계 까지만 복사하는 것을 말한다.</li>
-<li>깊은복사 : 객체에 중첩되어 있는 객체 까지 복사하는 것</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">const o &#x3D; &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">        b: 2</span><br><span class="line">    &#125;,</span><br><span class="line">    f()&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 얕은 복사1</span><br><span class="line">let c &#x3D; &#123; ...o&#125;; &#x2F;&#x2F; 35. 스프레드 문법에 있다고 한다.</span><br><span class="line">console.log(o&#x3D;&#x3D;&#x3D;c); &#x2F;&#x2F;false</span><br><span class="line">console.log(o.a &#x3D;&#x3D;&#x3D; c.a); &#x2F;&#x2F; true</span><br><span class="line">&#x2F;&#x2F; 한단계까지는 복사 하였지만 내부의 객체는 참조값을 전달했다.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;얕은 복사2 </span><br><span class="line">c &#x3D; Object.assign(&#123;&#125;,o);</span><br><span class="line">console.log(o &#x3D;&#x3D;&#x3D; c); &#x2F;&#x2F; false</span><br><span class="line">console.log(o.a &#x3D;&#x3D;&#x3D; c.a); &#x2F;&#x2F; true</span><br><span class="line">&#x2F;&#x2F; 마찬가지로 한단계까지 복사하고 내부의 객체는 참조값을 전달</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 깊은복사 1</span><br><span class="line">&#x2F;&#x2F; JSON.parse 와 JSON.stringify를 사용한 깊은복사</span><br><span class="line">c &#x3D; JSON.parse(JSON.stringify(o));</span><br><span class="line">console.log(o &#x3D;&#x3D;&#x3D; c); &#x2F;&#x2F; false</span><br><span class="line">console.log(o.a &#x3D;&#x3D;&#x3D; c.a); &#x2F;&#x2F; false</span><br><span class="line">&#x2F;&#x2F; 메서드가 사라지는 문제가있다.</span><br><span class="line">console.log(c.f);&#x2F;&#x2F; undefined</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 깊은 복사 2</span><br><span class="line">&#x2F;&#x2F; &quot;npm install lodash&quot;로 lodash를 설치한 후, Node.js 환경에서 실행</span><br><span class="line">const _ &#x3D; require(&#39;lodash&#39;);</span><br><span class="line"></span><br><span class="line">c &#x3D; _cloneDeep(o);</span><br><span class="line">console.log( o &#x3D;&#x3D;&#x3D; c); false</span><br><span class="line">console.log( o.a &#x3D;&#x3D;&#x3D; c.a); &#x2F;&#x2F;false</span><br><span class="line">console.log(c.f); &#x2F;&#x2F; f</span><br></pre></td></tr></table></figure>
-
-
-
-<p>참고로, <strong>원시값을 할당한 변수를 다른 변수에 할당</strong>하는 것을 깊은복사, <strong>객체를 할당한 변수를 다른변수에 할당</strong>하는 것을 얕은 복사라고 하는 경우도 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;깊은 복사</span><br><span class="line">const v &#x3D; 1;</span><br><span class="line">const c1 &#x3D; v;</span><br><span class="line">console.log(c1 &#x3D;&#x3D;&#x3D; v); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;얕은 복사</span><br><span class="line">const o &#x3D; &#123; x: 1&#125;;</span><br><span class="line">const c2 &#x3D; o;</span><br><span class="line">consol.log(c2 &#x3D;&#x3D;&#x3D; o); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-2-참조에-의한-전달"><a href="#2-2-참조에-의한-전달" class="headerlink" title="2.2 참조에 의한 전달"></a>2.2 참조에 의한 전달</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/28/javascript-ASCII-Unicode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/28/javascript-ASCII-Unicode/" class="post-title-link" itemprop="url">javascript ASCII, Unicode</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-28 18:30:58 / Modified: 18:31:42" itemprop="dateCreated datePublished" datetime="2020-08-28T18:30:58+09:00">2020-08-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="아스키-코드-ASCII-amp-유니코드-Unicode-정리"><a href="#아스키-코드-ASCII-amp-유니코드-Unicode-정리" class="headerlink" title="아스키 코드(ASCII)&amp; 유니코드 (Unicode) 정리"></a>아스키 코드(ASCII)&amp; 유니코드 (Unicode) 정리</h1><h2 id="문자인코딩이-필요한-이유"><a href="#문자인코딩이-필요한-이유" class="headerlink" title="문자인코딩이 필요한 이유"></a>문자인코딩이 필요한 이유</h2><h3 id="먼저-프로그래밍-언어란"><a href="#먼저-프로그래밍-언어란" class="headerlink" title="먼저, 프로그래밍 언어란?"></a>먼저, 프로그래밍 언어란?</h3><p><strong>컴퓨터는 사람의 언어를 이해하지 못한다.</strong> 컴퓨터는 기계어만을 이해할 수 있다. </p>
-<p>그렇기 때문에 컴퓨터에게 명령을 내리기 위해서는 인간의 언어인 자연어를 기계어로 바꿔서 명령을 해주어야 한다. 하지만 이진수로 이루어진 기계어를 <strong>직접 입력한다는 것은 복잡하고 어렵다.</strong>  </p>
-<p> 사람과 컴퓨터의 소통을 매개하기 위해 필요한 것이 컴파일러라는 번역기이다. 우리는 이 번역기에 <strong>프로그래밍 언어</strong>로 작성한 프로그램을 보내주면 컴파일러가 프로그래밍 언어를 기계어로 번역해준다. </p>
-<p>즉 프로그래밍언어는 <strong>인간과 컴퓨터의 소통을 매개</strong>하기 위해 만들어진 언어이다.</p>
-<h3 id="문자-인코딩은-문자열을-컴퓨터에-전달하는-것이다"><a href="#문자-인코딩은-문자열을-컴퓨터에-전달하는-것이다" class="headerlink" title="문자 인코딩은 문자열을 컴퓨터에 전달하는 것이다."></a>문자 인코딩은 문자열을 컴퓨터에 전달하는 것이다.</h3><p>명령, 즉 우리의 언어를 기계어로 컴퓨터에게 전달하고 컴퓨터로부터 출력값을 전달받기위해서, </p>
-<p>프로그래밍 언어에서는 어떤 값을 어떤 기계어로 변환할 것인지,그리고 컴퓨터가 처리한 정보를 어떻게 변환할 지에 대한 체계를 도입하고 있다. </p>
-<p>여기서 인코딩과 디코딩이라는 개념을 짚어보자</p>
-<ul>
-<li>인코딩 :  사용자가 입력한 문자나 기호들을 컴퓨터가 이용할 수 있는 신호로 만드는 것</li>
-<li>디코딩 :  인코딩된 신호를 다시 인간이 이해할수 있게 해독하는 것</li>
-</ul>
-<p>예로 우리가 ‘영어’로 작성한 프로그램을 기계어로 바꿔야된다. 그것이 <strong>문자 인코딩</strong>이다. 그런데 문자 인코딩을 위해서는 일관된 체계가 필요하다. 문자인코딩에 대한 기준, 체계를 정리한것이 <strong>문자열 세트</strong>이다. </p>
-<p>일반적으로 문자 인코딩과 문자열 세트는 <strong>어떤 문자를 사용할 수 있으며 어떤 식으로 표현되는지를 나타내는 데서 동의어로 취급</strong>되기도한다.</p>
-<h3 id="문자-인코딩은-어떻게-이루어지는가"><a href="#문자-인코딩은-어떻게-이루어지는가" class="headerlink" title="문자 인코딩은 어떻게 이루어지는가"></a>문자 인코딩은 어떻게 이루어지는가</h3><p>문자 인코딩 형태(character encoding form) :  문자열 세트 내의 문자들을 컴퓨터 시스템에서 사용할 목적으르 일정한 범위 안의 정수(코드 값) 으로 변환한다. </p>
-<h2 id="아스키코드와-유니코드"><a href="#아스키코드와-유니코드" class="headerlink" title="아스키코드와 유니코드"></a>아스키코드와 유니코드</h2><p>문자열 세트의 표준으로서, 초기에는 <strong>아스키코드</strong>가 활용되었다. 아스키코드는 ‘<strong>영어</strong>‘라는 언어에 대한 인코딩 기준이다.  하지만 프로그래밍이  세계적으로 점차 확대됨에 따라 영어 하나로는 한계점이 있었다.더욱이 7비트만을 활용하는 아스키 특성상 다른 언어를 새로이 집어 넣는 것도 불가 하였다. 그래서 확장판인 <strong>유니코드</strong>가 등장하였다. 최초버전의 용량이 무려 2byte, 즉 16비트 65536개의 문자를 표현할 수 있다. 버전이 확장됨에 따라 현재 100만자 이상을 표현할 수 있다.</p>
-<h2 id="1-ASCII"><a href="#1-ASCII" class="headerlink" title="1. ASCII"></a>1. ASCII</h2><p>아스키 인코딩의 특징을 알아보자</p>
-<ul>
-<li><p>7비트 인코딩</p>
-</li>
-<li><p>1비트는 오류검출용으로 사용</p>
-</li>
-<li><p>33개의 제어문자, 95개의 출력 가능 문자</p>
-</li>
-<li><p>출력가능문자 : 52개 알파벳 대소문자 / 10개 숫자 / 32개 특수문자  1개 공백문자 </p>
-<p>아스키 코드표</p>
-</li>
-</ul>
-<p><img src="https://t1.daumcdn.net/cfile/tistory/216CE84C52694FF020" alt="ASCII Table - 아스키 코드표"></p>
-<h2 id="2-유니코드"><a href="#2-유니코드" class="headerlink" title="2. 유니코드"></a>2. 유니코드</h2><p>유니코드는 기존의 1byte에 문자열 셋을 할당한 방식에서, 더 많은 언어를 표시하고자 국제적으로 만들어진 표준코드이다. </p>
-<p>다음과같은특징이 있다.</p>
-<ul>
-<li>가변 인코딩 방식(글자마다 byte 길이가 다르다.)</li>
-</ul>
-<p><img src="https://miro.medium.com/max/1624/1*A6GcpKbbG-u6ps66f_rEjg.png" alt="Image for post"></p>
-<p>(출처 : 위키피디아)</p>
-<ul>
-<li>아스키코드와 호환된다.</li>
-<li>확장 가능하다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1648,7 +2065,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
