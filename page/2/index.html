@@ -148,6 +148,142 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/11/10/javascript-restAPI-TodoList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/10/javascript-restAPI-TodoList/" class="post-title-link" itemprop="url">javascript restAPI&TodoList</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-10 23:50:38 / Modified: 23:51:11" itemprop="dateCreated datePublished" datetime="2020-11-10T23:50:38+09:00">2020-11-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="REST-API-로-TodoList-구현"><a href="#REST-API-로-TodoList-구현" class="headerlink" title="REST API 로 TodoList 구현"></a>REST API 로 TodoList 구현</h1><h2 id="todos-js-saved-in-data"><a href="#todos-js-saved-in-data" class="headerlink" title="todos.js (saved in ./data)"></a>todos.js (saved in ./data)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const todos &#x3D; [</span><br><span class="line">  &#123; id: 1, content: &#39;HTML&#39;, completed: false &#125;,</span><br><span class="line">  &#123; id: 2, content: &#39;CSS&#39;, completed: true &#125;,</span><br><span class="line">  &#123; id: 3, content: &#39;Javascript&#39;, completed: false &#125;,</span><br><span class="line">].sort((t1, t2) &#x3D;&gt; t2.id - t1.id);</span><br><span class="line"></span><br><span class="line">exports.todos &#x3D; todos;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">  &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;ie&#x3D;edge&quot;&gt;</span><br><span class="line">  &lt;title&gt;Todos 4.0&lt;&#x2F;title&gt;</span><br><span class="line">  &lt;link href&#x3D;&quot;css&#x2F;style.css&quot; rel&#x3D;&quot;stylesheet&quot;&gt;</span><br><span class="line">  &lt;script defer src&#x3D;&quot;js&#x2F;app.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;h1 class&#x3D;&quot;title&quot;&gt;Todos&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;ver&quot;&gt;4.0&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input class&#x3D;&quot;input-todo&quot; placeholder&#x3D;&quot;What needs to be done?&quot; autofocus&gt;</span><br><span class="line">    &lt;ul class&#x3D;&quot;nav&quot;&gt;</span><br><span class="line">      &lt;li id&#x3D;&quot;all&quot; class&#x3D;&quot;active&quot;&gt;All&lt;&#x2F;li&gt;</span><br><span class="line">      &lt;li id&#x3D;&quot;active&quot;&gt;Active&lt;&#x2F;li&gt;</span><br><span class="line">      &lt;li id&#x3D;&quot;completed&quot;&gt;Completed&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;ul class&#x3D;&quot;todos&quot;&gt;</span><br><span class="line">      &lt;!-- &lt;li id&#x3D;&quot;myId&quot; class&#x3D;&quot;todo-item&quot;&gt;</span><br><span class="line">        &lt;input id&#x3D;&quot;ck-myId&quot; class&#x3D;&quot;checkbox&quot; type&#x3D;&quot;checkbox&quot;&gt;</span><br><span class="line">        &lt;label for&#x3D;&quot;ck-myId&quot;&gt;HTML&lt;&#x2F;label&gt;</span><br><span class="line">        &lt;i class&#x3D;&quot;remove-todo far fa-times-circle&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">      &lt;&#x2F;li&gt; --&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;footer&gt;</span><br><span class="line">      &lt;div class&#x3D;&quot;complete-all&quot;&gt;</span><br><span class="line">        &lt;input class&#x3D;&quot;checkbox&quot; type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;ck-complete-all&quot;&gt;</span><br><span class="line">        &lt;label for&#x3D;&quot;ck-complete-all&quot;&gt;Mark all as complete&lt;&#x2F;label&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;div class&#x3D;&quot;clear-completed&quot;&gt;</span><br><span class="line">        &lt;button class&#x3D;&quot;btn&quot;&gt;Clear completed (&lt;span class&#x3D;&quot;completed-todos&quot;&gt;0&lt;&#x2F;span&gt;)&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;strong class&#x3D;&quot;active-todos&quot;&gt;0&lt;&#x2F;strong&gt; items left</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;footer&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="style-css"><a href="#style-css" class="headerlink" title="style.css"></a>style.css</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><span class="line">@import url(&#39;https:&#x2F;&#x2F;fonts.googleapis.com&#x2F;css?family&#x3D;Roboto:100,300,400,700%7CNoto+Sans+KR&#39;);</span><br><span class="line">@import url(&#39;https:&#x2F;&#x2F;use.fontawesome.com&#x2F;releases&#x2F;v5.5.0&#x2F;css&#x2F;all.css&#39;);</span><br><span class="line">* &#123;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">body &#123;</span><br><span class="line">  font-family: &#39;Roboto&#39;, &#39;Noto Sans KR&#39;, sans-serif;</span><br><span class="line">  font-size: 0.9em;</span><br><span class="line">  color: #58666E;</span><br><span class="line">  background-color: #F0F3F4;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">&#125;</span><br><span class="line">.container &#123;</span><br><span class="line">  max-width: 750px;</span><br><span class="line">  min-width: 450px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  padding: 15px;</span><br><span class="line">&#125;</span><br><span class="line">.title &#123;</span><br><span class="line">  &#x2F;* margin: 10px 0; *&#x2F;</span><br><span class="line">  font-size: 4.5em;</span><br><span class="line">  font-weight: 100;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #23B7E5;</span><br><span class="line">&#125;</span><br><span class="line">.ver &#123;</span><br><span class="line">  font-weight: 100;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #23B7E5;</span><br><span class="line">  margin-bottom: 30px;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* .input-todo  *&#x2F;</span><br><span class="line">.input-todo &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 45px;</span><br><span class="line">  padding: 10px 16px;</span><br><span class="line">  font-size: 18px;</span><br><span class="line">  line-height: 1.3333333;</span><br><span class="line">  color: #555;</span><br><span class="line">  border: 1px solid #ccc;</span><br><span class="line">  border-color: #E7ECEE;</span><br><span class="line">  border-radius: 6px;</span><br><span class="line">  outline: none;</span><br><span class="line">  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;</span><br><span class="line">&#125;</span><br><span class="line">.input-todo:focus &#123;</span><br><span class="line">  border-color: #23B7E5;</span><br><span class="line">  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);</span><br><span class="line">&#125;</span><br><span class="line">.input-todo::-webkit-input-placeholder &#123;</span><br><span class="line">  color: #999;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* .nav *&#x2F;</span><br><span class="line">.nav &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  margin: 15px;</span><br><span class="line">  list-style: none;</span><br><span class="line">&#125;</span><br><span class="line">.nav &gt; li &#123;</span><br><span class="line">  padding: 4px 10px;</span><br><span class="line">  border-radius: 4px;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line">.nav &gt; li.active &#123;</span><br><span class="line">  color: #fff;</span><br><span class="line">  background-color: #23B7E5;</span><br><span class="line">&#125;</span><br><span class="line">.todos &#123;</span><br><span class="line">  margin-top: 20px;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* .todo-item *&#x2F;</span><br><span class="line">.todo-item &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  &#x2F;* display: block; *&#x2F;</span><br><span class="line">  height: 50px;</span><br><span class="line">  padding: 10px 15px;</span><br><span class="line">  margin-bottom: -1px;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  border: 1px solid #ddd;</span><br><span class="line">  border-color: #E7ECEE;</span><br><span class="line">  list-style: none;</span><br><span class="line">&#125;</span><br><span class="line">.todo-item:first-child &#123;</span><br><span class="line">  border-top-left-radius: 4px;</span><br><span class="line">  border-top-right-radius: 4px;</span><br><span class="line">&#125;</span><br><span class="line">.todo-item:last-child &#123;</span><br><span class="line">  border-bottom-left-radius: 4px;</span><br><span class="line">  border-bottom-right-radius: 4px;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*</span><br><span class="line">  .checkbox</span><br><span class="line">  .checkbox 바로 뒤에 위치한 label의 before와 after를 사용해</span><br><span class="line">  .checkbox의 외부 박스와 내부 박스를 생성한다.</span><br><span class="line">  &lt;input class&#x3D;&quot;checkbox&quot; type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;myId&quot;&gt;</span><br><span class="line">  &lt;label for&#x3D;&quot;myId&quot;&gt;Content&lt;&#x2F;label&gt;</span><br><span class="line">*&#x2F;</span><br><span class="line">.checkbox &#123;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br><span class="line">.checkbox + label &#123;</span><br><span class="line">  position: absolute; &#x2F;* 부모 위치를 기준으로 *&#x2F;</span><br><span class="line">  top: 50%;</span><br><span class="line">  left: 15px;</span><br><span class="line">  transform: translate3d(0, -50%, 0);</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: 90%;</span><br><span class="line">  line-height: 2em;</span><br><span class="line">  padding-left: 35px;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">  user-select: none;</span><br><span class="line">&#125;</span><br><span class="line">.checkbox + label:before &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  left: 0;</span><br><span class="line">  transform: translate3d(0, -50%, 0);</span><br><span class="line">  width: 20px;</span><br><span class="line">  height: 20px;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  border: 1px solid #CFDADD;</span><br><span class="line">&#125;</span><br><span class="line">.checkbox:checked + label:after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  left: 6px;</span><br><span class="line">  transform: translate3d(0, -50%, 0);</span><br><span class="line">  width: 10px;</span><br><span class="line">  height: 10px;</span><br><span class="line">  background-color: #23B7E5;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* .remove-todo button *&#x2F;</span><br><span class="line">.remove-todo &#123;</span><br><span class="line">  display: none;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  right: 10px;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">  transform: translate3d(0, -50%, 0);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;* todo-item이 호버 상태이면 삭제 버튼을 활성화 *&#x2F;</span><br><span class="line">.todo-item:hover &gt; .remove-todo &#123;</span><br><span class="line">  display: block;</span><br><span class="line">&#125;</span><br><span class="line">footer &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: space-between;</span><br><span class="line">  margin: 20px 0;</span><br><span class="line">&#125;</span><br><span class="line">.complete-all, .clear-completed &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  flex-basis: 50%;</span><br><span class="line">&#125;</span><br><span class="line">.clear-completed &#123;</span><br><span class="line">  text-align: right;</span><br><span class="line">  padding-right: 15px;</span><br><span class="line">&#125;</span><br><span class="line">.btn &#123;</span><br><span class="line">  padding: 1px 5px;</span><br><span class="line">  font-size: .8em;</span><br><span class="line">  line-height: 1.5;</span><br><span class="line">  border-radius: 3px;</span><br><span class="line">  outline: none;</span><br><span class="line">  color: #333;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  border-color: #ccc;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line">.btn:hover &#123;</span><br><span class="line">  color: #333;</span><br><span class="line">  background-color: #E6E6E6;</span><br><span class="line">  border-color: #ADADAD;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;variables</span><br><span class="line">const $todos &#x3D; document.querySelector(&#39;.todos&#39;);</span><br><span class="line">const $inputTodo &#x3D; document.querySelector(&#39;.input-todo&#39;);</span><br><span class="line">const $completeAll &#x3D; document.getElementById(&#39;ck-complete-all&#39;);</span><br><span class="line">const $clearButton &#x3D; document.querySelector(&#39;.btn&#39;);</span><br><span class="line">const $completedTodos &#x3D; document.querySelector(&#39;.completed-todos&#39;)</span><br><span class="line">const $activeTodos &#x3D; document.querySelector(&#39;.active-todos&#39;);</span><br><span class="line">const $nav &#x3D; document.querySelector(&#39;.nav&#39;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; const $checkBox &#x3D; document.querySelector(&#39;.checkbox&#39;);</span><br><span class="line">let todos &#x3D; [];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; fetch</span><br><span class="line">const request &#x3D; &#123;</span><br><span class="line">  get(url) &#123;</span><br><span class="line">    return fetch(url);</span><br><span class="line">  &#125;,</span><br><span class="line">  post(url, payload) &#123;</span><br><span class="line">    return fetch(url,&#123;</span><br><span class="line">      method: &#39;POST&#39;,</span><br><span class="line">      headers: &#123;&#39;content-Type&#39;: &#39;application&#x2F;json&#39;&#125;,</span><br><span class="line">      body: JSON.stringify(payload)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  patch(url, payload) &#123;</span><br><span class="line">    return fetch(url, &#123;</span><br><span class="line">      method: &#39;PATCH&#39;,</span><br><span class="line">      headers: &#123;&#39;content-Type&#39; : &#39;application&#x2F;json&#39;&#125;,</span><br><span class="line">      body: JSON.stringify(payload)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  delete(url) &#123;</span><br><span class="line">    return fetch(url, &#123;method: &#39;DELETE&#39;&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; function</span><br><span class="line">&#x2F;&#x2F; 렌더링 함수</span><br><span class="line">const render &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">&#x2F;&#x2F; 탭에 따른 렌더링 변화를 주기 위해 복사본에 조건에 맞는 값 할당 후 해당 복사본 렌더링</span><br><span class="line">  let _todos &#x3D; [];</span><br><span class="line">  const $active &#x3D; document.querySelector(&#39;.active&#39;);</span><br><span class="line">  $active.matches(&#39;#all&#39;) ? _todos &#x3D; todos : ($active.matches(&#39;#active&#39;) ? </span><br><span class="line">  _todos &#x3D; todos.filter(todo&#x3D;&gt; !todo.completed) :</span><br><span class="line">  _todos &#x3D; todos.filter(todo &#x3D;&gt; todo.completed))</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F; todos 렌더링</span><br><span class="line">   $todos.innerHTML &#x3D;</span><br><span class="line">  _todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">   return &#96;&lt;li id&#x3D;&quot;$&#123;todo.id&#125;&quot; class&#x3D;&quot;todo-item&quot;&gt;</span><br><span class="line">  &lt;input id&#x3D;&quot;ck-$&#123;todo.id&#125;&quot; class&#x3D;&quot;checkbox&quot; type&#x3D;&quot;checkbox&quot; $&#123;todo.completed ? &#39;checked&#39; : &#39;&#39;&#125;&gt;</span><br><span class="line">  &lt;label for&#x3D;&quot;ck-$&#123;todo.id&#125;&quot;&gt;$&#123;todo.content&#125;&lt;&#x2F;label&gt;</span><br><span class="line">  &lt;i class&#x3D;&quot;remove-todo far fa-times-circle&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">&lt;&#x2F;li&gt;&#96;&#125;).join(&#39;&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 하단 완료개수, 남은 할일 개수 표시</span><br><span class="line">    $completedTodos.textContent &#x3D; todos.filter(todo &#x3D;&gt; todo.completed).length</span><br><span class="line">    $activeTodos.textContent &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; false).length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; event</span><br><span class="line">window.onload &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  request.get(&#39;&#x2F;todos&#39;)</span><br><span class="line">  .then(_todos &#x3D;&gt; _todos.json())</span><br><span class="line">  .then(_todos &#x3D;&gt; &#123;todos &#x3D; _todos&#125; )</span><br><span class="line">  .then(render)</span><br><span class="line">  .catch(err &#x3D;&gt; console.error(err));</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; todo 입력 및 추가</span><br><span class="line">$inputTodo.onkeyup &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(e.key !&#x3D;&#x3D; &#39;Enter&#39;) return;</span><br><span class="line">  request.post(&#39;&#x2F;todos&#39;,&#123;</span><br><span class="line">    id : todos.length ? Math.max(...todos.map(todo&#x3D;&gt;todo.id)) + 1 : 1,</span><br><span class="line">    content: e.target.value</span><br><span class="line">    ,completed: false&#125;)</span><br><span class="line">  .then(response &#x3D;&gt; response.json())</span><br><span class="line">  .then(_todos &#x3D;&gt; todos &#x3D; _todos)</span><br><span class="line">  .then(render)</span><br><span class="line">  .catch(err &#x3D;&gt; console.error(err));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; todo 체크박스 체크</span><br><span class="line">$todos.onchange &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  console.log(e.target.id);</span><br><span class="line">  request.patch(&#96;&#x2F;todos&#x2F;$&#123;e.target.parentNode.id&#125;&#96;,&#123;</span><br><span class="line">    completed : e.target.checked</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(response &#x3D;&gt; response.json())</span><br><span class="line">  .then(_todos &#x3D;&gt; &#123;todos &#x3D; _todos&#125;)</span><br><span class="line">  .then(render)</span><br><span class="line">  .catch(err &#x3D;&gt; console.error(err));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 체크박스 전부 완료표시</span><br><span class="line">$completeAll.onchange &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  request.patch(&#39;&#x2F;todos&#x2F;completed&#39;,&#123;</span><br><span class="line">    completed: e.target.checked ? true : false</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(response &#x3D;&gt; response.json())</span><br><span class="line">  .then(_todos &#x3D;&gt; todos &#x3D; _todos)</span><br><span class="line">  .then(render)</span><br><span class="line">  .catch(err &#x3D;&gt; console.error(err));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 완료목록 삭제</span><br><span class="line">$clearButton.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  request.delete(&#96;&#x2F;todos&#x2F;completed&#96;)</span><br><span class="line">  .then(response &#x3D;&gt; response.json())</span><br><span class="line">  .then(_todos &#x3D;&gt; todos &#x3D; _todos)</span><br><span class="line">  .then(render)</span><br><span class="line">  .catch(err &#x3D;&gt; console.error(err));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 탭 클릭시 활성화 변화</span><br><span class="line">$nav.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;.nav li&#39;)) return;</span><br><span class="line">  [...$nav.children].forEach(item &#x3D;&gt; &#123;</span><br><span class="line">    item.classList.toggle(&#39;active&#39;,e.target &#x3D;&#x3D;&#x3D; item);</span><br><span class="line">  &#125;);</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="server-js"><a href="#server-js" class="headerlink" title="server.js"></a>server.js</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">const express &#x3D; require(&#39;express&#39;);</span><br><span class="line">const cors &#x3D; require(&#39;cors&#39;);</span><br><span class="line"></span><br><span class="line">let &#123; todos &#125; &#x3D; require(&#39;.&#x2F;data&#x2F;todos&#39;);</span><br><span class="line"></span><br><span class="line">const app &#x3D; express();</span><br><span class="line"></span><br><span class="line">app.use(cors());</span><br><span class="line">app.use(express.static(&#39;public&#39;));</span><br><span class="line">app.use(express.json()); &#x2F;&#x2F; for parsing application&#x2F;json</span><br><span class="line"></span><br><span class="line">app.get(&#39;&#x2F;todos&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">  res.send(todos);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(&#39;&#x2F;todos&#x2F;:id&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">  res.send(todos.filter(todo &#x3D;&gt; todo.id &#x3D;&#x3D;&#x3D; +req.params.id));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.post(&#39;&#x2F;todos&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">  const newTodo &#x3D; req.body;</span><br><span class="line"></span><br><span class="line">  if (!Object.keys(newTodo).length) &#123;</span><br><span class="line">    return res.send(&#123;</span><br><span class="line">      error: true,</span><br><span class="line">      reason: &#39;페이로드가 없습니다. 새롭게 생성할 할일 데이터를 전달해 주세요.&#39;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (todos.map(todo &#x3D;&gt; todo.id).includes(newTodo.id)) &#123;</span><br><span class="line">    return res.send(&#123;</span><br><span class="line">      error: true,</span><br><span class="line">      reason: &#96;$&#123;newTodo.id&#125;는 이미 존재하는 id입니다.&#96;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  todos &#x3D; [newTodo, ...todos];</span><br><span class="line">  res.send(todos);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 모든 할일의 completed를 일괄 변경</span><br><span class="line">app.patch(&#39;&#x2F;todos&#x2F;completed&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">  const completed &#x3D; req.body;</span><br><span class="line"></span><br><span class="line">  todos &#x3D; todos.map(todo &#x3D;&gt; (&#123; ...todo, ...completed &#125;));</span><br><span class="line">  res.send(todos);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.patch(&#39;&#x2F;todos&#x2F;:id&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">  const id &#x3D; +req.params.id;</span><br><span class="line">  const completed &#x3D; req.body;</span><br><span class="line"></span><br><span class="line">  if (!todos.map(todo &#x3D;&gt; todo.id).includes(id)) &#123;</span><br><span class="line">    return res.send(&#123;</span><br><span class="line">      error: true,</span><br><span class="line">      reason: &#96;id가 $&#123;id&#125;인 할일 데이터가 존재하지 않습니다.&#96;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  todos &#x3D; todos.map(todo &#x3D;&gt;</span><br><span class="line">    todo.id &#x3D;&#x3D;&#x3D; id ? &#123; ...todo, ...completed &#125; : todo</span><br><span class="line">  );</span><br><span class="line">  res.send(todos);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; completed가 true인 모든 할일 데이터 삭제</span><br><span class="line">app.delete(&#39;&#x2F;todos&#x2F;completed&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.filter(todo &#x3D;&gt; !todo.completed);</span><br><span class="line">  res.send(todos);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 아래 라우터를 DELETE &#39;&#x2F;todos&#x2F;completed&#39;보다 앞에 위치시키려면 url을 &#39;&#x2F;todos&#x2F;:id([0-9]+)&#39;로 변경한다.</span><br><span class="line">app.delete(&#39;&#x2F;todos&#x2F;:id&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">  const id &#x3D; +req.params.id;</span><br><span class="line"></span><br><span class="line">  if (!todos.map(todo &#x3D;&gt; todo.id).includes(id)) &#123;</span><br><span class="line">    return res.send(&#123;</span><br><span class="line">      error: true,</span><br><span class="line">      reason: &#96;id가 $&#123;id&#125;인 할일 데이터가 존재하지 않습니다.&#96;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  todos &#x3D; todos.filter(todo &#x3D;&gt; todo.id !&#x3D;&#x3D; id);</span><br><span class="line">  res.send(todos);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(&#39;7000&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#39;Server is listening on http:&#x2F;&#x2F;localhost:7000&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/11/02/javascript-newTodoList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/02/javascript-newTodoList/" class="post-title-link" itemprop="url">javascript newTodoList</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-02 16:18:48 / Modified: 20:41:28" itemprop="dateCreated datePublished" datetime="2020-11-02T16:18:48+09:00">2020-11-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoList-과제"><a href="#TodoList-과제" class="headerlink" title="TodoList 과제"></a>TodoList 과제</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; State</span><br><span class="line">let todos &#x3D; [];</span><br><span class="line">let data &#x3D; [];</span><br><span class="line">const $todos &#x3D; document.querySelector(&#39;.todos&#39;);</span><br><span class="line">const $input &#x3D; document.querySelector(&#39;.input-todo&#39;);</span><br><span class="line">const $addButton &#x3D; document.querySelector(&#39;.add&#39;);</span><br><span class="line">const $filter &#x3D; document.querySelector(&#39;.nav&#39;);</span><br><span class="line">const $clear &#x3D; document.querySelector(&#39;.clear-completed&#39;);</span><br><span class="line">const $todoCompleted &#x3D; document.querySelector(&#39;.completed-todos&#39;);</span><br><span class="line">const $todoActive &#x3D; document.querySelector(&#39;.active-todos&#39;);</span><br><span class="line">const $completeAll &#x3D; document.querySelector(&#39;#ck-complete-all&#39;);</span><br><span class="line">const fetchTodos &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  return  [</span><br><span class="line">&#123; id: 1, content: &#39;HTML&#39;, completed: false &#125;,</span><br><span class="line">&#123; id: 2, content: &#39;CSS&#39;, completed: true &#125;,</span><br><span class="line">&#123; id: 3, content: &#39;Javascript&#39;, completed: false &#125;</span><br><span class="line">]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const render &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  $todos.innerHTML &#x3D; todos.map((&#123;id, content, completed&#125;) &#x3D;&gt; &#123;</span><br><span class="line">      return &#96;&lt;li id&#x3D;&quot;$&#123;id&#125;&quot; class&#x3D;&quot;todo-item&quot;&gt;</span><br><span class="line">      &lt;input id&#x3D;&quot;ck-$&#123;id&#125;&quot; class&#x3D;&quot;checkbox&quot; type&#x3D;&quot;checkbox&quot; $&#123;completed ? &quot;checked&quot; : &#39;&#39;&#125;&gt;</span><br><span class="line">      &lt;label for&#x3D;&quot;ck-$&#123;id&#125;&quot;&gt;$&#123;content&#125;&lt;&#x2F;label&gt;</span><br><span class="line">      &lt;i class&#x3D;&quot;remove-todo far fa-times-circle&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">    &lt;&#x2F;li&gt;&#96;  </span><br><span class="line">  &#125;).join(&#39;&#39;);</span><br><span class="line">  $todoCompleted.textContent &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; true).length;</span><br><span class="line">  $todoActive.textContent &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; false).length;</span><br><span class="line">&#125;</span><br><span class="line">const updateData &#x3D; () &#x3D;&gt;&#123;</span><br><span class="line">  data &#x3D; data.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    const test &#x3D; todos.find(item &#x3D;&gt; todo.id &#x3D;&#x3D;&#x3D; item.id);</span><br><span class="line">    return test ? &#123;...todo, ...test&#125; : &#123;...todo&#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">const findId &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  return Math.max(...todos.map((&#123;id&#125;) &#x3D;&gt; id),0)+1;</span><br><span class="line">  updateData()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const addTodo &#x3D; (content) &#x3D;&gt; &#123;</span><br><span class="line">  const newTodo &#x3D; &#123;id: findId(), content, completed: false&#125;</span><br><span class="line">  todos &#x3D; [newTodo, ...todos];</span><br><span class="line">  </span><br><span class="line">  data &#x3D; [newTodo,...data];</span><br><span class="line">  updateData()</span><br><span class="line">  console.log(todos,data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const sortTodo &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.sort((a, b) &#x3D;&gt; b.id - a.id)</span><br><span class="line">  &#x2F;&#x2F; updateData()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const todosCheck &#x3D; (&#123;id&#125;) &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.map(todo &#x3D;&gt; todo[&#39;id&#39;] &#x3D;&#x3D;&#x3D; +id ? &#123;...todo,...&#123;completed: !todo.completed&#125;&#125; : &#123;...todo&#125;);</span><br><span class="line">&#125;</span><br><span class="line">const filterActiveCheck &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; false);</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line">const filterCompletedCheck &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; true);</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line">const deleteTodo &#x3D; (&#123;id&#125;) &#x3D;&gt; &#123;</span><br><span class="line">  todos&#x3D; todos.filter(todo &#x3D;&gt; todo.id !&#x3D;&#x3D; +id );</span><br><span class="line">  updateData()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">window.addEventListener(&#39;DOMContentLoaded&#39;, () &#x3D;&gt;&#123;</span><br><span class="line">  todos &#x3D; fetchTodos();</span><br><span class="line">  sortTodo();</span><br><span class="line">  data &#x3D; [...todos];</span><br><span class="line">  console.log(data);</span><br><span class="line">  render();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$input.onkeyup &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if( e.key !&#x3D;&#x3D;&#39;Enter&#39; || $input.value &#x3D;&#x3D;&#x3D;&#39;&#39;) return;</span><br><span class="line">  addTodo(e.target.value);</span><br><span class="line">  $input.value &#x3D;&#39;&#39;;</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$todos.onchange &#x3D; e &#x3D;&gt;&#123;</span><br><span class="line">  if(!e.target.matches(&#39;li &gt; input&#39;)) return;</span><br><span class="line">  const $checkParent &#x3D; e.target.parentNode;</span><br><span class="line">  todosCheck($checkParent);</span><br><span class="line">  updateData();</span><br><span class="line">  const $curFilter &#x3D; document.querySelector(&#39;.nav .active&#39;);</span><br><span class="line">  if($curFilter.matches(&#39;#active&#39;))&#123;</span><br><span class="line">    filterActiveCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  if($curFilter.matches(&#39;#completed&#39;))&#123;</span><br><span class="line">    filterCompletedCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line">$todos.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;.remove-todo&#39;)) return;</span><br><span class="line">  const $buttonParent &#x3D; e.target.parentNode;</span><br><span class="line">  deleteTodo($buttonParent);</span><br><span class="line">  $todos.removeChild($buttonParent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$filter.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;li&#39;)) return;</span><br><span class="line">  [...$filter.children].forEach(item &#x3D;&gt; &#123;</span><br><span class="line">    item.classList.toggle(&#39;active&#39;,e.target &#x3D;&#x3D;&#x3D; item);</span><br><span class="line">  &#125;)</span><br><span class="line">  &#x2F;&#x2F; let data &#x3D; todos;</span><br><span class="line">  if(e.target.matches(&#39;#all&#39;))&#123;</span><br><span class="line">    todos &#x3D; data;</span><br><span class="line">    render();</span><br><span class="line">    updateData()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if(e.target.matches(&#39;#active&#39;))&#123;</span><br><span class="line">    todos &#x3D; data.filter(todo &#x3D;&gt; &#123;</span><br><span class="line">      return todo.completed &#x3D;&#x3D;&#x3D; false;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    render();</span><br><span class="line">    updateData()</span><br><span class="line">    &#x2F;&#x2F; todos &#x3D; data;</span><br><span class="line">  &#125;</span><br><span class="line">  if(e.target.matches(&#39;#completed&#39;))&#123;</span><br><span class="line">    todos &#x3D; data.filter(todo &#x3D;&gt; &#123;</span><br><span class="line">      return todo.completed &#x3D;&#x3D;&#x3D;true;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    render();</span><br><span class="line">    updateData()</span><br><span class="line">    &#x2F;&#x2F; todos &#x3D; data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$clear.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;.btn&#39;)) return;</span><br><span class="line">  todos &#x3D; todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    return &#123;...todo, ...&#123;completed : false&#125;&#125;;</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  render();</span><br><span class="line">  updateData();</span><br><span class="line">&#125;</span><br><span class="line">$completeAll.onchange &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(e.target.checked)&#123;</span><br><span class="line">    todos&#x3D; todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    return&#123;...todo, ...&#123;completed : true&#125;&#125;;</span><br><span class="line">    &#125;)</span><br><span class="line">    updateData()</span><br><span class="line">  &#125;</span><br><span class="line">  if(!e.target.checked)&#123;</span><br><span class="line">    todos&#x3D; todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    return&#123;...todo, ...&#123;completed : false&#125;&#125;;</span><br><span class="line">    &#125;)</span><br><span class="line">    updateData()</span><br><span class="line">  &#125;</span><br><span class="line">  const $curFilter &#x3D; document.querySelector(&#39;.nav .active&#39;);</span><br><span class="line">  if($curFilter.matches(&#39;#active&#39;))&#123;</span><br><span class="line">    filterActiveCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  if($curFilter.matches(&#39;#completed&#39;))&#123;</span><br><span class="line">    filterCompletedCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/11/01/javascript-TodoList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1176,832 +1312,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/29/javascript-19Prototype/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/javascript-19Prototype/" class="post-title-link" itemprop="url">javascript 19Prototype</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-29 22:17:59" itemprop="dateCreated datePublished" datetime="2020-09-29T22:17:59+09:00">2020-09-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-09 22:10:25" itemprop="dateModified" datetime="2020-10-09T22:10:25+09:00">2020-10-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="프로토타입"><a href="#프로토타입" class="headerlink" title="프로토타입"></a>프로토타입</h1><p><strong>자바스크립트의 패러다임</strong></p>
-<p>자바스크립트는 명령형(imperative), 함수형(functional), 프로토타입기반(prototype-based) 객체지향 프로그래밍(OOP;Object Oriented Programming)을 지원하는 멀티 패러다임 프로그래밍 언어다.</p>
-<p><strong>다른 객체지향 언어와의 자이</strong></p>
-<p>C++이나 JAVA 같은 클래스 기반 객체지향 프로그래밍 언어의 특징인 클래스와 상속, 캡슐화를 위한 키워드인 public, private, protected 등이 없어서 자바스크립트는 객체지향 언어가 아니라고 오해를 받ㄱ는 경우도 있다. 하지만 자바스크립트는 클래스 기반 객체지향 프로그래밍 언어보다 효율적이며 더 강력한 객체 지향 프로그래밍 능력을 지니고 있는 프로토타입 기반의 객체지향 프로그래밍 언어다. </p>
-<p><strong>자바스크립트의 클래스(class)</strong></p>
-<p>ES6에서 클래스가 도입되었다. 하지만 ES6의 클래스가 기존의 프로토타입 기반 객체지향 모델을 퍠지하고 새로운 객체지향 모델을 제공하는 것은 아니다. </p>
-<p>사실 클래스도 함수이며, 기존 프로토타입 기반 패턴의 문법적 설탕(syntactic sugar)이라고 볼 수 있다. </p>
-<p>클래스와 생성자 함수는 모두 프로토타입 기반의 인스턴스를 생성하지만 정확히 동일하게 동작하지는 않는다. 클래스는 생성자 함수보다 엄격하며 클래스는 생성자 함수에서는 제공하지 않는 기능도 제공한다. </p>
-<p>따라서 클래스를 프로토타입 기반 객체 생성 패턴의 단순한 문법적 설탕으로 보기보다는 새로운 객체 생성 메커니즘으로 보는것이 더 합당하다.</p>
-<p><strong>자바스크립트는 핵심 : 객체</strong></p>
-<p>자바스크립트는 객체 기반의 프로그래밍 언어이며 자바스크립트를 이루고 있는 거의 모든것이 객체다. 원시타입(primitive type)의 값을 제외한 나머지 값들 (함수, 배열, 정규표현식 등)은 모두 객체다.</p>
-<h2 id="1-객체-지향-프로그래밍"><a href="#1-객체-지향-프로그래밍" class="headerlink" title="1. 객체 지향 프로그래밍"></a>1. 객체 지향 프로그래밍</h2><p><strong>객체지향 프로그래밍이란</strong></p>
-<p>객체지향 프로그래밍(Object Oriented Programming, OOP)은 프로그램을 명령어 또는 함수의 목록으로 보는 전통적인 명령형 프로그래밍(imperativie programming)의 절차지향적 관점에서 벗어나 여러 개의 독립적 단위인 객체(object)의 집합으로 프로그램을 표현하려는 프로그래밍 패러다임을 말한다. </p>
-<p><strong>객체의 의미</strong></p>
-<p>객체지향 프로그래밍은 실세계의 실체(사물이나 개념)룰 인식하는 철학적 사고를 프로그래밍에 접목하려는 시도에서 시작한다. 실체는 특징이나 성질을 나타내는 속성(attribut/ property)를 가지고 있고, 이를 통해 실체를 인식하거나 구별할 수 있따. </p>
-<p>예를들어, 사람은 다음과 같은 속성을 갖는다.</p>
-<ul>
-<li>이름</li>
-<li>주소</li>
-<li>성별</li>
-<li>나이</li>
-<li>신장</li>
-<li>학력</li>
-<li>직업</li>
-<li>등등</li>
-</ul>
-<p>위의 속성들에 대응되는 구체적인 값을 넣어주면, 예를들어 “이름이 정지만, 나이는 23세, 성별은 남자인 사람”과 같이 속성을 구체적으로 표현하면 특정사람을 다른사람과 구별하여 인식할 수 있다. </p>
-<p>이러한 방식을 프로그래밍에 접목시킨것이 객체지향 프로그래밍이다.</p>
-<p>객체지향 프로그래밍 시 우리는 객체의 필요한 속성, 일부 속성만 추려내어 객체를 표현한다. 이를 추상화라고 한다. </p>
-<p>**추상화 예시 **</p>
-<p>사람을 구현하려고 한다. 사람에게는 위에서 기술한 것과 같이 수많은 속성을 가지고 있다. 하지만 우리가 구현하려는 프로그램은 사람의 이름과 나이만 관심을 가지고 있다고 가정한다. 이처럼 여러 속성 중에서 프로그램에 필요한 속성만 간추려내어 표현하는 것을 추상화(abstraction)이라고 한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;</span><br><span class="line">    name: &#39;jiman&#39;,</span><br><span class="line">    age: 23</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>객체 지향 프로그래밍과 객체</strong></p>
-<p>프로그래머는 객체(object)를 다루는 주체(subject)라고 할 수 있다. 우리는 위 예제에서 만든 person 객체의 속성인 이름과 나이를 보고 다른 객체와 구별하여 인식할 수 있다. </p>
-<p>즉 객체는 속성을 통해 열 개의 값을 하나의 단위로 구성한 복합적인 자료구조를 말한다. 객체지향 프로그래밍은 독립적인 객체의 집합으로 프로그램을 표현하려는 프로그래밍 패러다임이다. </p>
-<p><strong>객체의 상태(state)와 동작(behavior)</strong></p>
-<p>원(Circle)이라는 개념을 객체로 만들어보자. 원에는 반지름이라는 속성이 있다. 이 반지름을 가지고 원의 지름, 둘레, 넓이를 구할 수 있다. 이때 반지름은 원의 상태를 나타내는 데이터이며, 원의 지름, 둘레, 넓이를 구하는 것은 동작이다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const Circle &#x3D; &#123;</span><br><span class="line">    radius: 5,</span><br><span class="line">    </span><br><span class="line">    getDiameter() &#123;</span><br><span class="line">        return 2 * this.radius;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    getPerimeter() &#123;</span><br><span class="line">        return 2 * this.radius * Math.PI;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    getArea() &#123;</span><br><span class="line">        return Math.PI * this.radius ** 2;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>위 예제와 같이 객체지향 프로그래밍은 객체의 상태(state)를 나타내는 데이터와 상태 데이터를 조작할 수 있는 동작(behavior)을 하나의 논리적인 단위로 묶어 생각한다 </p>
-<p>객체는 상태 데이터와 동작을 하나의 논리적인 단위로 묶은 복합적인 자료구조라고 할 수 있다. 객체의 상태 데이터를 property, 동작을 method라고 한다.</p>
-<p><strong>객체의 관계성(relationship)</strong></p>
-<p>각 객체는 고유의 기능을 갖는 독립적인 부품으로 볼 수 있지만 자신의 고유한 기능을 수행하면서 다른 객체와 관계성(relationship)을 가질 수 있다. 다른 객체와 메시지를 주고 받거나 데이터를 처리할 수도 있다.  또는 다른 객체의 상태 데이터나 동작을 상속받아 사용하기도 한다. </p>
-<h2 id="2-상속과-프로토타입"><a href="#2-상속과-프로토타입" class="headerlink" title="2. 상속과 프로토타입"></a>2. 상속과 프로토타입</h2><p><strong>상속이란</strong></p>
-<p>상속(inheritance)은 객체지향프로그래밍의 핵심 개념으로, 어떤 객체의 프로퍼티 또는 메서드를 다른 객체가 상속받아 그대로 사용할 수 있는 것을 말한다. </p>
-<p><strong>상속의 역할</strong></p>
-<p>자바스크립트는 프로토타입을 기반으로 상속을 구현하여 불필요한 중복을 제거한다. 중복을 제거하는 방법은 기존의 코드를 적극적으로 재사용하는 것이다. 코드 재사용은 개발 비용을 현저히 줄일 수 있는 잠재력이 있으므로 매우 중요하다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;생성자 함수</span><br><span class="line">function Circle(radius) &#123;</span><br><span class="line">    this.radius &#x3D; radius;</span><br><span class="line">    </span><br><span class="line">    this.getDiameter &#x3D; function() &#123;</span><br><span class="line">        return 2 * this.radius;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    this.getPerimeter &#x3D; function() &#123;</span><br><span class="line">        return 2 * Math.PI * this.radius;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    this.getArea &#x3D; function() &#123;</span><br><span class="line">        return Math.PI * this.radius ** 2;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const circle1 &#x3D; new Circle(5);</span><br><span class="line">const circle2 &#x3D; new Circle(10);</span><br></pre></td></tr></table></figure>
-
-<p>위 예제와 같이 생성자 함수는 동일한 프로퍼티 구조를 갖는 객체를 여러개 생성할 때 유용하다. </p>
-<p><strong>위 예제 생성자 함수의 문제점</strong></p>
-<p>Circle 생성자 함수가 생성하는 모든 객체(instance)는 radius 프로퍼티와 메서드들을 갖는다. radius 프로퍼티값은 보통 인스턴스마다 다르다. 하지만 getDiameter, getPerimeter, getArea 메서드는 모든 인스턴스들이 동일한 내용의 메서드를 사용하므로 단 하나만 생성하여 모든 인스턴스가 공유해서 사용하는 것이 바람직하다. </p>
-<p>하지만, 위 예제의 Circle 생성자 함수의 경우 인스턴스를 생성할 때마다 메서드들을 중복 생성하고 모든 인스턴스가 중복해서 소유한다. </p>
-<p>즉, 동일한 생성자 함수에 의해 생성된 모든 인스턴스가 동일한 메서드를 중복 소유하는 것은 메모리를 불필요하게 낭비한다. 또한 인스턴스를 생성할 때마다 메서드를 생성하므로 퍼포먼스에도 악영향을 준다. </p>
-<p>즉 공간적, 시간적으로 손해가 생긴다.</p>
-<p><strong>상속을 통한 중복 제거</strong></p>
-<p>상속을 통해 위 예제의 Circle의 불필요한 중복을 제거해본다. 자바스크립트는 프로토타입(prototype)을 기반으로 상속을 구현한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function Circle(radius) &#123;</span><br><span class="line">    this.radius &#x3D; radius;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 중복 제거하고자 하는 프로퍼티 메서드는 프로토타입에 추가</span><br><span class="line">Circle.prototype.getDiameter &#x3D; function() &#123;</span><br><span class="line">    return 2 * this.radius;</span><br><span class="line">&#125;</span><br><span class="line"> Circle.prototype.getPerimeter &#x3D; function() &#123;</span><br><span class="line">    return Math.PI * 2 * this.radius;</span><br><span class="line">&#125;</span><br><span class="line">Circle.prototype.getArea &#x3D; function() &#123;</span><br><span class="line">    return Math.PI * this.radius ** 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;인스턴스 생성</span><br><span class="line">const circle1 &#x3D; new Circle(5);</span><br><span class="line">const circle2 &#x3D; new Circle(10);</span><br><span class="line"></span><br><span class="line">console.log(circle1.getArea &#x3D;&#x3D;&#x3D; circle2.getArea); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>프로토타입 기반 상속의 원리</strong></p>
-<p>Circle 생성자 함수가 생성한 모든 인스턴스는 자신의 프로토타입, 즉 상위 객체 역할을 하는 Circle.prototype의 모든 프로퍼티와 메서드를 상속받는다.</p>
-<p>메서드들은 단 한번만 생성되어 프로토타입인 Circle.prototype의 메서드로 할당되어 있다. 따라서 Circle 생성자 함수가 생성하는 모든 인스턴스는 해당 메서드들을 상속받아 사용할 수 있다. 즉, 자신의 상태를 나타내는 radius 프로퍼티만 개별적으로 소유하고 내용이 동일한 메서드는 상속을 통해 공유하여 사용하는 것이다. </p>
-<p><strong>상속의 장점</strong></p>
-<p>상속은 코드의 재사용이란 관점에서 매우 유용하다. 생성자 함수가 생성할 모든 인스턴스가 공통적으로 사용할 프로퍼티나 메서드를 프로토타입에 미리 구현해 두면 생성자 함수가 생성할 모든 인스턴스는 별도의 구현없이 상위(부모)객체인 프로토타입의 자산을 공유하여 사용할 수 있다.</p>
-<h2 id="3-프로토타입-객체"><a href="#3-프로토타입-객체" class="headerlink" title="3. 프로토타입 객체"></a>3. 프로토타입 객체</h2><p><strong>프로토타입 객체란</strong></p>
-<p>프로토타입 객체란 객체지향 프로그래밍의 근간을 이루는 객체 간 상속(inheritance)을 구현하기 위해 사용된다. 프로토타입은 어떤 객체의 상위(부모) 객체의 역할을 하는 객체로서 다른 객체에 공유 프로퍼티(메서드 포함)를 제공한다. 프로토타입을 상속받은 하위 객체는 상위 객체의 프로퍼티를 자신의 프로퍼티처럼 자유롭게 사용할 수 있다. </p>
-<p><strong>프로토타입 내부슬롯 [[Prototype]]</strong></p>
-<p>모든 객체는 [[Prototype]]이라는 내부 슬롯을 가지며, 이 내부 슬롯의 값은 프로토타입의 참조([[Prototype]]의 값이 null 인 경우도 있다.)다. [[Prototype]]에 저장되는 프로토타입은 <strong>객체 생성 방식</strong>에 의해 결정된다. 즉 객체가 생성될 때 객체 생성 방식에 따라 프로토타입이 결정되고 [[Prototype]]에 저장된다.  </p>
-<p><strong>객체 생성방식에 따른 prototype 객체</strong></p>
-<p>예시로, 객체 리터럴에 의해 생성된 객체의 프로토타입은 Object.prototype 이고 생성자 함수에 의해 생성된 객체의 프로토타입은 생성자 함수의 prototype 프로퍼티에 바인딩되어 있는 객체다. </p>
-<p><strong>생성자 함수와 프로토타입</strong></p>
-<p>모든 객체는 하나의 프로토타입을 갖는다.([[Prototype]]값이 null 인 객체는 프로토타입이 없다.)  그리고 모든 프로토타입은 생성자 함수와 연결되어 있다. </p>
-<ul>
-<li>생성자 함수의 prototype 프로퍼티는 생성자 함수의 prototype을 가리킨다.</li>
-<li>생성자 함수.prototype의 constructor 프로퍼티는 생성자 함수를 가리킨다.</li>
-<li>생성자 함수가 생성한 인스턴스는 포로토타입의 프로퍼티를 상속받는다</li>
-<li>생성자 함수에서 <code>__proto__</code>접근자 프로퍼티로 프로토타입에 간접적으로 접근할 수 있다. </li>
-</ul>
-<p>[[Prototype]] 내부슬롯에 직접 접근할 수 없지만, 접근자 프로퍼티를 통해 자신의 프로토타입, 즉 [[Prototype]]내부슬롯이 가리키는 프로토타입에 간접적으로 접근 가능하다. </p>
-<p>프로토타입은 자신의 constructor 프로퍼티를 통해 생성자 함수에 접근할 수 있고, 생성자 함수는 자신의 prototype 프로퍼티를 통해 프로토타입에 접근할 수 있다. </p>
-<h3 id="3-1-proto-접근자-프로퍼티"><a href="#3-1-proto-접근자-프로퍼티" class="headerlink" title="3.1 __proto__접근자 프로퍼티"></a>3.1 <code>__proto__</code>접근자 프로퍼티</h3><p><strong><code>__proto__</code>접근자 프로퍼티의 기능</strong></p>
-<p>모든 객체는 <code>__proto__</code>접근자 프로퍼티를 통해 자신의 프로토타입인  [[Prototype]]내부슬롯에 간접적으로 접근할 수 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const student &#x3D; &#123;</span><br><span class="line">    name: &#39;jiman&#39;;</span><br><span class="line">&#125;;</span><br><span class="line">student.__proto;</span><br></pre></td></tr></table></figure>
-
-<p>일반 객체에 <code>__proto__</code>접근자 프로퍼티를 사용하면  [[Prototype]]내부 슬롯이 가리키는 객체인 Object.prototype에 접근할 수 있다.</p>
-<p>모든 객체는 이 접근자 프로퍼티를 통해 프로토타입을 가리키는 [[Prototype]] 내부슬롯에 접근할 수 있다.</p>
-<p><strong><code>__proto__</code>는 접근자 프로퍼티다</strong></p>
-<p><strong>[[Prototype]] 내부슬롯으로의 접근</strong></p>
-<p>내부슬롯은 프로퍼티가 아니다. 자바스크립트는 원칙적으로 내부슬롯과 내부 메서드에 직접적으로 접근하거나 호출할 수 있는 방법을 제공하지 않는다. </p>
-<p>단, 일부 내부 슬롯과 내부 메서드에 한하여 간접적으로 접근할 수 있는 수단을 제공한다. [[Prototype]] 내부 슬롯에도 직접 접근할 수 없으며 <code>__proto__</code>접근자 프로퍼티를 통해 간접적으로 [[Prototype]] 내부슬롯의 값, 즉 프로토타입에 접근할 수 있다.</p>
-<p><strong>접근자 프로퍼티의 특징</strong></p>
-<p>접근자 프로퍼티는 자체적으로 값([[Value]]프로퍼티 어트리뷰트)을 갖지 않고 다른 데이터 프로퍼티의 값을 읽거나 저장할 때 사용하는 접근자 함수(accessor function), 즉 [[Get]], [[Set]] 프로퍼티 어트리뷰트로 구성된 프로퍼티다.</p>
-<p><strong><code>__proto__</code>접근자 프로퍼티의 이용</strong></p>
-<p>Object.prototype의 접근자 프로퍼티인 <code>__proto__</code> getter / setter 함수라고 부르는 접근자 함수를 통해 [[Prototype]] 내부 슬롯의 값, 즉 프로토타입을 취득하거나 할당한다.</p>
-<ul>
-<li><code>__proto__</code>에 접근시<ul>
-<li>getter 함수 [[Get]]이 호출</li>
-</ul>
-</li>
-<li><code>__proto__</code>에 할당시<ul>
-<li>setter 함수 [[Set]]이 호출</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123;&#125;;</span><br><span class="line">const parentObj &#x3D; &#123;x: 1&#125;;</span><br><span class="line"></span><br><span class="line">console.log(obj.__proto__); &#x2F;&#x2F; object.prototype</span><br><span class="line">obj.__proto__ &#x3D; parentObj;</span><br><span class="line">console.log(obj.__proto__); &#x2F;&#x2F;&#123; x: 1 &#125;</span><br><span class="line"></span><br><span class="line">console.log(obj.x); &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
-
-
-
-<p>**<code>__proto__</code>접근자 프로퍼티는 상속을 통해 사용된다. **</p>
-<p><code>__proto__</code>접근자 프로퍼티는 객체가 직접 소유하는 프로퍼티가 아니라 Object.prototype의 프로퍼티다. 모든 객체는 상속을 통해 Object.prototype.<code>__proto__</code>접근자 프로퍼티를 사용할 수 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123; name: &#39;Lee&#39;&#125;;</span><br><span class="line"></span><br><span class="line">console.log(person.hasOwnProperty(&#39;__proto__&#39;)); &#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">console.log(Object.getOwnPropertyDescriptor(Object.prototype, &#39;__proto__&#39;));</span><br><span class="line">&#x2F;&#x2F;&#123;get: f, set: f, enumerable: false, configurable: false&#125;</span><br><span class="line"></span><br><span class="line">console.log(&#123;&#125;.__proto__ &#x3D;&#x3D;&#x3D; Object.prototype);</span><br><span class="line">&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p><strong>Object.prototype</strong></p>
-<p>모든 객체는 프로토타입의 계층 구조인 프로토타입 체인에 묶여 있다. 자바스크립트 엔진은 객체의 프로퍼티에 접근하려고 할때 해당 객체에 접근하려는 프로퍼티가 없다면 <code>__proto__</code> 접근자 프로퍼티가 가리키는 참조를 따라 자신의 부모 역할을 하는 프로토타입의 프로퍼티를 순차적으로 검색한다. 프로토타입 체인의 종점, 즉 프로토타입 체인의 최상위 객체는 Object.prototype이며, 이 객체의 프로퍼티와 메서드는 모든 객체에게 상속된다. </p>
-<p><strong><code>__proto__</code>접근자 프로퍼티를 통해 프로토타입에 접근하는 이유</strong></p>
-<p>[[Prototype]]  내부 슬롯의 값, 즉 프로토타입에 접근하기 위해 접근자 프로퍼티를 사용하는 이유는 상호 참조에 의해 프로토타입 체인이 생성되는 것을 방지하기 위해서다. <code>__proto__</code> 접근자 프로퍼티는 상호 참조가 발생하면 에러를 발생시킨다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const parent &#x3D; &#123;&#125;;</span><br><span class="line">const child &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;상호 참조 시 에러</span><br><span class="line">child.__proto__ &#x3D; parent;</span><br><span class="line">parent,__proto__ &#x3D; child; &#x2F;&#x2F; TypeError: Cyclic __proto__ value</span><br></pre></td></tr></table></figure>
-
-<p>만약 위 예제 코드가 에러없이 진행되어 각 객체가 서로의 프로토 타입이 된다면 객체 서로가 자신의 프로토타입이 되는 비정상적인 프로토타입 체인이 만들어 진다. <code>__proto__</code> 접근자 프로퍼티는 이 경우 에러를 발생시키도록 구현되어 있다.</p>
-<p><strong>프로토타입 체인의 요구조건</strong></p>
-<p>포로토타입 체인은 단방향 링크드 리스트로 구현되어야 한다. 즉, 프로퍼티 검색 방향이 하위에서 상위로, 한쪽 방향으로만 흘러가야한다. 종점에는 Object.prototype이 존재하는 구조로 이루어지게 되는데 서로가 자신의 프로토타입이 되는 순환 참조(circular reference) 구조가 만들어지게되면 종점이 존재하지 않게 된다. 종점이 존재하지 않는다면 존재하지 않는 프로퍼티를 검색할 때 무한 루프에 빠지게 된다. </p>
-<p>이러한 상황이 발생하지 않도록 <code>__proto__</code> 접근자 프로퍼티가 구현되어 있다.</p>
-<p><strong><code>__proto__</code>접근자 프로퍼티를 코드 내에서 직접 사용하는 것은 권장하지 않는다.</strong></p>
-<ul>
-<li>모든 객체가 <code>__proto__</code>접근자 프로퍼티를 상속받지는 않는다.</li>
-</ul>
-<p><code>__proto__</code> 접근자 프로퍼티는 ES5 까지 ECMAScript 사양에 포함되지 않은 비표준이었다. 하지만 일부 브라우저에서 <code>__proto__</code>를 지원하고 있었기 때문에 브라우저 호환성을 고려하여 ES6에서는 표준으로 채택되었다. 그래서 대부분 브라우저가 해당 접근자 프로퍼티를 지원한다.</p>
-<p>하지만 모든 객체가 <code>__proto__</code> 접근자 프로퍼티를 사용할 수 있는 것이 아니다.</p>
-<p>직접 상속을 통해 Object.prototype을 상속받지 않는 객체를 생성할 수도 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; Object.create(null);</span><br><span class="line"></span><br><span class="line">console.log(obj.__proto__); &#x2F;&#x2F;undefined</span><br><span class="line"></span><br><span class="line">console.log(Object.getPrototypeOf(obj)); &#x2F;&#x2F;null</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>getPrototypeOf / setPrototypeOf</strong></p>
-<p><code>__proto__</code>접근자 프로퍼티 대신 프로토타입에 접근하고 싶은 경우 다음과 같은 방법을 사용한다.</p>
-<ul>
-<li>프로토타입의 참조를 취득<ul>
-<li>Object.getPrototypeOf 메서드 사용</li>
-</ul>
-</li>
-<li>프로토타입을 교체<ul>
-<li>Object.setPrototypeOf 메서드 사용</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const child &#x3D; &#123;&#125;;</span><br><span class="line">const parent &#x3D; &#123; x: 1 &#125;;</span><br><span class="line"></span><br><span class="line">Object.getPrototypeOf(child); &#x2F;&#x2F; child.__proto__와 동일</span><br><span class="line"></span><br><span class="line">Object.setPrototypeOf(child, parent); &#x2F;&#x2F;child.__proto__ &#x3D; parent; 와 동일</span><br><span class="line"></span><br><span class="line">Object.setPrototypeOf(parent, child);</span><br><span class="line">&#x2F;&#x2F; 순환 참조 시 에러</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="3-2-함수-객체의-prototype-프로퍼티"><a href="#3-2-함수-객체의-prototype-프로퍼티" class="headerlink" title="3.2 함수 객체의 prototype 프로퍼티"></a>3.2 함수 객체의 prototype 프로퍼티</h3><p><strong>함수 객체만이 소유하는 prototype 프로퍼티는 생성자 함수가 생성할 인스턴스의 프로토타입을 가리킨다.</strong></p>
-<p>일반 객체의 경우 [[Prototype]] 내부슬롯은 존재하였지만 prototype 프로퍼티를 직접 소유하고 있지 않았다. 하지만 함수 객체는 prototype 프로퍼티를 소유한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;&#125;).hasOwnProperty(&#39;prototype&#39;)&#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">(&#123;&#125;).hasOwnProperty(&#39;prototype&#39;) &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
-
-<p>prototype 프로퍼티는 생성자 함수가 생성할 객체의 프로토타입을 가리킨다. 따라서 생성자 함수로서 호출할 수 없는 non-constructor인 함수는 prototype 프로퍼티를 소유하지 않고, 프로토타입도 생성하지 않는다. </p>
-<p>단 [[Prototype]] 내부 슬롯은 모든 객체가 가지고 있으므로 내부 슬롯은 존재한다. </p>
-<p>non-constructor</p>
-<ul>
-<li>화살표 함수</li>
-<li>메서드 축약표현으로 정의된 메서드</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const Person &#x3D; name &#x3D;&gt; &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(Person.hasOwnProperty(&#39;prototype&#39;)); &#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">console.log(Person.prototype)&#x2F;&#x2F; undefined</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;메서드 축약 표현</span><br><span class="line">const obj &#x3D; &#123;</span><br><span class="line">    foo() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(obj.foo.hasOwnProperty(&#39;prototype&#39;));&#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">console.log((function()&#123;&#125;).prototype); &#x2F;&#x2F;&#123;&#125;</span><br><span class="line">console.log(obj.foo.prototype); &#x2F;&#x2F;undefined</span><br></pre></td></tr></table></figure>
-
-<p>생성자 함수로 호출하기 위해 정의하지 않은 일반 함수(함수 선언문, 함수 표현식)도 prototype 프로퍼티를 소유하고 있다. 하지만 객체를 생성할 목적으로 만들어지지 않은 일반함수의 prototype 프로퍼티는 아무 의미가 없다.</p>
-<p><strong><code>__proto__</code> 접근자 프로퍼티 vs 함수의 prototype 프로퍼티</strong></p>
-<p>모든 객체가 가지고 있는 (Object.prototype으로부터 상속받은) <code>__proto__</code>접근자 프로퍼티와 함수 객체만이 가지고 있는 prototype 프로퍼티는 결국 동일한 프로토타입을 가리킨다.</p>
-<p>하지만 사용 주체와 목적이 다르다.</p>
-<table>
-<thead>
-<tr>
-<th>구분</th>
-<th>소유</th>
-<th>값</th>
-<th>사용 주체</th>
-<th>사용 목적</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>__proto__</code> 접근자 프로퍼티</td>
-<td>모든 객체</td>
-<td>프로토타입의 참조</td>
-<td>모든 객체</td>
-<td>객체가 자신의 프로토타입에 접근 또는 교체하기위해 사용</td>
-</tr>
-<tr>
-<td>prototype 프로퍼티</td>
-<td>constructor</td>
-<td>프로토타입의 참조</td>
-<td>생성자 함수</td>
-<td>생성자 함수가 자신이 생성할 객체의 프로토타입을 할당하기 위해 사용</td>
-</tr>
-</tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Person(&#39;Lee&#39;);</span><br><span class="line"></span><br><span class="line">console.log(Person.prototype &#x3D;&#x3D;&#x3D; me.__proto__) &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-3-프로토타입의-constructor-프로퍼티와-생성자-함수"><a href="#3-3-프로토타입의-constructor-프로퍼티와-생성자-함수" class="headerlink" title="3.3 프로토타입의 constructor 프로퍼티와 생성자 함수"></a>3.3 프로토타입의 constructor 프로퍼티와 생성자 함수</h3><p><strong>모든 프로토타입은 constructor 프로퍼티를 갖는다</strong></p>
-<p>constructor 프로퍼티는 prototype프로퍼티로 자신을 참조하고 있는 생성자 함수를 가리킨다. 이 연결은 생성자 함수가 생성될때, 즉 함수 객체가 생성될 때 이루어진다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const you &#x3D; new Person(&#39;Kim&#39;);</span><br><span class="line"></span><br><span class="line">console.log(you.constructor &#x3D;&#x3D;&#x3D; Person); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p>Person 생성자 함수는 you 객체를 생성하였다. 이때 you 객체는 프로토타입의 constructor 프로퍼티를 통해 생성자 함수와 연결된다. you객체에는 constructor 프로퍼티가 없지만 프로토타입으로부터 상속받아 you 객체도 constructor 프로퍼티를 사용할 수 있다.</p>
-<h2 id="4-리터럴-표기법에-의해-생성된-객체의-생성자-함수와-프로토타입"><a href="#4-리터럴-표기법에-의해-생성된-객체의-생성자-함수와-프로토타입" class="headerlink" title="4, 리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입"></a>4, 리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입</h2><p><strong>생성자 함수로 생성한 객체</strong></p>
-<p>생성자 함수에 의해 생성된 인스턴스는 프로토타입의 constructor 프로퍼티에 의해 생성자 함수와 연결된다.  constructor 프로퍼티가 가리키는 생성자 함수는 인스턴스를 생성한 생성자 함수이다. </p>
-<p><strong>리터럴로 생성한 객체</strong></p>
-<p>명시적으로 new 연산자와 함께 생성자 함수를 호출하여 인스턴스를 생성하지 않고, 리터럴 표기법에 의한 객체 생성방식과 같은 객체 생성방식도 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">const foo &#x3D; function()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">const arr &#x3D; [1, 2, 3];</span><br><span class="line"></span><br><span class="line">const regexp &#x3D; &#x2F;is&#x2F;ig;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>리터럴로 생성한 객체의 생성자 함수</strong></p>
-<p>모든 객체는 프로토타입 내부슬롯이 있으므로 리터럴 표기법에 의해 생성된 객체도 프로토타입이 존재한다. 하지만 리터럴 표기법에 의해 생성된 객체의 경우 프로토타입의 constructor 프로퍼티가 가리키는 생성자 함수가 반드시 객체를 생성한 생성자 함수라고 단정할 수 없다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">constole.log(obj.constructor &#x3D;&#x3D;&#x3D; Object); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p>위 예제의 obj 객체는 Object 생성자 함수로 생성한 객체가 아니라 객체 리터럴에 의해 생성된 객체다. 하지만 obj 객체는 Object 생성자 함수와 constructor 프로퍼티로 연결되어 있다. 그렇다면 객체 리터럴에 의해 생성된 객체는 사실 Object 생성자 함수로 생성되는 것은 아닐지 하는 의문이 들 수 있다. </p>
-<p><strong>Object 생성자 함수의 ECMAScript 사양</strong></p>
-<p>Object 생성자 함수는 다음과 같이 구현되도록 정의되어 있다. </p>
-<ol>
-<li>new.target 이 undefined나 Object가 아닌 경우 인스턴스 -&gt; 인스턴스 생성자함수의 프로토타입 - &gt; Object.prototype 순으로 프로토타입 체인이 생성된다. </li>
-<li>Object. 생성자 함수에 인수를 전달하지 않거나 undefined 또는 null을 인수로 전달하면서 new 연산자와 함께 호출하면 내부적으로는 추상연산 OrdinaryObjectCreate를 호출하여 Object.prototype을 프로토타입으로 갖는 빈 객체를 생성한다. </li>
-</ol>
-<p><strong>추상 연산(abstract operation)</strong></p>
-<p>추상 연산은 ECMAScript 사양에서 내부 동작의 구현 알고리즘을 표현한 것이다. ECMAScript 사양에서 설명을 위해 사용되는 함수와 유사한 의사코드이다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;2. Object 생성자 함수에 의한 객체 생성</span><br><span class="line">&#x2F;&#x2F; Object 생성자 함수는 new 연산자와 함께 호출하지 않아도 new 연산자와 함께 호출한 것과 동일하게 동작한다. </span><br><span class="line">&#x2F;&#x2F;인수가 전달되지 않았을 때 추상연산 OrdinaryObjectCreate를 호출하여 빈 객체를 생성한다.</span><br><span class="line"></span><br><span class="line">let obj &#x3D; new Object();</span><br><span class="line">console.log(obj); &#x2F;&#x2F;&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;1. new.target이 undefined 나 Object 가 아닌 경우</span><br><span class="line">&#x2F;&#x2F;인스턴스 -&gt; Foo.prototype&amp;nbsp; -&gt; Object.prototype 순으로 프로토타입 체인이 생성된다. </span><br><span class="line">class Foo extends Object &#123;&#125;</span><br><span class="line">new Foo(); &#x2F;&#x2F; Foo&amp;nbsp;&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 3. 인수가 전달된 경우에는 인수를 객체로 변환한다.</span><br><span class="line">&#x2F;&#x2F;Number 객체 생성</span><br><span class="line">obj &#x3D; new Object(123);</span><br><span class="line">console.log(obj); &#x2F;&#x2F;Number &#123;123&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;String 객체 생성</span><br><span class="line">obj &#x3D; new Object(&#39;123&#39;);</span><br><span class="line">console.log(obj);&#x2F;&#x2F; String&#123;&#39;123&#39;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>객체 리터럴이 평가될때의 추상연산</strong></p>
-<p>객체 리터럴이 평가될 때는  추상연산 OrdinaryObjectCreate를 호출하여 빈 객체를 생성하고 프로퍼티를 추가하도록 정의되어 있다. </p>
-<p>Object 생성자 함수 호출과 객체 리터럴의 평가는 추상 연산 OrdinaryObjectCreate를 호출하여 빈 객체를 생성하는 점에서 동일하다.하지만 new.target의 확인이나 프로퍼티를 추가하는 처리 등 세부 내용이 다르다. </p>
-<p>따라서 객체 리터럴에 의해 생성된 객체는 Object 생성자 함수가 생성한 함수가 아니다. </p>
-<p><strong>함수 리터럴과 함수 생성자함수</strong></p>
-<p>함수 객체의 경우 차이가 더 명확하다. Function 생성자 함수를 호출하여 생성한 함수는 렉시컬 스코프를 만들지 않고 전역 함수인 것처럼 스코프를 생성하며  클로저도 만들지 않는다. 따라서 함수 선언문과 함수 표현식을 평가하여 함수 객체를 생성한 것은 Function 생성자 함수가 아니다. 하지만 constructor 프로퍼티를 통해 확인해보면 foo 함수의 생성자 함수는 Function 생성자 함수다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function foo()&#123;&#125;</span><br><span class="line">console.log(foo.constructor &#x3D;&#x3D;&#x3D; Function); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p><strong>리터럴로 생성된 객체의 생성자 함수</strong></p>
-<p>리터럴 표기법에 의해 생성된 객체도 상속을 위해 프로토타입이 필요하다. 따라서 리터럴 표기법에 의해 생성된 객체도 가상적인 생성자 함수를 갖는다. 프로토타입은 생성자 함수와 더불어 생성되며 prototype, constructor 프로퍼티에 의해 연결되어 있기 때문이다. 다시 말해, 프로토타입과 생성자 함수는 단독으로 존재할 수 없고 언제나 쌍(pair)으로 존재한다.</p>
-<p>리터럴 표기법(객체 리터럴, 함수 리터럴, 배열 리터럴, 정규 표현식 리터럴 등) 에 의해 생성된 객체는 생성자 함수에 의해 생성된 객체는 아니다. 하지만 큰 틀에서 생각해보면 리터럴 표기법으로 생성한 객체도 생성자 함수로 생성한 객체와 본질적인 면에서 큰 차이는 없다.</p>
-<p>예를 들어, 객체 리터럴에 의해 생성한 객체와 Object 생성자 함수에 의해 생성한 객체는 생성과정에서 미묘한 차이는 있지만 결국 객체로서 동일한 특성을 갖는다. 함수 리터럴에 의해 생성한 함수와 Function 생성자 함수에 의해 생성한 함수는 생성 과정과 스코프, 클로저 등의 차이가 있지만 결국 함수로서 동일한 특성을 갖는다. </p>
-<p><strong>리터럴로 생성한 객체의 생성자함수 취급</strong></p>
-<p>프로토타입의 constructor 프로퍼티를 통해 연결되어 있는 생성자 함수를 리터럴 표기법으로 생성한 객체를 생성한 생성자 함수로 생각해도 크게 무리는 없다. 리터럴 표기법에 의해 생성된 객체의 생성자 함수와 프로토타입은 다음과 같다. </p>
-<table>
-<thead>
-<tr>
-<th>리터럴 표기법</th>
-<th>생성자 함수</th>
-<th>프로토타입</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>객체 리터럴</td>
-<td>Object</td>
-<td>Object.prototype</td>
-</tr>
-<tr>
-<td>함수 리터럴</td>
-<td>Function</td>
-<td>Function.prototype</td>
-</tr>
-<tr>
-<td>배열 리터럴</td>
-<td>Array</td>
-<td>Array.prototype</td>
-</tr>
-<tr>
-<td>정규 표현식 리터럴</td>
-<td>RegExp</td>
-<td>RegExp.prototype</td>
-</tr>
-</tbody></table>
-<h2 id="5-프로토타입의-생성-시점"><a href="#5-프로토타입의-생성-시점" class="headerlink" title="5. 프로토타입의 생성 시점"></a>5. 프로토타입의 생성 시점</h2><p><strong>프로토타입은 생성자 함수가 생성되는 시점에 생성된다</strong></p>
-<p>리터럴 표기법에 의해 생성된 객체도 생성자 함수와 연결되는 것을 보았다. 객체는 리터럴 표기법 또는 생성자 함수에 의해 생성되므로 결국 모든 객체는 생성자 함수와 연결되어 있다. </p>
-<p>(Object.create 메서드와 클래스로 객체를 생성하는 방법도 있다.)</p>
-<p>프로토타입은 생성자 함수가 생성되는 시점에 더불어 생성된다. 프로토타입과 생성자 함수는 단독으로 존재할 수 없고 언제나 쌍으로 존재하기 때문이다.</p>
-<p><strong>셍상지 힘수의 구분</strong></p>
-<p>생성자 함수는 정의 주체에 따라 두가지로 구분할 수 있다.</p>
-<ul>
-<li>사용자 정의 생성자 함수<ul>
-<li>사용자가 직접 정의한 생성자 함수</li>
-</ul>
-</li>
-<li>빌트인 생성자 함수<ul>
-<li>자바스크립트가 기본 제공하는 생성자 함수</li>
-</ul>
-</li>
-</ul>
-<p>두 생성자 함수의 프로토타입 생성시점에 대해 알아본다.</p>
-<h3 id="5-1-사용자-정의-생성자-함수와-프로토타입-생성시점"><a href="#5-1-사용자-정의-생성자-함수와-프로토타입-생성시점" class="headerlink" title="5.1 사용자 정의 생성자 함수와 프로토타입 생성시점"></a>5.1 사용자 정의 생성자 함수와 프로토타입 생성시점</h3><p><strong>함수 정의가 평가되는 시점에 생성된다.</strong></p>
-<p>내부 메서드 [[Construct]]를 갖는 함수 객체, 즉 화살표 함수나 ES6의 메서드 축약 표현으로 정의하지 않고 일반함수로 정의한 함수 객체는 new 연산자와 함께 생성자 함수로 호출할 수 있다.</p>
-<p>생성자 함수로서 호출할 수 있는 함수, 즉 constructor는 함수 정의가 평가되어 함수 객체를 생성하는 시점에 프로토타입도 더불어 생성된다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(Person.prototype); &#x2F;&#x2F; &#123;&#125;</span><br><span class="line"></span><br><span class="line">function Person()&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>non - constructor 는 프로토타입이 생성되지 않는다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const Person &#x3D; name &#x3D;&gt; &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(Person.prototype); &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure>
-
-<p><strong>함수 선언문이 평가되는 시점</strong></p>
-<p>함수 선언문은 다른 코드가 실행되기 이전에 자바스크립트 엔진에 의해 먼저 실행된다. 따라서 함수 선언문으로 정의된 Person 생성자 함수는 어떤 코드보다 먼저 평가되어 함수 객체가 된다. </p>
-<p>이때 프로토타입도 더불어 생성된다. 생성된 프로토타입은 Person 생성자 함수의 prototype 프로퍼티에 바인딩된다. </p>
-<p>함수선언문에 의한 생성자 함수에 연결된 프로토타입 객체의 프로퍼티</p>
-<ul>
-<li>constructor: 생성자 함수의 참조</li>
-<li><code>__proto__</code> : Object (상속받은 프로퍼티)</li>
-</ul>
-<p><strong>생성된 프로토타입의 프로퍼티</strong></p>
-<p>생성된 프로토타입은 오직 constructor 프로퍼티만을 갖는 객체다. 프로토타입도 객체이고 모든 객체는 프로토타입을 가지므로 프로토타입도 자신의 프로토타입을 갖는다. 생성된 프로토타입의 프로토타입은 Object.prototype이다.</p>
-<h3 id="5-2-빌트인-생성자-함수와-프로토타입-생성-시점"><a href="#5-2-빌트인-생성자-함수와-프로토타입-생성-시점" class="headerlink" title="5.2 빌트인 생성자 함수와 프로토타입 생성 시점"></a>5.2 빌트인 생성자 함수와 프로토타입 생성 시점</h3><p><strong>빌트인 생성자 함수가 생성되는 시점</strong></p>
-<p>Object, String, Number, Function, Array, RegExp, Date, Promis 등과 같은 빌트인 생성자 함수도 일반 함수와 마찬가지로 빌트인 생성자 함수가 생성되는 시점에 프로토타입이 생성된다. 모든 빌트인 생성자 함수는 전역 객체가 생성되는 시점에 생성된다. 생성된 프로토타입은 빌트인 생성자 함수의 prototype 프로퍼티에 바인딩된다. </p>
-<p><strong>전역 객체(global object)란</strong></p>
-<p>전역 객체는코드가 실행되기이전 단계에 자바스크립트 엔진에의해 생성되는 특수한 객체이다. 전역 객체는 클라이언트 사이드 환경(브라우저)에서는window, 서버 사이드 환경(Node.js)에서는 global 객체를 의미한다.</p>
-<p>전역 객체는표준 빌트인 객체(Object, String, Number, Function, Array 등) 들과 환경에 따른 호스트 객체(클라이언트 web API 또는Node.js의 호스트 API), 그리고 var 키워드로 선언한 전역 변수와 전역 함수를 프로퍼티로 갖는다. Math, Reflect, JSON을 제외한 표준 빌트인 객체는 모두 생성자 함수이다.</p>
-<p><strong>객체가 생성되기 이전에 생성자 함수와 프로토타입은 이미 존재한다.</strong></p>
-<p>표준 빌트인 객체인 Object도 전역객체의 프로퍼티이며, 전역 객체가 생성되는 시점에 생성된다. </p>
-<p>이처럼 객체가 생성되기 이전에 생성자 함수와 프로토타입은 이미 객체화되어 존재한다. 이후 생성자 함수 또는 리터럴 표기법으로 객체를 생성하면 프로토타입은 생성된 객체의 [[Prototype]] 내부 슬롯에 할당된다. 생성된 객체는 프로토타입을 상속받는다.</p>
-<h2 id="6-객체-생성-방식과-프로토타입의-결정"><a href="#6-객체-생성-방식과-프로토타입의-결정" class="headerlink" title="6. 객체 생성 방식과 프로토타입의 결정"></a>6. 객체 생성 방식과 프로토타입의 결정</h2><p><strong>객체의 생성방법</strong></p>
-<ul>
-<li>객체 리터럴</li>
-<li>Object 생성자 함수</li>
-<li>생성자 함수</li>
-<li>Object.create 메서드</li>
-<li>클래스</li>
-</ul>
-<p><strong>공통점</strong></p>
-<p>이처럼 다양한 방식으로 생성된 모든 객체는 각 방식마다 세부적인 객체 생성방식의 차이는 있으나 추상 연산 OrdinaryObjectCreate에 의해 생성된다는 공통점이 있다. </p>
-<p>**추상 연산 OrdinaryObjectCreate **</p>
-<p>추상 연산 OrdinaryObjectCreate는 필수적으로 자신이 생성할 객체의 프로토타입을 인수로 전달받는다.</p>
-<p>그리고 자신이 생성할 객체에 추가할 프로퍼티 목록을 옵션으로 전달할 수 있다. 추상 연산 OrdinaryObjectCreate는 빈 객체를 생성한 후, 객체에 추가할 프로퍼티 목록이 인수로 전달된 경우 프로퍼티를 객체에 추가한다. </p>
-<p>그리고 인수로 전달받은 프로토타입을 자신이 생성한 객체의 [[Prototype]] 내부슬롯에 할당하고, 생성한 객체를 반환한다.</p>
-<p>즉, 프로토타입은 추상 연산 OrdinaryObjectCreate에 전달되는 인수에 의해 결정된다. 이 인수는 객체가 생성되는 시점에 객체 생성방식에 의해 결정된다. </p>
-<h3 id="6-1-객체-리터럴에-의해-생성된-객체의-프로토타입"><a href="#6-1-객체-리터럴에-의해-생성된-객체의-프로토타입" class="headerlink" title="6.1 객체 리터럴에 의해 생성된 객체의 프로토타입"></a>6.1 객체 리터럴에 의해 생성된 객체의 프로토타입</h3><p><strong>객체리터럴에 의한 프로토타입 연결</strong></p>
-<p>자바스크립트 엔진은 객체 리터럴을 평가하여 객체를 생성할 때, 추상 연산 OrdinaryObjectCreate를 호출한다. 이때 추상 연산 OrdinaryObjectCreate에 전달되는 프로토타입은 Object.prototype이다. 즉, 객체리터럴에 의해 생성되는 객체의 프로토타입은 Object.prototype 이다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123;x: 1&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>위 객체 리터럴이 평가되면 추상연산 OrdinaryObjectCreate에 의해 Object 생성자 함수와 Object.prototype과 생성된 객체 사이에 연결이 만들어 진다. </p>
-<p><strong>Object.prototype을 상속받는다</strong></p>
-<p>객체리터럴에 의해 생성된 obj 객체는 Object.prototype을 프로토타입으로 갖게 되며, 이로써 Object.prototype을 상속받는다. obj 객체는 constructor 프로퍼티와 hasOwnProperty 메서드 등을 소유하지 않지만 자신의 프로토타입인 Object.prototype의 constructor 프로퍼티와 hasOwnProperty 메서드를 자신의 자산인 것처럼 자유롭게 사용할 수 있다. 이는 obj 객체가 자신의 프로토타입인 Object.prototype 객체를 상속받았기 때문이다. </p>
-<h3 id="6-2-Object-생성자-함수에-의해-생성된-객체의-프로토타입"><a href="#6-2-Object-생성자-함수에-의해-생성된-객체의-프로토타입" class="headerlink" title="6.2 Object 생성자 함수에 의해 생성된 객체의 프로토타입"></a>6.2 Object 생성자 함수에 의해 생성된 객체의 프로토타입</h3><p><strong>Object생성자 함수로 생성한 객체의 프로토타입 연결</strong></p>
-<p>Object 생성자 함수를 인수 없이 호출하면 빈 객체가 생성된다. Object 생성자 함수를 호출하면 객체 리터럴과 마찬가지로 추상연산 OrdinaryObjectCreate가 호출된다. 인수로 전달되는 프로토타입은 Object.prototype이다. 객체리터럴과 마찬가지로, Object 생성자 함수에 의해 생성되는 객체의 프로토타입은 Object.prototype 이다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; new Object();</span><br><span class="line">obj.x &#x3D; 1;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>생성된 객체는 객체리터럴에 의해 생성된 객체와 동일한 구조를 갖는다.</strong></p>
-<p>Object 생성자 함수로 생성된 객체 역시 추상 연산 OrdinaryObjectCreate 에 의해 인스턴스와 Object.prototype 간에 상속관계가 만들어진다. </p>
-<p>Object.prototype을 프로토타입으로 가진 인스턴스는 프로토타입의 프로퍼티를 상속받아 사용할 수 있다.</p>
-<p><strong>리터럴과 생성자 함수의 생성방식의 차이</strong></p>
-<p>객체 리터럴과 Object 생성자 함수에 의한 객체 생성방식의 차이는 프로퍼티를 추가하는 방식에 있다. 객체 리터럴 방식은 객체 리터럴 내부에 프로퍼티를 추가하지만 Object 생성자 함수 방식은 일단 빈 객체를 생성한 이후 프로퍼티를 추가해야한다.</p>
-<h3 id="6-3-생성자-함수에-의해-생성된-객체의-프로토타입"><a href="#6-3-생성자-함수에-의해-생성된-객체의-프로토타입" class="headerlink" title="6.3 생성자 함수에 의해 생성된 객체의 프로토타입"></a>6.3 생성자 함수에 의해 생성된 객체의 프로토타입</h3><p><strong>생성자 함수로 생성한 객체의 프로토타입 연결</strong></p>
-<p>new 연산자와 함께 생성자 함수를 호출하여 인스턴스를 생성하면 다른 객체 생성 방식과 마찬가지로 추상 연산 OrdinaryObjectCreate가 호출된다. 이때 추상 연산 OrdinaryObjectCreate에 전달되는 프로토타입은 생성자 함수의 prototype 프로퍼티에 바인딩되어 있는 객체다. 즉, 생성자 함수에 의해 생성되는 객체의 프로토타입은 생성자 함수의 prototype프로퍼티에 바인딩되어 있는 객체이다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Student(age) &#123;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;</span><br><span class="line">const me &#x3D; new Student(23);</span><br></pre></td></tr></table></figure>
-
-<p>위 코드가 실행되면</p>
-<ul>
-<li>추상연산 OrdinaryObjectCreate 호출</li>
-<li>인스턴스 다음 객체를 프로토타입으로 연결함<ul>
-<li>생성자 함수의 prototype 프로퍼티에 바인딩 된 객체</li>
-</ul>
-</li>
-</ul>
-<p><strong>Object 생성자 함수와 사용자 정의 생성자 함수의 차이</strong></p>
-<p>표준 빌트인 객체인 Object 생성자 함수와 더불어 생성된 프로토타입 Object.prototype 은 다양한 빌트인 메서드를 갖고 있다. 하지만 사용자 정의 생성자 함수 Student와 더불어 생성된 프로토타입 Student.prototype의 프로퍼티는 constructor 뿐이다.</p>
-<p><strong>프로토타입 객체에 프로퍼티 추가</strong></p>
-<p>프로토타입 Student.prototype에 프로퍼티를 추가하여 하위 객체가 상속받을 수 있도록 구현해본다. 프로토타입은 객체이므로 프로퍼티를 추가 삭제하여 프로토타입 체인에 반영시킬 수 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Student(age)&#123;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype.showInfo &#x3D; function()&#123;</span><br><span class="line">    console.log(this.age + &#39;세 입니다&#39;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br><span class="line"></span><br><span class="line">me.showInfo();&#x2F;&#x2F;23세 입니다</span><br></pre></td></tr></table></figure>
-
-<p>Student 생성자 함수를 통해 생성된 모든 객체는 Student.prototype에 추가된 프로퍼티를 상속받아 사용할 수 있다.</p>
-<h2 id="7-프로토타입-체인"><a href="#7-프로토타입-체인" class="headerlink" title="7.프로토타입 체인"></a>7.프로토타입 체인</h2><p><strong>사용자 정의 생성자 함수에 의해 생성된 객체의 상속 관계</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Student(age)&#123;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype.showInfo &#x3D; function()&#123;</span><br><span class="line">    console.log(this.age + &#39;세 입니다&#39;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br><span class="line">console.log(me.hasOwnProperty(&#39;age&#39;));&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p>Student 생성자 함수에 의해 생성된 me 객체는 Object.prototype 메서드인 hasOwnProperty를 호출할 수 있따. 이것은 me 객체가 Person.prototype 뿐만 아니라 Object.prototype 도 상속받았다는 것을 의미한다. </p>
-<p><strong>프로토타입의 프로토타입은 항상 Object.prototype 이다.</strong></p>
-<p>me 객체의 프로토타입은 Student.prototype 이다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(me) &#x3D;&#x3D;&#x3D; Student.prototype ; &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
-
-<p>Student.prototype의 프로토타입은 Object.prototype이다. 프로토타입의 프로토타입은 항상 Object.prototype이다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.getPrototypeOf(Studnet.prototype) &#x3D;&#x3D;&#x3D; Object.prototype; &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
-
-<p>Student 생성자 함수로 생성한 객체의 프로토타입 체인 구조는 다음과 같다.</p>
-<ul>
-<li>Student 생성자 함수<ul>
-<li>Function.prototype<ul>
-<li>Object.prototype</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>me 인스턴스<ul>
-<li>Student.prototype<ul>
-<li>Object.prototype</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>프로토타입의 이용</strong></p>
-<p>자바스크립트는 객체의 프로퍼티에 접근하려고 할 때 해당 객체에 프로퍼티가 없다면 [[Prototype]] 내부 슬롯의 참조를 따라 자신의 부모 역할을 하는 프로토타입의 프로퍼티를 순차적으로 검색한다. 이를 프로토타입 체인이라고 한다. 프로토타입 체인은 자바스크립트가 객체지향 프로그래밍의 상속을 구현하는 메커니즘이다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">me.hasOwnProperty(&#39;age&#39;); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p>hasOwnProperty는 Object.prototype의 메서드이다. me 객체부터 Student.prototype , Object.prototype 순으로 프로토타입 체인을 거슬러 올라가며 프로퍼티를 검색한다. </p>
-<p><strong>프로토타입 체인의 검색 과정</strong></p>
-<p>me.hasOwnProperty(‘age’) 메서드를 호출하는 과정</p>
-<ol>
-<li>hasOwnProperty 메서드를 호출한 me 객체에서 해당 메서드를 검색한다. me 객체에는 hasOwnProperty 메서드가 없다. 프로토타입 체인을 따라, [[Prototype]]내부슬롯 에 바인딩된 프로토타입으로 이동한다. Student.prototype에서 해당 메서드를 검색한다.</li>
-<li>Student.prototype에도 hasOwnProperty 메서드가 없으므로 프로토타입 체인을 따라 [[Prototype]]내부슬롯에 바인딩된 Object.prototype으로 이동하여 해당 메서드를 검색한다.</li>
-<li>Object.prototype에는 hasOwnProperty 메서드가 존재한다. 자바스크립트 엔진은 Object.prototype.hasOwnProperty 메서드를 호출한다.  이때 해당 메서드의 this 에는 me 객체가 바인딩된다.</li>
-</ol>
-<p><strong>call 메서드에 의한 간접 호출</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.hasOwnProperty.call(me, &#39;age&#39;);</span><br></pre></td></tr></table></figure>
-
-<p><strong>call 메서드</strong></p>
-<p>call 메서드는 this로 사용할 객체를 전달하면서 함수를 호출한다. 위 코드에서는 this로 사용할 me 객체를 전달하면서 Object.prototype.hasOwnProperty 메서드를 호출하였다.</p>
-<p><strong>프로토타입의 종점</strong></p>
-<p>프로토타입 체인의 최상위에 위치하는 객체는 언제나 Object.prototype이다. 따라서 모든 객체는 Object.prototype을 상속받는다. Object.prototype을 프로토타입 체인의 종점 (end of prototype chain)이라 한다. Object.prototype 의 프로토타입 즉 [[Prototype]] 내부 슬롯의 값은 null 이다.</p>
-<ul>
-<li>프로토타입 체인의 종점인 Object.prototype 에서도 프로퍼티를 검색할 수 없는 경우, undefined 를 반환한다. 이때 에러가 발생하지 않는다.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(me.hello); &#x2F;&#x2F;undefined</span><br></pre></td></tr></table></figure>
-
-<p><strong>프로토타입 체인의 의의</strong></p>
-<p>자바스크립트 엔진은 프로토타입 체인을 따라 프로퍼티 / 메서드를 검색한다. 즉, 자바스크립트 엔진은 객체 간의 상속 관계로 이루어진 프로토타입의 계층적인 구조에서 객체의 프로퍼티를 검색한다. 따라서 프로토타입 체인은 상속과 프로퍼티 검색을 위한 메커니즘이라고 할 수 있다. </p>
-<p><strong>스코프 체인과의 차이</strong></p>
-<p>프로토타입 체인이 프로퍼티 검색을 위한 메커니즘이라면, 프로퍼티가 아닌 식별자는 스코프 체인에서 검색한다. 즉, 자바스크립트 엔진은 함수의 중첩관계로 이루어진 스코프의 계층적 구조에서 식별자를 검색한다. 스코프 체인은 식별자 검색을 위한 메커니즘이라고 할 수 있다.</p>
-<p><strong>메서드 호출시 동작 과정</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">me.hasOwnProperty(&#39;age&#39;);</span><br></pre></td></tr></table></figure>
-
-<p>위 코드를 실행하게 되면 다음과 같은 순서로 동작한다.</p>
-<ol>
-<li>스코프 체인에서 me 식별자를 검색한다. me 스코프는 전역에서 선언되었으므로 전역 스코프에서 검색된다. </li>
-<li>me 객체의 프로토타입 체인에서 hasOwnProperty 메서드를 검색한다. </li>
-</ol>
-<p>스코프 체인과 프로토타입 체인은 서로 연관없이 별도로 동작하는 것이 아니라 서로 협력하여 식별자와 프로퍼티를 검색하는 데 사용된다. </p>
-<h2 id="8-오버라이딩과-프로퍼티-섀도잉"><a href="#8-오버라이딩과-프로퍼티-섀도잉" class="headerlink" title="8. 오버라이딩과 프로퍼티 섀도잉"></a>8. 오버라이딩과 프로퍼티 섀도잉</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const Student &#x3D; (function () &#123;</span><br><span class="line">    function Student(age) &#123;</span><br><span class="line">        this.age &#x3D; age;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Student.prototype.showInfo &#x3D; function()&#123;</span><br><span class="line">        console.log(this.age + &#39;세 입니다&#39;);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    return Student;</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br><span class="line"></span><br><span class="line">me.showInfo &#x3D; function() &#123;</span><br><span class="line">    console.log(&#39;안녕하세요 &#39; + this.age + &#39;세 입니다&#39; );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">me.showInfo(); &#x2F;&#x2F; 안녕하세요 23세 입니다</span><br></pre></td></tr></table></figure>
-
-<p><strong>상속 관계에 따른 프로퍼티 숨김</strong></p>
-<p>프로토타입이 소유한 프로퍼티를 프로토타입 프로퍼티, 인스턴스가 소유한 프로퍼티를 인스턴스 프로퍼티라고 부른다. </p>
-<p>프로토타입 프로퍼티와 같은 이름의 프로퍼티를 인스턴스에 추가하면 프로토타입 체인을 따라 프로토타입 프로퍼티를 검색하여 프로토타입 프로퍼티를 덮어쓰는 것이 아니라 인스턴스 프로퍼티로 추가한다. 이때 인스턴스 메서드 showInfo는 프로토타입 메서드 showInfo를 오버라이딩했다. 그리고 프로토타입 메서드 showInfo는 가려진다. 이처럼 상속 관계에 의해 프로퍼티가 가려지는 현상을 프로퍼티 섀도잉(property shadowing)이라 한다.</p>
-<p><strong>오버라이딩(overrding)</strong></p>
-<p>상위 클래스가 가지고 있는 메서드를 하위 클래스가 재정의하여 사용하는 방식이다.</p>
-<p><strong>오버로딩(overloading)</strong></p>
-<p>함수의 이름은 동일하지만 매개변수의 타입 또는 개수가 다른 메서드를 구현하고 매개변수에 의해 메서드를 구별하여 호출하는 방식이다. 자바스크립트는 오버로딩을 지원하지 않지만 arguments 객체를 사용하여 구현할 수는 있다. </p>
-<p><strong>프로퍼티를 삭제하는 경우</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete me.showInfo;</span><br><span class="line"></span><br><span class="line">me.showInfo(); &#x2F;&#x2F;23세 입니다</span><br></pre></td></tr></table></figure>
-
-<p>하위 객체를 통해 메서드를 삭제하면 인스턴스 메서드 showInfo가 삭제된다.  인스턴스 메서드를 삭제한 상태에서 메서드를 다시 삭제해본다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete me.showInfo;</span><br><span class="line"></span><br><span class="line">me.showInfo();&#x2F;&#x2F; 23세 입니다</span><br></pre></td></tr></table></figure>
-
-<p><strong>하위 객체에서 프로토타입의 프로퍼티를 변경할 수 없다</strong></p>
-<p>위 코드에서 알 수 있듯이 하위 객체를 통해 프로토타입의 프로퍼티를 변경 또는 삭제하는 것은 불가능하다. 다시 말해 하위 객체를 통해 프로토타입에 get 액세스는 허용되나 set액세스는 허용되지않는다. </p>
-<p><strong>프로토타입 프로퍼티를 변경 / 삭제하는 방법</strong></p>
-<p>프로토타입 프로퍼티를 변경 또는 삭제하려면 하위 객체를 통해 프로토타입 체인으로 접근하는 것이 아니라 프로토타입에 직접 접근해야 한다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Student.prototype.showInfo &#x3D; functioin() &#123;</span><br><span class="line">    console.log(&#39;안녕하세요 &#39; + this.age + &#39;입니다&#39;);</span><br><span class="line">&#125;;</span><br><span class="line">me.showInfo(); &#x2F;&#x2F; 안녕하세요 23세 입니다</span><br><span class="line"></span><br><span class="line">delete Student.prototype.showInfo; </span><br><span class="line">me.showInfo(); &#x2F;&#x2F; TypeError: me.showInfo is not a function </span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="9-프로토타입의-교체"><a href="#9-프로토타입의-교체" class="headerlink" title="9. 프로토타입의 교체"></a>9. 프로토타입의 교체</h2><p><strong>프로토타입은 교체가능하다</strong></p>
-<p>프로토타입은 임의의 다른 객체로 변경할 수 있다. 이것은 부모 객체인 프로토타입을 동적으로 변경할 수 있다는 것을 의미한다. 이러한 특징을 활용하여 객체 간의 상속 관계를 동적으로 변경할 수 있따. 프로토타입은 생성자 함수 또는 인스턴스에 의해 교체할 수 있다.</p>
-<h3 id="9-1-생성자-함수에-의한-프로토타입의-교체"><a href="#9-1-생성자-함수에-의한-프로토타입의-교체" class="headerlink" title="9.1 생성자 함수에 의한 프로토타입의 교체"></a>9.1 생성자 함수에 의한 프로토타입의 교체</h3><p><strong>프로토타입을 직접 할당</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const Student &#x3D; (function() &#123;</span><br><span class="line">    function Student(age) &#123;</span><br><span class="line">        this.age &#x3D; age;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Student.prototype &#x3D; &#123;</span><br><span class="line">        showInfo() &#123;</span><br><span class="line">            console.log(this.age + &#39;세 입니다&#39;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    return Student;</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br></pre></td></tr></table></figure>
-
-<p>Student.prototype에 객체리터럴을 할당했다. 이는 Student 생성자 함수가 생성할 객체의 프로톹아ㅣㅂ을 객체 리터럴로 교체한 것이다.</p>
-<p><strong>프로토타입 교체 시 유의점</strong></p>
-<p>프로토타입으로 교체한 객체 리터럴에는 constructor 프로퍼티가 없다. constructor 프로퍼티는 자바스크립트 엔진이 프로토타입을 생성할 때 암묵적으로 추가한 프로퍼티다. 따라서 me 객체의 생성자 함수를 검색하면 프로토타입 체인을 거슬러 올라가 Object.prototype의 constructor 프로퍼티를 검색하게 되어 Student가아닌 Object가 나온다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(me.constructor &#x3D;&#x3D;&#x3D; Student); &#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">console.log(me.constructor &#x3D;&#x3D;&#x3D; Object); &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>프로토타입을 교체하면 constructor 프로퍼티와 생성자 함수 간의 연결이 파괴된다.</li>
-</ul>
-<p>  <strong>constructor 프로퍼티와 생성자 함수간의 연결을 복구하는 법</strong></p>
-<p>파괴된 constructor 프로퍼티와 생성자 함수 간의 연결을 되살리기 위해서는 다음 방법을 따른다.</p>
-<ul>
-<li>프로토타입으로 교체한 객체 리터럴에 constructor 프로퍼티를 추가하여 프로토타입의 constructor 프로퍼티를 되살린다. </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const Student &#x3D; (function() &#123;</span><br><span class="line">    function Student(age) &#123;</span><br><span class="line">        this.age &#x3D; age;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    Student.prototype &#x3D; &#123;</span><br><span class="line">        constructor: Student,</span><br><span class="line">        showInfo() &#123;</span><br><span class="line">            console.log(this.age + &#39;세 입니다&#39;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    return Student;</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br></pre></td></tr></table></figure>
-
-<p><strong>결과</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(me.prototype &#x3D;&#x3D;&#x3D; Student); &#x2F;&#x2F;true</span><br><span class="line">console.log(me.prototype &#x3D;&#x3D;&#x3D; Object); &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="9-2-인스턴스에-의한-프로토타입의-교체"><a href="#9-2-인스턴스에-의한-프로토타입의-교체" class="headerlink" title="9.2 인스턴스에 의한 프로토타입의 교체"></a>9.2 인스턴스에 의한 프로토타입의 교체</h3><p><strong>접근자 프로퍼티를 통한 프로토타입 교체</strong></p>
-<p>프로토타입은 생성자 함수의 prototype 프로퍼티뿐만 아니라 인스턴스의 <code>__proto__</code> 접근자 프로퍼티나 빌트인 객체의 메서드를 통해 접근할 수 있다. </p>
-<p><strong>프로퍼티에 직접 바인딩하는것과의 차이점</strong></p>
-<p>생성자 함수의 prototype 프로퍼티에 다른 임의의 객체를 바인딩하는 것은 미래에 생성할 인스턴스의 프로토타입을 교체하는 것이다. <code>__proto__</code> 접근자 프로퍼티를 통해 프로토타입을 교체하는 것은 이미 생성된 객체의 프로토타입을 교체하는 것이다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Student(age) &#123;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br><span class="line"></span><br><span class="line">const parent &#x3D; &#123;</span><br><span class="line">    showInfo() &#123;</span><br><span class="line">        console.log(&#96;$&#123;this.age&#125;세 입니다&#96;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Object.setPrototypeOf(me, parent);</span><br><span class="line"></span><br><span class="line">me.showInfo(); &#x2F;&#x2F; 23세 입니다</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 프로토타입으로 교체한 객체에는 constructro 프로퍼티가 없다.</span><br><span class="line">&#x2F;&#x2F; constructor 프로퍼티와 생성자 함수간의 연결이 파괴된다.</span><br><span class="line">&#x2F;&#x2F; 프로토타입의 constructor 프로퍼티로 me 객체의 생성자 함수를 검색하면 Person 이 아닌 Object가 나온다</span><br><span class="line"></span><br><span class="line">console.log(me.constructor &#x3D;&#x3D;&#x3D; Student); &#x2F;&#x2F; false</span><br><span class="line">console.log(me.constructro &#x3D;&#x3D;&#x3D; Object); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p><strong>차이점 정리</strong></p>
-<ul>
-<li>생성자 함수에 의한 프로토타입 교체<ul>
-<li>Student 생성자 함수의 prototpype 프로퍼티가 교체된 프로토타입을 가리킨다.</li>
-</ul>
-</li>
-<li>인스턴스에 의한 프로토타입 교체<ul>
-<li>Student 생성자 함수의 prototype 프로퍼티가 교체된 프로토타입을 가리키지 않는다.</li>
-</ul>
-</li>
-</ul>
-<p><strong>인스턴스에 의한 프로토타입 교체 - 생성자 함수와의 연결 되살리기</strong></p>
-<p>프로토타입으로 교체한 객체 리터럴에 constructor 프로퍼티를 추가하고 생성자 함수의 prototype 프로퍼티를 재설정하여 파괴된 생성자 함수와 프로토타입 간의 연결을 되살려 보자.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">function Student(age) &#123;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;constructor 프로퍼티 추가</span><br><span class="line">const parent &#x3D; &#123;</span><br><span class="line">    constructor: Student,</span><br><span class="line">    showInfo() &#123;</span><br><span class="line">        console.log(&#96;$&#123;this.age&#125;세 입니다&#96;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; prototype 연결</span><br><span class="line">Student.prototype &#x3D; parent;</span><br><span class="line"></span><br><span class="line">Object.setPrototypeOf(me, parent);</span><br><span class="line"></span><br><span class="line">me.showInfo(); &#x2F;&#x2F; 23세 입니다</span><br><span class="line"></span><br><span class="line">console.log(me.constructor &#x3D;&#x3D;&#x3D; Student); &#x2F;&#x2F; true</span><br><span class="line">console.log(me.constructor &#x3D;&#x3D;&#x3D; Object); &#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">console.log(Student.prototype &#x3D;&#x3D;&#x3D; Object.getPrototypeOf(me)); &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>클래스의 도입</strong></p>
-<p>프로토타입 교체를 통해 객체 간의 상속 관계를 동적으로 변경하는 것은 꽤나 번거롭다. 하지만 ES6에서 도입된 클래스를 사용하면 간편하고 직관적으로 상속 관계를 구현할 수 있다. </p>
-<p>프로토타입 교체를 통해 객체 간의 상속 관계를 동적으로 변경하는 것은 번거롭다. 따라서 프로토타입은 직접 교체하지 않는 것이 좋다. 상속관계를 인위적으로 설정하려면 직접 상속이 더 편리하고 안전하다. 또는 ES6에서 도입된 클래스를 사용하면 간편하고 직관적으로 상속 관계를 구현할 수 있다. </p>
-<h2 id="10-instanceof-연산자"><a href="#10-instanceof-연산자" class="headerlink" title="10. instanceof 연산자"></a>10. instanceof 연산자</h2><p><strong>instanceof 연산자란</strong></p>
-<p>instanceof 연산자는 이항 연산자로서 좌변에 객체를 가리키는 식별자, 우변에 생성자 함수를 가리키는 식별자를 피연산자로 받는다. 만약 우변의 피연산자가 함수가 아닌 경우 TypeError가 발생한다</p>
-<p><strong>instanceof 연산자 표현식의 평가값</strong></p>
-<ul>
-<li>Student.prototype이 me 객체의 프로토타입 체인 상에 존재하므로 true로 평가된다.</li>
-<li>Object.prototype이 me 객체의 프로토타입 체인 상에 존재하므로 true 로 평가된다.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Student(age) &#123;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br><span class="line"></span><br><span class="line">console.log(me instanceof Student); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">console.log(me instanceof Object); &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>instanceof 연산자의 동작과정</strong></p>
-<p>instanceof 연산자가 어떻게 상속 관계를 파악하는지, 인스턴스에 읳 프로토타입을 교체해보며 알아본다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Student(age) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br><span class="line"></span><br><span class="line">const parent &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">Object.setPrototypeOf(me, parent);</span><br><span class="line"></span><br><span class="line">console.log(Student.prototype &#x3D;&#x3D;&#x3D; parent);&#x2F;&#x2F;false</span><br><span class="line">console.log(parent.constructor &#x3D;&#x3D;&#x3D; Student);&#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">console.log(me instanceof Student); &#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">console.log(me instanceof Object); &#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>프로토타입 교체시 생성자 함수와의 연결</strong></p>
-<p>me 객체는 비록 프로토타입이 교체되어 프로토타입과 생성자 함수간의 연결이 Student 생성자 함수에 의해 생성된 인스턴스임에 틀림이 없다. 그러나 me instanceof Student 는 false 로 평가된다.</p>
-<p>이는 Student.prototype이 me 객체의 프로토타입 체인상에 존재하지 않기 때문이다. 따라서 프로토타입으로 교체한 객체 parent 객체를 Student 생성자 함수의 prototype 프로퍼티에 바인딩하면 me instanceof Student는 true로 평가될 것이다.</p>
-<p><strong>교체한 프로토타입과 생성자 함수와의 연결</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Student(age) &#123;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br><span class="line"></span><br><span class="line">const parent &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">Object.setPrototypeOf(me, parent);</span><br><span class="line"></span><br><span class="line">console.log(Student.prototype &#x3D;&#x3D;&#x3D; parent);&#x2F;&#x2F;false</span><br><span class="line">console.log(parent.constructor &#x3D;&#x3D;&#x3D; Student);&#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">Student.prototype &#x3D; parent;</span><br><span class="line"></span><br><span class="line">console.log(me instanceof Student); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">console.log(me instanceof Object); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>instanceof 연산자의 원리</strong></p>
-<p>이처럼 instanceof 연산자는 프로토타입의 constructor 프로퍼티가 가리키는 생성자 함수를 찾는 것이 아니라, 생성자 함수의 prototype 에 바인딩된 객체가 프로토타입 체인 상에 존재하는지 확인한다.</p>
-<p>instanceof 연산자는 좌변 피연산자의 프로토타입 체인 상에 우변의 피연산자, 즉 생성자 함수의 prototype 프로퍼티에 바인딩된 객체가 존재하는 지 검색한다.</p>
-<p>me instanceof Student의 경우, me 객체의 프로토타입 체인 상에 Student.prototype에 바인딩된 객체가  존재하는지 확인한다.</p>
-<p>me instnaceof Object 의 경우 me 객체의 프로토타입 체인 상에 Object.prototype에 바인딩된 객체가 존재하는지 확인한다. instanceof 연산자를 함수로 표현하면 다음과 같다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function isInstanceof(instance, constructor) &#123;</span><br><span class="line">    const prototype &#x3D; Object.getPrototypeOf(instance);</span><br><span class="line">    </span><br><span class="line">    if(prototype &#x3D;&#x3D;&#x3D; null) return false;</span><br><span class="line">    </span><br><span class="line">    return prototype &#x3D;&#x3D;&#x3D; constructor.prototype || isInstanceof(prototype, constructor);</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> console.log(isInstanceof(me, Student)) ; &#x2F;&#x2F;true</span><br><span class="line"> console.log(isInstanceof(me, Object)); true</span><br><span class="line"> console.log(isInstanceof(me, Array)); &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="11-직접-상속"><a href="#11-직접-상속" class="headerlink" title="11. 직접 상속"></a>11. 직접 상속</h2><h3 id="11-1-Object-create에-의한-직접-상속"><a href="#11-1-Object-create에-의한-직접-상속" class="headerlink" title="11.1 Object.create에 의한 직접 상속"></a>11.1 Object.create에 의한 직접 상속</h3><p><strong>Object.create 메서드의 동작</strong></p>
-<p>Object.create 메서드는 명시적으로 프로토타입을 지정하여 새로운 객체를 생성한다. Object.create 메서드도 다른 객체 생성 방식과 마찬가지로 추상연산 OrdinaryObjectCreate를 호출한다. </p>
-<p>Object.create 메서드의 첫 번째 매개변수에는 생성할 객체의 프로토타입으로 지정할 객체를 전달한다. 두 번째 매개변수에는 생성할 객체의 프로퍼티 키와 프로퍼티 디스크립터 객체로 이뤄진 객체를 전달한다.  이 객체의 형식은 Object.definePRoperties 메서드의 두 번째 인수와 동일하다. 두 번째 인수는 옵션이므로 생략가능하다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.create(prototype, [propertiesObject])</span><br></pre></td></tr></table></figure>
-
-<p><strong>사용 예시</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">let obj &#x3D; Object.create(null);</span><br><span class="line">console.log(Object.getPrototypeOf(obj) &#x3D;&#x3D;&#x3D; null);</span><br><span class="line"></span><br><span class="line">console.log(obj.toString()); &#x2F;&#x2F; TypeError</span><br><span class="line"></span><br><span class="line">obj &#x3D; Object.create(Object.prototype);</span><br><span class="line">console.log(Object.getPrototypeOf(obj) &#x3D;&#x3D;&#x3D; Object.prototype); &#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">obj &#x3D; Object.create(Object.prototype,&#123;</span><br><span class="line">    x: &#123; value: 1, writable: true, enumerable: true, configurable: true&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(obj.x); &#x2F;&#x2F;1</span><br><span class="line">console.log(Object.getPrototypeOf(obj) &#x3D;&#x3D;&#x3D; Object.prototype); &#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">const myProto &#x3D; &#123; x: 10&#125;;</span><br><span class="line"></span><br><span class="line">obj &#x3D; Object.create(myProto);</span><br><span class="line">console.log(obj.x);</span><br><span class="line">console.log(Object.getPrototypeOf(obj) &#x3D;&#x3D;&#x3D; myProto); &#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">function Person(name) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj &#x3D; Object.create(Person.prototype);</span><br><span class="line">obj.name &#x3D; &#39;Lee&#39;;</span><br><span class="line">console.log(obj.name); &#x2F;&#x2F;Lee</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Object.create 메서드의 장점</strong></p>
-<p>Object.create 메서드는 첫 번째 매개변수에 전달한 객체의 프로토타입 체인에 속하는 객체를 생성한다. 즉, 객체를 생성하면서 직접적으로 상속을 구현하는 것이다. 이메서드의 장점은 다음과 같다. </p>
-<ul>
-<li>new 연산자가 없이도 객체를 생성할 수 있다.</li>
-<li>프로토타입을 지정하면서 객체를 생성할 수 있다.</li>
-<li>객체 리터럴에 의해 생성된 객체도 상속받을 수 있다.</li>
-</ul>
-<p><strong>Object.prototype의 상속</strong></p>
-<p>Object.prototype의 빌트인 메서드인 Object.prototype.hasOwnProperty, Object.prototype.isPrototypeOf, Object.prototype.propertyIsEnumerable 등은 모든 객체의 프로토타입 체인의 종점, 즉 Object.[rototype의 메서드이므로 모든객체가 상속받아 호출할 수 잇다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123;a: 1&#125;;</span><br><span class="line"></span><br><span class="line">obj.hasOwnProperty(&#39;a&#39;); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">obj.propertyISEnumerable(&#39;a&#39;);&#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
-
-<p><strong>주의점</strong></p>
-<p>그런데 ESLint에서는 앞의 예제와 같이 Object.prototype의 빌트인 메서드를 객체가 직접 호출하는 것을 권장하지 않는다. 그 이유는 Object.create메서드를 통해 프로토타입 체인의 종점에 위치하는 객체를 생성할 수 있기 때문이다. 프로토타입 체인으ㅢ 종점에 위치하는 객체는 Object.prototype의 빌트인 메서드를 사용할 수 없다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; Object.create(null);</span><br><span class="line">obj.a &#x3D; 1;</span><br><span class="line"></span><br><span class="line">console.log(Object.getPrototypeOf(obj)&#x3D;&#x3D;&#x3D; null) ; &#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">console.log(obj.hasOwnProperty(&#39;a&#39;));&#x2F;&#x2F; TypeError: obj.hasOwnProperty is not a function</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>Object.prototype 빌트인 메서드의 간접 호출</strong></p>
-<p>따라서 이같은 에러를 발생시킬 위험을 없애기 위해 Object.prototype 의 빌트인 메서드는 다음과 같이 간접적으로 호출하는 것이 좋다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; Object.create(null);</span><br><span class="line">obj.a &#x3D; 1;</span><br><span class="line"></span><br><span class="line">console.log(Object.prototype.hasOwnProperty.call(obj,&#39;a&#39;)); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="11-2-객체-리터럴-내부에서-proto-에-의한-직접-상속"><a href="#11-2-객체-리터럴-내부에서-proto-에-의한-직접-상속" class="headerlink" title="11.2 객체 리터럴 내부에서 __proto__에 의한 직접 상속"></a>11.2 객체 리터럴 내부에서 <code>__proto__</code>에 의한 직접 상속</h3><p><strong>Object.create의 단점</strong></p>
-<p>Object.create 메서드에 의한 직접 상속은 앞에서 다룬 것과 같이 여러 장점이 있다. 하지만 두번째 인자로 프로퍼티를 정의하는 것은 번거롭다. 일단 객체를 생성한 이후 프로퍼티를 추가하는 방법도 있으나 깔끔하지는 않다.</p>
-<p><strong>객체리터럴 내부에서의 직접상속 구현</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const myProto &#x3D; &#123; x: 10&#125;;</span><br><span class="line"></span><br><span class="line">const obj &#x3D; &#123;</span><br><span class="line">    y: 20,</span><br><span class="line">    </span><br><span class="line">    __proto__: myProto</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(obj.x, obj.y); &#x2F;&#x2F; 10 20</span><br><span class="line">console.log(Object.getPrototypeOf(obj) &#x3D;&#x3D;&#x3D; myProto); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="12-정적-프로퍼티-메서드"><a href="#12-정적-프로퍼티-메서드" class="headerlink" title="12. 정적 프로퍼티 / 메서드"></a>12. 정적 프로퍼티 / 메서드</h2><p><strong>정적 프로퍼티 / 메서드란</strong></p>
-<p>정적(static) 프로퍼티 / 메서드는 생성자 함수로 인스턴스를 생성하지 않아도 참조/호출할 수 있는 프로퍼티/메서드를 말한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function Student(age) &#123;</span><br><span class="line">    this.age &#x3D; age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;프로토타입 메서드</span><br><span class="line">Student.prototype.showInfo &#x3D; function () &#123;</span><br><span class="line">    console.log(this.age + &#39;세 입니다&#39;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;정적 프로퍼티</span><br><span class="line">Student.staticProp &#x3D; &#39;statick prop&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;정적 메서드</span><br><span class="line">Student.staticMethod &#x3D; function () &#123;</span><br><span class="line">    console.log(&#39;staticMethod&#39;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const me &#x3D; new Student(23);</span><br><span class="line"></span><br><span class="line">Student.staticMethod();</span><br><span class="line"></span><br><span class="line">me.staticMethod(); &#x2F;&#x2F; TypeError</span><br></pre></td></tr></table></figure>
-
-<p>Student 생성자 함수는 객체이므로 자신의 프로퍼티/메서드를 소유할 수 있다. Student 생성자 함수 객체가 소유한 프로퍼티/메서드를 정적 프로퍼티/메서드라고 한다. 정적 프로퍼티/메서드는 생성자 함수가 생성한 인스턴스로 참조/호출할 수 없다.</p>
-<p><strong>정적 프로퍼티/메서드의 접근가능성</strong></p>
-<p>생성자 함수가 생성한 인스턴스는 자신의 프로토타입 체인에 속한 객체의 프로퍼티/메서드에 접근할 수 있따. 하지만 정적 프로퍼티/메서드는 인스턴스의 프로토타입 체인에 속한 프로퍼티/ 메서드가 아니므로 인스턴스로 접근할 수 없다.</p>
-<p><strong>예시</strong></p>
-<p>앞에서 살펴본 Object.create 메서드는 Object 생성자 함수의 정적 메서드고 Object.prototype.hasOwnProperty 메서드는 Object.prototype의 메서드다. 따라서 Object.create 메서드는 인스턴스, 즉 Object 생성자 함수가 생성한 객체로 호출할 수 없다. </p>
-<p>하지만 Object.prototype.hasOwnProperty 메서드는 모든 객체의 프로토타입 체인의 종점, 즉 Object.prototype의 메서드이므로 모든 객체가 호출할 수 있다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; Object.create(&#123; name: &#39;Lee&#39;&#125;);</span><br><span class="line"></span><br><span class="line">obj.hasOwnProperty(&#39;name&#39;);</span><br></pre></td></tr></table></figure>
-
-<p><strong>정적 메서드 사용이유</strong></p>
-<p>인스턴스에서 메서드는 다른 데이터프로퍼티를 참조하거나 변경하는데 사용된다.</p>
-<p>만약 인스턴스 / 프로토타입 메서드 내에서 this를 사용하지 않는다면 그 메서드는 정적 메서드로 변경할 수 있다. 인스턴스가 호출한 인스턴스/ 프로토타입 메서드내에서 this는 인스턴스를 가리킨다. 메서드 내에서 인스턴스를 참조할 필요가 없다면 정적 메서드로 변경해도 동작한다. 프로토타입 메서드를 호출하려면 인스턴스를 생성해야하지만 정적 메서드는 인스턴스를 생성하지 않아도 호출할 수 있다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Foo() &#123;&#125;</span><br><span class="line">Foo.prototype.x &#x3D; function () &#123;</span><br><span class="line">    console.log(&#39;x&#39;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const foo &#x3D; new Foo();</span><br><span class="line">&#x2F;&#x2F;프로토타입 메서드를 호출하려면 인스턴스를 생성해야 한다.</span><br><span class="line"></span><br><span class="line">foo.x(); &#x2F;&#x2F;x</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;정적 메서드</span><br><span class="line">Foo.x &#x3D; function() &#123;</span><br><span class="line">    console.log(&#39;x&#39;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Foo.x();&#x2F;&#x2F; x</span><br><span class="line">&#x2F;&#x2F;인스턴스를 생성하지 않아도 메서드를 호출할 수 있다.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="13-프로퍼티-존재-확인"><a href="#13-프로퍼티-존재-확인" class="headerlink" title="13. 프로퍼티 존재 확인"></a>13. 프로퍼티 존재 확인</h2><h3 id="13-1-in-연산자"><a href="#13-1-in-연산자" class="headerlink" title="13.1 in 연산자"></a>13.1 in 연산자</h3><p><strong>in 연산자의 기능</strong></p>
-<p>in 연산자는 객체 내에 특정 프로퍼티가 존재하는 지 여부를 확인한다. in 연산자의 사용방법은 다음과 같다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key in object</span><br></pre></td></tr></table></figure>
-
-<p><strong>사용 예시</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;</span><br><span class="line">    name: &#39;Lee&#39;,</span><br><span class="line">    address: &#39;Seoul&#39;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(&#39;name&#39; in person); &#x2F;&#x2F; true</span><br><span class="line">console.log(&#39;address&#39; in person); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p><strong>주의점</strong></p>
-<p>in 연산자는 확인 대상 객체의 프로퍼티뿐만 아니라확인 대상 객체가상속받은 모든 프로토타입의 프로퍼티를 확인하므로 주의가 필요하다. person 객체에는 toString이라는 프로퍼티가 없지만 다음 코드의 실행 결과는 true다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;toString&#39; in person);</span><br></pre></td></tr></table></figure>
-
-<p><strong>이유</strong></p>
-<p>이는 in 연산자가 person 객체에 속한 프로토타입 체인상에 존재하는 모든 프로토타입에서 toString 프로퍼티를 검색했기 때문이다. toString은 Object.prototype의 메서드다.</p>
-<p><strong>Reflect.has 메서드</strong></p>
-<p>in 연산자 대신 ES6에서 도임된 Reflect.has 메서드를 사용할 수도 있다. Reflect.has 메서드는 in 연산자와 동일하게 동작한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123; name: &#39;Lee&#39;&#125;;</span><br><span class="line"></span><br><span class="line">console.log(Reflect.has(person, &#39;name&#39;));&#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="13-2-Object-prototype-hasOwnProperty-메서드"><a href="#13-2-Object-prototype-hasOwnProperty-메서드" class="headerlink" title="13.2 Object.prototype.hasOwnProperty 메서드"></a>13.2 Object.prototype.hasOwnProperty 메서드</h3><p>Object.prototype.hasOwnProperty 메서드를 사용해도 객체에 특정프로퍼티가 존재하는지 확인할 수 있다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(person.hasOwnProperty(&#39;name&#39;)); &#x2F;&#x2F;true</span><br><span class="line">console.log(person.hasOwnProperty(&#39;age&#39;)); &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
-
-<p><strong>특징</strong></p>
-<p>Object.hasOwnProperty 메서드는 이름에서 알 수 있듯이 인수로 전달받은 프로퍼티 키가 객체 고유의 프로퍼티 키인 경우에만 true를 반환하고 상속받은 프로토타입의 프로퍼티 키인 경우 false를 반환한다. </p>
-<h2 id="14-프로퍼티-열거"><a href="#14-프로퍼티-열거" class="headerlink" title="14. 프로퍼티 열거"></a>14. 프로퍼티 열거</h2><h3 id="14-1-for…-in-문"><a href="#14-1-for…-in-문" class="headerlink" title="14.1 for… in 문"></a>14.1 for… in 문</h3><p><strong>기능</strong></p>
-<p>객체의 모든 프로퍼티를 순회하며 열거(enumeration)하려면 for…in 문을 사용한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(변수선언문 in 객체) &#123;...&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;</span><br><span class="line">    name: &#39;Lee&#39;,</span><br><span class="line">    address: &#39;Seoul&#39;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">for ( const key in person) &#123;</span><br><span class="line">    console.log(key + &#39;: &#39; + person[key]);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;name: Lee</span><br><span class="line">&#x2F;&#x2F;address: Seoul</span><br></pre></td></tr></table></figure>
-
-<p><strong>for … in 문의 원리</strong></p>
-<p>for … in 문은 객체의 프로퍼티 개수만큼 순회하며 for… in 문의 변수 선언문에서 선언한 변수에 프로퍼티 키를 할당한다. 위 예제의 경우, person 객체에는 2개의 프로퍼티가 있으므로 객체를 2번 순회하면서 프로퍼티 키를 key 변수에 할당한 후 코드블록을 실행한다. 첫 번째 순회에서는 프로퍼티 키 ‘name’을 key 변수에 할당한 후 코드블록을 실행하고 두 번째 순회에서는 프로퍼티 키 ‘address’를 key 변수에 할당한 후 코드 블록을 실행한다.</p>
-<p><strong>Object.prototype의 프로퍼티가 열거되지 않는이유</strong></p>
-<p>for … in 문은 in 연산자 처럼 순회 대상 객체의 프로퍼티 뿐만 아니라 상속받은 프로토타입의 프로퍼티까지 열거한다. 하지만 toString 같은 Object.prototype의 프로퍼티가 열거되지 않는다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;</span><br><span class="line">    name: &#39;Lee&#39;,</span><br><span class="line">    address: &#39;Seoul&#39;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(&#39;toString&#39; in person); &#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">for (const key in person) &#123;</span><br><span class="line">    console.log(key + &#39;: &#39; + person[key]);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;name: Lee</span><br><span class="line">&#x2F;&#x2F;address: Seoul</span><br></pre></td></tr></table></figure>
-
-<p>이는 toString 메서드가 열거할 수 없도록 정의되어 있는 프로퍼티이기 때문이다. 다시말해, Object.prototype.string 프로퍼티의 프로퍼티 어트리뷰트 [[Enumerable]] 의 값이 false이기 때문이다. 프로퍼티 어트리뷰트 [[Enumerable]] 은 프로퍼티의 열거 가능 여부를 나타내며 불리언 값을 갖는다</p>
-<p><strong>for … in 문의 기능에대한 정확한 표현</strong></p>
-<p>for … in 문은 객체의 프로토타입 체인 상에 존재하는 모든 프로토타입의 프로퍼티 중에서 프로퍼티 어트리뷰트 [[Enumerabl]]의 값이 true인 프로퍼티를 순회하며 열거(enumeration) 한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;</span><br><span class="line">    name: &#39;Lee&#39;,</span><br><span class="line">    address: &#39;Seoul&#39;,</span><br><span class="line">    __proto__: &#123; age: 20&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">for (const key in person) &#123;</span><br><span class="line">    console.log(key + &#39;: &#39; + person[key]);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;name: Lee</span><br><span class="line">&#x2F;&#x2F;address: Seoul</span><br><span class="line">&#x2F;&#x2F;age: 20</span><br></pre></td></tr></table></figure>
-
-<p><strong>예외</strong></p>
-<p>for … in 문은 프로퍼티 키가 심벌인 프로퍼티는 열거하지 않는다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const sym &#x3D; Symbol();</span><br><span class="line">const obj &#x3D; &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    [sym]: 10</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">for (const key in obj) &#123;</span><br><span class="line">    console.log(key + &#39;: &#39; + obj[key]);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;a: 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>객체 자신의 프로퍼티만을 열거하는 방법</strong></p>
-<p>상속받은 프로퍼티는 제외하고 객체 자신의 프로퍼티 만을 열거하려면 Object.prototype.hasOwnProperty 메서드를 사용하여 객체 자신의 프로퍼티인지 확인해야한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;</span><br><span class="line">    name: &#39;Lee&#39;,</span><br><span class="line">    address: &#39;Seoul&#39;,</span><br><span class="line">    __proto__: &#123;age: 23&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">for(const key in person) &#123;</span><br><span class="line">    if(!person.hasOwnProperty(key)) continue;</span><br><span class="line">    console.log( key + &#39;: &#39; + person[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>for … in 문의 순서</strong></p>
-<p>위 예제의 결과는 person 객체의 프로퍼티가 정의된 순서대로 열거되었다. 하지만 for…in 문은 프로퍼티를 열거할 때 순서를 보장하지 않으므로 주의해야한다. 하지만 대부분의 모던 브라우저는 순서를 보장하고 숫자(사실은 문자열) 인 프로퍼티 키에 대해서는 정렬을 실시한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123;</span><br><span class="line">    2: 2,</span><br><span class="line">    3: 3,</span><br><span class="line">    1: 1,</span><br><span class="line">    b: &#39;b&#39;,</span><br><span class="line">    a: &#39;a&#39;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">for(const key in obj) &#123;</span><br><span class="line">    if(!person.hasOwnProperty(key)) continue;</span><br><span class="line">    console.log( key + &#39;: &#39; + obj[key]);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*</span><br><span class="line">1: 1</span><br><span class="line">2: 2</span><br><span class="line">3: 3</span><br><span class="line">b: b</span><br><span class="line">a: a</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>배열의 요소열거</strong></p>
-<p>배열에는 for in 문을 사용하지말고 일반적인 for 문이나 for of 문 또는 Array.prototype.forEach 메서드를 사용하는것이좋다. 사실 배열도 객체이므로 프로퍼티와 상속받은 프로퍼티가 포함될 수 있다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3];</span><br><span class="line">arr.x &#x3D; 10;</span><br><span class="line"></span><br><span class="line">for (const i in arr) &#123;</span><br><span class="line">    console.log(arr[i]); &#x2F;&#x2F; 1 2 3 10</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let i &#x3D; 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">arr.forEach(v &#x3D;&gt; console.log(v));</span><br><span class="line"></span><br><span class="line">for (const value of arr) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="14-2-Object-keys-value-entries-메서드"><a href="#14-2-Object-keys-value-entries-메서드" class="headerlink" title="14.2 Object.keys/value/entries 메서드"></a>14.2 Object.keys/value/entries 메서드</h3><p><strong>객체 자신의 고유프로퍼티만을 열거</strong></p>
-<p>for in 문은 객체 자신의 고유 프로퍼티 뿐만 아니라 상속받은 프로퍼티도 열거한다. 따라서 Object.prototype.hasOwnProperty 메서드를 사용하여 객체 자신의 프로퍼티인지 확인하는 추가 처리가 필요하다.</p>
-<p>객체 자신의 고유 프로퍼티만을 열거하기위해서는 for in 문을 사용하는 것보다 Object.keys/value/entries 메서드를 사용하는것이 좋다.</p>
-<p><strong>Object.keys 메서드</strong></p>
-<p>Object.keys 메서드는 객체 자신의 열거 가능한(enumerable) 프로퍼티 키를 배열로 반환한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const person &#x3D; &#123;</span><br><span class="line">    name: &#39;Lee&#39;,</span><br><span class="line">    address: &#39;Seoul&#39;,</span><br><span class="line">    __proto__: &#123; age: 20&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(Object.keys(person)); [&#39;name&#39;, &#39;address&#39;]</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Object.values 메서드</strong></p>
-<p>ES8에서 도입된 Object.values 메서드는 객체 자신의 열거 가능한 프로퍼티 값을 배열로 반환한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Object.values(person)); &#x2F;&#x2F; [&#39;Lee&#39;, &#39;Seoul&#39;]</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Object.entries 메서드</strong></p>
-<p>Object.entries 메서드는 객체 자신의 열거 가능한 프로퍼티 키와 값의 쌍의 배열을 배열에 담아 반환한다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Object.entries(person));</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/28/javascript-Sorting-practice/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/28/javascript-Sorting-practice/" class="post-title-link" itemprop="url">javascript Sorting practice</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-28 08:20:02 / Modified: 08:23:08" itemprop="dateCreated datePublished" datetime="2020-09-28T08:20:02+09:00">2020-09-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="정렬확인-버블정렬-과제"><a href="#정렬확인-버블정렬-과제" class="headerlink" title="정렬확인, 버블정렬 과제"></a>정렬확인, 버블정렬 과제</h1><h2 id="정렬-확인"><a href="#정렬-확인" class="headerlink" title="정렬 확인"></a>정렬 확인</h2><p>주어진 배열(array)이 정렬되어 있다면 true, 그렇지 않다면 false를 반환하는 함수를 구현하라. 단, 어떠한 빌트인 함수도 사용하지 않고 for 문을 사용하여 구현하여야 한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSorted</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isSorted([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(isSorted([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>])); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Answer</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function isSorted(array)&#123;</span><br><span class="line">  if( !(array instanceof Array))&#123;</span><br><span class="line">    throw &#39;this argument is not array&#39;;</span><br><span class="line">  &#125;</span><br><span class="line">  for(let i &#x3D; 0; i &lt; array.length - 1; i++)&#123;</span><br><span class="line">    if(array[i] &gt; array[i+1]) return false;</span><br><span class="line">  &#125;</span><br><span class="line">  return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(isSorted([1,3,2,4]));&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="버블정렬"><a href="#버블정렬" class="headerlink" title="버블정렬"></a>버블정렬</h2><ul>
-<li>버블 정렬(buble sort)은 순차적으로 배열을 순회하면서 인접한 두 요소를 비교하여 작은 요소를 왼쪽으로, 큰 요소를 오른쪽으로 교환한다.</li>
-<li>버블 정렬은 가장 간단하지만 가장 느린 정렬 알고리즘이다.</li>
-<li>시간 복잡도: O(n2)</li>
-</ul>
-<p><img src="https://poiemaweb.com/assets/fs-images/bubble-sort.png" alt="img"></p>
-<p>버블 정렬</p>
-<p>버블 정렬을 통해 주어진 배열(array)을 정렬하는 함수를 구현하라. 단, 어떠한 빌트인 함수도 사용하지 않고 for 문을 사용하여 구현하여야 한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>]));     <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">5</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>]));  <span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">4</span>, <span class="number">2</span>])); <span class="comment">// [-1, 0, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Answer</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function bubbleSort(array)&#123;</span><br><span class="line">  let med;</span><br><span class="line">  if( !(array instanceof Array))&#123;</span><br><span class="line">    throw &#39;this argument is not array&#39;;</span><br><span class="line">  &#125;</span><br><span class="line">  for(let i &#x3D; 0; i &lt; array.length - 1; i++)&#123;</span><br><span class="line">    if(array[i] &gt; array[i+1])&#123;</span><br><span class="line">      med &#x3D; array[i+1];</span><br><span class="line">      array[i+1] &#x3D; array[i];</span><br><span class="line">      array[i] &#x3D; med;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if(!isSorted(array))&#123;</span><br><span class="line">    bubbleSort(array);</span><br><span class="line">  &#125;</span><br><span class="line">  return array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(bubbleSort([2,4,5,1,3]));</span><br><span class="line">&#x2F;&#x2F;[ 1, 2, 3, 4, 5 ]</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2071,7 +1381,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
