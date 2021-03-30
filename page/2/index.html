@@ -148,147 +148,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/12/10/Report-bugFix1206/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/10/Report-bugFix1206/" class="post-title-link" itemprop="url">Report bugFix1206</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-10 07:59:26" itemprop="dateCreated datePublished" datetime="2020-12-10T07:59:26+09:00">2020-12-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="20201206-bugfix"><a href="#20201206-bugfix" class="headerlink" title="20201206 bugfix"></a>20201206 bugfix</h2><ul>
-<li>SKB 20201206(일) 테스트 및 버그 수정 </li>
-</ul>
-<p><strong>cors policy error</strong></p>
-<ul>
-<li>Cross-origin resource sharing</li>
-<li>초기 도메인과 다른 도메인으로부터의 자원 제공 제한</li>
-<li>요청 헤더에 검증 토큰전송</li>
-<li>캐시때문에 에러가 뜰수도있음<ul>
-<li>캐시에 대해 공부해보기</li>
-</ul>
-</li>
-<li>프록시 공부하기</li>
-<li>cors 가 발생안하도록 origin을 일치시키는것이 최선의 방법이라고 한다.</li>
-</ul>
-<p><strong>RegExpression 백슬래시 삭제에러</strong></p>
-<ul>
-<li>개발자도구 에서 response를 확인하니 문자열안의 백슬래시\ 삭제되는 에러</li>
-<li>프론트쪽 코드를 확인해봤으나 request header에 문자열 그대로 전송</li>
-<li>db 쪽에서 데이터 변환과정에서 문제 발생<ul>
-<li>\ 대신 // 로 변환하여 문제 해결되었다고 전달</li>
-</ul>
-</li>
-<li>RegExpression 및 데이터 전달과정 알아보기</li>
-</ul>
-<p>남은 fix list</p>
-<ul>
-<li><p>작업 페이지에서 새로고침하면 이전 페이지로 돌아가기 </p>
-</li>
-<li><p>유효성 검사</p>
-</li>
-<li><p>ux 개선</p>
-</li>
-</ul>
-<ul>
-<li><p>코드 refactoring</p>
-<ul>
-<li><p>es6문법 미사용되어 있음</p>
-<ul>
-<li>변수 선언 키워드</li>
-<li>제어문</li>
-<li>if문 중첩 </li>
-<li>등등</li>
-</ul>
-</li>
-<li><p>비교연산자로 == 만써서 타입 검사가 안됨</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="20201209-버그-픽스"><a href="#20201209-버그-픽스" class="headerlink" title="20201209 버그 픽스"></a>20201209 버그 픽스</h2><ul>
-<li>중복 체크가 안되어있으면 완료안됨<ul>
-<li>완료버튼 누를때 체크여부</li>
-</ul>
-</li>
-<li>체크 완료 후 재입력하면 중복체크가 false</li>
-<li>false인 상태로 완료 누르면 중복 체크 에러 메시지</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$scope.dupCheckMessage=<span class="string">&quot;&quot;</span></span><br><span class="line">$scope.checkName = <span class="function"><span class="params">name</span> =&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// if(!name)&#123;</span></span><br><span class="line">  <span class="comment">//   $scope.dupCheckMessage = &quot;이름을 입력하세요&quot;;</span></span><br><span class="line">  <span class="comment">//   $scope.dupChecked = false;</span></span><br><span class="line">  <span class="comment">//   return;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  $scope.dupChecked = $scope.customerNames.includes(name) ? <span class="literal">false</span> : <span class="literal">true</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// if(!$scope.dupChecked) $scope.parsleyOfName.addError(&#x27;dupError&#x27;,&#123;message: &#x27;중복에러&#x27;&#125;);</span></span><br><span class="line">    <span class="comment">// $http(&#123;</span></span><br><span class="line">    <span class="comment">// method: &#x27;get&#x27;,</span></span><br><span class="line">    <span class="comment">// url: &#x27;https://userapi-dev.myskcdn.net/tr/2020-11-25/customer/id/list&#x27;, //</span></span><br><span class="line">    <span class="comment">// headers: &#123; &quot;Authorization&quot;: $rootScope.globals.currentUser.authdata &#125;</span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line">    <span class="comment">// .then(response =&gt; response.data.data.map(customer =&gt; customer[&#x27;name&#x27;]))</span></span><br><span class="line">    <span class="comment">// .then(customerNames =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//   console.log(customerNames)</span></span><br><span class="line">    <span class="comment">//   $scope.dupChecked = customerNames.includes(name) ? false : true;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//   $scope.dupCheckMessage = $scope.dupChecked ? &quot;유효한 이름입니다.&quot; : &quot;이미 존재하는 이름입니다.&quot;</span></span><br><span class="line">    <span class="comment">//   console.log($scope.dupChecked);</span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>answer</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.Parsley.addValidator(<span class="string">&#x27;duplication&#x27;</span>, &#123;</span><br><span class="line">  </span><br><span class="line">  validateString: <span class="function">(<span class="params">name, nameList</span>)  =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> nameArray = nameList.split(<span class="string">&#x27;|&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> nameArray.includes(name) ? <span class="literal">false</span> : <span class="literal">true</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  messages: &#123;</span><br><span class="line">    ko: <span class="string">&#x27;이미 존재하는 이름입니다.&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">$scope.parsleyOfForm = $(<span class="string">&#x27;.customer__info&#x27;</span>).parsley();</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>접기버튼 목록<ul>
-<li>내정보보기</li>
-<li>고객사 관리</li>
-<li>사용자 관리</li>
-<li>사용자 그룹</li>
-<li>도메인 그룹</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/12/10/angularJS-Controllers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2023,6 +1882,451 @@
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">    <span class="attribute">z-index</span>:-<span class="number">1</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">heigth</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/11/23/db-Day1-settings/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/23/db-Day1-settings/" class="post-title-link" itemprop="url">db Day1 settings</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-23 18:07:25" itemprop="dateCreated datePublished" datetime="2020-11-23T18:07:25+09:00">2020-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="데이터베이스-Day1"><a href="#데이터베이스-Day1" class="headerlink" title="데이터베이스 Day1"></a>데이터베이스 Day1</h1><ul>
+<li>ubuntu 기초 사용</li>
+<li>aws EC2 인스턴스에 Mysql 설치</li>
+<li>모델링</li>
+<li>SELECT FROM WHERE</li>
+</ul>
+<p><strong>데이터베이스</strong></p>
+<p>db / 데이터를 통합하여 관리하는 데이터의 집합</p>
+<p>DBMS</p>
+<p>데이터 베이스를 관리하는 미들웨어 시스템, 데이터 베이스 관리 시스템</p>
+<ul>
+<li>mongoDB</li>
+<li>mysql</li>
+</ul>
+<ul>
+<li><p>RDBMS</p>
+<ul>
+<li>Oracle, Mysql, Postgresql, Sqlite</li>
+<li>데이터의 테이블 사이에 키값으로 관계를 가지고 이쓴 데이터 베이스</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>NoSQL</p>
+<ul>
+<li>Mongodb, Hbase, Cassandra</li>
+<li>데이터 테이블 사이의 관계가 없이 데이터를 저장하는 데이터 베이스</li>
+<li>데이터 사이의 관계가 없으므로 복잡성이 작고 많은 데이터의 저장이 가능</li>
+</ul>
+</li>
+</ul>
+<p><strong>MySQL</strong></p>
+<p>오픈소스 이며 다중사용자와 다중스레드지원</p>
+<p>인터넷 망을 통해 여러 아이피에서 접속가능</p>
+<p>다양한 운영체제에 다양한 프로그래밍 언어 지원</p>
+<p>표준 SQL 사용</p>
+<ul>
+<li>dbms 마다 SQL 문법이 조금씩 다른데 MySQL은 표준 SQL을 따른다.</li>
+</ul>
+<ul>
+<li><h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2></li>
+</ul>
+<p>server &gt; database &gt; table &gt; row &gt; value</p>
+<p>테이블과 테이블사이의 관계를 가짐</p>
+<p>여러개의 데이터베이스안에 여러개의 테이블을 만들고 여러개의 row 데이터를 넣을 수 있다. </p>
+<p>RDBMS 쪽에서는 행에 대해서  row tuple record ,  열에대해서 column field attribute 로 명명해서 부름</p>
+<p><strong>aws</strong></p>
+<p>서버 컴퓨터가 여러개가 있다. </p>
+<p>클라우드 기술은 여러개의 컴퓨터를 물리적으로 묶어서 여러개의 계정을 단독컴퓨터로 다룰수있다. </p>
+<p>클라우드 서비스가 이슈가 되는이유</p>
+<ul>
+<li>인간의 노동력을 대체<ul>
+<li>서버 구축을 위해서 400~700정도의 서버컴퓨터를 구입</li>
+<li>ssd 를구매해서 끼운다. </li>
+<li>os설치</li>
+<li>회사에 대한 데이터베이스 어플리케이션 설치</li>
+<li>테스트 후 들고 lg idc </li>
+<li>빨라야 일주일</li>
+<li>클라우드 사용시 5분만에 할 수 있다. </li>
+</ul>
+</li>
+</ul>
+<p><strong>프로그래밍 및 웹구조</strong></p>
+<p>os</p>
+<ul>
+<li>cpu ram harddisk를 컨트롤</li>
+</ul>
+<p>pc - internet - server</p>
+<p>브라우저를열고 url 입력</p>
+<p>dns라는 서버</p>
+<ul>
+<li>도메인을 아이피로 바꾸어줌</li>
+<li>url형태로 서버를 찾아감</li>
+<li>서버를 찾아주는것이 라우터임</li>
+</ul>
+<p>서버에서 받는다. </p>
+<p>서버에는 웹 어플리케이션이 있다. </p>
+<p>url에는 아티클 아이디가 있어서 요청을 보낸다. </p>
+<p>서버에서는 db로 연결되어 있어 아이디에 맞는 데이터를 가져온다. </p>
+<p>html코드에db에서 가져온 데이터를 입력해서 응답한다. </p>
+<p>node js 에서 자바스크립트언어를 사용하여 프론트엔드도 백엔드영역</p>
+<p>cookie sessoion cache</p>
+<p>cookie </p>
+<ul>
+<li>문자열 데이터를 도메인 별로 따로 저장</li>
+<li>로그인 정보, 내가 봤던 상품 정보, 팝업 다시보지 않음</li>
+<li>하나의 클라이언트에 300개 도메인당 20개, 쿠키 하나당 4Kbyte</li>
+</ul>
+<p>session</p>
+<ul>
+<li>server에 저장하는 객체 데이터, 브라우저와 연결시 session id 생성</li>
+</ul>
+<p>cache</p>
+<ul>
+<li>ram에 있는데이터가 연산속도가 빠르다.</li>
+<li>ram이꽉차면 가상메모리 사용</li>
+</ul>
+<p>private public </p>
+<ul>
+<li>회사내에서는 외부로 접속이 안되지만 사내에서 쓸수있는 intranet이 있다.</li>
+<li>공유기는 인터넷망과 연결되어있다. </li>
+<li>공유기로 네이버에 들어가면 같은 아이피를 공유한다. </li>
+<li>내부에서 공유자를 구분해주는 ip 값이 필요하다. </li>
+<li>private ip로 구분해준다. </li>
+<li>하나의 서버에도 public ip와 private ip를 갖는ㄴ다. </li>
+<li>인트라넷에서 특정사이트 접속을 막으면 공유기에서 설정을 한다. </li>
+<li>사내 웹페이지만 접속하게 할 수도있다. </li>
+<li>인터넷 망에서 사용하는것이 public ip</li>
+<li>인트라넷에서 사용하는 것이 private ip 이다</li>
+</ul>
+<h2 id="Mysql-설치-및-설정"><a href="#Mysql-설치-및-설정" class="headerlink" title="Mysql 설치 및 설정"></a>Mysql 설치 및 설정</h2><ul>
+<li>AWS EC2(elastic compute cloud) 인스턴스에 ubuntu os 및 MySQL 5.7.x버전 설치</li>
+</ul>
+<p><strong>EC2 인스턴스 생성</strong></p>
+<ul>
+<li>t2.micro</li>
+<li>Ubuntu 18.04버전</li>
+<li>보안그룹에서 3306 포트 추가</li>
+</ul>
+<p><strong>EC2 인스턴스에 접속</strong></p>
+<ul>
+<li><p>(mac) pem 파일 400권한으로 변경</p>
+</li>
+<li><p>ssh -i ~/.ssh/pdf.pem ubuntu@{접속 ip}</p>
+</li>
+</ul>
+<p><strong>apt-get 업데이트</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update -y</span><br><span class="line">$ sudo apt-get ubgrade -y</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>MySQL Server 설치</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install -y mysql-server mysql-client</span><br></pre></td></tr></table></figure>
+
+<p><strong>MySQL secure 설정</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mysql_secure_installation</span><br><span class="line">&#x2F;&#x2F; y or no list</span><br><span class="line">&#x2F;&#x2F; validate password plugin &#x2F; new password &#x2F; re-enter new password</span><br><span class="line">&#x2F;&#x2F; remove anonymous users &#x2F; disallow root login remotely</span><br><span class="line">&#x2F;&#x2F; remove test database and access to it &#x2F; reload privilege tables now</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>MySQL 패스워드 설정</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sudo mysql</span><br></pre></td></tr></table></figure>
+
+<p><strong>ALTER USER</strong></p>
+<ul>
+<li>비밀번호</li>
+<li>운영체제 인증</li>
+<li>디폴트 테이블 스페이스</li>
+<li>임시 테이블 스페이스</li>
+<li>테이블 스페이스 분배 할당</li>
+<li>프로파일 및 디폴트 역할</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; user 수정 문법</span><br><span class="line">ALTER USER user_name</span><br><span class="line">[ IDENTIFIED &#123;BY password | EXTERNALLY&#125;]</span><br><span class="line">[ DEFAULT TABLESPACE tablespace]</span><br><span class="line">[ TEMPORARY TABLESPACE tablespace]</span><br><span class="line">[ PASSWORD EXPIRE]</span><br><span class="line">[ ACCOUNT &#123; LOCK | UNLOCK&#125;]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>mysql 로그인</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p><strong>mysql 데이터베이스에 접근</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure>
+
+<p><strong>비밀번호 변경</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;</span><br><span class="line">변경할 비밀번호&#39;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>변경사항 저장</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; flush pivileges;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>설정한 패스워드를 입력하여 접속</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p</span><br><span class="line">Enter password: &#96;비밀번호&#96;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>외부접속 설정</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf</span><br><span class="line">&#x2F;&#x2F;vim 에디터를 이용해서 mysql 설정파일을 불러온다</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;bind-adress 변경</span><br><span class="line">&#x2F;&#x2F;127.0.0.1 &gt; 0.0.0.0</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;127 ~~ : 자체 컴퓨터를 나타내는 ip 주소 </span><br><span class="line">&#x2F;&#x2F;0.0.0.0 : 로컬시스템의 모든 IPv4 주소 &#x2F; </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>외부 접속 패스워드 설정</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant all privileges on *.* to root@&#39;%&#39; identified by &#39;비번&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>서버 재시작으로 설정내용 적용</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl restart mysql.service</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>샘플 데이터 추가</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 서버로 sql 파일을 전송</span><br><span class="line">$ scp -i ~&#x2F;.ssh&#x2F;fds.pem &#123;파일 경로&#125; ubuntu@&#123;서버 ip주소&#125;:&#123;서버내의 경로&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;데이터 베이스 생성</span><br><span class="line">$mysql -u root -p</span><br><span class="line">sql&gt; create database &#123;데이터베이스 이름&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;데이터베이스에 데이터 추가</span><br><span class="line">$mysql -u root -p &#123;데이터베이스&#125; &gt; &#123;sql파일&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="Mysql-Workbench-사용"><a href="#Mysql-Workbench-사용" class="headerlink" title="Mysql Workbench 사용"></a>Mysql Workbench 사용</h2><p><strong>데이터 베이스 모델링</strong></p>
+<ul>
+<li>데이터 베이스 모델링은 데이터 베이스에서의 테이블 구조를 미리 계획해서 작성하는 작업</li>
+<li>RDBMS 는 테이블간에 유기적으로 연결되어 있기 때문에 모델링을 잘하는것이 중요</li>
+<li>기본적으로 개념적 모델링, 논리적 모델링, 물리적 모델링 절차로 설계</li>
+</ul>
+<p><strong>개념적 모델링</strong></p>
+<ul>
+<li>업무 분석을 통해 핵심 데이터의 집합을 정의하는 과정</li>
+<li>ex ) 사람(고객정보) 과 상품(상품명, 가격)</li>
+</ul>
+<p><strong>논리적 모델링</strong></p>
+<ul>
+<li>개념적 모델링을 상세화 하는 과정</li>
+<li>ex) 고객정보 (나이, 주소, 성별)와 구매정보(고객, 상품), 상품(상품명, 카테고리, 가격)</li>
+</ul>
+<p><strong>물리적 모델링</strong></p>
+<ul>
+<li>논리적 모델링을 DBMS 에 추가하기위해 구체화 하는 과정</li>
+</ul>
+<p><strong>실습</strong></p>
+<ul>
+<li>EER 다이어그램 (객체관계 다이어그램)<ul>
+<li>File - New Model 선택</li>
+<li>이름설정</li>
+<li>EER - ADD Diagram</li>
+<li>테이블 추가</li>
+<li>컬럼추가</li>
+<li>테이블 관계연결</li>
+<li>모델링 파일을 실제 데이터베이스에 야ㅕㄴ결</li>
+<li>file -save model 선택 후 저장</li>
+</ul>
+</li>
+<li>EER 다이어그램 파일을 적용<ul>
+<li>File - open Model</li>
+<li>database - forward engineer</li>
+<li>MySQL Server 연결정보를 선택하고 continue 선택</li>
+<li>실행 쿼리에서 visiable 제거 후 실행</li>
+</ul>
+</li>
+<li>데이터 베이스를 EER 다이어그램으로 변경<ul>
+<li>database -reverse engineer</li>
+</ul>
+</li>
+</ul>
+<p><strong>관계선</strong></p>
+<p>실선 : 식별관계 : 부모가 있어야 자식이 생성됨</p>
+<p>점선: 비식별관계 부모가 없어도 자식이 생성됨</p>
+<p><img src="C:\Users\Jung\AppData\Roaming\Typora\typora-user-images\image-20201124112832430.png" alt="image-20201124112832430"></p>
+<h2 id="SQL-문"><a href="#SQL-문" class="headerlink" title="SQL 문"></a>SQL 문</h2><p><strong>DML</strong></p>
+<ul>
+<li>data manipulation language</li>
+</ul>
+<p>데이터 조작어</p>
+<p>데이터 검색, 삽입, 수정, 삭제등에 사용</p>
+<ul>
+<li>SELECT</li>
+<li>INSERT</li>
+<li>UPDATE</li>
+<li>DELETE</li>
+</ul>
+<p>트랜젝션이 발생하는 SQL문</p>
+<ul>
+<li><strong>트랜젝션</strong><ul>
+<li>비동기로 처리될 태스크를 트랜젝션으로 묶어서 동기식으로 처리한다.</li>
+</ul>
+</li>
+</ul>
+<p><strong>DDL</strong></p>
+<ul>
+<li>data definition language</li>
+</ul>
+<p>데이터 정의어</p>
+<p>데이터 베이스, 테이블, 뷰, 인덱스등의 데이터 베이스 개체를 생성, 삭제, 변경에 사용</p>
+<ul>
+<li>CREATE</li>
+<li>DROP</li>
+<li>ALTER</li>
+<li>TRUNCATE</li>
+</ul>
+<p>실행즉시 DB에 적용</p>
+<p><strong>DCL</strong></p>
+<ul>
+<li>data control language</li>
+</ul>
+<p>데이터 제어어</p>
+<p>사용자의 권한을 부여하거나 빼앗을 때 사용</p>
+<ul>
+<li>GRUNT</li>
+<li>REVORKE</li>
+<li>DENY</li>
+</ul>
+<h3 id="SELECT-FROM"><a href="#SELECT-FROM" class="headerlink" title="SELECT FROM"></a>SELECT FROM</h3><ul>
+<li><p>데이터를 검색할 때 사용하는 문법</p>
+</li>
+<li><p>crud에서 read에 해당</p>
+</li>
+</ul>
+<p><strong>기본 포맷</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT &lt;column_name_1&gt;, &lt;column_name_2&gt; . ...</span><br><span class="line">FROM &lt;table_name&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>전체 컬럼 데이터 조회</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; SELECT * FROM wold.country</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>code, name 세개의 컬럼 데이터 조회</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; SELECT code, name</span><br><span class="line">FROM world.country</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>데이터 베이스 선택: FROM 절에 world.을 사용할 필요가 없다.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; USE world;</span><br><span class="line"></span><br><span class="line">sql&gt; SELECT * </span><br><span class="line">FROM country</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>alias: 컬럼의 이름을 변경할 수 있다</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; SELECT code as country_code, name as country_name</span><br><span class="line">FROM country</span><br></pre></td></tr></table></figure>
+
+<p><strong>데이터 베이스, 테이블, 컬럼 리스트 확인</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sql&gt; SHOW DATABASES;</span><br><span class="line">sql&gt; SHOW TABLES;</span><br><span class="line">sql&gt; DESC city;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h3><ul>
+<li>특정 조건을 주어 데이터를 검색하는데 사용되는 문법</li>
+</ul>
+<p><strong>비교연산</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 인구가 1억이 넘는 국가를 출력</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHRER Poplutaion &gt;&#x3D; 1000000000</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>논리 연산 : AND, OR</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 인구가 7000만에서 1억인 국가를 출력</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Population &gt;&#x3D; 700000000 AND Popluation &lt;&#x3D; 1000000000</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>- 범위 연산: BETWEEN</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 인구가 7000만에서 1억인 국가를 출력</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Popluation BETWEEN 700000000 AND 1000000000</span><br></pre></td></tr></table></figure>
+
+<p><strong>-OR</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 아시아와 아프리카 대륙의 국가 데이터를 출력</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Continent &#x3D; &quot;Asia&quot; OR Continent &#x3D; &quot;Africa&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>특정 조건을 포함 : IN, NOT IN</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;아시아와 아프리카 대륙의 국가 데이터를 출력</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Continent IN (&quot;Asia&quot;, &quot;Africa&quot;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;아시아와 아프리카 대륙의 국가가 아닌 데이터를 출력</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Continent In (&quot;Asia&quot;, &quot;Africa&quot;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 아시아와 아프리카대륙의 국가가 아닌 데이터를 출력 (논리연산)</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE Continent !&#x3D; &quot;Asia&quot; AND Continent !&#x3D; &quot;Africa&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>특정 문자열이 포함된 데이터 출력 : LIKE</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;정부 형태에 Republic이 포함된 데이터 출력</span><br><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">WHERE GovernmentForm LIKE &quot;%Republic%&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h3><ul>
+<li>특정 컬럼의 값으로 데이터 정렬에 사용되는 문법</li>
+</ul>
+<p><strong>오름차순 인구순으로 국가의 리스트를 출력</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY popluation ASC</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>내림차순 인구순으로 국가의 리스트를 출력</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM country</span><br><span class="line">ORDER BY population DESC</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>국가 코드를 알파벳순으로 정렬, 같은 국가코드를 가지면 인구순으로 내림차순 정렬</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM city</span><br><span class="line">ORDER BY CountryCode ASC, Population DESC</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h3><ul>
+<li>LIMIT 은 조회하는 데이터의 수를 제한할 수 있다.</li>
+<li></li>
+</ul>
 
       
     </div>
