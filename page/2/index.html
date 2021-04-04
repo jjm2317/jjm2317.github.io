@@ -148,6 +148,280 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/12/14/javascript-RegExp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/14/javascript-RegExp/" class="post-title-link" itemprop="url">javascript RegExp</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-14 13:24:46" itemprop="dateCreated datePublished" datetime="2020-12-14T13:24:46+09:00">2020-12-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="javascript-RegExp"><a href="#javascript-RegExp" class="headerlink" title="javascript RegExp"></a>javascript RegExp</h1><h2 id="정규표현식"><a href="#정규표현식" class="headerlink" title="정규표현식"></a>정규표현식</h2><p><strong>정의</strong></p>
+<p>일정한 패턴을 가진 문자열의 집합을 표현하기 위해 사용하는 형식언어</p>
+<p><strong>기능</strong></p>
+<ul>
+<li>문자열을 대상으로 패턴 매칭 기능 제공<ul>
+<li>특정 패턴과 일치하는 문자열 검색 / 추출 / 치환</li>
+</ul>
+</li>
+</ul>
+<p><strong>예시</strong></p>
+<p>휴대폰 전화번호</p>
+<ul>
+<li>num 3 - num 4 - num 4</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tel = <span class="string">&quot;010-1234-567팔&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/^\d&#123;3&#125;-\d&#123;4&#125;-\d&#123;4&#125;$/</span>;</span><br><span class="line"></span><br><span class="line">regExp.test(tel); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="정규-표현식-생성"><a href="#정규-표현식-생성" class="headerlink" title="정규 표현식 생성"></a>정규 표현식 생성</h2><ul>
+<li>RegExp 생성자 함수</li>
+<li>정규 표현식 리터럴</li>
+</ul>
+<p><strong>표기</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//시작, 종료기호 /</span></span><br><span class="line"><span class="comment">//패턴</span></span><br><span class="line"><span class="comment">//플래그</span></span><br><span class="line"></span><br><span class="line">/regexp/i;</span><br></pre></td></tr></table></figure>
+
+<p><strong>리터럴</strong></p>
+<ul>
+<li>패턴 , 플래그로 구성</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;Is this all there is&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regexp = <span class="regexp">/is/i</span>;</span><br><span class="line"></span><br><span class="line">regexp.test(target); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>RegExp 생성자 함수</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">RegExp</span>(pattern[, flags]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regexp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/is/i</span>);<span class="comment">//es6</span></span><br><span class="line"><span class="comment">// const regexp = new RegExp(/is/,&#x27;i&#x27;);</span></span><br><span class="line"><span class="comment">// const regexp = new RegExp(&#x27;is&#x27;, &#x27;i&#x27;);</span></span><br><span class="line"></span><br><span class="line">regexp.test(target);</span><br></pre></td></tr></table></figure>
+
+<h2 id="RegExp-메서드"><a href="#RegExp-메서드" class="headerlink" title="RegExp 메서드"></a>RegExp 메서드</h2><p><strong>정규표현식 사용 메서드</strong></p>
+<ul>
+<li>RegExp.prototype.exec</li>
+<li>RegExp.prototype.test</li>
+<li>String.prototype.match</li>
+<li>String.prototype.replace</li>
+<li>String.prototype.search</li>
+<li>String.prototype.split</li>
+</ul>
+<h3 id="RegExp-prototype-exec"><a href="#RegExp-prototype-exec" class="headerlink" title="RegExp.prototype.exec"></a>RegExp.prototype.exec</h3><ul>
+<li>매칭 결과를 배열로 반환</li>
+<li>첫번째 검색결과만반환</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;Is this all there is?&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp.exec(target));</span><br><span class="line"><span class="comment">//[ &#x27;is&#x27;, index: 5, input: &#x27;Is this all there is?&#x27;, groups: undefined ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="RegExp-prototype-test"><a href="#RegExp-prototype-test" class="headerlink" title="RegExp.prototype.test"></a>RegExp.prototype.test</h3><ul>
+<li>매칭결과를 불리언 값으로 반환</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;Is this all there is&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/</span>;</span><br><span class="line">regExp.test(target); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="String-prototype-match"><a href="#String-prototype-match" class="headerlink" title="String.prototype.match"></a>String.prototype.match</h3><ul>
+<li>매칭정보 배열로 반환</li>
+<li>g 플래그 지정시 모든 매칭결과 반환</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;Is this all there is&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/</span>;</span><br><span class="line">target.match(regExp);</span><br><span class="line"><span class="comment">//[ &#x27;is&#x27;, index: 5, input: &#x27;Is this all there is?&#x27;, groups: undefined ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="플래그"><a href="#플래그" class="headerlink" title="플래그"></a>플래그</h2><ul>
+<li>정규 표현식의 검색방식 설정</li>
+<li>중요한 3개 플래그<ul>
+<li>i<ul>
+<li>대소문자 구별 x</li>
+</ul>
+</li>
+<li>g<ul>
+<li>패턴과 일치하는 모든 문자열 전역 검색</li>
+</ul>
+</li>
+<li>m<ul>
+<li>행이 바뀌어도 패턴검색 계속</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="패턴"><a href="#패턴" class="headerlink" title="패턴"></a>패턴</h2><ul>
+<li>문자열의 일정한 규칙 표현</li>
+</ul>
+<p><strong>형식</strong></p>
+<ul>
+<li>/ 로 열고닫으며 따옴표 생략<ul>
+<li>따옴표 포함시 패턴에 포함</li>
+</ul>
+</li>
+</ul>
+<p><strong>사용</strong></p>
+<ul>
+<li>문자열 검색</li>
+<li>임의의 문자열 검색</li>
+<li>반복 검색</li>
+<li>OR 검색</li>
+<li>NOT 검색</li>
+<li>시작 위치로 검색</li>
+<li>마지막 위치로 검색</li>
+</ul>
+<h3 id="문자열-검색"><a href="#문자열-검색" class="headerlink" title="문자열 검색"></a>문자열 검색</h3><ul>
+<li>RegExp 메서드와 함께 이용</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;Is this all there is&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/is/</span>;</span><br><span class="line"></span><br><span class="line">regExp.test(target); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">target.match(regExp); <span class="comment">// 매칭 결과 반환</span></span><br><span class="line"></span><br><span class="line">regExp = <span class="regexp">/is/i</span>; <span class="comment">// ignore case : 대소문자 구별하지 않고 검색</span></span><br><span class="line">regExp = <span class="regexp">/is/gi</span>; <span class="comment">// ignore case : 대소문자 구별하지 않고 검색 / global : 대상 문자열내 전역 검색</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="임의의-문자열-검색"><a href="#임의의-문자열-검색" class="headerlink" title="임의의 문자열 검색"></a>임의의 문자열 검색</h3><p><strong>.</strong> 은 임의의 문자 한 개를 의미</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;Is this all there is?&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/.../g</span>;</span><br><span class="line"></span><br><span class="line">target.match(regExp);</span><br></pre></td></tr></table></figure>
+
+<h3 id="반복-검색"><a href="#반복-검색" class="headerlink" title="반복 검색"></a>반복 검색</h3><p><strong>{m,n}</strong></p>
+<ul>
+<li>앞선 패턴이 최소 m 번, 최대 n 번 반복되는 문자역</li>
+<li>, 뒤 공백있으면 정상동작 하지 않는다</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;A AA B BB Aa Bb AAA&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/A&#123;1,2&#125;/g</span>;</span><br><span class="line"></span><br><span class="line">target.match(regExp); <span class="comment">//  [&quot;A&quot;, &quot;AA&quot;, &quot;A&quot;, &quot;AA&quot;, &quot;A&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>{n}</strong></p>
+<ul>
+<li>{n,n}과 동치</li>
+</ul>
+<p><strong>{n,}</strong></p>
+<ul>
+<li>앞선 패턴이 최소 n번 이상 반복</li>
+</ul>
+<p><strong>+</strong></p>
+<ul>
+<li>{1,}와 동치</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;A AA B BB Aa Bb AAA&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/A&#123;1,2&#125;/g</span>;</span><br><span class="line"></span><br><span class="line">regExp = <span class="regexp">/A&#123;1&#125;/g</span>;</span><br><span class="line">regExp = <span class="regexp">/A&#123;1,&#125;/g</span>;</span><br><span class="line">regExp = <span class="regexp">/A+/g</span>;</span><br><span class="line"></span><br><span class="line">target.match(regExp);</span><br></pre></td></tr></table></figure>
+
+<p><strong>?</strong></p>
+<ul>
+<li>앞선 패턴이 최대 한 번 이상 반복되는 문자열</li>
+<li>{0,1} 과 동치</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;color colour&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/colou?r/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp));</span><br><span class="line"><span class="comment">//[ &#x27;color&#x27;, &#x27;colour&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="OR-검색"><a href="#OR-검색" class="headerlink" title="OR 검색"></a>OR 검색</h3><p><strong>|</strong></p>
+<ul>
+<li>or 의 의미를 가짐</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;A AA B BB Aa Bb&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/A|B/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp));</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//     &#x27;A&#x27;, &#x27;A&#x27;, &#x27;A&#x27;,</span></span><br><span class="line"><span class="comment">//     &#x27;B&#x27;, &#x27;B&#x27;, &#x27;B&#x27;,</span></span><br><span class="line"><span class="comment">//     &#x27;A&#x27;, &#x27;B&#x27;</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line">regExp = <span class="regexp">/A+|B+/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp));</span><br><span class="line"><span class="comment">//[ &#x27;A&#x27;, &#x27;AA&#x27;, &#x27;B&#x27;, &#x27;BB&#x27;, &#x27;A&#x27;, &#x27;B&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>[ ]</strong></p>
+<ul>
+<li>[] 내의 문자는 or로 동작한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">regExp = <span class="regexp">/A+|B+/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp));</span><br><span class="line"><span class="comment">//[ &#x27;A&#x27;, &#x27;AA&#x27;, &#x27;B&#x27;, &#x27;BB&#x27;, &#x27;A&#x27;, &#x27;B&#x27; ]</span></span><br><span class="line"></span><br><span class="line">regExp = <span class="regexp">/[AB]+/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp));</span><br><span class="line"><span class="comment">//[ &#x27;A&#x27;, &#x27;AA&#x27;, &#x27;B&#x27;, &#x27;BB&#x27;, &#x27;A&#x27;, &#x27;B&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>-</strong></p>
+<ul>
+<li>범위지정</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;A AA B BB Aa Bb&quot;</span>;</span><br><span class="line">regExp = <span class="regexp">/[A-Z]+/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp)); <span class="comment">//[ &#x27;A&#x27;, &#x27;AA&#x27;, &#x27;B&#x27;, &#x27;BB&#x27;, &#x27;A&#x27;, &#x27;B&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>알파벳 대소문자 미구별</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;AA BB Aa Ba 12&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/[A-Za-z]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.match(regExp);</span><br></pre></td></tr></table></figure>
+
+<p><strong>숫자 검색</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;A AA B 01 23 3445&quot;</span>;</span><br><span class="line">regExp = <span class="regexp">/[0-4]+/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp)); <span class="comment">//[ &#x27;01&#x27;, &#x27;23&#x27;, &#x27;344&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;A AA B 01 23 3445 123,456&quot;</span>;</span><br><span class="line">regExp = <span class="regexp">/[0-9,]+/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp)); <span class="comment">//[ &#x27;01&#x27;, &#x27;23&#x27;, &#x27;3445&#x27;, &#x27;123,456&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>\d</strong></p>
+<ul>
+<li>숫자를 의미</li>
+<li>\D 는 숫자가 아닌 문자를 의미</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;A AA B 01 23 3445 123,456&quot;</span>;</span><br><span class="line">regExp = <span class="regexp">/[\d,]+/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp)); <span class="comment">//[ &#x27;01&#x27;, &#x27;23&#x27;, &#x27;3445&#x27;, &#x27;123,456&#x27; ]</span></span><br><span class="line"></span><br><span class="line">regExp = <span class="regexp">/[\D,]+/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp)); <span class="comment">//[ &#x27;A AA B &#x27;, &#x27; &#x27;, &#x27; &#x27;, &#x27; &#x27;, &#x27;,&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>\w</strong></p>
+<ul>
+<li>알파벳, 숫자, 언더스코어</li>
+<li>[A-Za-z0-9]와 동치</li>
+<li>\W 는 \w와 반대로 동작</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;11st_1080p@@@11st_720p&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/\w+/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(target.match(regExp)); <span class="comment">//[ &#x27;11st_1080p&#x27;, &#x27;11st_720p&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="NOT-검색"><a href="#NOT-검색" class="headerlink" title="NOT 검색"></a>NOT 검색</h3><ul>
+<li>[…] 내의 ^은 not</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//[^0-9]는 숫자를 제외한 문자</span></span><br><span class="line"><span class="comment">//\D 와 동치</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//[^A-Za-z0-9_]</span></span><br><span class="line"><span class="comment">//\W 와 동치</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="시작-위치로-검색"><a href="#시작-위치로-검색" class="headerlink" title="시작 위치로 검색"></a>시작 위치로 검색</h3><ul>
+<li>[…] 밖의 ^은 문자열의 시작을 의미한다.</li>
+<li>[…] 내의 ^ 은 not</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;https://asdf&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/^https:/</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(regExp.test(target)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="마지막-위치로-검색"><a href="#마지막-위치로-검색" class="headerlink" title="마지막 위치로 검색"></a>마지막 위치로 검색</h3><p><strong>$</strong></p>
+<ul>
+<li>문자열의 마지막</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;www.naver.com&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/com$/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp.test(target)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="자주-사용하는-정규-표현식"><a href="#자주-사용하는-정규-표현식" class="headerlink" title="자주 사용하는 정규 표현식"></a>자주 사용하는 정규 표현식</h2><h3 id="특정단어로-시작하는-지-검사"><a href="#특정단어로-시작하는-지-검사" class="headerlink" title="특정단어로 시작하는 지 검사"></a>특정단어로 시작하는 지 검사</h3><p><strong>http or https</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="string">&quot;https://www.google.com&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/^https?:\/\//</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp.test(url)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="특정-단어로-끝나는지-검사"><a href="#특정-단어로-끝나는지-검사" class="headerlink" title="특정 단어로 끝나는지 검사"></a>특정 단어로 끝나는지 검사</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> file = <span class="string">&quot;index.html&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/html$/</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(regExp.test(file));</span><br></pre></td></tr></table></figure>
+
+<h3 id="숫자로만-이루어진-문자열인지-검사"><a href="#숫자로만-이루어진-문자열인지-검사" class="headerlink" title="숫자로만 이루어진 문자열인지 검사"></a>숫자로만 이루어진 문자열인지 검사</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> number = <span class="string">&quot;123131&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/^\d+$/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp.test(number));</span><br></pre></td></tr></table></figure>
+
+<h3 id="하나이상의-공백으로시작하는지-검사"><a href="#하나이상의-공백으로시작하는지-검사" class="headerlink" title="하나이상의 공백으로시작하는지 검사"></a>하나이상의 공백으로시작하는지 검사</h3><p><strong>\s</strong></p>
+<ul>
+<li>공백 문자를 의미</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot; 123123&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/^\s+/</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(regExp.test(target));</span><br></pre></td></tr></table></figure>
+
+<h3 id="아이디로-사용-가능한지-검사"><a href="#아이디로-사용-가능한지-검사" class="headerlink" title="아이디로 사용 가능한지 검사"></a>아이디로 사용 가능한지 검사</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = <span class="string">&quot;wlaks2317&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/^[a-zA-Z0-9]&#123;4,10&#125;$/</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(regExp.test(id));</span><br></pre></td></tr></table></figure>
+
+<h3 id="메일-주소-형식에-맞는지-검사"><a href="#메일-주소-형식에-맞는지-검사" class="headerlink" title="메일 주소 형식에 맞는지 검사"></a>메일 주소 형식에 맞는지 검사</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> email = <span class="string">&quot;wlaks2317@gmail.com&quot;</span>;</span><br><span class="line"></span><br><span class="line">/^[<span class="number">0</span><span class="number">-9</span>a-zA-Z]([-_\.]?[<span class="number">0</span><span class="number">-9</span>a-zA-Z])*@[<span class="number">0</span><span class="number">-9</span>a-zA-Z]([-_\.]?[<span class="number">0</span><span class="number">-9</span>a-zA-Z])*\.[a-zA-Z]&#123;<span class="number">2</span>,<span class="number">3</span>&#125;$/.test(</span><br><span class="line">  email</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="핸드폰-번호-형식에-맞는지-검사"><a href="#핸드폰-번호-형식에-맞는지-검사" class="headerlink" title="핸드폰 번호 형식에 맞는지 검사"></a>핸드폰 번호 형식에 맞는지 검사</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> phoneNum = <span class="string">&quot;010-9453-3317&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/^\d&#123;3&#125;-\d&#123;3,4&#125;-\d&#123;4&#125;$/</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(regExp.test(phoneNum)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="특수-문자-포함-여부-검사"><a href="#특수-문자-포함-여부-검사" class="headerlink" title="특수 문자 포함 여부 검사"></a>특수 문자 포함 여부 검사</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&quot;231!232$%&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/[^A-Za-z0-9]/gi</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(regExp.test(target));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/[\&#123;\&#125;\[\]\/?.,;:|\)*~`!^\-_+&lt;&gt;@\#$%&amp;\\\=\(\&#x27;\&quot;]/gi</span>.test(target));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newTarget = target.replace(regExp, <span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(newTarget); <span class="comment">//231232</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/12/10/Report-bugFix1206/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1965,79 +2239,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/11/23/css-ImageReplacement/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/23/css-ImageReplacement/" class="post-title-link" itemprop="url">css ImageReplacement</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-23 18:15:13" itemprop="dateCreated datePublished" datetime="2020-11-23T18:15:13+09:00">2020-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="IR-기법-CSS"><a href="#IR-기법-CSS" class="headerlink" title="IR 기법(CSS)"></a>IR 기법(CSS)</h1><h2 id="text-indent"><a href="#text-indent" class="headerlink" title="text-indent"></a>text-indent</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">element</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">text-indent</span>: -<span class="number">9999px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><ul>
-<li>텍스트는 span태그로 감싼다</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">    <span class="attribute">z-index</span>:-<span class="number">1</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">heigth</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2107,7 +2308,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
