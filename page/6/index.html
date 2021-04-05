@@ -148,6 +148,225 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/07/javascript-control-flow-exercise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/07/javascript-control-flow-exercise/" class="post-title-link" itemprop="url">javascript control-flow-exercise</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-07 18:38:56" itemprop="dateCreated datePublished" datetime="2020-09-07T18:38:56+09:00">2020-09-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Exercise-삼항-조건-연산자-제어문"><a href="#Exercise-삼항-조건-연산자-제어문" class="headerlink" title="Exercise (삼항 조건 연산자 , 제어문)"></a>Exercise (삼항 조건 연산자 , 제어문)</h1><h2 id="과제-1"><a href="#과제-1" class="headerlink" title="과제 1"></a>과제 1</h2><p>아래 코드를 삼항 조건 연산자로 변경</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 11;</span><br><span class="line">var res;</span><br><span class="line">if (x &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">  res &#x3D; &#39;영&#39;;</span><br><span class="line">&#125; else if (x % 2 &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">  res &#x3D; &#39;짝수&#39;;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  res &#x3D; &#39;홀수&#39;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 11;</span><br><span class="line">var res &#x3D; x % 2 &#x3D;&#x3D;&#x3D; 0 ? (x &#x3D;&#x3D;&#x3D; 0  ? &#39;영&#39; : &#39;짝수&#39;) : &#39;홀수&#39;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="과제-2"><a href="#과제-2" class="headerlink" title="과제 2"></a>과제 2</h2><p>제어문 연습문제 풀이</p>
+<h3 id="1-변수-x가-10보다-크고-20보다-작을-때-변수-x를-출력하는-조건식을-완성하라"><a href="#1-변수-x가-10보다-크고-20보다-작을-때-변수-x를-출력하는-조건식을-완성하라" class="headerlink" title="1. 변수 x가 10보다 크고 20보다 작을 때 변수 x를 출력하는 조건식을 완성하라"></a>1. 변수 x가 10보다 크고 20보다 작을 때 변수 x를 출력하는 조건식을 완성하라</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 15;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 변수 x가 10보다 크고 20보다 작을 때 변수 x를 출력하는 조건식을 완성하라.</span><br><span class="line">if (...) &#123;</span><br><span class="line">  console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 15;</span><br><span class="line"></span><br><span class="line">if (x &gt; 10 &amp;&amp; x &lt; 20) &#123;</span><br><span class="line">  console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-for문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-출력하시오"><a href="#2-for문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-출력하시오" class="headerlink" title="2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오."></a>2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">6</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var number &#x3D; 0; number &lt; 10; number++)&#123;</span><br><span class="line">    if(number % 2 &#x3D;&#x3D;&#x3D; 0)&#123;</span><br><span class="line">        console.log(number);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-for문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-문자열로-출력하시오"><a href="#3-for문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-문자열로-출력하시오" class="headerlink" title="3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오."></a>3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">02468</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var result&#x3D;&#39;&#39;;</span><br><span class="line"></span><br><span class="line">for(num &#x3D; 0; num &lt; 10; num++)&#123;</span><br><span class="line">    if(num % 2 &#x3D;&#x3D;&#x3D; 0)&#123;</span><br><span class="line">        result +&#x3D; num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-for문을-사용하여-0부터-10미만의-정수-중에서-홀수만을-큰수부터-출력하시오"><a href="#4-for문을-사용하여-0부터-10미만의-정수-중에서-홀수만을-큰수부터-출력하시오" class="headerlink" title="4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰수부터 출력하시오."></a>4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰수부터 출력하시오.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">7</span><br><span class="line">5</span><br><span class="line">3</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var num &#x3D; 9; num &gt;&#x3D; 0; num--)&#123;</span><br><span class="line">    if(num % 2 &#x3D;&#x3D;&#x3D; 1)&#123;</span><br><span class="line">        console.log(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-while문을-사용하여-0-부터-10-미만의-정수-중에서-짝수만을-작은-수부터-출력하시오"><a href="#5-while문을-사용하여-0-부터-10-미만의-정수-중에서-짝수만을-작은-수부터-출력하시오" class="headerlink" title="5. while문을 사용하여 0 부터 10 미만의 정수 중에서 짝수만을 작은 수부터 출력하시오."></a>5. while문을 사용하여 0 부터 10 미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">6</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var num &#x3D; 0;</span><br><span class="line">while(num&lt;10)&#123;</span><br><span class="line">    if(num % 2 &#x3D;&#x3D;&#x3D;0)&#123;</span><br><span class="line">        console.log(num)</span><br><span class="line">    &#125;</span><br><span class="line">    num ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-while문을-사용하여-0-부터-10-미만의-정수-중에서-홀수만을-큰수부터-출력하시오"><a href="#6-while문을-사용하여-0-부터-10-미만의-정수-중에서-홀수만을-큰수부터-출력하시오" class="headerlink" title="6. while문을 사용하여 0 부터 10 미만의 정수 중에서 홀수만을 큰수부터 출력하시오."></a>6. while문을 사용하여 0 부터 10 미만의 정수 중에서 홀수만을 큰수부터 출력하시오.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">7</span><br><span class="line">5</span><br><span class="line">3</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var num &#x3D; 9;</span><br><span class="line">while(num &gt;&#x3D; 0)&#123;</span><br><span class="line">    if(num % 2 &#x3D;&#x3D;&#x3D;1)&#123;</span><br><span class="line">        console.log(num)</span><br><span class="line">    &#125;</span><br><span class="line">    num --;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="7-for-문을-사용하여-0부터-10미만의-정수의-합을-출력하시오"><a href="#7-for-문을-사용하여-0부터-10미만의-정수의-합을-출력하시오" class="headerlink" title="7. for 문을 사용하여 0부터 10미만의 정수의 합을 출력하시오."></a>7. for 문을 사용하여 0부터 10미만의 정수의 합을 출력하시오.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">45</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var sum &#x3D; 0;</span><br><span class="line"></span><br><span class="line">for(num &#x3D; 0; num &lt; 10; num ++)&#123;</span><br><span class="line">    sum +&#x3D; num;</span><br><span class="line">&#125;</span><br><span class="line">console.log(sum);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8-1부터-20-미만의-정수-중에서-2-또는-3의-배수가-아닌-수의-총합을-구하시오"><a href="#8-1부터-20-미만의-정수-중에서-2-또는-3의-배수가-아닌-수의-총합을-구하시오" class="headerlink" title="8.  1부터 20 미만의 정수 중에서 2 또는 3의 배수가 아닌 수의 총합을 구하시오."></a>8.  1부터 20 미만의 정수 중에서 2 또는 3의 배수가 아닌 수의 총합을 구하시오.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">73</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var sum &#x3D; 0;</span><br><span class="line"></span><br><span class="line">for(num &#x3D; 1; num &lt; 20; num ++)&#123;</span><br><span class="line">    sum +&#x3D; (num % 2 &#x3D;&#x3D;&#x3D; 0 || num % 3 &#x3D;&#x3D;&#x3D; 0) ? 0 : num; </span><br><span class="line">&#125;</span><br><span class="line">console.log(sum);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="9-1부터-20-미만의-정수-중에서-2-또는-3의-배수인-수의-총합을-구하시오"><a href="#9-1부터-20-미만의-정수-중에서-2-또는-3의-배수인-수의-총합을-구하시오" class="headerlink" title="9. 1부터 20 미만의 정수 중에서 2 또는 3의 배수인 수의 총합을 구하시오."></a>9. 1부터 20 미만의 정수 중에서 2 또는 3의 배수인 수의 총합을 구하시오.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">117</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var sum &#x3D; 0;</span><br><span class="line"></span><br><span class="line">for(num &#x3D; 1; num &lt; 20; num ++)&#123;</span><br><span class="line">    sum +&#x3D; (num % 2 &#x3D;&#x3D;&#x3D; 0 || num % 3 &#x3D;&#x3D;&#x3D; 0) ? num : 0; </span><br><span class="line">&#125;</span><br><span class="line">console.log(sum);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="10-두-개의-주사위를-던졌을-때-눈의-합이-6이-되는-모든-경우의-수를-출력하시오"><a href="#10-두-개의-주사위를-던졌을-때-눈의-합이-6이-되는-모든-경우의-수를-출력하시오" class="headerlink" title="10. 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오."></a>10. 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[ 1, 5 ]</span><br><span class="line">[ 2, 4 ]</span><br><span class="line">[ 3, 3 ]</span><br><span class="line">[ 4, 2 ]</span><br><span class="line">[ 5, 1 ]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for(var num1 &#x3D; 1; num1 &lt;&#x3D; 6; num1 ++)&#123;</span><br><span class="line">    for(var num2 &#x3D; 1; num2 &lt;&#x3D; 6; num2 ++)&#123;</span><br><span class="line">        if(num1 + num2 &#x3D;&#x3D;&#x3D; 6)&#123;</span><br><span class="line">            console.log(&#96;[ $&#123;num1&#125;, $&#123;num2&#125; ]&#96;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="11-삼각형-출력하기-pattern-1"><a href="#11-삼각형-출력하기-pattern-1" class="headerlink" title="11. 삼각형 출력하기 - pattern 1"></a>11. 삼각형 출력하기 - pattern 1</h3><p>다음을 참고하여 *(별)로 높이가 5인(var line = 5) 삼각형을 문자열로 완성하라. 개행문자(‘\n’)를 사용하여 개행한다. 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 높이(line)가 5</span><br><span class="line">*</span><br><span class="line">**</span><br><span class="line">***</span><br><span class="line">****</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var line &#x3D; 5;</span><br><span class="line">var star &#x3D; &#39;&#39;;</span><br><span class="line">var tri &#x3D; &#39;&#39;;</span><br><span class="line">for(var i &#x3D; 0; i &lt; line; i++)&#123;</span><br><span class="line">    star +&#x3D; &#39;*&#39;;</span><br><span class="line">    tri +&#x3D; star + &#39;\n&#39;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(tri);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="12-삼각형-출력하기-pattern-2"><a href="#12-삼각형-출력하기-pattern-2" class="headerlink" title="12. 삼각형 출력하기 - pattern 2"></a>12. 삼각형 출력하기 - pattern 2</h3><p>다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 개행문자(‘\n’)를 사용하여 개행한다. 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*****</span><br><span class="line"> ****</span><br><span class="line">  ***</span><br><span class="line">   **</span><br><span class="line">    *</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var line &#x3D; 5;</span><br><span class="line">var tri &#x3D; &#39;&#39;;</span><br><span class="line">for(var i &#x3D; 0; i &lt; line; i++)&#123;</span><br><span class="line">    for(var j &#x3D; 0; j &lt; i; j ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39; &#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    for(var k &#x3D; 0; k &lt; line - i; k ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39;*&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    tri +&#x3D; &#39;\n&#39;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(tri);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="13-삼각형-출력하기-pattern-3"><a href="#13-삼각형-출력하기-pattern-3" class="headerlink" title="13. 삼각형 출력하기 - pattern 3"></a>13. 삼각형 출력하기 - pattern 3</h3><p>다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 개행문자(‘\n’)를 사용하여 개행한다. 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*****</span><br><span class="line">****</span><br><span class="line">***</span><br><span class="line">**</span><br><span class="line">*</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var line &#x3D; 5;</span><br><span class="line">var tri &#x3D; &#39;&#39;;</span><br><span class="line">for(var i &#x3D; 0; i &lt; line; i++)&#123;</span><br><span class="line">    for(var k &#x3D; 0; k &lt; line - i; k ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39;*&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    for(var j &#x3D; 0; j &lt; i; j ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39; &#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    tri +&#x3D; &#39;\n&#39;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(tri);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="14-삼각형-출력하기-pattern-4"><a href="#14-삼각형-출력하기-pattern-4" class="headerlink" title="14. 삼각형 출력하기 - pattern 4"></a>14. 삼각형 출력하기 - pattern 4</h3><p>다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 개행문자(‘\n’)를 사용하여 개행한다. 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    *</span><br><span class="line">   **</span><br><span class="line">  ***</span><br><span class="line"> ****</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var line &#x3D; 5;</span><br><span class="line">var tri &#x3D; &#39;&#39;;</span><br><span class="line">for(var i &#x3D; 1; i &lt;&#x3D; line; i++)&#123;</span><br><span class="line">    for(var j &#x3D; 0; j &lt; line - i; j ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39; &#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    for(var k &#x3D; 0; k &lt; i; k ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39;*&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    tri +&#x3D; &#39;\n&#39;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(tri);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="15-정삼각형-출력하기"><a href="#15-정삼각형-출력하기" class="headerlink" title="15. 정삼각형 출력하기"></a>15. 정삼각형 출력하기</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    *</span><br><span class="line">   ***</span><br><span class="line">  *****</span><br><span class="line"> *******</span><br><span class="line">*********</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var line &#x3D; 5;</span><br><span class="line">var tri &#x3D; &#39;&#39;;</span><br><span class="line">for(var i &#x3D; 1; i &lt;&#x3D; line; i++)&#123;</span><br><span class="line">    for(var j &#x3D; 0; j &lt; line - i; j ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39; &#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    for(var k &#x3D; 0; k &lt; i * 2 - 1; k ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39;*&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    tri +&#x3D; &#39;\n&#39;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(tri);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="16-역정삼각형-출력하기"><a href="#16-역정삼각형-출력하기" class="headerlink" title="16. 역정삼각형 출력하기"></a>16. 역정삼각형 출력하기</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*********</span><br><span class="line"> *******</span><br><span class="line">  *****</span><br><span class="line">   ***</span><br><span class="line">    *</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Answer</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var line &#x3D; 5;</span><br><span class="line">var tri &#x3D; &#39;&#39;;</span><br><span class="line">for(var i &#x3D; 1; i &lt;&#x3D; line; i++)&#123;</span><br><span class="line">    for(var j &#x3D; 0; j &lt; i - 1; j ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39; &#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    for(var k &#x3D; 0; k &lt; (line - i) * 2 + 1; k ++)&#123;</span><br><span class="line">        tri +&#x3D; &#39;*&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    tri +&#x3D; &#39;\n&#39;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(tri);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/01/0824-0828-TIL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2308,157 +2527,6 @@ console.log(x=3); //3
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/08/24/javascript-04Variable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/24/javascript-04Variable/" class="post-title-link" itemprop="url">javascript 04Variable</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-24 17:28:52" itemprop="dateCreated datePublished" datetime="2020-08-24T17:28:52+09:00">2020-08-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="변수"><a href="#변수" class="headerlink" title="변수"></a>변수</h1><p>변수나 함수를 수학에서 생각하는 함수와는개념이 다르다. 변수를 생각할때는 메모리의 관점에서 생각하는 습관을 갖는 것이 중요하다.</p>
-<p><strong>변수는 왜 필요할까?</strong></p>
-<p>애플리케이션 만드는 것을 추상적으로 얘기한다면, <strong>데이터를 저장하고 꺼내와서 가공하고 집어넣는 활동의 반복</strong>이라고 할 수 있다.</p>
-<p>즉, 애플리케이션은 데이터를 다루는 기계라고 할 수 있다. 아무리 복잡한 애플리케이션이라도 데이터를 입력받아 처리하고 그 결과를 출력한다 .세가지 관점에서 애플리케이션을 바라보아야한다. 데이터가 입력되는 케이스는 다양하다</p>
-<p>데이터가 생성되려면 누군가의 입력이 있다. 로그인을 한다고 보면, 아이디와 패스워드를 입력받는 창이 있다. 데이터가 입력이 되었다.</p>
-<p>이제 입력받은 데이터를 처리한다. 입력받은 데이터를 처리했으면 그 결과가 있을 것이다. 그결과를 출력, 아웃풋을 뱉어낸다. 이 세과정의 반복이다. 출력을 뱉어낼때도 어떤식으로 출력을 뱉어낼지 다양하다.</p>
-<p><strong>핵심은 애플리케이션을 동작시키는 코드에서 많은 데이터가 흐른다는 것이다. 이 데이터들을 관리할 필요가 있다. 데이터의 관리를 도와주는 개념이 변수이다.</strong></p>
-<h2 id="변수는-메모리의-관점에서-이해해야-한다"><a href="#변수는-메모리의-관점에서-이해해야-한다" class="headerlink" title="변수는 메모리의 관점에서 이해해야 한다."></a>변수는 메모리의 관점에서 이해해야 한다.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 + 20;</span><br></pre></td></tr></table></figure>
-
-<p>10+ 20이라는 식이 있다. 수학의 식과 동일하다. 컴퓨터는 10+20이라는 것을 어떻게 처리할 지 생각해보자</p>
-<p><strong>먼저, 인간은 이 식을 어떻게 바라보는가?</strong></p>
-<p>10이라는 숫자, 20이라는 숫자가 있다. 우리에게는 이 숫자들이 익숙하다. 조선시대 사람들은 잘 모를 것이다. 이이야기를 하는 이유는 컴퓨터가 이 10이라는 기호를 어떻게 이해하느냐를 따지기 위해서이다. 컴퓨터에서는 10이라는 숫자를 리터럴이라고 부른다. +기호는 연산자라고 부른다. 20도 리터럴이다. 10+20을 할때 10이라는 기호를 이해해야한다. 우리는 10을 이해한다. 20이라는 숫자도 금방이해한다. 그 단계를 거칠수없다면 식의 계산은 불가능하다. 계산을 하기위해 전제가 되어야하는 것은 코드, 기호의 의미를 이해하는 것이다.</p>
-<p>이해가 되었다면 계산이 가능해진다. 우리는 문화적으로 좌에서 우로 10부터 읽는다. 10을 읽으면 10을 두뇌에 기억해야된다. 20을 읽을때도 20을 잠깐이라도 기억해야된다. 10과 20을 계산하는 동안에 두뇌에 기억한다. +라는 행위를 머릿속에서 수행할 것이다. 30이라는 숫자로 계산이 될것이고 그 30이라는 숫자도 머리에 기억될것이다. 컴퓨터의 프로세스도 이와 동일하다.</p>
-<p><strong>컴퓨터는 어떨까?</strong></p>
-<p>컴퓨터도 기억하는 부품과 연산하는 부품이 구분되어 있다. 메모리와 CPU이다. 10, 20 을 기억하는 것은 메모리가 하고 +연산만 cPU가 수행할 것이다.</p>
-<p>컴퓨터가 식을 계산하기 위해서는 해석(parsing)해야된다. 10과 20을 인식하고 +를 이해해야된다. 자바스크립트 코드를 시행하는 자바스크립트엔진은 사람과 유사한 과정으로 소스 코드를 실행한다.</p>
-<p>10과 20을 인식하면 운영체제가 메모리가 비어있는 어떤 공간을 지정해준다. 10이라는 것은 한 메모리셀에 저장되고 20도 한 메모리셀에 저장된다. 10이 20이라는 숫자를 CPU에 전달되고 30이라는 결과값이 도출된다. 30도 기억되어야되기 때문에 30도 한 메모리셀에 저장된다. 30이라는 결과값도 사용되어야하기 때문이다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 + 20;</span><br></pre></td></tr></table></figure>
-
-<p>0 + 20이라는 코드는 문제가 있다.</p>
-<p>10 + 20을 수행한 것이면 결과값을 사용해야하기 때문이다.</p>
-<p>현 시점에서 30이라는 결과 값은 단 한번만 사용될 수 있다. 10 + 20을 수행했을때 만이다. <strong>재사용이 불가능한 상황이다.</strong> 30이라는 숫자 값은 한 메모리 주소에 들어가 있다. . 30을 사용하려면 메모리주소를 통해서 메모리셀에 접근해서 값을 꺼내와야된다. <strong>자바스크립트는 메모리 주소는 알려주지 않는다.</strong></p>
-<p>그 이유는 무엇일까?</p>
-<p>만약 메모리주소를 알아서 메모리셀에 접근해서 값을바꾼다고 가정해보자</p>
-<p>사람은 실수를 한다. 메모리주소를 한 자라도 잘못입력하면 엄한곳의 값을 변경하는 결과를 초래할 수 있다. 즉 잘못된 메모리주소를 입력해서 시스템에 오류를 발생시키는 것을 방지할 필요가있다.</p>
-<p>여기까지, 메모리 주소에 <strong>직접적으로 접근이 불가</strong>함을 알았다. 그렇다면 값에 어떻게 접근해야될까? 그 방법이 변수이다. 변수는 메모리주소의 이름을 알려준다.</p>
-<p>메모리셀에 접근해서 값을 꺼내오는 것을 참조라고한다. 참조하기위해서는 메모리주소를 알아야하는데 자바스크립트를 비롯한 프로그래밍언어들은 메모리 주소를 직접알려주지않고 메모리 주소를 기억한 변수를 제공한다.</p>
-<p>변수의 정의는 다음과 같다.</p>
-<p><strong>변수는 하나의 값을 저장하기 위해 확보한 메모리공간 자체 또는 그 메모리 공간을 식별하기위해 붙인 이름이다</strong></p>
-<p>결과적으로 변수이름을 가지고 값이 저장되어있는 위치를 알수있고 그 위치를 알기 때문에 메모리공간안의 값을 재사용할 수 있게 되었다.</p>
-<p>10 + 20 이라는 코드는 문법상으로 아무런 문제가 없지만!, 이코드는 무의미하다.</p>
-<p>10 + 20 은 30을 재사용하겠다는 것인데 재사용이 불가하기 때문이다. 변수를 사용해서 이를 개선해보자</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var result &#x3D; 10 + 20;</span><br></pre></td></tr></table></figure>
-
-<p>var 은 키워드이다. 키워드는 하나의 명령어라고 볼 수 있다. var 뒤에오는 변수를 가지고 하나의 변수를 생성하라는 명령어이다. 이를 키워드라고 부르기도하고 예약어라고 하기도 한다.</p>
-<p>= 은 할당 연산자이다. 10 + 20 이라는 값을 result라는 변수에 저장하라는 의미이다. 이것을 할당(저장, 대입)이라고 한다. 우항에는 값 좌항에는 변수이름이 와야된다.</p>
-<p>값이 안오고 표현식이 아닌문이 온다면 값이 저장할 수 없기 때문에 에러를 발생시킨다.</p>
-<p>변수에 저장되어 있는 값을 읽어들이는 행위를 참조라고한다.</p>
-<p><strong>변수의 필요성에 대해 위 식과 함께 다시한번 정리해보자</strong></p>
-<p>10과 20을 메모리 어딘가에 각각 기억한다. + 연산자로 cpu가 10과 20을가져와서 연산(평가)한다. 30의 결과값이 메모리 어딘가에 또 저장된다. 평가된 값인 30을 재사용하려면 메모리 주소가 필요하다. 메모리주소를 모른다. 메모리 주소대신 변수 이름을 준다. 변수이름을 가지고 우리는 30에 접근할 수 있다. <strong>변수 안에 들어있는 변수값을 꺼내와서 재사용할 수 있다.</strong></p>
-<h2 id="식별자"><a href="#식별자" class="headerlink" title="식별자"></a>식별자</h2><p>식별자(identifier)는 변수의 상위개념이다. 함수, 클래스명 전부 식별자라고 할 수 있다.</p>
-<p>식별자는 어떤 역할을 할까?</p>
-<p>4gb 메모리가 있다고 하자. 메모리셀이 43억개가 있다. 메모리셀을 꺼내오기 위해서는 식별이 가능해야한다. 즉 어떤 값을 구별해서 가져올 수 있어야한다.</p>
-<p>값은 메모리 공간에 들어가 있다. 식별자를 통해서 메모리공간을 찾아 들어갈 수 있다. 식별자는 메모리 주소를 기억하기 때문에 하나의 값으로 치환될 수 있다. 모든 식별자들은 값을 가져온다.</p>
-<p>변수 함수 클래스 이름을 지을 때는 일정한 규칙을 따라야한다. 그것을 식별자 네이밍 규칙이라고 한다.</p>
-<p><strong>식별자는 고유해야한다.</strong></p>
-<p>식별자들은 언제나 <strong>선언이라는 과정을 통해서 자바스크립트엔진에게 식별자의 존재를 알려야 한다</strong>. 그 이유는 <strong>변수이름을 하나하나 기억하게 해서 중복되지 않게 하기 위해서다.</strong> 식별자가 만들어질때 중복을 체크한다. 선언이라고 하는 것은 앞으로 이러이러하게 할거다라고 공표하는 것이다. 즉 식별자를 사용할 거다라고 알리는것을 <strong>변수선언</strong>이다.</p>
-<h2 id="변수-선언"><a href="#변수-선언" class="headerlink" title="변수 선언"></a>변수 선언</h2><p><strong>변수를 선언하기 위한 키워드</strong></p>
-<p>var 이외에도 let const라는 키워드가 있다. 왜 3개가 있을까 ? ES6 let 과 const 가 도입되었다. var는 지금도 사용되는데, 그 이유는 ES5로 개발한 코드들이 동작하게 하기 위함이다. 이를 하위호환성을 유지하였다고 표현한다.</p>
-<p>var로 하다가 왜 let 과 const를 도입하였을까? 보완점이 있기 때문일 것이다. let과 const 를 이해하기위해 var를 먼저 알아보자.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var score;</span><br></pre></td></tr></table></figure>
-
-<p><strong>키워드와 함께 변수이름을 써주는것을 변수선언이라고한다.</strong> 변수선언은 변수이름을 자바스크립트에게 알려주고 그 이름으로 변수를 생성하라는 것이다. 메모리공간을 확보한다. 다른 애플리케이션들이 사용하지 못하도록 독점하는 것이 메모리공간 확보이다.</p>
-<p>변수 선언은 다음 두단계를 거친다</p>
-<ol>
-<li>선언단계 : 변수 이름을 등록하고 자바스크립트 엔진에 변수의 존재를 알린다. 실행 컨텍스트라는 곳에 등록되며, 메모리 공간이 확보된다.</li>
-<li>초기화 단계 : 처음으로 값을 할당하는 행위가 이루어진다. 자바스크립트는 확보한 메모리 공간에 있는 쓰레기 값을 고려하여 undefined로 값을 암묵적으로 할당한다.<ul>
-<li>변수 호이스팅이 일어남</li>
-</ul>
-</li>
-</ol>
-<h2 id="변수-선언의-실행-시점과-변수-호이스팅"><a href="#변수-선언의-실행-시점과-변수-호이스팅" class="headerlink" title="변수 선언의 실행 시점과 변수 호이스팅"></a>변수 선언의 실행 시점과 변수 호이스팅</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(score); &#x2F;&#x2F; undefined</span><br><span class="line"></span><br><span class="line">var score;</span><br></pre></td></tr></table></figure>
-
-<p>일반적인 케이스라면 순서가 뒤바뀌어 있어야하겠지만 위와같이 써도 아무런 에러가 발생하지 않는다. 다른언어에서는 에러가 발생한다.</p>
-<p>위 코드에서 에러발생할만한 상황인데 발생하지 않는다. 변수 선언이 어떻게 실행되는 지 타이밍을 알아야한다.</p>
-<p>식별자를 생성하는 행위를 하는 것은 모든 코드중에서 가장 먼저 실행된다. 소스코드가 한줄한줄 실행되는 시점을 <strong>runtime 런타임</strong>이라고 한다. <strong>런타임이전에 하나의 전처리 과정</strong>이 있다. 그 과정에서 <strong>모든 선언문을 먼저 실행</strong>한다. 그래서 선언문 위에있는 console.log가 undefined로 출력되는 것이다.</p>
-<p>선언이 먼저 이루어지는 것이 변수 호이스팅이라고 한다. <strong>변수호이스팅을 이용해 코드 순서를 바꾸는 것은 지양하도록 하자.</strong> var 키워드는 es5이전부터 있던 키워드 let과 const를 사용하면 변수호이스팅 이 발생하지 않는 것처럼 동작한다.</p>
-<h2 id="값의-할당"><a href="#값의-할당" class="headerlink" title="값의 할당"></a>값의 할당</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var score &#x3D; 80;</span><br></pre></td></tr></table></figure>
-
-<p>위 문을 자바스크립트 엔진이 만나면</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var score;</span><br><span class="line">score &#x3D; 80;</span><br></pre></td></tr></table></figure>
-
-<p>순으로 실행한다. 그 이유는 <strong>변수 호이스팅</strong> 때문이다. 선언문인 var score 먼저 분리되어 실행된 후 할당문이 실행되는 것이다. var score = 80 은 즉 선언문과 할당문의 축약표현이다.</p>
-<p>할당문을 만나면 undefined 를지우고 80을 쓰는 것이 아니다! 새로운 메모리 공간을 확보해서 80을 저장한 후 변수이름을 80을 저장한 메모리 공간에 연결한다. 그 이유는 컴퓨터 입장에서 그것이 편하기 때문이다. 물론 원시값만 그렇게 동작한다. <strong>원시값은 immutable 하다.</strong></p>
-<p>undefined는 어떻게 되었을까 ?</p>
-<p>score가 기억하고 있던 메모리 주소가 undefined를 저장한 메모리 공간에서 80을 저장한 메모리공간으로 바뀌었다. undefined는 더이상 필요하지 않은 값이다. 메모리공간의 확보를 풀어줘야한다. 이 행위를 해주는 프로그램을 가비지 컬렉터라고 한다.</p>
-<p>가비지컬렉터가 메모리 공간을 해제 해주는 언어를 언매니지드 언어라고 한다.</p>
-<p>프로그래머가 코드로서 메모리공간을 확보하고 해제까지 할 수 있는 언어를 매니지드 언어라고한다.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2528,7 +2596,7 @@ console.log(x=3); //3
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
