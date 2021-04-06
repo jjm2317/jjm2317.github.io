@@ -148,6 +148,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/11/02/javascript-newTodoList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/02/javascript-newTodoList/" class="post-title-link" itemprop="url">javascript newTodoList</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-02 16:18:48" itemprop="dateCreated datePublished" datetime="2020-11-02T16:18:48+09:00">2020-11-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="TodoList-과제"><a href="#TodoList-과제" class="headerlink" title="TodoList 과제"></a>TodoList 과제</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; State</span><br><span class="line">let todos &#x3D; [];</span><br><span class="line">let data &#x3D; [];</span><br><span class="line">const $todos &#x3D; document.querySelector(&#39;.todos&#39;);</span><br><span class="line">const $input &#x3D; document.querySelector(&#39;.input-todo&#39;);</span><br><span class="line">const $addButton &#x3D; document.querySelector(&#39;.add&#39;);</span><br><span class="line">const $filter &#x3D; document.querySelector(&#39;.nav&#39;);</span><br><span class="line">const $clear &#x3D; document.querySelector(&#39;.clear-completed&#39;);</span><br><span class="line">const $todoCompleted &#x3D; document.querySelector(&#39;.completed-todos&#39;);</span><br><span class="line">const $todoActive &#x3D; document.querySelector(&#39;.active-todos&#39;);</span><br><span class="line">const $completeAll &#x3D; document.querySelector(&#39;#ck-complete-all&#39;);</span><br><span class="line">const fetchTodos &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  return  [</span><br><span class="line">&#123; id: 1, content: &#39;HTML&#39;, completed: false &#125;,</span><br><span class="line">&#123; id: 2, content: &#39;CSS&#39;, completed: true &#125;,</span><br><span class="line">&#123; id: 3, content: &#39;Javascript&#39;, completed: false &#125;</span><br><span class="line">]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const render &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  $todos.innerHTML &#x3D; todos.map((&#123;id, content, completed&#125;) &#x3D;&gt; &#123;</span><br><span class="line">      return &#96;&lt;li id&#x3D;&quot;$&#123;id&#125;&quot; class&#x3D;&quot;todo-item&quot;&gt;</span><br><span class="line">      &lt;input id&#x3D;&quot;ck-$&#123;id&#125;&quot; class&#x3D;&quot;checkbox&quot; type&#x3D;&quot;checkbox&quot; $&#123;completed ? &quot;checked&quot; : &#39;&#39;&#125;&gt;</span><br><span class="line">      &lt;label for&#x3D;&quot;ck-$&#123;id&#125;&quot;&gt;$&#123;content&#125;&lt;&#x2F;label&gt;</span><br><span class="line">      &lt;i class&#x3D;&quot;remove-todo far fa-times-circle&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">    &lt;&#x2F;li&gt;&#96;  </span><br><span class="line">  &#125;).join(&#39;&#39;);</span><br><span class="line">  $todoCompleted.textContent &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; true).length;</span><br><span class="line">  $todoActive.textContent &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; false).length;</span><br><span class="line">&#125;</span><br><span class="line">const updateData &#x3D; () &#x3D;&gt;&#123;</span><br><span class="line">  data &#x3D; data.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    const test &#x3D; todos.find(item &#x3D;&gt; todo.id &#x3D;&#x3D;&#x3D; item.id);</span><br><span class="line">    return test ? &#123;...todo, ...test&#125; : &#123;...todo&#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">const findId &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  return Math.max(...todos.map((&#123;id&#125;) &#x3D;&gt; id),0)+1;</span><br><span class="line">  updateData()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const addTodo &#x3D; (content) &#x3D;&gt; &#123;</span><br><span class="line">  const newTodo &#x3D; &#123;id: findId(), content, completed: false&#125;</span><br><span class="line">  todos &#x3D; [newTodo, ...todos];</span><br><span class="line">  </span><br><span class="line">  data &#x3D; [newTodo,...data];</span><br><span class="line">  updateData()</span><br><span class="line">  console.log(todos,data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const sortTodo &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.sort((a, b) &#x3D;&gt; b.id - a.id)</span><br><span class="line">  &#x2F;&#x2F; updateData()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const todosCheck &#x3D; (&#123;id&#125;) &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.map(todo &#x3D;&gt; todo[&#39;id&#39;] &#x3D;&#x3D;&#x3D; +id ? &#123;...todo,...&#123;completed: !todo.completed&#125;&#125; : &#123;...todo&#125;);</span><br><span class="line">&#125;</span><br><span class="line">const filterActiveCheck &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; false);</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line">const filterCompletedCheck &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; true);</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line">const deleteTodo &#x3D; (&#123;id&#125;) &#x3D;&gt; &#123;</span><br><span class="line">  todos&#x3D; todos.filter(todo &#x3D;&gt; todo.id !&#x3D;&#x3D; +id );</span><br><span class="line">  updateData()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">window.addEventListener(&#39;DOMContentLoaded&#39;, () &#x3D;&gt;&#123;</span><br><span class="line">  todos &#x3D; fetchTodos();</span><br><span class="line">  sortTodo();</span><br><span class="line">  data &#x3D; [...todos];</span><br><span class="line">  console.log(data);</span><br><span class="line">  render();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$input.onkeyup &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if( e.key !&#x3D;&#x3D;&#39;Enter&#39; || $input.value &#x3D;&#x3D;&#x3D;&#39;&#39;) return;</span><br><span class="line">  addTodo(e.target.value);</span><br><span class="line">  $input.value &#x3D;&#39;&#39;;</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$todos.onchange &#x3D; e &#x3D;&gt;&#123;</span><br><span class="line">  if(!e.target.matches(&#39;li &gt; input&#39;)) return;</span><br><span class="line">  const $checkParent &#x3D; e.target.parentNode;</span><br><span class="line">  todosCheck($checkParent);</span><br><span class="line">  updateData();</span><br><span class="line">  const $curFilter &#x3D; document.querySelector(&#39;.nav .active&#39;);</span><br><span class="line">  if($curFilter.matches(&#39;#active&#39;))&#123;</span><br><span class="line">    filterActiveCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  if($curFilter.matches(&#39;#completed&#39;))&#123;</span><br><span class="line">    filterCompletedCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line">$todos.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;.remove-todo&#39;)) return;</span><br><span class="line">  const $buttonParent &#x3D; e.target.parentNode;</span><br><span class="line">  deleteTodo($buttonParent);</span><br><span class="line">  $todos.removeChild($buttonParent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$filter.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;li&#39;)) return;</span><br><span class="line">  [...$filter.children].forEach(item &#x3D;&gt; &#123;</span><br><span class="line">    item.classList.toggle(&#39;active&#39;,e.target &#x3D;&#x3D;&#x3D; item);</span><br><span class="line">  &#125;)</span><br><span class="line">  &#x2F;&#x2F; let data &#x3D; todos;</span><br><span class="line">  if(e.target.matches(&#39;#all&#39;))&#123;</span><br><span class="line">    todos &#x3D; data;</span><br><span class="line">    render();</span><br><span class="line">    updateData()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if(e.target.matches(&#39;#active&#39;))&#123;</span><br><span class="line">    todos &#x3D; data.filter(todo &#x3D;&gt; &#123;</span><br><span class="line">      return todo.completed &#x3D;&#x3D;&#x3D; false;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    render();</span><br><span class="line">    updateData()</span><br><span class="line">    &#x2F;&#x2F; todos &#x3D; data;</span><br><span class="line">  &#125;</span><br><span class="line">  if(e.target.matches(&#39;#completed&#39;))&#123;</span><br><span class="line">    todos &#x3D; data.filter(todo &#x3D;&gt; &#123;</span><br><span class="line">      return todo.completed &#x3D;&#x3D;&#x3D;true;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    render();</span><br><span class="line">    updateData()</span><br><span class="line">    &#x2F;&#x2F; todos &#x3D; data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$clear.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;.btn&#39;)) return;</span><br><span class="line">  todos &#x3D; todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    return &#123;...todo, ...&#123;completed : false&#125;&#125;;</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  render();</span><br><span class="line">  updateData();</span><br><span class="line">&#125;</span><br><span class="line">$completeAll.onchange &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(e.target.checked)&#123;</span><br><span class="line">    todos&#x3D; todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    return&#123;...todo, ...&#123;completed : true&#125;&#125;;</span><br><span class="line">    &#125;)</span><br><span class="line">    updateData()</span><br><span class="line">  &#125;</span><br><span class="line">  if(!e.target.checked)&#123;</span><br><span class="line">    todos&#x3D; todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    return&#123;...todo, ...&#123;completed : false&#125;&#125;;</span><br><span class="line">    &#125;)</span><br><span class="line">    updateData()</span><br><span class="line">  &#125;</span><br><span class="line">  const $curFilter &#x3D; document.querySelector(&#39;.nav .active&#39;);</span><br><span class="line">  if($curFilter.matches(&#39;#active&#39;))&#123;</span><br><span class="line">    filterActiveCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  if($curFilter.matches(&#39;#completed&#39;))&#123;</span><br><span class="line">    filterCompletedCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/11/01/javascript-TodoList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1949,95 +2019,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/09/28/javascript-Sorting-practice/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/28/javascript-Sorting-practice/" class="post-title-link" itemprop="url">javascript Sorting practice</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-28 08:20:02" itemprop="dateCreated datePublished" datetime="2020-09-28T08:20:02+09:00">2020-09-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="정렬확인-버블정렬-과제"><a href="#정렬확인-버블정렬-과제" class="headerlink" title="정렬확인, 버블정렬 과제"></a>정렬확인, 버블정렬 과제</h1><h2 id="정렬-확인"><a href="#정렬-확인" class="headerlink" title="정렬 확인"></a>정렬 확인</h2><p>주어진 배열(array)이 정렬되어 있다면 true, 그렇지 않다면 false를 반환하는 함수를 구현하라. 단, 어떠한 빌트인 함수도 사용하지 않고 for 문을 사용하여 구현하여야 한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSorted</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isSorted([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(isSorted([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>])); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Answer</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function isSorted(array)&#123;</span><br><span class="line">  if( !(array instanceof Array))&#123;</span><br><span class="line">    throw &#39;this argument is not array&#39;;</span><br><span class="line">  &#125;</span><br><span class="line">  for(let i &#x3D; 0; i &lt; array.length - 1; i++)&#123;</span><br><span class="line">    if(array[i] &gt; array[i+1]) return false;</span><br><span class="line">  &#125;</span><br><span class="line">  return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(isSorted([1,3,2,4]));&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="버블정렬"><a href="#버블정렬" class="headerlink" title="버블정렬"></a>버블정렬</h2><ul>
-<li>버블 정렬(buble sort)은 순차적으로 배열을 순회하면서 인접한 두 요소를 비교하여 작은 요소를 왼쪽으로, 큰 요소를 오른쪽으로 교환한다.</li>
-<li>버블 정렬은 가장 간단하지만 가장 느린 정렬 알고리즘이다.</li>
-<li>시간 복잡도: O(n2)</li>
-</ul>
-<p><img src="https://poiemaweb.com/assets/fs-images/bubble-sort.png" alt="img"></p>
-<p>버블 정렬</p>
-<p>버블 정렬을 통해 주어진 배열(array)을 정렬하는 함수를 구현하라. 단, 어떠한 빌트인 함수도 사용하지 않고 for 문을 사용하여 구현하여야 한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>]));     <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">5</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>]));  <span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"><span class="built_in">console</span>.log(bubbleSort([<span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">4</span>, <span class="number">2</span>])); <span class="comment">// [-1, 0, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Answer</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function bubbleSort(array)&#123;</span><br><span class="line">  let med;</span><br><span class="line">  if( !(array instanceof Array))&#123;</span><br><span class="line">    throw &#39;this argument is not array&#39;;</span><br><span class="line">  &#125;</span><br><span class="line">  for(let i &#x3D; 0; i &lt; array.length - 1; i++)&#123;</span><br><span class="line">    if(array[i] &gt; array[i+1])&#123;</span><br><span class="line">      med &#x3D; array[i+1];</span><br><span class="line">      array[i+1] &#x3D; array[i];</span><br><span class="line">      array[i] &#x3D; med;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if(!isSorted(array))&#123;</span><br><span class="line">    bubbleSort(array);</span><br><span class="line">  &#125;</span><br><span class="line">  return array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(bubbleSort([2,4,5,1,3]));</span><br><span class="line">&#x2F;&#x2F;[ 1, 2, 3, 4, 5 ]</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2107,7 +2088,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">74</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

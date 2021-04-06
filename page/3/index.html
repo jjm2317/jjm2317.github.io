@@ -148,6 +148,287 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/12/04/angularJS-Overview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeong Jiman">
+      <meta itemprop="description" content="All Dev stories found in here.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeong Jiman's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/04/angularJS-Overview/" class="post-title-link" itemprop="url">angularJS Overview</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-04 07:06:23" itemprop="dateCreated datePublished" datetime="2020-12-04T07:06:23+09:00">2020-12-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="AngularJS-conceptual-overview"><a href="#AngularJS-conceptual-overview" class="headerlink" title="AngularJS conceptual overview"></a>AngularJS conceptual overview</h1><ul>
+<li><p>아틀라스네트웍스 SKB 업무를 위한 angularJS 공부</p>
+</li>
+<li><p>angularJS 공식문서참조 docs.angularjs.org/guide/</p>
+</li>
+</ul>
+<h2 id="AngularJS-핵심-개념"><a href="#AngularJS-핵심-개념" class="headerlink" title="AngularJS 핵심 개념"></a>AngularJS 핵심 개념</h2><ul>
+<li>Template<ul>
+<li>추가 마크업이 있는 HTML</li>
+</ul>
+</li>
+<li>Directives<ul>
+<li>커스텀 어트리뷰트와 요소로 확장된 HTML</li>
+</ul>
+</li>
+<li>Model<ul>
+<li>view에서 유저에게 보이는 데이터 / 유저가 접촉하는 데이터</li>
+</ul>
+</li>
+<li>Scope<ul>
+<li>Model 이 저장되는 컨텍스트</li>
+<li>controller, directives, expressions이 접근할 수 있다.</li>
+</ul>
+</li>
+<li>Expressions <ul>
+<li>scope 으로부터 변수와 표현식에 접근한다.</li>
+</ul>
+</li>
+<li>Compiler<ul>
+<li>template을 파싱하고 directives와 expressions 를 인스턴스화 한다.</li>
+</ul>
+</li>
+<li>Filter<ul>
+<li>유져에게 보여지는 표현식의 값을 형식화한다.</li>
+</ul>
+</li>
+<li>View<ul>
+<li>유저가 보는 것들(DOM)</li>
+</ul>
+</li>
+<li>Data Binding<ul>
+<li>모델과 뷰사이의 데이터를 동기화한다.</li>
+</ul>
+</li>
+<li>Controller<ul>
+<li>view의 business logic</li>
+<li>business logic이란 데이터 베이스와 유저 인터페이스 사이의 데이터 교환을 처리하는 알고리즘을 지칭한다.</li>
+</ul>
+</li>
+<li>Dependancy Injection<ul>
+<li>객체와 함수를 만들고 연결한다.</li>
+</ul>
+</li>
+<li>Injector <ul>
+<li>dependancy Injection의 컨테이너</li>
+</ul>
+</li>
+<li>Module<ul>
+<li>injector를 구성하는 컨트롤러, 서비스, 필터, 지시문들을 포함하는 앱의 part를 감싸는 컨테이너</li>
+</ul>
+</li>
+<li>Service<ul>
+<li>재사용가능한 view들의 독립적인 business logic</li>
+</ul>
+</li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>핵심 개념들의 사용 예시들을 살펴보자</p>
+<h3 id="Data-binding"><a href="#Data-binding" class="headerlink" title="Data binding"></a>Data binding</h3><p>비용을 계산하는 폼 만들기</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span> <span class="attr">ng-init</span>=<span class="string">&quot;qty=1;cost=2&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">b</span>&gt;</span>Invoice:<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    Quantity: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">ng-model</span>=<span class="string">&quot;qty&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    Costs: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">ng-model</span>=<span class="string">&quot;cost&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>Total:<span class="tag">&lt;/<span class="name">b</span>&gt;</span> &#123;&#123;qty * cost | currency&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Template은</strong></p>
+<p>위 markup 이다. 즉 새로운 markup이다.</p>
+<p>AngularJS는 <strong>Compiler로</strong></p>
+<p>Templated의 새로운 마크업들을 파싱한다.</p>
+<p><strong>Scope 에는</strong></p>
+<p>입력한 cost 와 qty 가 저장된다.</p>
+<p><strong>Model은</strong></p>
+<p>저장된 cost와 qty 데이터이다.</p>
+<p><strong>View는</strong></p>
+<p>사용자에게 보여지는 DOM 이다.</p>
+<p><strong>Data binding은</strong></p>
+<p>Model 과 View  사이에서 데이터가 연결되는 것이다. </p>
+<p><strong>Directives는</strong></p>
+<p>첫번째 새로운 마크업들을 지칭한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span> <span class="attr">ng-init</span>=<span class="string">&quot;qty=1;cost=2&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>html의 어트리뷰트와 요소에 새로운 행위를 적용한다.</p>
+<p>위 코드에서는 ng-app 어트리뷰트를 사용했다</p>
+<p>ng-app은 자동적으로 어플리케이션을 실행하는 directive와 연결된다.</p>
+<p>angularjs는 input을 위한 directive도 정의한다. </p>
+<p>ng-model directive는 인풋값의 데이터를 저장하고 업데이트한다. </p>
+<p><strong>Angular 의 DOM 접근</strong></p>
+<p>Angular에선 커스텀 directive를 사용하여 dom에 접근하도록한다. </p>
+<p>새로 만든 인공코드는 테스트하기 까다롭기 때문이다.</p>
+<p><strong>the double curly braces(이중 중괄호)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;&#123;expression | filter&#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>컴파일러가 이 마크업을 파싱할때, 마크업의 평가값으로 번역한다.</p>
+<p>template의 expression은 자바스크립트 스러운 코드 스니펫이다.</p>
+<ul>
+<li>angularjs 로 하여금 변수를 읽고 쓰는 것을 가능하게 한다.</li>
+</ul>
+<p>변수들이 전역 변수가 아닌 점에 주목하자.</p>
+<p>자바스크립트가 함수레벨 스코프인 것처럼,</p>
+<p>angularjs는 표현식에 접근가능한 변수들에 대한 scope를 제공한다</p>
+<p><strong>변수들에 저장되는 값은</strong></p>
+<p>documentation에 나온 model로 불린다.해당 마크업은 예시코드에서 angularjs에게 다음과 같이 명령한다.</p>
+<ul>
+<li>input위젯으로부터 우리가 얻은 데이터를 저장</li>
+<li>그 데이터들을 곱해라</li>
+</ul>
+<p><strong>filter</strong></p>
+<p>위의 예시코드는 filter를 포함한다.</p>
+<p>filter는 유저에게 보여줄 표현식의 값을 형식화 한다.</p>
+<p>currency는 숫자를 화폐의 형태의 출력값으로 형식화 한다.</p>
+<p><strong>중요한 점</strong></p>
+<p>angularjs는 live binding을 제공한다. </p>
+<ul>
+<li>값이 변할때마다 표현식의 값은 자동적으로 재계산되고 dom이 해당 값에 따라 업데이트된다.</li>
+<li>양방향 데이터 바인딩이라고 한다. </li>
+</ul>
+<h3 id="Controllers"><a href="#Controllers" class="headerlink" title="Controllers"></a>Controllers</h3><p><strong>ui 로직을 더해준다</strong></p>
+<p>기능 추가: 다른 통화 단위로 계산 / 돈 지불</p>
+<p><strong>index.html</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span>=<span class="string">&quot;invoice1&quot;</span> <span class="attr">ng-controller</span>=<span class="string">&quot;InvoiceController as invoice&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">b</span>&gt;</span>Invoice:<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    Quantity: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">ng-model</span>=<span class="string">&quot;invoice.qty&quot;</span> <span class="attr">required</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    Costs: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">ng-model</span>=<span class="string">&quot;invoice.cost&quot;</span> <span class="attr">required</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">ng-model</span>=<span class="string">&quot;invoice.inCurr&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">ng-repeat</span>=<span class="string">&quot;c in invoice.currencies&quot;</span>&gt;</span>&#123;&#123;c&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>Total:<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-repeat</span>=<span class="string">&quot;c in invoice.currencies&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123;invoice.total(c) | currency:c&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;btn&quot;</span> <span class="attr">ng-click</span>=<span class="string">&quot;invoice.pay()&quot;</span>&gt;</span>Pay<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>invoice.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">&#x27;invoice1&#x27;</span>, [])</span><br><span class="line">.controller(<span class="string">&#x27;InvoiceController&#x27;</span>, </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">InvoiceController</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.qty = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">this</span>.cost = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">this</span>.inCurr = <span class="string">&#x27;EUR&#x27;</span>;</span><br><span class="line">    <span class="built_in">this</span>.currencies = [<span class="string">&#x27;USD&#x27;</span>, <span class="string">&#x27;EUR&#x27;</span>, <span class="string">&#x27;CNY&#x27;</span>];</span><br><span class="line">    <span class="built_in">this</span>.usdToForeignRates = &#123;</span><br><span class="line">        USD: <span class="number">1</span>,</span><br><span class="line">        EUR: <span class="number">0.74</span>,</span><br><span class="line">        CNY: <span class="number">6.09</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">this</span>.total = <span class="function"><span class="keyword">function</span> <span class="title">total</span>(<span class="params">outCurr</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.convertCurrency(<span class="built_in">this</span>.qty * <span class="built_in">this</span>.cost, <span class="built_in">this</span>.inCurr, outCurr);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">this</span>.convertCurrency = <span class="function"><span class="keyword">function</span> <span class="title">convertCurrency</span>(<span class="params">amount, inCurr, outCurr</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> amout * <span class="built_in">this</span>.usdToForeignRates[outCurr] /</span><br><span class="line">            <span class="built_in">this</span>.usdToForeignRates[inCurr];</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">this</span>.pay = <span class="function"><span class="keyword">function</span> <span class="title">pay</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">window</span>.alert(<span class="string">&#x27;Thanks!&#x27;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>위파일은 controller 인스턴스를 생성하는 생성자 함수를 구체화한다. </p>
+<p><strong>controller의 목적</strong></p>
+<p>변수와 함수를 expression과 directives에 내보낸다. </p>
+<p><strong>사용</strong></p>
+<p>controller 코드를 포함한 새파일 뿐만 아니라, html에 <strong>ng-controller</strong>를 추가 하였다.</p>
+<p>이 directive는 angularjs에 새로운 InvoiceController가 해당 요소에 대해 directive와 자식요소에대한 권한을 가진다는것을 알린다. InvoiceController as invoice 문법은 angularjs에 컨트롤러를 인스턴스화시키고 현재 스코프에서 변수 invoice에 저장하라고 알린다.</p>
+<p><strong>표현식과 controller</strong></p>
+<p>우리는 또한 페이지의 모든 표현식을 컨트롤러 인스턴스에서 변수들을 읽고 쓸수 있도록 바꾸었다.</p>
+<ul>
+<li>접두에 invoice. 을 붙였다.</li>
+</ul>
+<p>가능한 통화종류들이 컨트롤러에 정의가 되어있고 ng-repeat을 사용하는 template에 추가가 되었다. </p>
+<p>컨트롤러가 total 함수를 포함하였다. 우리는 해당 함수의 결과값을 dom에 연결할 수 있다.</p>
+<p><strong>livebinding / ngclick</strong></p>
+<p>위의 바인딩은 live이다. 해당 dom 은 function의 결과값이 바뀔때마다 업데이트 된다. </p>
+<p>계산을 지불하는 하는 버튼은 ngClick directive를 사용한다. 이것은 연결된 표현식을 버튼이 클릭될때마다  실행한다. </p>
+<p><strong>module의 생성</strong></p>
+<p>새 자바스크립트 파일에서 우리는 컨트롤러를 등록한곳에 모듈을 생성할것이다. 이것에 대해서는 다음 섹션에서 다룬다.</p>
+<p><strong>컨트롤러의 도입후</strong></p>
+<h3 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h3><p><strong>View-independent business logic</strong></p>
+<p><strong>service를 통한 로직 분리</strong></p>
+<p>이제 InvoiceController는 우리 예시의 모든 로직을 포함한다. </p>
+<p>어플리케이션이 커진다면 view에 독립적인 로직을 컨트롤러에서 service로 옮기는 것은 좋은 행위이다.</p>
+<p>그렇게 하면 그 로직은 어플리케이션 다른부분에서도 재사용할 수 있다. </p>
+<p>이후에, 우리는 또한 그 service를 controller를 수정하지 않고 웹으로부터 환율을 로드하도록 바꿀수도 있다. </p>
+<p>우리의 예시를 refactor해보자.</p>
+<p><strong>index.html</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span>=<span class="string">&quot;invoice2&quot;</span> <span class="attr">ng-controller</span>=<span class="string">&quot;InvoiceController as invoice&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">b</span>&gt;</span>Invoice:<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    Quantity: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">ng-model</span>=<span class="string">&quot;invoice.qty&quot;</span> <span class="attr">required</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    Costs: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">ng-model</span>=<span class="string">&quot;invoice.cost&quot;</span> <span class="attr">required</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">ng-model</span>=<span class="string">&quot;invoice.inCurr&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">ng-repeat</span>=<span class="string">&quot;c in invoice.currencies&quot;</span>&gt;</span>&#123;&#123;c&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>Total:<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-repeat</span>=<span class="string">&quot;c in invoice.currencies&quot;</span>&gt;</span></span><br><span class="line">      &#123;&#123;invoice.total(c) | currency:c&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;btn&quot;</span> <span class="attr">ng-click</span>=<span class="string">&quot;invoice.pay()&quot;</span>&gt;</span>Pay<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>finance2.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">&#x27;finance2&#x27;</span>, [])</span><br><span class="line">.factory(<span class="string">&#x27;currencyConverter&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> currencies = [<span class="string">&#x27;USD&#x27;</span>, <span class="string">&#x27;EUR&#x27;</span>, <span class="string">&#x27;CNY&#x27;</span>];</span><br><span class="line">  <span class="keyword">var</span> usdToForeignRates = &#123;</span><br><span class="line">    USD: <span class="number">1</span>,</span><br><span class="line">    EUR: <span class="number">0.74</span>,</span><br><span class="line">    CNY: <span class="number">6.09</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> convert = <span class="function"><span class="keyword">function</span>(<span class="params">amount, inCurr, outCurr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> amount * usdToForeignRates[outCurr] / usdToForeignRates[inCurr];</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    currencies: currencies,</span><br><span class="line">    convert: convert</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>invoice2.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">&#x27;invoice2&#x27;</span>, [<span class="string">&#x27;finance2&#x27;</span>])</span><br><span class="line">.controller(<span class="string">&#x27;InvoiceController&#x27;</span>, [<span class="string">&#x27;currencyConverter&#x27;</span>, <span class="function"><span class="keyword">function</span> <span class="title">InvoiceController</span>(<span class="params">currencyConverter</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.qty = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">this</span>.cost = <span class="number">2</span>;</span><br><span class="line">  <span class="built_in">this</span>.inCurr = <span class="string">&#x27;EUR&#x27;</span>;</span><br><span class="line">  <span class="built_in">this</span>.currencies = currencyConverter.currencies;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.total = <span class="function"><span class="keyword">function</span> <span class="title">total</span>(<span class="params">outCurr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> currencyConverter.convert(<span class="built_in">this</span>.qty * <span class="built_in">this</span>.cost, <span class="built_in">this</span>.inCurr, outCurr);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">this</span>.pay = <span class="function"><span class="keyword">function</span> <span class="title">pay</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.alert(<span class="string">&#x27;Thanks!&#x27;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><strong>controller의 함수/변수를 service로 분리</strong></p>
+<p>우리는 convertCurrency 함수와 존재하는 통화들의 대한 정의를 finance2.js라는 새로운 파일에 옮겼다. </p>
+<p>하지만 어떻게 controller는 이제는 분리된 함수를 붙잡고 있을까?</p>
+<p><strong>Dependency Injection의 의미와 angular에서의 사용</strong></p>
+<p>이것은 Dependency Injection(의존성 주입)이 작용하는 부분이다.</p>
+<p>의존성 주입은 소프트웨어 디자인 패턴이다.</p>
+<ul>
+<li>객체와 함수가 생성되는 방식을 처리한다.</li>
+<li>객체와 함수들이 그들의 dependencies를 붙잡는 방식을 처리한다. </li>
+</ul>
+<p>angularjs의 모든 것들(directives, filters, controllers, services, …) 는 의존성 주입을 통해 생성되고 연결된다. </p>
+<p>angularjs에서, DI container는 <strong>injector</strong>라고 불린다.</p>
+<p><strong>DI(Dependency Injection)의 사용과 module</strong></p>
+<p>DI를 사용하기 위해서, 모든것들이 함께 작용할 공간이 등록되는 것이 필요하다.</p>
+<p>angularjs에선, 모듈을 목적으로 한다. </p>
+<p>angularjs가 시작할때, ng-app으로 정의된 이름으로 모듈의 구성을 사용한다. </p>
+<p>ng-app directive는 모듈이 의존하고 있는 모든 모듈의 구성을 포함한다. </p>
+<p><strong>템플릿의 메인모듈과 의존성 주입을 통한 서비스 제공</strong></p>
+<p>위 예제에서는 템플릿은 ng-app=”invoice2” 디렉티브를 포함한다.</p>
+<p>이 디렉티브는 angularjs 에게 invoice2 모듈을 어플리케이션의 메인 모듈로 사용하라고 말한다.</p>
+<p> 코드 스니펫 angular.module(‘invoice2’, [‘finance2’]) 는 invoice2 모듈이 finance2 모듈에 의존하고 있다는 것을 구체화한다.</p>
+<p>이것으로, angularjs는 InvoiceController를 currencyConverter service에 추가로 사용한다.</p>
+<p> <strong>service 가 생성되는 방식</strong></p>
+<p>angularjs가 어플리케이션의 모든 parts를 알게 되었으므로, 그것들을 생성해야한다.</p>
+<p>이전 섹션에서는 우리는 컨트롤러들이 생성자 함수를 통해 생성되는것을 보았다.</p>
+<p>service들은 생성되는 여러가지 방식들이 있다. </p>
+<p>위 예제에서는, currencyConverter service에 대한 factory functiond으로 무기명 함수를 사용하였다. </p>
+<p>이 함수는 currencyConverter 의 service 인스턴스를 반환해야한다. </p>
+<p><strong>상위 모듈의 식별자를 참조하는 방법</strong></p>
+<p>어떻게 InvoiceController는 currencyConverter 함수에 대한 참조를 얻을 수 있을까? </p>
+<p>Angularjs 에서는, 생성자함수에 인수로 정의 하는방식으로 진행된다. </p>
+<p>이것으로, injector는 올바른 순서로 객체를 생성하고 이전에 생성된 객체를 객체의 factories로 보낼수있다.</p>
+<p>invoice2.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">&#x27;invoice2&#x27;</span>, [<span class="string">&#x27;finance2&#x27;</span>])</span><br><span class="line">.controller(<span class="string">&#x27;InvoiceController&#x27;</span>, [<span class="string">&#x27;currencyConverter&#x27;</span>, <span class="function"><span class="keyword">function</span> <span class="title">InvoiceController</span>(<span class="params">currencyConverter</span>) ...</span></span><br></pre></td></tr></table></figure>
+
+<p>우리의 예시에서 InvoiceController는 currentConverter 라는 인수를 가지고 있다.</p>
+<p>이것으로, angularjs는 controller와 service간의 의존성을 알게되고 controller를 service인스턴스와 함께 호출할 수 있다. </p>
+<p><strong>controller에 배열로 인수전달</strong></p>
+<p>이전 섹션과 지금 섹션에서의 차이점 중 마지막 항목은 modul.controller에 일반 함수대신 배열을 전달한 것이다. </p>
+<p>invoice2.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">&#x27;invoice2&#x27;</span>, [<span class="string">&#x27;finance2&#x27;</span>])</span><br><span class="line">.controller(<span class="string">&#x27;InvoiceController&#x27;</span>, [<span class="string">&#x27;currencyConverter&#x27;</span>, <span class="function"><span class="keyword">function</span> <span class="title">InvoiceController</span>(<span class="params">currencyConverter</span>) ...</span></span><br></pre></td></tr></table></figure>
+
+<p>invoice1.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">&#x27;invoice1&#x27;</span>, [])</span><br><span class="line">.controller(<span class="string">&#x27;InvoiceController&#x27;</span>, </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">InvoiceController</span>(<span class="params"></span>)</span>&#123;....</span><br></pre></td></tr></table></figure>
+
+<p>배열의 첫 요소에는 controller가 사용할 service의 이름이 들어간다. 마지막 요소에는 </p>
+<p>controller 생성자 함수가 들어간다. </p>
+<p>Angularjs는 이 배열을 사용해서 dependencies를 정의한다.</p>
+<p>이렇게 함으로서 Dependencies Injection은 코드를 간소화 한 후에도 작용한다.</p>
+<h3 id="Accessing-the-backend"><a href="#Accessing-the-backend" class="headerlink" title="Accessing the backend"></a>Accessing the backend</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/12/01/work-20201201/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1626,76 +1907,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jjm2317.github.io/2020/11/02/javascript-newTodoList/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeong Jiman">
-      <meta itemprop="description" content="All Dev stories found in here.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeong Jiman's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/02/javascript-newTodoList/" class="post-title-link" itemprop="url">javascript newTodoList</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-02 16:18:48" itemprop="dateCreated datePublished" datetime="2020-11-02T16:18:48+09:00">2020-11-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-30 13:39:16" itemprop="dateModified" datetime="2021-03-30T13:39:16+09:00">2021-03-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="TodoList-과제"><a href="#TodoList-과제" class="headerlink" title="TodoList 과제"></a>TodoList 과제</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; State</span><br><span class="line">let todos &#x3D; [];</span><br><span class="line">let data &#x3D; [];</span><br><span class="line">const $todos &#x3D; document.querySelector(&#39;.todos&#39;);</span><br><span class="line">const $input &#x3D; document.querySelector(&#39;.input-todo&#39;);</span><br><span class="line">const $addButton &#x3D; document.querySelector(&#39;.add&#39;);</span><br><span class="line">const $filter &#x3D; document.querySelector(&#39;.nav&#39;);</span><br><span class="line">const $clear &#x3D; document.querySelector(&#39;.clear-completed&#39;);</span><br><span class="line">const $todoCompleted &#x3D; document.querySelector(&#39;.completed-todos&#39;);</span><br><span class="line">const $todoActive &#x3D; document.querySelector(&#39;.active-todos&#39;);</span><br><span class="line">const $completeAll &#x3D; document.querySelector(&#39;#ck-complete-all&#39;);</span><br><span class="line">const fetchTodos &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  return  [</span><br><span class="line">&#123; id: 1, content: &#39;HTML&#39;, completed: false &#125;,</span><br><span class="line">&#123; id: 2, content: &#39;CSS&#39;, completed: true &#125;,</span><br><span class="line">&#123; id: 3, content: &#39;Javascript&#39;, completed: false &#125;</span><br><span class="line">]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const render &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  $todos.innerHTML &#x3D; todos.map((&#123;id, content, completed&#125;) &#x3D;&gt; &#123;</span><br><span class="line">      return &#96;&lt;li id&#x3D;&quot;$&#123;id&#125;&quot; class&#x3D;&quot;todo-item&quot;&gt;</span><br><span class="line">      &lt;input id&#x3D;&quot;ck-$&#123;id&#125;&quot; class&#x3D;&quot;checkbox&quot; type&#x3D;&quot;checkbox&quot; $&#123;completed ? &quot;checked&quot; : &#39;&#39;&#125;&gt;</span><br><span class="line">      &lt;label for&#x3D;&quot;ck-$&#123;id&#125;&quot;&gt;$&#123;content&#125;&lt;&#x2F;label&gt;</span><br><span class="line">      &lt;i class&#x3D;&quot;remove-todo far fa-times-circle&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">    &lt;&#x2F;li&gt;&#96;  </span><br><span class="line">  &#125;).join(&#39;&#39;);</span><br><span class="line">  $todoCompleted.textContent &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; true).length;</span><br><span class="line">  $todoActive.textContent &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; false).length;</span><br><span class="line">&#125;</span><br><span class="line">const updateData &#x3D; () &#x3D;&gt;&#123;</span><br><span class="line">  data &#x3D; data.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    const test &#x3D; todos.find(item &#x3D;&gt; todo.id &#x3D;&#x3D;&#x3D; item.id);</span><br><span class="line">    return test ? &#123;...todo, ...test&#125; : &#123;...todo&#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">const findId &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  return Math.max(...todos.map((&#123;id&#125;) &#x3D;&gt; id),0)+1;</span><br><span class="line">  updateData()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const addTodo &#x3D; (content) &#x3D;&gt; &#123;</span><br><span class="line">  const newTodo &#x3D; &#123;id: findId(), content, completed: false&#125;</span><br><span class="line">  todos &#x3D; [newTodo, ...todos];</span><br><span class="line">  </span><br><span class="line">  data &#x3D; [newTodo,...data];</span><br><span class="line">  updateData()</span><br><span class="line">  console.log(todos,data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const sortTodo &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.sort((a, b) &#x3D;&gt; b.id - a.id)</span><br><span class="line">  &#x2F;&#x2F; updateData()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const todosCheck &#x3D; (&#123;id&#125;) &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.map(todo &#x3D;&gt; todo[&#39;id&#39;] &#x3D;&#x3D;&#x3D; +id ? &#123;...todo,...&#123;completed: !todo.completed&#125;&#125; : &#123;...todo&#125;);</span><br><span class="line">&#125;</span><br><span class="line">const filterActiveCheck &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; false);</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line">const filterCompletedCheck &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  todos &#x3D; todos.filter(todo &#x3D;&gt; todo.completed &#x3D;&#x3D;&#x3D; true);</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line">const deleteTodo &#x3D; (&#123;id&#125;) &#x3D;&gt; &#123;</span><br><span class="line">  todos&#x3D; todos.filter(todo &#x3D;&gt; todo.id !&#x3D;&#x3D; +id );</span><br><span class="line">  updateData()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">window.addEventListener(&#39;DOMContentLoaded&#39;, () &#x3D;&gt;&#123;</span><br><span class="line">  todos &#x3D; fetchTodos();</span><br><span class="line">  sortTodo();</span><br><span class="line">  data &#x3D; [...todos];</span><br><span class="line">  console.log(data);</span><br><span class="line">  render();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$input.onkeyup &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if( e.key !&#x3D;&#x3D;&#39;Enter&#39; || $input.value &#x3D;&#x3D;&#x3D;&#39;&#39;) return;</span><br><span class="line">  addTodo(e.target.value);</span><br><span class="line">  $input.value &#x3D;&#39;&#39;;</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$todos.onchange &#x3D; e &#x3D;&gt;&#123;</span><br><span class="line">  if(!e.target.matches(&#39;li &gt; input&#39;)) return;</span><br><span class="line">  const $checkParent &#x3D; e.target.parentNode;</span><br><span class="line">  todosCheck($checkParent);</span><br><span class="line">  updateData();</span><br><span class="line">  const $curFilter &#x3D; document.querySelector(&#39;.nav .active&#39;);</span><br><span class="line">  if($curFilter.matches(&#39;#active&#39;))&#123;</span><br><span class="line">    filterActiveCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  if($curFilter.matches(&#39;#completed&#39;))&#123;</span><br><span class="line">    filterCompletedCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br><span class="line">$todos.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;.remove-todo&#39;)) return;</span><br><span class="line">  const $buttonParent &#x3D; e.target.parentNode;</span><br><span class="line">  deleteTodo($buttonParent);</span><br><span class="line">  $todos.removeChild($buttonParent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$filter.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;li&#39;)) return;</span><br><span class="line">  [...$filter.children].forEach(item &#x3D;&gt; &#123;</span><br><span class="line">    item.classList.toggle(&#39;active&#39;,e.target &#x3D;&#x3D;&#x3D; item);</span><br><span class="line">  &#125;)</span><br><span class="line">  &#x2F;&#x2F; let data &#x3D; todos;</span><br><span class="line">  if(e.target.matches(&#39;#all&#39;))&#123;</span><br><span class="line">    todos &#x3D; data;</span><br><span class="line">    render();</span><br><span class="line">    updateData()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if(e.target.matches(&#39;#active&#39;))&#123;</span><br><span class="line">    todos &#x3D; data.filter(todo &#x3D;&gt; &#123;</span><br><span class="line">      return todo.completed &#x3D;&#x3D;&#x3D; false;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    render();</span><br><span class="line">    updateData()</span><br><span class="line">    &#x2F;&#x2F; todos &#x3D; data;</span><br><span class="line">  &#125;</span><br><span class="line">  if(e.target.matches(&#39;#completed&#39;))&#123;</span><br><span class="line">    todos &#x3D; data.filter(todo &#x3D;&gt; &#123;</span><br><span class="line">      return todo.completed &#x3D;&#x3D;&#x3D;true;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    render();</span><br><span class="line">    updateData()</span><br><span class="line">    &#x2F;&#x2F; todos &#x3D; data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$clear.onclick &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(!e.target.matches(&#39;.btn&#39;)) return;</span><br><span class="line">  todos &#x3D; todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    return &#123;...todo, ...&#123;completed : false&#125;&#125;;</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  render();</span><br><span class="line">  updateData();</span><br><span class="line">&#125;</span><br><span class="line">$completeAll.onchange &#x3D; e &#x3D;&gt; &#123;</span><br><span class="line">  if(e.target.checked)&#123;</span><br><span class="line">    todos&#x3D; todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    return&#123;...todo, ...&#123;completed : true&#125;&#125;;</span><br><span class="line">    &#125;)</span><br><span class="line">    updateData()</span><br><span class="line">  &#125;</span><br><span class="line">  if(!e.target.checked)&#123;</span><br><span class="line">    todos&#x3D; todos.map(todo &#x3D;&gt; &#123;</span><br><span class="line">    return&#123;...todo, ...&#123;completed : false&#125;&#125;;</span><br><span class="line">    &#125;)</span><br><span class="line">    updateData()</span><br><span class="line">  &#125;</span><br><span class="line">  const $curFilter &#x3D; document.querySelector(&#39;.nav .active&#39;);</span><br><span class="line">  if($curFilter.matches(&#39;#active&#39;))&#123;</span><br><span class="line">    filterActiveCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  if($curFilter.matches(&#39;#completed&#39;))&#123;</span><br><span class="line">    filterCompletedCheck();</span><br><span class="line">  &#125;</span><br><span class="line">  render();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1765,7 +1976,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">74</span>
+          <span class="site-state-item-count">75</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
