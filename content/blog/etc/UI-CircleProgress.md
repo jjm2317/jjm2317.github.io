@@ -1,7 +1,8 @@
 ---
 title: UI CircleProgress
 date: 2021-02-08 14:05:44
-tags:
+category: "etc"
+draft: false
 ---
 
 # 원형 progress bar
@@ -223,7 +224,7 @@ html 의 svg요소는 svg 그래픽의 컨테이너로 사용된다.
 ```js
 const drawProgress = (dom, percent) => {
   const radius = circleDom.r.baseVal.value;
-  var circumference = radius * 2 * Math.PI;
+  let circumference = radius * 2 * Math.PI;
 
   dom.style.strokeDasharray = `${circumference} ${circumference}`;
   dom.style.strokeDashoffset = `${circumference}`;
